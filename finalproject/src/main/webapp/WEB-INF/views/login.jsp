@@ -156,7 +156,7 @@
         
         .button2 {
             position: absolute;
-            background-color:rgb(210, 233, 255);
+            background-color:rgb(255, 255, 25);
             color: #000000;
             width:290px;
             height:50px;
@@ -212,7 +212,7 @@
             height:50px;
             bottom: 150px;
             left: 51%;
-            transform: translate(-50%);
+            transform: translate(-290%);
             border-radius: 5px;
             background-image: url('./images/카카오이미지.jsp');
         }
