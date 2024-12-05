@@ -243,7 +243,7 @@
 
         <button class="button1" onClick="location.href='main.html'">로그인</button>
         <button class="button2" onClick="location.href='#'">카카오 로그인</button>
-        <button class="button3" onClick="location.href='join.jsp'">회원가입</button>
+        <button class="button3" onClick="location.href='join'">회원가입</button>
         <button class="kakao"></button>
         
     </div>
