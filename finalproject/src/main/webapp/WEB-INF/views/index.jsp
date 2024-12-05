@@ -8,7 +8,8 @@
 </head>
 <body>
  <h1>
- jsp index
+     <button onclick="location.href='/boot/login'">로그인</button>
+	 <button onclick="location.href='join'">회원가입</button>
  </h1>
  
  
