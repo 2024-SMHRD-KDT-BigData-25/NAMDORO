@@ -187,7 +187,7 @@
                 <input type="text" class="phone" placeholder="전화번호 입력">
             </div>
         </div>
-        <button class="button" onClick="location.href='login.html'">가입하기</button>
+        <button class="button" onClick="location.href='login.jsp'">가입하기</button>
     </div>
         
 

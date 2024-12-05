@@ -84,9 +84,9 @@
             border-radius: 10px;
             position: absolute;
             width: 390px;
-            height: 350px;
+            height: 450px;
             left: 50%;
-            top :180px;
+            top :145px;
             transform: translate(-50%);
             background: rgb(255, 255, 255);
             z-index: 2;	
@@ -134,13 +134,53 @@
             
         }
 
-        .button {
+        .button1 {
             position: absolute;
             background-color:rgb(210, 233, 255);
             color: #000000;
             width:290px;
             height:50px;
-            bottom: 130px;
+            bottom: 230px;
+            left: 51%;
+            transform: translate(-50%);
+            border-radius: 5px;
+            cursor: pointer;
+
+            font-family: 'Gmarket Sans', sans-serif;
+			font-weight: 500;
+			font-size: 15px;
+			line-height: 30px;
+			text-align: center;
+			color: #000000;
+        }
+        
+        .button2 {
+            position: absolute;
+            background-color:rgb(210, 233, 255);
+            color: #000000;
+            width:290px;
+            height:50px;
+            bottom:150px;
+            left: 51%;
+            transform: translate(-50%);
+            border-radius: 5px;
+            cursor: pointer;
+
+            font-family: 'Gmarket Sans', sans-serif;
+			font-weight: 500;
+			font-size: 15px;
+			line-height: 30px;
+			text-align: center;
+			color: #000000;
+        }
+        
+        .button3 {
+            position: absolute;
+            background-color:rgb(210, 200, 255);
+            color: #000000;
+            width:290px;
+            height:50px;
+            bottom: 70px;
             left: 51%;
             transform: translate(-50%);
             border-radius: 5px;
@@ -168,13 +208,13 @@
 
         .kakao {
             position: absolute;
-            width:290px;
+            width:50px;
             height:50px;
-            bottom: 50px;
+            bottom: 150px;
             left: 51%;
             transform: translate(-50%);
             border-radius: 5px;
-            background-image: url('./images/kakao.png');
+            background-image: url('./images/카카오이미지.jsp');
         }
 
 
@@ -201,7 +241,9 @@
             </div>
         </div>
 
-        <button class="button" onClick="location.href='main.html'">로그인</button>
+        <button class="button1" onClick="location.href='main.html'">로그인</button>
+        <button class="button2" onClick="location.href='#'">카카오 로그인</button>
+        <button class="button3" onClick="location.href='join.jsp'">회원가입</button>
         <button class="kakao"></button>
         
     </div>
