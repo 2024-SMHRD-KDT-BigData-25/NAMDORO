@@ -16,12 +16,14 @@ public class UserController {
 	
 	private final UserService service;
 	
+	
 	@GetMapping("/users/signup")
 	public String signupForm() {
 		return "signup";
 	}
 	
-	@PostMapping("users")
+	
+	@PostMapping("/users")
 	public String signup(namdoro user) {
 		int res = service.signup(user);
 		
