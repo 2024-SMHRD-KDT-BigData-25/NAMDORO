@@ -118,10 +118,44 @@
 			color: #000000;
             display:flex;
             flex-direction: column;
-            gap: 45px;
+            gap: 30px;
             align-items: flex-end;
             
 		} 
+		
+		.joinBtn {
+            position: absolute;
+            padding-right: 10px;
+            padding-top: 5px;
+            right: 20%;
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+
+            font-family: 'Gmarket Sans', sans-serif;
+            font-weight: 700;
+            font-size: 12px;
+            line-height: 30px;
+            text-align: right;
+            color: #000000;
+           
+        }
+        
+        .findBtn {
+            position: absolute;
+            padding-top: 6px;
+            padding-left: 10px;
+            left: 42%;
+            border: none;
+            background-color: transparent;
+
+            font-family: 'Gmarket Sans', sans-serif;
+            font-weight: 500;
+            font-size: 10px;
+            line-height: 30px;
+            text-align: left;
+            color: #000000;
+        }
 
         .information input{
             text-align:left;
@@ -194,13 +228,15 @@
         <div class="joinTitle">로그인</div>
         <div class="information"> 
             <div>
-                <input type="text" class="id" placeholder="이메일형식으로 입력">
+                <input type="email" class="id" placeholder="이메일형식으로 입력">
             </div>
             <div>
                 <input type="password" class="pw" placeholder="비밀번호 입력">
             </div>
         </div>
-
+        
+		<button class="findBtn">아이디/비밀번호찾기</button>
+        <button class="joinBtn" onClick="location.href='join.html'">회원가입</button>
         <button class="button" onClick="location.href='main.html'">로그인</button>
         <button class="kakao"></button>
         
