@@ -15,5 +15,15 @@ public class IndexController {
 	public String joinPage() {
 		return "join";
 	}
+	
+	@GetMapping("/main")
+	public String mainPage() {
+		return "main";
+	}
+	
+	@GetMapping("/tourList")
+	public String tourListPage() {
+		return "tourList";
+	}
 
 }
