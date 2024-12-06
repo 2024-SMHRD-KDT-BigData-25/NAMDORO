@@ -56,6 +56,8 @@
 			height: 35px;
 			top: 35px;
 			left : 60px;
+			color: black; border: none; text-decoration-line: none;
+			
 		}
 
 
@@ -83,7 +85,7 @@
 <body>
 	<div class="headerColor" style="display: flex; align-items: center; justify-content: center; gap: 10%;">
 		<div class="logo-area" style="display: flex; align-items: center; justify-content: center; gap: 10px;">
-			<div id="headerLogo">남도로</div>
+			<a id="headerLogo" href="main">남도로</a>
 			<div id="search">
 				<input type="text" style="width:400px; height:40px; padding: 0 10%; background: url('images/search.png') no-repeat calc(100% - 10px) center; background-size: 20px 20px; background-color: white;
 				" placeholder="떠나고 싶은 여행지가 있으신가요?">
