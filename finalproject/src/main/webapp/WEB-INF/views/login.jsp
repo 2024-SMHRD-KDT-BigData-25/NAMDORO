@@ -236,8 +236,8 @@
         </div>
         
 		<button class="findBtn">아이디/비밀번호찾기</button>
-        <button class="joinBtn" onClick="location.href='join.html'">회원가입</button>
-        <button class="button" onClick="location.href='main.html'">로그인</button>
+        <button class="joinBtn" onClick="location.href='join'">회원가입</button>
+        <button class="button" onClick="location.href='main'">로그인</button>
         <button class="kakao"></button>
         
     </div>
