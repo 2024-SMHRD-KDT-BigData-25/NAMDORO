@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
+<<<<<<< HEAD
+	<name>NAMDORO</name>
+=======
 	<name>NAMDOR</name>
+>>>>>>> branch 'master' of https://github.com/2024-SMHRD-KDT-BigData-25/NAMDORO
 	<comment></comment>
 	<projects>
 	</projects>
