@@ -213,7 +213,7 @@
             <div class="image-box" >
                 <img src="Test/가야금산조테마공원_1_공공3유형.JPG" style="width: 100%; object-fit: cover; 
                 border-top-right-radius:7px; border-top-left-radius:7px;">
-                <span>바다</span>
+                <span>테마파크</span>
             </div>
             <div class="detail-box" >
                 <div class="info" >
@@ -227,7 +227,7 @@
             <div class="image-box" >
                 <img src="Test/가학산_1_공공3유형.jpg" style="width: 100%; object-fit: cover; 
                 border-top-right-radius:7px; border-top-left-radius:7px;">
-                <span>바다</span>
+                <span>산</span>
             </div>
             <div class="detail-box" >
                 <div class="info" >
@@ -241,12 +241,12 @@
             <div class="image-box" >
                 <img src="Test/강진 갯들소리마을_1_공공3유형.jpg" style="width: 100%; object-fit: cover; 
                 border-top-right-radius:7px; border-top-left-radius:7px;">
-                <span>바다</span>
+                <span>체험</span>
             </div>
             <div class="detail-box" >
                 <div class="info" >
                     <p class="title">강진 갯들소리마을</p>   
-                    <p class="category">체험</p>
+                    <p class="category">체험마을</p>
                 </div>
                 <p class="address">전남 강진군 신전면 논정길 3</p>
             </div>
@@ -255,11 +255,11 @@
             <div class="image-box" >
                 <img src="Test/강진 백련사 동백나무 숲_1_공공3유형.jpg" style="width: 100%; object-fit: cover; 
                 border-top-right-radius:7px; border-top-left-radius:7px;">
-                <span>바다</span>
+                <span>자연</span>
             </div>
             <div class="detail-box" >
                 <div class="info" >
-                    <p class="title">전라남도 강진군 도암면 백련사길 125 (만덕리)</p>   
+                    <p class="title">전라남도 강진군 도암면 백련사길 125</p>   
                     <p class="category">자연</p>
                 </div>
                 <p class="address">전라남도 완도군 약산면</p>
@@ -269,7 +269,7 @@
             <div class="image-box" >
                 <img src="Test/강진 오감통_1_공공3유형.JPG" style="width: 100%; object-fit: cover; 
                 border-top-right-radius:7px; border-top-left-radius:7px;">
-                <span>바다</span>
+                <span>실내</span>
             </div>
             <div class="detail-box" >
                 <div class="info" >
@@ -283,7 +283,7 @@
             <div class="image-box" >
                 <img src="Test/거금도.jpg" style="width: 100%; object-fit: cover; 
                 border-top-right-radius:7px; border-top-left-radius:7px;">
-                <span>바다</span>
+                <span>문화_역사</span>
             </div>
             <div class="detail-box" >
                 <div class="info" >
@@ -297,7 +297,7 @@
             <div class="image-box" >
                 <img src="Test/강덕사.JPG" style="width: 100%; object-fit: cover; 
                 border-top-right-radius:7px; border-top-left-radius:7px;">
-                <span>바다</span>
+                <span>문화</span>
             </div>
             <div class="detail-box" >
                 <div class="info" >
