@@ -207,7 +207,7 @@
     		
 	        <div class="gallary-detail">
 	            <div class="image-box" >
-	                <img src="Test\"+<%=imgarray[0] %> style="width: 100%; object-fit: cover; 
+	                <img src="Test\<%=imgarray[0] %>" style="width: 100%; object-fit: cover; 
 	                border-top-right-radius:7px; border-top-left-radius:7px;">
 	                <span>바다</span>
 	            </div>
