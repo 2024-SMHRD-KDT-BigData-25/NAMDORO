@@ -94,7 +94,7 @@
 
 		<ul style="display: flex; align-items: center; justify-content: center; gap: 100px; list-style-type: none;">
 			<li><a href="#" >여행코스 생성</a></li>	
-			<li><a href="tourList">관광지</a></li>
+			<li><a href="tours/list">관광지</a></li>
 			<li><a href="#">게시판</a></li>
 			<li><a href="login">로그인</a></li>	
 		</ul>

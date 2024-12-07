@@ -1,3 +1,5 @@
+<%@page import="com.smhrd.boot.model.Tour"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -185,257 +187,40 @@
 
 <body>
 
+<% List<Tour> tourlist = (List<Tour>)request.getAttribute("tourlist"); %>
+
 <jsp:include page="header.jsp"></jsp:include>
     <div class="namdoro">남도로 (로고자리)</div>    
 
     <div id="searchBar">
+    	<form id="searchForm" onsubmit="search(event)">
         <input type="text" style="width:400px; height:40px; padding: 0 2%; background: url('Test/search.png') 
         no-repeat calc(100% - 10px) center; background-size: 20px 20px; background-color: white; border-radius: 5px;
-        " placeholder="원하는 관광지를 검색하세요!">
+        " placeholder="원하는 관광지를 검색하세요!" id="searchInput" >
+        </form>
     </div>
     <div class="gallary-list" >
-
-        <div class="gallary-detail">
-            <div class="image-box" >
-                <img src="Test\가사해수욕장_1_공공3유형.JPG" style="width: 100%; object-fit: cover; 
-                border-top-right-radius:7px; border-top-left-radius:7px;">
-                <span>바다</span>
-            </div>
-            <div class="detail-box" >
-                <div class="info" >
-                    <p class="title">가사해수욕장</p>   
-                    <p class="category">바다</p>
-                </div>
-                <p class="address">전라남도 완도군 약산면</p>
-            </div>
-        </div>
-        <div class="gallary-detail">
-            <div class="image-box" >
-                <img src="Test/가야금산조테마공원_1_공공3유형.JPG" style="width: 100%; object-fit: cover; 
-                border-top-right-radius:7px; border-top-left-radius:7px;">
-                <span>바다</span>
-            </div>
-            <div class="detail-box" >
-                <div class="info" >
-                    <p class="title">가사해수욕장</p>   
-                    <p class="category">바다</p>
-                </div>
-                <p class="address">전라남도 완도군 약산면</p>
-            </div>
-        </div>
-        <div class="gallary-detail">
-            <div class="image-box" >
-                <img src="Test/가학산_1_공공3유형.jpg" style="width: 100%; object-fit: cover; 
-                border-top-right-radius:7px; border-top-left-radius:7px;">
-                <span>바다</span>
-            </div>
-            <div class="detail-box" >
-                <div class="info" >
-                    <p class="title">가사해수욕장</p>   
-                    <p class="category">바다</p>
-                </div>
-                <p class="address">전라남도 완도군 약산면</p>
-            </div>
-        </div>
-        <div class="gallary-detail">
-            <div class="image-box" >
-                <img src="Test/강진 갯들소리마을_1_공공3유형.jpg" style="width: 100%; object-fit: cover; 
-                border-top-right-radius:7px; border-top-left-radius:7px;">
-                <span>바다</span>
-            </div>
-            <div class="detail-box" >
-                <div class="info" >
-                    <p class="title">가사해수욕장</p>   
-                    <p class="category">바다</p>
-                </div>
-                <p class="address">전라남도 완도군 약산면</p>
-            </div>
-        </div>
-        <div class="gallary-detail">
-            <div class="image-box" >
-                <img src="Test/강진 백련사 동백나무 숲_1_공공3유형.jpg" style="width: 100%; object-fit: cover; 
-                border-top-right-radius:7px; border-top-left-radius:7px;">
-                <span>바다</span>
-            </div>
-            <div class="detail-box" >
-                <div class="info" >
-                    <p class="title">가사해수욕장</p>   
-                    <p class="category">바다</p>
-                </div>
-                <p class="address">전라남도 완도군 약산면</p>
-            </div>
-        </div>
-        <div class="gallary-detail">
-            <div class="image-box" >
-                <img src="Test/강진 오감통_1_공공3유형.JPG" style="width: 100%; object-fit: cover; 
-                border-top-right-radius:7px; border-top-left-radius:7px;">
-                <span>바다</span>
-            </div>
-            <div class="detail-box" >
-                <div class="info" >
-                    <p class="title">가사해수욕장</p>   
-                    <p class="category">바다</p>
-                </div>
-                <p class="address">전라남도 완도군 약산면</p>
-            </div>
-        </div>
-        <div class="gallary-detail">
-            <div class="image-box" >
-                <img src="Test/거금도.jpg" style="width: 100%; object-fit: cover; 
-                border-top-right-radius:7px; border-top-left-radius:7px;">
-                <span>바다</span>
-            </div>
-            <div class="detail-box" >
-                <div class="info" >
-                    <p class="title">가사해수욕장</p>   
-                    <p class="category">바다</p>
-                </div>
-                <p class="address">전라남도 완도군 약산면</p>
-            </div>
-        </div>
-        <div class="gallary-detail">
-            <div class="image-box" >
-                <img src="Test/강덕사.JPG" style="width: 100%; object-fit: cover; 
-                border-top-right-radius:7px; border-top-left-radius:7px;">
-                <span>바다</span>
-            </div>
-            <div class="detail-box" >
-                <div class="info" >
-                    <p class="title">가사해수욕장</p>   
-                    <p class="category">바다</p>
-                </div>
-                <p class="address">전라남도 완도군 약산면</p>
-            </div>
-        </div>
-        <div class="gallary-detail">
-            <div class="image-box" >
-                <img src="Test\가사해수욕장_1_공공3유형.JPG" style="width: 100%; object-fit: cover; 
-                border-top-right-radius:7px; border-top-left-radius:7px;">
-                <span>바다</span>
-            </div>
-            <div class="detail-box" >
-                <div class="info" >
-                    <p class="title">가사해수욕장</p>   
-                    <p class="category">바다</p>
-                </div>
-                <p class="address">전라남도 완도군 약산면</p>
-            </div>
-        </div>
-        <div class="gallary-detail">
-            <div class="image-box" >
-                <img src="Test\가사해수욕장_1_공공3유형.JPG" style="width: 100%; object-fit: cover; 
-                border-top-right-radius:7px; border-top-left-radius:7px;">
-                <span>바다</span>
-            </div>
-            <div class="detail-box" >
-                <div class="info" >
-                    <p class="title">가사해수욕장</p>   
-                    <p class="category">바다</p>
-                </div>
-                <p class="address">전라남도 완도군 약산면</p>
-            </div>
-        </div>
-        <div class="gallary-detail">
-            <div class="image-box" >
-                <img src="Test\가사해수욕장_1_공공3유형.JPG" style="width: 100%; object-fit: cover; 
-                border-top-right-radius:7px; border-top-left-radius:7px;">
-                <span>바다</span>
-            </div>
-            <div class="detail-box" >
-                <div class="info" >
-                    <p class="title">가사해수욕장</p>   
-                    <p class="category">바다</p>
-                </div>
-                <p class="address">전라남도 완도군 약산면</p>
-            </div>
-        </div>
-        <div class="gallary-detail">
-            <div class="image-box" >
-                <img src="Test\가사해수욕장_1_공공3유형.JPG" style="width: 100%; object-fit: cover; 
-                border-top-right-radius:7px; border-top-left-radius:7px;">
-                <span>바다</span>
-            </div>
-            <div class="detail-box" >
-                <div class="info" >
-                    <p class="title">가사해수욕장</p>   
-                    <p class="category">바다</p>
-                </div>
-                <p class="address">전라남도 완도군 약산면</p>
-            </div>
-        </div>
-        <div class="gallary-detail">
-            <div class="image-box" >
-                <img src="Test\가사해수욕장_1_공공3유형.JPG" style="width: 100%; object-fit: cover; 
-                border-top-right-radius:7px; border-top-left-radius:7px;">
-                <span>바다</span>
-            </div>
-            <div class="detail-box" >
-                <div class="info" >
-                    <p class="title">가사해수욕장</p>   
-                    <p class="category">바다</p>
-                </div>
-                <p class="address">전라남도 완도군 약산면</p>
-            </div>
-        </div>
-        <div class="gallary-detail">
-            <div class="image-box" >
-                <img src="Test\가사해수욕장_1_공공3유형.JPG" style="width: 100%; object-fit: cover; 
-                border-top-right-radius:7px; border-top-left-radius:7px;">
-                <span>바다</span>
-            </div>
-            <div class="detail-box" >
-                <div class="info" >
-                    <p class="title">가사해수욕장</p>   
-                    <p class="category">바다</p>
-                </div>
-                <p class="address">전라남도 완도군 약산면</p>
-            </div>
-        </div>
-        <div class="gallary-detail">
-            <div class="image-box" >
-                <img src="Test\가사해수욕장_1_공공3유형.JPG" style="width: 100%; object-fit: cover; 
-                border-top-right-radius:7px; border-top-left-radius:7px;">
-                <span>바다</span>
-            </div>
-            <div class="detail-box" >
-                <div class="info" >
-                    <p class="title">가사해수욕장</p>   
-                    <p class="category">바다</p>
-                </div>
-                <p class="address">전라남도 완도군 약산면</p>
-            </div>
-        </div>
-        <div class="gallary-detail">
-            <div class="image-box" >
-                <img src="Test\가사해수욕장_1_공공3유형.JPG" style="width: 100%; object-fit: cover; 
-                border-top-right-radius:7px; border-top-left-radius:7px;">
-                <span>바다</span>
-            </div>
-            <div class="detail-box" >
-                <div class="info" >
-                    <p class="title">가사해수욕장</p>   
-                    <p class="category">바다</p>
-                </div>
-                <p class="address">전라남도 완도군 약산면</p>
-            </div>
-        </div>
-
-        <div class="buttom-area">
-            <div></div>
-            <div class="page">
-                <button>P</button>
-                <button>B</button>
-                <button class="on" >1</button>
-                <button>2</button>
-                <button>3</button>
-                <button>4</button>
-                <button>N</button>
-                <button>L</button>
-            </div>
-            <div></div>
-        </div>
-
-        
+    	
+    	<% for ( Tour t : tourlist ) {
+    	String[] imgarray = t.getTL_IMG().split(",");
+    	%>
+    		
+	        <div class="gallary-detail">
+	            <div class="image-box" >
+	                <img src="Test\"+<%=imgarray[0] %> style="width: 100%; object-fit: cover; 
+	                border-top-right-radius:7px; border-top-left-radius:7px;">
+	                <span>바다</span>
+	            </div>
+	            <div class="detail-box" >
+	                <div class="info" >
+	                    <p class="title"><%=t.getTL_NAME() %></p>   
+	                    <p class="category"><%=t.getTL_THEME() %></p>
+	                </div>
+	                <p class="address"><%=t.getTL_ADD() %></p>
+	            </div>
+	        </div>    		
+    		
+    	<% } %>
 
         
         
@@ -447,5 +232,28 @@
     <div id="footer"></div>
 
     <script src="js/footer.js"></script>
+    
+    <script>
+    function search(event) {
+        event.preventDefault(); // 폼 기본 동작(새로고침) 방지
+
+        // 검색어 가져오기
+        const query = document.getElementById("searchInput").value.trim().toLowerCase();
+
+        // 모든 .gallary-detail 요소 가져오기
+        const galleryItems = document.querySelectorAll(".gallary-detail");
+
+        // 검색어 포함 여부 확인 및 표시/숨기기
+        galleryItems.forEach(item => {
+            const title = item.querySelector(".title").textContent.toLowerCase(); // getTL_NAME 값
+            if (title.includes(query)) {
+                item.style.display = "block"; // 검색어가 포함된 경우 표시
+            } else {
+                item.style.display = "none"; // 검색어가 포함되지 않은 경우 숨김
+            }
+        });
+    }
+    </script>
+    
 </body>
 </html>
