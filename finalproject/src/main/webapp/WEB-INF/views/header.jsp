@@ -85,7 +85,7 @@
 <body>
 	<div class="headerColor" style="display: flex; align-items: center; justify-content: center; gap: 10%;">
 		<div class="logo-area" style="display: flex; align-items: center; justify-content: center; gap: 10px;">
-			<a id="headerLogo" href="main">남도로</a>
+			<a id="headerLogo" href="/boot">남도로</a>
 			<div id="search">
 				<input type="text" style="width:400px; height:40px; padding: 0 10%; background: url('images/search.png') no-repeat calc(100% - 10px) center; background-size: 20px 20px; background-color: white;
 				" placeholder="떠나고 싶은 여행지가 있으신가요?">
@@ -96,7 +96,7 @@
 			<li><a href="#" >여행코스 생성</a></li>	
 			<li><a href="tourList">관광지</a></li>
 			<li><a href="#">게시판</a></li>
-			<li><a href="login">로그인</a></li>	
+			<li><a href="login">로그인</a></li>
 		</ul>
 	</div>
 </body>
