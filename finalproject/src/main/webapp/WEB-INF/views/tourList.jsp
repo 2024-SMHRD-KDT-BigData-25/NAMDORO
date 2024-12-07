@@ -222,6 +222,247 @@
     		
     	<% } %>
 
+        <div class="gallary-detail">
+            <div class="image-box" >
+                <img src="Test\가사해수욕장_1_공공3유형.JPG" style="width: 100%; object-fit: cover; 
+                border-top-right-radius:7px; border-top-left-radius:7px;">
+                <span>바다</span>
+            </div>
+            <div class="detail-box" >
+                <div class="info" >
+                    <p class="title">가사해수욕장</p>   
+                    <p class="category">바다</p>
+                </div>
+                <p class="address">전라남도 완도군 약산면</p>
+            </div>
+        </div>
+        <div class="gallary-detail">
+            <div class="image-box" >
+                <img src="Test/가야금산조테마공원_1_공공3유형.JPG" style="width: 100%; object-fit: cover; 
+                border-top-right-radius:7px; border-top-left-radius:7px;">
+                <span>테마파크</span>
+            </div>
+            <div class="detail-box" >
+                <div class="info" >
+                    <p class="title">가야금산조테마공원</p>   
+                    <p class="category">테마파크</p>
+                </div>
+                <p class="address">전라남도 영암군 영암읍 기찬랜드로 19-10</p>
+            </div>
+        </div>
+        <div class="gallary-detail">
+            <div class="image-box" >
+                <img src="Test/가학산_1_공공3유형.jpg" style="width: 100%; object-fit: cover; 
+                border-top-right-radius:7px; border-top-left-radius:7px;">
+                <span>산</span>
+            </div>
+            <div class="detail-box" >
+                <div class="info" >
+                    <p class="title">가학산</p>   
+                    <p class="category">산</p>
+                </div>
+                <p class="address">전라남도 완도군 소안면 미라리</p>
+            </div>
+        </div>
+        <div class="gallary-detail">
+            <div class="image-box" >
+                <img src="Test/강진 갯들소리마을_1_공공3유형.jpg" style="width: 100%; object-fit: cover; 
+                border-top-right-radius:7px; border-top-left-radius:7px;">
+                <span>체험</span>
+            </div>
+            <div class="detail-box" >
+                <div class="info" >
+                    <p class="title">강진 갯들소리마을</p>   
+                    <p class="category">체험마을</p>
+                </div>
+                <p class="address">전남 강진군 신전면 논정길 3</p>
+            </div>
+        </div>
+        <div class="gallary-detail">
+            <div class="image-box" >
+                <img src="Test/강진 백련사 동백나무 숲_1_공공3유형.jpg" style="width: 100%; object-fit: cover; 
+                border-top-right-radius:7px; border-top-left-radius:7px;">
+                <span>자연</span>
+            </div>
+            <div class="detail-box" >
+                <div class="info" >
+                    <p class="title">전라남도 강진군 도암면 백련사길 125</p>   
+                    <p class="category">자연</p>
+                </div>
+                <p class="address">전라남도 완도군 약산면</p>
+            </div>
+        </div>
+        <div class="gallary-detail">
+            <div class="image-box" >
+                <img src="Test/강진 오감통_1_공공3유형.JPG" style="width: 100%; object-fit: cover; 
+                border-top-right-radius:7px; border-top-left-radius:7px;">
+                <span>실내</span>
+            </div>
+            <div class="detail-box" >
+                <div class="info" >
+                    <p class="title">강진 오감통</p>   
+                    <p class="category">실내</p>
+                </div>
+                <p class="address">전남 강진군 강진읍 오감길 2 2동</p>
+            </div>
+        </div>
+        <div class="gallary-detail">
+            <div class="image-box" >
+                <img src="Test/거금도.jpg" style="width: 100%; object-fit: cover; 
+                border-top-right-radius:7px; border-top-left-radius:7px;">
+                <span>문화_역사</span>
+            </div>
+            <div class="detail-box" >
+                <div class="info" >
+                    <p class="title">거금도</p>   
+                    <p class="category">바다</p>
+                </div>
+                <p class="address">전남 고흥군 금산면</p>
+            </div>
+        </div>
+        <div class="gallary-detail">
+            <div class="image-box" >
+                <img src="Test/강덕사.JPG" style="width: 100%; object-fit: cover; 
+                border-top-right-radius:7px; border-top-left-radius:7px;">
+                <span>문화</span>
+            </div>
+            <div class="detail-box" >
+                <div class="info" >
+                    <p class="title">강덕사</p>   
+                    <p class="category">문화</p>
+                </div>
+                <p class="address">전남 강진군 군동면 호라길 199-39</p>
+            </div>
+        </div>
+        <div class="gallary-detail">
+            <div class="image-box" >
+                <img src="Test\가사해수욕장_1_공공3유형.JPG" style="width: 100%; object-fit: cover; 
+                border-top-right-radius:7px; border-top-left-radius:7px;">
+                <span>바다</span>
+            </div>
+            <div class="detail-box" >
+                <div class="info" >
+                    <p class="title">가사해수욕장</p>   
+                    <p class="category">바다</p>
+                </div>
+                <p class="address">전라남도 완도군 약산면</p>
+            </div>
+        </div>
+        <div class="gallary-detail">
+            <div class="image-box" >
+                <img src="Test\가사해수욕장_1_공공3유형.JPG" style="width: 100%; object-fit: cover; 
+                border-top-right-radius:7px; border-top-left-radius:7px;">
+                <span>바다</span>
+            </div>
+            <div class="detail-box" >
+                <div class="info" >
+                    <p class="title">가사해수욕장</p>   
+                    <p class="category">바다</p>
+                </div>
+                <p class="address">전라남도 완도군 약산면</p>
+            </div>
+        </div>
+        <div class="gallary-detail">
+            <div class="image-box" >
+                <img src="Test\가사해수욕장_1_공공3유형.JPG" style="width: 100%; object-fit: cover; 
+                border-top-right-radius:7px; border-top-left-radius:7px;">
+                <span>바다</span>
+            </div>
+            <div class="detail-box" >
+                <div class="info" >
+                    <p class="title">가사해수욕장</p>   
+                    <p class="category">바다</p>
+                </div>
+                <p class="address">전라남도 완도군 약산면</p>
+            </div>
+        </div>
+        <div class="gallary-detail">
+            <div class="image-box" >
+                <img src="Test\가사해수욕장_1_공공3유형.JPG" style="width: 100%; object-fit: cover; 
+                border-top-right-radius:7px; border-top-left-radius:7px;">
+                <span>바다</span>
+            </div>
+            <div class="detail-box" >
+                <div class="info" >
+                    <p class="title">가사해수욕장</p>   
+                    <p class="category">바다</p>
+                </div>
+                <p class="address">전라남도 완도군 약산면</p>
+            </div>
+        </div>
+        <div class="gallary-detail">
+            <div class="image-box" >
+                <img src="Test\가사해수욕장_1_공공3유형.JPG" style="width: 100%; object-fit: cover; 
+                border-top-right-radius:7px; border-top-left-radius:7px;">
+                <span>바다</span>
+            </div>
+            <div class="detail-box" >
+                <div class="info" >
+                    <p class="title">가사해수욕장</p>   
+                    <p class="category">바다</p>
+                </div>
+                <p class="address">전라남도 완도군 약산면</p>
+            </div>
+        </div>
+        <div class="gallary-detail">
+            <div class="image-box" >
+                <img src="Test\가사해수욕장_1_공공3유형.JPG" style="width: 100%; object-fit: cover; 
+                border-top-right-radius:7px; border-top-left-radius:7px;">
+                <span>바다</span>
+            </div>
+            <div class="detail-box" >
+                <div class="info" >
+                    <p class="title">가사해수욕장</p>   
+                    <p class="category">바다</p>
+                </div>
+                <p class="address">전라남도 완도군 약산면</p>
+            </div>
+        </div>
+        <div class="gallary-detail">
+            <div class="image-box" >
+                <img src="Test\가사해수욕장_1_공공3유형.JPG" style="width: 100%; object-fit: cover; 
+                border-top-right-radius:7px; border-top-left-radius:7px;">
+                <span>바다</span>
+            </div>
+            <div class="detail-box" >
+                <div class="info" >
+                    <p class="title">가사해수욕장</p>   
+                    <p class="category">바다</p>
+                </div>
+                <p class="address">전라남도 완도군 약산면</p>
+            </div>
+        </div>
+        <div class="gallary-detail">
+            <div class="image-box" >
+                <img src="Test\가사해수욕장_1_공공3유형.JPG" style="width: 100%; object-fit: cover; 
+                border-top-right-radius:7px; border-top-left-radius:7px;">
+                <span>바다</span>
+            </div>
+            <div class="detail-box" >
+                <div class="info" >
+                    <p class="title">가사해수욕장</p>   
+                    <p class="category">바다</p>
+                </div>
+                <p class="address">전라남도 완도군 약산면</p>
+            </div>
+        </div>
+
+        <div class="buttom-area">
+            <div></div>
+            <div class="page">
+                <button>P</button>
+                <button>B</button>
+                <button class="on" >1</button>
+                <button>2</button>
+                <button>3</button>
+                <button>4</button>
+                <button>N</button>
+                <button>L</button>
+            </div>
+            <div></div>
+        </div>
+
+
         
         
     </div>

@@ -19,7 +19,4 @@ public class TourlistService {
 		return mapper.GetTourlist();
 	}
 
-	public List<Tour> searchTour(String tour_nm) {
-		return mapper.searchTour(tour_nm);
-	}
 }
