@@ -11,19 +11,15 @@ public class IndexController {
 		return "index";
 	}
 	
-	@GetMapping("/login")
-	public String loginPage() {
-		return "login";
-	}
+//	@GetMapping("/login")
+//	public String loginPage() {
+//		return "login";
+//	}
 	
 	@GetMapping("/join")
 	public String joinPage() {
 		return "join";
 	}
 	
-	@GetMapping("/tourList")
-	public String tourListPage() {
-		return "tourList";
-	}
 
 }

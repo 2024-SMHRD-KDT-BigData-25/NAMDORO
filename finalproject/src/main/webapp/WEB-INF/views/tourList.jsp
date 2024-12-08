@@ -156,6 +156,7 @@
             width: 1155px;
             height: 36px;
             line-height: 36px;
+            margin-top: 50px;
         }
 
 
@@ -168,11 +169,11 @@
 
         .buttom-area .page button{
             background-color: #ffffff;
-            border-radius: 50%;
-            border: 1px solid black;
+            border: none;
             height: 40px;
             width: 40px;
             line-height: 40px;
+            cursor: pointer;
         }
 
         .buttom-area .page button.on{
@@ -181,6 +182,11 @@
             height: 40px;
             width: 40px;
             line-height: 40px;
+        }
+
+        /* 페이지네이션을 위한 스타일 추가 */
+        .gallary-detail.hidden {
+            display: none;
         }
 
     </style>
@@ -202,14 +208,19 @@
     <div class="gallary-list" >
     	
     	<% for ( Tour t : tourlist ) {
-    	String[] imgarray = t.getTL_IMG().split(",");
+    	String[] imgarray;
+    	if(t.getTL_IMG() == null || t.getTL_IMG().equals("")) {
+    	    imgarray = new String[]{"https://placehold.co/250x250/EFEFEF/6D6D6D?text=No+Image"}; // 대체 이미지 URL
+    	} else {
+    	    imgarray = t.getTL_IMG().split(",");
+    	}
     	%>
     		
 	        <div class="gallary-detail">
 	            <div class="image-box" >
-	                <img src="Test\<%=imgarray[0] %>" style="width: 100%; object-fit: cover; 
+	                <img src="<%=imgarray[0] %>" style="width: 100%; object-fit: cover; 
 	                border-top-right-radius:7px; border-top-left-radius:7px;">
-	                <span>바다</span>
+	                <span><%=t.getTL_THEME() %></span>
 	            </div>
 	            <div class="detail-box" >
 	                <div class="info" >
@@ -222,251 +233,19 @@
     		
     	<% } %>
 
-        <div class="gallary-detail">
-            <div class="image-box" >
-                <img src="Test\가사해수욕장_1_공공3유형.JPG" style="width: 100%; object-fit: cover; 
-                border-top-right-radius:7px; border-top-left-radius:7px;">
-                <span>바다</span>
-            </div>
-            <div class="detail-box" >
-                <div class="info" >
-                    <p class="title">가사해수욕장</p>   
-                    <p class="category">바다</p>
-                </div>
-                <p class="address">전라남도 완도군 약산면</p>
-            </div>
-        </div>
-        <div class="gallary-detail">
-            <div class="image-box" >
-                <img src="Test/가야금산조테마공원_1_공공3유형.JPG" style="width: 100%; object-fit: cover; 
-                border-top-right-radius:7px; border-top-left-radius:7px;">
-                <span>테마파크</span>
-            </div>
-            <div class="detail-box" >
-                <div class="info" >
-                    <p class="title">가야금산조테마공원</p>   
-                    <p class="category">테마파크</p>
-                </div>
-                <p class="address">전라남도 영암군 영암읍 기찬랜드로 19-10</p>
-            </div>
-        </div>
-        <div class="gallary-detail">
-            <div class="image-box" >
-                <img src="Test/가학산_1_공공3유형.jpg" style="width: 100%; object-fit: cover; 
-                border-top-right-radius:7px; border-top-left-radius:7px;">
-                <span>산</span>
-            </div>
-            <div class="detail-box" >
-                <div class="info" >
-                    <p class="title">가학산</p>   
-                    <p class="category">산</p>
-                </div>
-                <p class="address">전라남도 완도군 소안면 미라리</p>
-            </div>
-        </div>
-        <div class="gallary-detail">
-            <div class="image-box" >
-                <img src="Test/강진 갯들소리마을_1_공공3유형.jpg" style="width: 100%; object-fit: cover; 
-                border-top-right-radius:7px; border-top-left-radius:7px;">
-                <span>체험</span>
-            </div>
-            <div class="detail-box" >
-                <div class="info" >
-                    <p class="title">강진 갯들소리마을</p>   
-                    <p class="category">체험마을</p>
-                </div>
-                <p class="address">전남 강진군 신전면 논정길 3</p>
-            </div>
-        </div>
-        <div class="gallary-detail">
-            <div class="image-box" >
-                <img src="Test/강진 백련사 동백나무 숲_1_공공3유형.jpg" style="width: 100%; object-fit: cover; 
-                border-top-right-radius:7px; border-top-left-radius:7px;">
-                <span>자연</span>
-            </div>
-            <div class="detail-box" >
-                <div class="info" >
-                    <p class="title">전라남도 강진군 도암면 백련사길 125</p>   
-                    <p class="category">자연</p>
-                </div>
-                <p class="address">전라남도 완도군 약산면</p>
-            </div>
-        </div>
-        <div class="gallary-detail">
-            <div class="image-box" >
-                <img src="Test/강진 오감통_1_공공3유형.JPG" style="width: 100%; object-fit: cover; 
-                border-top-right-radius:7px; border-top-left-radius:7px;">
-                <span>실내</span>
-            </div>
-            <div class="detail-box" >
-                <div class="info" >
-                    <p class="title">강진 오감통</p>   
-                    <p class="category">실내</p>
-                </div>
-                <p class="address">전남 강진군 강진읍 오감길 2 2동</p>
-            </div>
-        </div>
-        <div class="gallary-detail">
-            <div class="image-box" >
-                <img src="Test/거금도.jpg" style="width: 100%; object-fit: cover; 
-                border-top-right-radius:7px; border-top-left-radius:7px;">
-                <span>문화_역사</span>
-            </div>
-            <div class="detail-box" >
-                <div class="info" >
-                    <p class="title">거금도</p>   
-                    <p class="category">바다</p>
-                </div>
-                <p class="address">전남 고흥군 금산면</p>
-            </div>
-        </div>
-        <div class="gallary-detail">
-            <div class="image-box" >
-                <img src="Test/강덕사.JPG" style="width: 100%; object-fit: cover; 
-                border-top-right-radius:7px; border-top-left-radius:7px;">
-                <span>문화</span>
-            </div>
-            <div class="detail-box" >
-                <div class="info" >
-                    <p class="title">강덕사</p>   
-                    <p class="category">문화</p>
-                </div>
-                <p class="address">전남 강진군 군동면 호라길 199-39</p>
-            </div>
-        </div>
-        <div class="gallary-detail">
-            <div class="image-box" >
-                <img src="Test\가사해수욕장_1_공공3유형.JPG" style="width: 100%; object-fit: cover; 
-                border-top-right-radius:7px; border-top-left-radius:7px;">
-                <span>바다</span>
-            </div>
-            <div class="detail-box" >
-                <div class="info" >
-                    <p class="title">가사해수욕장</p>   
-                    <p class="category">바다</p>
-                </div>
-                <p class="address">전라남도 완도군 약산면</p>
-            </div>
-        </div>
-        <div class="gallary-detail">
-            <div class="image-box" >
-                <img src="Test\가사해수욕장_1_공공3유형.JPG" style="width: 100%; object-fit: cover; 
-                border-top-right-radius:7px; border-top-left-radius:7px;">
-                <span>바다</span>
-            </div>
-            <div class="detail-box" >
-                <div class="info" >
-                    <p class="title">가사해수욕장</p>   
-                    <p class="category">바다</p>
-                </div>
-                <p class="address">전라남도 완도군 약산면</p>
-            </div>
-        </div>
-        <div class="gallary-detail">
-            <div class="image-box" >
-                <img src="Test\가사해수욕장_1_공공3유형.JPG" style="width: 100%; object-fit: cover; 
-                border-top-right-radius:7px; border-top-left-radius:7px;">
-                <span>바다</span>
-            </div>
-            <div class="detail-box" >
-                <div class="info" >
-                    <p class="title">가사해수욕장</p>   
-                    <p class="category">바다</p>
-                </div>
-                <p class="address">전라남도 완도군 약산면</p>
-            </div>
-        </div>
-        <div class="gallary-detail">
-            <div class="image-box" >
-                <img src="Test\가사해수욕장_1_공공3유형.JPG" style="width: 100%; object-fit: cover; 
-                border-top-right-radius:7px; border-top-left-radius:7px;">
-                <span>바다</span>
-            </div>
-            <div class="detail-box" >
-                <div class="info" >
-                    <p class="title">가사해수욕장</p>   
-                    <p class="category">바다</p>
-                </div>
-                <p class="address">전라남도 완도군 약산면</p>
-            </div>
-        </div>
-        <div class="gallary-detail">
-            <div class="image-box" >
-                <img src="Test\가사해수욕장_1_공공3유형.JPG" style="width: 100%; object-fit: cover; 
-                border-top-right-radius:7px; border-top-left-radius:7px;">
-                <span>바다</span>
-            </div>
-            <div class="detail-box" >
-                <div class="info" >
-                    <p class="title">가사해수욕장</p>   
-                    <p class="category">바다</p>
-                </div>
-                <p class="address">전라남도 완도군 약산면</p>
-            </div>
-        </div>
-        <div class="gallary-detail">
-            <div class="image-box" >
-                <img src="Test\가사해수욕장_1_공공3유형.JPG" style="width: 100%; object-fit: cover; 
-                border-top-right-radius:7px; border-top-left-radius:7px;">
-                <span>바다</span>
-            </div>
-            <div class="detail-box" >
-                <div class="info" >
-                    <p class="title">가사해수욕장</p>   
-                    <p class="category">바다</p>
-                </div>
-                <p class="address">전라남도 완도군 약산면</p>
-            </div>
-        </div>
-        <div class="gallary-detail">
-            <div class="image-box" >
-                <img src="Test\가사해수욕장_1_공공3유형.JPG" style="width: 100%; object-fit: cover; 
-                border-top-right-radius:7px; border-top-left-radius:7px;">
-                <span>바다</span>
-            </div>
-            <div class="detail-box" >
-                <div class="info" >
-                    <p class="title">가사해수욕장</p>   
-                    <p class="category">바다</p>
-                </div>
-                <p class="address">전라남도 완도군 약산면</p>
-            </div>
-        </div>
-        <div class="gallary-detail">
-            <div class="image-box" >
-                <img src="Test\가사해수욕장_1_공공3유형.JPG" style="width: 100%; object-fit: cover; 
-                border-top-right-radius:7px; border-top-left-radius:7px;">
-                <span>바다</span>
-            </div>
-            <div class="detail-box" >
-                <div class="info" >
-                    <p class="title">가사해수욕장</p>   
-                    <p class="category">바다</p>
-                </div>
-                <p class="address">전라남도 완도군 약산면</p>
-            </div>
-        </div>
-
         <div class="buttom-area">
             <div></div>
             <div class="page">
-                <button>P</button>
-                <button>B</button>
-                <button class="on" >1</button>
-                <button>2</button>
-                <button>3</button>
-                <button>4</button>
-                <button>N</button>
-                <button>L</button>
+                <button onclick="goToPage('first')" id="firstBtn">처음</button>
+                <button onclick="goToPage('prev')" id="prevBtn">이전</button>
+                <div id="pageNumbers"></div>
+                <button onclick="goToPage('next')" id="nextBtn">다음</button>
+                <button onclick="goToPage('last')" id="lastBtn">끝</button>
             </div>
             <div></div>
         </div>
-
-
-        
         
     </div>
-
 
     <div class="margin"></div>
     <div id="header"></div>
@@ -475,25 +254,110 @@
     <script src="js/footer.js"></script>
     
     <script>
+    // 페이지네이션 관련 변수
+    const itemsPerPage = 16; // 페이지당 표시할 항목 수
+    let currentPage = 1; // 현재 페이지
+    const maxPageButtons = 10; // 최대 표시할 페이지 버튼 수
+    let filteredItems = []; // 검색된 항목들을 저장할 배열
+    
+    // 검색 기능
     function search(event) {
-        event.preventDefault(); // 폼 기본 동작(새로고침) 방지
-
-        // 검색어 가져오기
+        event.preventDefault();
         const query = document.getElementById("searchInput").value.trim().toLowerCase();
-
-        // 모든 .gallary-detail 요소 가져오기
         const galleryItems = document.querySelectorAll(".gallary-detail");
-
-        // 검색어 포함 여부 확인 및 표시/숨기기
-        galleryItems.forEach(item => {
-            const title = item.querySelector(".title").textContent.toLowerCase(); // getTL_NAME 값
-            if (title.includes(query)) {
-                item.style.display = "block"; // 검색어가 포함된 경우 표시
-            } else {
-                item.style.display = "none"; // 검색어가 포함되지 않은 경우 숨김
-            }
+        
+        // 검색 결과를 필터링하여 filteredItems 배열에 저장
+        filteredItems = Array.from(galleryItems).filter(item => {
+            const title = item.querySelector(".title").textContent.toLowerCase();
+            return title.includes(query);
         });
+        
+        // 검색 결과에 따라 항목 표시/숨김 처리
+        galleryItems.forEach(item => {
+            item.style.display = "none"; // 모든 항목 숨김
+        });
+        
+        // 현재 페이지를 1로 리셋
+        currentPage = 1;
+        
+        // 페이지네이션 업데이트
+        updatePagination();
     }
+    
+    // 페이지 이동 함수
+    function goToPage(action) {
+        const items = filteredItems.length > 0 ? filteredItems : document.querySelectorAll(".gallary-detail");
+        const totalPages = Math.ceil(items.length / itemsPerPage);
+        
+        switch(action) {
+            case 'first':
+                currentPage = 1;
+                break;
+            case 'prev':
+                currentPage = Math.max(1, currentPage - 1);
+                break;
+            case 'next':
+                currentPage = Math.min(totalPages, currentPage + 1);
+                break;
+            case 'last':
+                currentPage = totalPages;
+                break;
+            default:
+                currentPage = parseInt(action);
+        }
+        
+        updatePagination();
+    }
+    
+    // 페이지네이션 업데이트 함수
+    function updatePagination() {
+        const allItems = document.querySelectorAll(".gallary-detail");
+        const items = filteredItems.length > 0 ? filteredItems : Array.from(allItems);
+        const totalPages = Math.ceil(items.length / itemsPerPage);
+        
+        // 처음/이전/다음/끝 버튼 표시 여부 설정
+        document.getElementById('firstBtn').style.display = currentPage === 1 ? 'none' : 'block';
+        document.getElementById('prevBtn').style.display = currentPage === 1 ? 'none' : 'block';
+        document.getElementById('nextBtn').style.display = currentPage === totalPages ? 'none' : 'block';
+        document.getElementById('lastBtn').style.display = currentPage === totalPages ? 'none' : 'block';
+        
+        // 모든 항목 숨기기
+        allItems.forEach(item => {
+            item.style.display = "none";
+        });
+        
+        // 현재 페이지에 해당하는 항목만 표시
+        const startIndex = (currentPage - 1) * itemsPerPage;
+        const endIndex = startIndex + itemsPerPage;
+        
+        items.slice(startIndex, endIndex).forEach(item => {
+            item.style.display = "block";
+        });
+        
+        // 페이지 번호 버튼 업데이트
+        const pageNumbers = document.getElementById('pageNumbers');
+        pageNumbers.innerHTML = '';
+        
+        // 시작 페이지와 끝 페이지 계산
+        let startPage = Math.max(1, Math.floor((currentPage - 1) / maxPageButtons) * maxPageButtons + 1);
+        let endPage = Math.min(totalPages, startPage + maxPageButtons - 1);
+        
+        // 페이지 버튼 생성
+        for (let i = startPage; i <= endPage; i++) {
+            const button = document.createElement('button');
+            button.textContent = i;
+            button.onclick = () => goToPage(i);
+            if (i === currentPage) {
+                button.classList.add('on');
+            }
+            pageNumbers.appendChild(button);
+        }
+    }
+    
+    // 초기 페이지네이션 설정
+    document.addEventListener('DOMContentLoaded', function() {
+        updatePagination();
+    });
     </script>
     
 </body>
