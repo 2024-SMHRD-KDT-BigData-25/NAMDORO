@@ -13,5 +13,7 @@ public interface TourlistMapper {
 	@Select("select * from TOURIST_INFO")
 	public List<Tour> GetTourlist();
 	
+	@Select("select * from TOURIST_INFO where TL_NO=#{TL_NO}")
+	public Tour getTourDetail(int TL_NO);
 
 }

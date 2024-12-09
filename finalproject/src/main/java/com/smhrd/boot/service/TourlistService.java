@@ -18,5 +18,9 @@ public class TourlistService {
 	public List<Tour> GetTourlist() {
 		return mapper.GetTourlist();
 	}
+	
+	public Tour getTourDetail(int TL_NO) {
+		return mapper.getTourDetail(TL_NO);
+	}
 
 }
