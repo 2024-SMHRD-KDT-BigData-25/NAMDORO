@@ -1,5 +1,7 @@
 package com.smhrd.boot.controller;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +13,8 @@ import com.smhrd.boot.service.UserService;
 
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 @RequiredArgsConstructor
@@ -58,18 +62,45 @@ public class UserController {
 	    }
 	}
 
-
-
-	
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
 		session.removeAttribute("member");
 		return "redirect:/";
 	}
 	
+	//아이디 찾기
+	@PostMapping("/user_id")
+	public String findId(namdoro member, Model model) {
+		
+		List<namdoro> res = service.findId(member);
+
+	    // 결과 처리
+	    if (res != null) {
+	        model.addAttribute("res_id", res);
+	        return "findinfo";
+	    } else {
+	        model.addAttribute("res_id", "사용자를 찾을 수 없습니다.");
+	        return "findId";
+	    }
+//	    return "findinfo";
+		
+	}
 	
-	
-	
+	//비밀번호 찾기
+	@PostMapping("/user_pw")
+	public String findpw(namdoro member, Model model) {
+		
+		List<namdoro> res = service.findPw(member);
+		
+		if (res != null) {
+	        model.addAttribute("res_pw", res);
+	        return "findinfoPw";
+	    } else {
+	        model.addAttribute("res_pw", "사용자를 찾을 수 없습니다.");
+	        return "froinPw";
+	    }
+		
+	}
 	
 
 	
