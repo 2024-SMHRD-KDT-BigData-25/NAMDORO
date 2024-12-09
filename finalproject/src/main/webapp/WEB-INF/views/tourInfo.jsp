@@ -54,6 +54,12 @@
             position: absolute;
             padding-top: 205px;
         }
+        
+        .tourImg img {
+		    width: 100%; /* 부모 컨테이너 너비에 맞춤 */
+		    height: 100%; /* 부모 컨테이너 높이에 맞춤 */
+		    object-fit: cover; /* 비율 유지하며 부모 크기 채우기 */
+		}
 
         .square1 {
             position: absolute;
@@ -147,8 +153,8 @@
 			font-size: 24px;
 			line-height: 30px;
 			text-align: left;
-            padding-left: 100px;
-		
+            padding-left: 20px;
+			padding-right: 70px;
 			color: #000000;
         }
 
@@ -158,7 +164,8 @@
 			font-size: 18px;
 			line-height: 30px;
 			text-align: left;
-            padding-left: 100px;
+            padding-left: 20px;
+			padding-right: 70px;
 		
 			color: #000000;
         }
@@ -169,7 +176,8 @@
 			font-size: 16px;
 			line-height: 30px;
 			text-align: left;
-            padding-left: 100px;
+            padding-left: 20px;
+			padding-right: 70px;
 		
 			color: #000000;
         }
@@ -180,7 +188,8 @@
 			font-size: 16px;
 			line-height: 30px;
 			text-align: left;
-            padding-left: 100px;
+            padding-left: 20px;
+			padding-right: 70px;
 		
 			color: #000000;
         }
@@ -191,7 +200,8 @@
 			font-size: 16px;
 			line-height: 30px;
 			text-align: left;
-            padding-left: 100px;
+            padding-left: 20px;
+			padding-right: 70px;
 		
 			color: #000000;
         }
@@ -202,7 +212,20 @@
 			font-size: 16px;
 			line-height: 30px;
 			text-align: left;
-            padding-left: 100px;
+            padding-left: 20px;
+			padding-right: 70px;
+		
+			color: #000000;
+        }
+        
+        .TL_EXP {
+            font-family: 'Gmarket Sans', sans-serif;
+			font-weight: medium;
+			font-size: 16px;
+			line-height: 30px;
+			text-align: left;
+            padding-left: 20px;
+			padding-right: 70px;
 		
 			color: #000000;
         }
@@ -243,17 +266,18 @@
 
 <% 
 Tour tourDetail = (Tour)request.getAttribute("tourDetail");
-System.out.println(tourDetail);
 String[] imgArray;
+Boolean imgYN= false;
 if(tourDetail.getTL_IMG() == null || tourDetail.getTL_IMG().equals("")) {
 	imgArray = new String[]{"https://placehold.co/250x250/EFEFEF/6D6D6D?text=No+Image"}; // 대체 이미지 URL
+	imgYN = false;
 } else {
 	imgArray = tourDetail.getTL_IMG().split(",");
+	imgYN = true;
 }
 //JSON 형태로 변환하여 script에서 사용
 Gson gson = new Gson();
 String imgJson = gson.toJson(imgArray);
-System.out.println(imgJson);
 %>
 
 <jsp:include page="header.jsp"></jsp:include>
@@ -268,9 +292,13 @@ System.out.println(imgJson);
     </div>
 
     <div class="square2">
-        <div class="tour2"></div>
-        <div class="tour3"></div>
-        <div class="tour4"></div>
+    <% if (imgYN) { 
+    	for ( String img : imgArray ) {%>
+        <div class="tour2"><img src="<%=img %>"></div>
+    <% 	System.out.println(img);
+    	} 
+    }
+    %>
     </div>
 
     <div class="square3">
@@ -280,6 +308,7 @@ System.out.println(imgJson);
         <div class="tel">문의 및 안내 : <%=tourDetail.getTL_INFO() %></div><br>
         <div class="hour">이용시간 : <%=tourDetail.getTL_HOURS_USE() %></div><br>
         <div class="closeDay">쉬는날 : <%=tourDetail.getTL_DAY_OFF() %></div><br>
+        <div class="TL_EXP"><%=tourDetail.getTL_EXP() %></div><br>
         <div class="activity">
                 <%=tourDetail.getTL_EXPERIENCE() %>
         </div>
@@ -310,8 +339,13 @@ System.out.println(imgJson);
         
             // 이미지 업데이트 함수
             function updateTourImage() {
-                console.log(`현재 인덱스: ${currentIndex}`); // 디버그용 로그
-                tourImg.style.backgroundImage = `url(${tourImages[currentIndex]})`;
+                console.log(currentIndex); // 디버그용 로그
+                //tourImg.style.backgroundImage = `url(${tourImages[currentIndex]})`;
+                //tourImg.style.backgroundImage = tourImages[currentIndex];
+                tourImg.innerHTML = ''; // 기존 이미지 제거
+			    const img = document.createElement('img');
+			    img.src = tourImages[currentIndex];
+			    tourImg.appendChild(img); // 새 이미지를 추가
                 bgImg.style.backgroundImage = backgroundImages[currentIndex]; // bgImg 배경 이미지 변경
                 console.log(tourImages[currentIndex]);
             }
@@ -332,6 +366,7 @@ System.out.println(imgJson);
         
             // 초기 이미지 설정
             updateTourImage();
+            
         });
         </script>
     
