@@ -213,8 +213,8 @@
         <div class="square2">
 
             <div class="nebe">
-               <button class="before" onClick="location.href='main.html'"></button>
-               <button class="next" onClick="location.href='dateSelect.html'"></button>
+               <button class="before" onClick="location.href='/boot'">이미지 없음</button>
+               <button class="next" onClick="location.href='dateSelect.html'">이미지 없음</button>
             </div>
       
             <div class="bottomStep">

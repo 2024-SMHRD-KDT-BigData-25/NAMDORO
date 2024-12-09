@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SQL 결과</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 80%;
+        margin: 20px auto;
+      }
+      th,
+      td {
+        border: 1px solid #ccc;
+        padding: 10px;
+        text-align: center;
+      }
+      th {
+        background-color: #f4f4f4;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="text-align: center">SQL 결과</h1>
+
+    <!-- 첫 번째 테이블: result -->
+    <h2 style="text-align: center">관광지 정보</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>TL_NO</th>
+          <th>TL_THEME</th>
+          <th>CITY_NAME</th>
+          <th>TL_NAME</th>
+          <th>TL_LATITUDE</th>
+          <th>TL_LONGITUDE</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in result.iterrows() %}
+        <tr>
+          {% for item in row[1] %}
+          <td>{{ item }}</td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <!-- 두 번째 테이블: 최단 경로 거리 -->
+    <h2 style="text-align: center">최단 경로 거리</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Start</th>
+          <th>End</th>
+          <th>Distance (km)</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in route_df.iterrows() %}
+        <tr>
+          {% for item in row[1] %}
+          <td>{{ item }}</td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <a href="http://localhost:8111/">
+      <button>돌아가기</button>
+    </a>
+  </body>
+</html>

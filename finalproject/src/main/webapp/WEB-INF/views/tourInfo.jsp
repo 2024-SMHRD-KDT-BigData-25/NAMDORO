@@ -380,15 +380,20 @@
         function updateTourImage(index) {
             tourImg.innerHTML = ''; // 기존 이미지 제거
             const img = document.createElement('img');
+            console.log(imgYN);
+            
             if (imgYN) {
             	img.src = '<%= request.getContextPath() %>/touristimg/' + thumbnails[index].getAttribute('src').split('/').pop(); // JSP를 통해 경로 삽입
         	} else {
         		img.src = "https://placehold.co/250x250/EFEFEF/6D6D6D?text=No+Image";
         	}
             tourImg.appendChild(img);
-
-            bgImg.style.backgroundImage = 'url(<%= request.getContextPath() %>/touristimg/' + thumbnails[index].getAttribute('src').split('/').pop() + ')'; // 배경 이미지 업데이트
-			console.log('url(<%= request.getContextPath() %>/touristimg/' + thumbnails[index].getAttribute('src').split('/').pop() + ')');
+            
+            // JSP에서 Context Path를 변수로 전달
+            const contextPath = '<%= request.getContextPath() %>';
+            const encodedFileName = encodeURIComponent(thumbnails[index].getAttribute('src').split('/').pop());
+            bgImg.style.backgroundImage = "url('" + contextPath + "/touristimg/" + encodedFileName + "')";
+            console.log("url('" + contextPath + "/touristimg/" + encodedFileName + "')");
             
             // 모든 썸네일에서 selected 클래스 제거
             thumbnails.forEach(function (thumbnail) {

@@ -11,10 +11,10 @@ public class IndexController {
 		return "index";
 	}
 	
-//	@GetMapping("/login")
-//	public String loginPage() {
-//		return "login";
-//	}
+	@GetMapping("/select")
+	public String loginPage() {
+		return "regionSelect";
+	}
 	
 	@GetMapping("/join")
 	public String joinPage() {
