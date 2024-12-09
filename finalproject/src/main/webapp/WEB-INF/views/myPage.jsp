@@ -8,6 +8,28 @@
     <title>Document</title>
 
     <style>
+    
+    	@font-face {
+            font-family: 'Gmarket Sans';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+            font-style: normal;
+            font-weight: 400;
+        }
+
+        @font-face {
+            font-family: 'Gmarket Sans';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+            font-style: normal;
+            font-weight: 500;
+        }
+
+        @font-face {
+            font-family: 'Gmarket Sans';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+            font-style: normal;
+            font-weight: 700;
+        }
+    
       body {
         display: flex;
         justify-content: center;
