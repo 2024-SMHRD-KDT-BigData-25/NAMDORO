@@ -46,7 +46,7 @@
         .image-box {
             position: relative;
             max-width: 250px;
-            max-height: 250px;
+            height: 166px;
             overflow: auto;
             display: flex;
         }
@@ -125,6 +125,7 @@
             border-top-right-radius: 7px;
             border-top-left-radius: 7px;
             word-wrap: break-word;
+            height:260px;
 
         }
 
