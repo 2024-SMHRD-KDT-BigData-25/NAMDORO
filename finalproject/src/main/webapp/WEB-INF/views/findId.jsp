@@ -201,12 +201,12 @@ html, body {
 				</div>
 				<button class="button" type="submit">확인</button>
 			</div>
+	</form>	
 			
 			
 			
 			
-			
-			<script>
+	<script>
    
    	function validateForm(){
    		// 현재 작성된 값 가져오기

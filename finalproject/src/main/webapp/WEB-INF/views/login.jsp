@@ -257,15 +257,15 @@ html, body {
 
 	<div class="logo">남도로</div>
 	<div class="subTitle">남도로와 함께 당신만의 여행 이야기를 만들어보세요!</div>
-	<form action="login" method="post">
+	<form action="login" method="post" onsubmit="return validateForm()">
 		<div class="square2">
 			<div class="joinTitle">로그인</div>
 			<div class="information">
 				<div>
-					<input type="email" class="id" name='user_id' placeholder="이메일형식으로 입력">
+					<input type="email" class="id"  id='user_id' name='user_id' placeholder="이메일형식으로 입력">
 				</div>
 				<div>
-					<input type="password" class="pw" name='user_pw' placeholder="비밀번호 입력">
+					<input type="password" class="pw" id='user_pw' name='user_pw' placeholder="비밀번호 입력">
 				</div>
 			</div>
 			<div display="inline-block">
@@ -278,6 +278,29 @@ html, body {
 			<button class="kakao" type='button'></button>
 		</div>
 	</form>
+	
+	
+	<script>
+   
+   	function validateForm(){
+   		// 현재 작성된 값 가져오기
+   		const user_id = document.getElementById('user_id').value.trim()
+   		const user_pw = document.getElementById('user_pw').value.trim()
+   		
+   		if(user_id === "") {
+   			alert("ID를 입력해주세요");
+   			return false;
+   		}
+   		if(user_pw === "") {
+   			alert("비밀번호를 입력해주세요")
+   			return false;
+   		}
+   		
+   		return true;
+   	}
+   
+   </script>
+	
 
 
 
