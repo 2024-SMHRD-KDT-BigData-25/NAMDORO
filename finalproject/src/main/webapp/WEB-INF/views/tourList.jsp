@@ -68,6 +68,13 @@
 
         .detail-box {
             padding: 0 2%;
+            width:250px;
+
+        }
+        
+        .datail-box p{
+			white-space: normal;
+        	word-wrap: break-word;
         }
 
 
@@ -106,17 +113,18 @@
             font-family: 'Gmarket Sans', sans-serif;
 			font-weight: 500;
 			font-size: 12px;
-			line-height: 10px;
+			line-height: 15px;
 		
 			color: #6d6d6d;
 
-            padding-left: 15px;
+            padding: 0px 15px;
         }
 
         .gallary-detail {
             box-shadow: 0.5px 0.5px 3px #d1d1d1;
             border-top-right-radius: 7px;
             border-top-left-radius: 7px;
+            word-wrap: break-word;
 
         }
 
@@ -188,6 +196,10 @@
         .gallary-detail.hidden {
             display: none;
         }
+        p{
+        margin:10px 0px;
+        }
+        
 
     </style>
 
@@ -210,7 +222,7 @@
     	<% for ( Tour t : tourlist ) {
     	String[] imgarray;
     	if(t.getTL_IMG() == null || t.getTL_IMG().equals("")) {
-    	    imgarray = new String[]{"https://placehold.co/250x250/EFEFEF/6D6D6D?text=No+Image"}; // 대체 이미지 URL
+    	    imgarray = new String[]{"https://placehold.co/250x166/EFEFEF/6D6D6D?text=No+Image"}; // 대체 이미지 URL
     	} else {
     	    imgarray = t.getTL_IMG().split(",");
     	}
