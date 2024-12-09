@@ -158,7 +158,7 @@
         <h2>닉네임</h2>
         <div class="profile-actions">
           <a href="#">프로필 수정</a>
-          <a href="#">로그아웃</a>
+          <a href="logout">로그아웃</a>
         </div>
       </div>
 

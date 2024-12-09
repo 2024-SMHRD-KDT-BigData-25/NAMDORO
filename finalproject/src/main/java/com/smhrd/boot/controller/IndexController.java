@@ -38,5 +38,10 @@ public class IndexController {
 		return "findinfo";		
 	}
 	
+	@GetMapping("/mypage")
+	public String myPage() {
+		return "myPage";
+	}
+	
 
 }
