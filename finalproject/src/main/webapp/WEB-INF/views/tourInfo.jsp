@@ -1,3 +1,5 @@
+<%@page import="com.google.gson.Gson"%>
+<%@page import="com.smhrd.boot.model.Tour"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -239,6 +241,21 @@
 </head>
 <body>
 
+<% 
+Tour tourDetail = (Tour)request.getAttribute("tourDetail");
+System.out.println(tourDetail);
+String[] imgArray;
+if(tourDetail.getTL_IMG() == null || tourDetail.getTL_IMG().equals("")) {
+	imgArray = new String[]{"https://placehold.co/250x250/EFEFEF/6D6D6D?text=No+Image"}; // 대체 이미지 URL
+} else {
+	imgArray = tourDetail.getTL_IMG().split(",");
+}
+//JSON 형태로 변환하여 script에서 사용
+Gson gson = new Gson();
+String imgJson = gson.toJson(imgArray);
+System.out.println(imgJson);
+%>
+
 <jsp:include page="header.jsp"></jsp:include>
 
 
@@ -258,17 +275,13 @@
 
     <div class="square3">
      
-        <div class="title">빛가람 호수공원</div><br>
-        <div class="address">전라남도 나주시 호수로 77(빛가람동)</div><br>
-        <div class="tel">문의 및 안내 : 061-333-1501</div><br>
-        <div class="hour">이용시간 : 상시 개방</div><br>
-        <div class="closeDay">쉬는날 : 공원 휴무 없음 / 음악분수 매주 월요일 휴장</div><br>
+        <div class="title"><%=tourDetail.getTL_NAME() %></div><br>
+        <div class="address"><%=tourDetail.getTL_ADD() %></div><br>
+        <div class="tel">문의 및 안내 : <%=tourDetail.getTL_INFO() %></div><br>
+        <div class="hour">이용시간 : <%=tourDetail.getTL_HOURS_USE() %></div><br>
+        <div class="closeDay">쉬는날 : <%=tourDetail.getTL_DAY_OFF() %></div><br>
         <div class="activity">
-                체험안내 :
-                빛가람 전망대 모노레일 이용시간<br>하절기(3월~10월) 09:00~22:00<br>
-                동절기(11월~2월)09:00~21:00<br>
-                *한시간 전까지 입장, 설/추석 연휴 당일 휴무<br>
-                관람소요시간 1시간 이상           
+                <%=tourDetail.getTL_EXPERIENCE() %>
         </div>
     </div>
 
@@ -287,20 +300,10 @@
             const bgImg = document.querySelector('.bgImg'); // bgImg 요소 추가
         
             // 이미지 경로 배열
-            const tourImages = [
-                "./images/tour.png",
-                "./images/tour2.JPG",
-                "./images/tour3.JPG",
-                "./images/tour4.JPG"
-            ];
+            const tourImages = <%= imgJson %>;
         
             // 배경 이미지 경로 배열
-            const backgroundImages = [
-                "url('./images/tour.png')",
-                "url('./images/tour2.JPG')",
-                "url('./images/tour3.JPG')",
-                "url('./images/tour4.JPG')"
-            ];
+            const backgroundImages = <%= imgJson %>;
         
             // 현재 이미지 인덱스
             let currentIndex = 0;
@@ -310,6 +313,7 @@
                 console.log(`현재 인덱스: ${currentIndex}`); // 디버그용 로그
                 tourImg.style.backgroundImage = `url(${tourImages[currentIndex]})`;
                 bgImg.style.backgroundImage = backgroundImages[currentIndex]; // bgImg 배경 이미지 변경
+                console.log(tourImages[currentIndex]);
             }
         
             // 다음 버튼 클릭 이벤트
