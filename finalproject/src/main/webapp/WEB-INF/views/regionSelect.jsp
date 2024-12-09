@@ -206,7 +206,7 @@
 
 <jsp:include page="header.jsp"></jsp:include>
 
-    <div id="header"></div>
+
 
         <div class="bg"></div>
 
