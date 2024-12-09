@@ -37,22 +37,26 @@
         }
 
         .bgImg {
-            background: url(images/tour.png) no-repeat center / 100% 550px;
-            height: 60%;
+            /* background: url(images/tour.png) no-repeat center / 100% 550px;*/
+            height: 50%;
             width: 100%;
             position: absolute;
             padding-top: 215px;
             opacity: 0.5;
             z-index: -4;
+            background-position: center; /* 가운데 정렬 */
+		    background-repeat: no-repeat; /* 반복 금지 */
+		    background-size: cover; /* 화면에 꽉 차도록 설정 */
             transition: background-image 1s ease-in-out; /* 배경 이미지 변경 시 애니메이션 추가 */
         }
         
         .tourImg {
-            background: url(images/tour.png) no-repeat center / 100% 450px;
-            height: 60%;
-            width: 50%;
+            /* background: url(images/tour.png) no-repeat center / 100% 450px; */
+            display: flex; /* 부모 요소를 보이도록 설정 */
+            height: 70%;
+            width: 55%;
             position: absolute;
-            padding-top: 205px;
+		    object-fit: cover; /* 비율 유지하며 잘리지 않음 */
         }
         
         .tourImg img {
@@ -97,8 +101,51 @@
 
             background-repeat: no-repeat;
         }
+        
+		.square2 {
+		    position: absolute;
+		    width: 70%; /* 부모 컨테이너의 80% 너비 */
+		    height: 130px; /* 썸네일 높이 */
+		    top: 90%; /* 부모 컨테이너 기준으로 세로 중앙 정렬 */
+		    left: 15%; /* 부모 컨테이너 기준으로 가로 중앙 정렬 */
+		    margin: 20px auto; /* 위아래 간격 추가 및 중앙 정렬 */
+		    display: flex;
+		    justify-content: flex-start;
+		    align-items: center;
+		    gap: 15px; /* 썸네일 간격 */
+		    overflow-x: auto; /* 가로 스크롤 활성화 */
+		    padding: 10px;
+		    scrollbar-width: thin; /* 스크롤바 최소화 (Firefox) */
+		}
+		
+		.square2::-webkit-scrollbar {
+		    height: 1px; /* 스크롤바 높이 */
+		}
+		
+		.square2::-webkit-scrollbar-thumb {
+		    background-color: #c4c4c4;
+		    border-radius: 10px;
+		}
+		
+		.tour2 img {
+		    width: 150px; /* 썸네일 너비 */
+		    height: 100px; /* 썸네일 높이 */
+		    border-radius: 10px; /* 둥근 모서리 */
+		    object-fit: cover; /* 비율 유지하며 이미지 크기 조정 */
+		    cursor: pointer;
+		    transition: transform 0.3s ease-in-out, border 0.3s ease-in-out;
+		}
+		
+		.tour2 img:hover {
+		    transform: scale(1.1); /* 마우스 오버 시 확대 */
+		}
+		
+		.tour2 img.selected {
+		    border: 3px solid black; /* 선택된 이미지에 검은색 테두리 */
+		}
 
-        .square2 {
+
+        /*.square2 {
             position: absolute;
             width: 1000px;
             height: 130px;
@@ -112,11 +159,10 @@
         }
 
         .tour2 {
-            background: url(images/tour2.JPG) no-repeat center/cover;
             width: 190px;
             height: 120px;
             border-radius: 20px;
-        }
+        }*/
 
         .tour3 {
             background: url(images/tour3.JPG) no-repeat center/cover;
@@ -139,7 +185,7 @@
             left: 50%;
             transform: translate(-50%);
             background-color: rgb(255, 255, 255);
-            top: 115%;
+            top: 120%;
             border-radius: 20px;
             padding-top: 50px;
             padding-left: 50px;
@@ -265,19 +311,19 @@
 <body>
 
 <% 
-Tour tourDetail = (Tour)request.getAttribute("tourDetail");
-String[] imgArray;
-Boolean imgYN= false;
-if(tourDetail.getTL_IMG() == null || tourDetail.getTL_IMG().equals("")) {
-	imgArray = new String[]{"https://placehold.co/250x250/EFEFEF/6D6D6D?text=No+Image"}; // 대체 이미지 URL
-	imgYN = false;
-} else {
-	imgArray = tourDetail.getTL_IMG().split(",");
-	imgYN = true;
-}
-//JSON 형태로 변환하여 script에서 사용
-Gson gson = new Gson();
-String imgJson = gson.toJson(imgArray);
+	Tour tourDetail = (Tour)request.getAttribute("tourDetail");
+	String[] imgArray;
+	Boolean imgYN= false;
+	if(tourDetail.getTL_IMG() == null || tourDetail.getTL_IMG().equals("")) {
+		imgArray = new String[]{"https://placehold.co/250x250/EFEFEF/6D6D6D?text=No+Image"}; // 대체 이미지 URL
+		imgYN = false;
+	} else {
+		imgArray = tourDetail.getTL_IMG().split(",");
+		imgYN = true;
+	}
+	//JSON 형태로 변환하여 script에서 사용
+	Gson gson = new Gson();
+	String imgJson = gson.toJson(imgArray);
 %>
 
 <jsp:include page="header.jsp"></jsp:include>
@@ -294,13 +340,13 @@ String imgJson = gson.toJson(imgArray);
     <div class="square2">
     <% if (imgYN) { 
     	for ( String img : imgArray ) {%>
-        <div class="tour2"><img src="<%=img %>"></div>
+        <div class="tour2"><img src="<%= request.getContextPath() %>/touristimg/<%=img %>"></div>
     <% 	System.out.println(img);
     	} 
     }
     %>
     </div>
-
+    
     <div class="square3">
      
         <div class="title"><%=tourDetail.getTL_NAME() %></div><br>
@@ -321,53 +367,62 @@ String imgJson = gson.toJson(imgArray);
 
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // 버튼과 tourImg, bgImg 요소 선택
-            const nextBtn = document.querySelector('.nextBtn');
-            const beforeBtn = document.querySelector('.beforeBtn');
-            const tourImg = document.querySelector('.tourImg');
-            const bgImg = document.querySelector('.bgImg'); // bgImg 요소 추가
-        
-            // 이미지 경로 배열
-            const tourImages = <%= imgJson %>;
-        
-            // 배경 이미지 경로 배열
-            const backgroundImages = <%= imgJson %>;
-        
-            // 현재 이미지 인덱스
-            let currentIndex = 0;
-        
-            // 이미지 업데이트 함수
-            function updateTourImage() {
-                console.log(currentIndex); // 디버그용 로그
-                //tourImg.style.backgroundImage = `url(${tourImages[currentIndex]})`;
-                //tourImg.style.backgroundImage = tourImages[currentIndex];
-                tourImg.innerHTML = ''; // 기존 이미지 제거
-			    const img = document.createElement('img');
-			    img.src = tourImages[currentIndex];
-			    tourImg.appendChild(img); // 새 이미지를 추가
-                bgImg.style.backgroundImage = backgroundImages[currentIndex]; // bgImg 배경 이미지 변경
-                console.log(tourImages[currentIndex]);
-            }
-        
-            // 다음 버튼 클릭 이벤트
-            nextBtn.addEventListener('click', () => {
-                currentIndex = (currentIndex + 1) % tourImages.length; // 다음 이미지
-                updateTourImage();
-                console.log('Next button clicked!');
-            });
-        
-            // 이전 버튼 클릭 이벤트
-            beforeBtn.addEventListener('click', () => {
-                currentIndex = (currentIndex - 1 + tourImages.length) % tourImages.length; // 이전 이미지
-                updateTourImage();
-                console.log('Before button clicked!');
-            });
-        
-            // 초기 이미지 설정
-            updateTourImage();
+    document.addEventListener('DOMContentLoaded', () => {
+        const nextBtn = document.querySelector('.nextBtn');
+        const beforeBtn = document.querySelector('.beforeBtn');
+        const tourImg = document.querySelector('.tourImg');
+        const bgImg = document.querySelector('.bgImg');
+        const thumbnails = document.querySelectorAll('.tour2 img');
+        const imgYN = <%=imgYN %>;
+        let currentIndex = 0;
+
+        // 이미지 업데이트 함수
+        function updateTourImage(index) {
+            tourImg.innerHTML = ''; // 기존 이미지 제거
+            const img = document.createElement('img');
+            if (imgYN) {
+            	img.src = '<%= request.getContextPath() %>/touristimg/' + thumbnails[index].getAttribute('src').split('/').pop(); // JSP를 통해 경로 삽입
+        	} else {
+        		img.src = "https://placehold.co/250x250/EFEFEF/6D6D6D?text=No+Image";
+        	}
+            tourImg.appendChild(img);
+
+            bgImg.style.backgroundImage = 'url(<%= request.getContextPath() %>/touristimg/' + thumbnails[index].getAttribute('src').split('/').pop() + ')'; // 배경 이미지 업데이트
+			console.log('url(<%= request.getContextPath() %>/touristimg/' + thumbnails[index].getAttribute('src').split('/').pop() + ')');
             
+            // 모든 썸네일에서 selected 클래스 제거
+            thumbnails.forEach(function (thumbnail) {
+                thumbnail.classList.remove('selected');
+            });
+
+            // 선택된 썸네일에 selected 클래스 추가
+            thumbnails[index].classList.add('selected');
+        }
+
+        // 초기 설정
+        updateTourImage(currentIndex);
+
+        // 다음 버튼 클릭 이벤트
+        nextBtn.addEventListener('click', function () {
+            currentIndex = (currentIndex + 1) % thumbnails.length; // 다음 이미지
+            updateTourImage(currentIndex);
         });
+
+        // 이전 버튼 클릭 이벤트
+        beforeBtn.addEventListener('click', function () {
+            currentIndex = (currentIndex - 1 + thumbnails.length) % thumbnails.length; // 이전 이미지
+            updateTourImage(currentIndex);
+        });
+
+        // 썸네일 클릭 이벤트
+        thumbnails.forEach(function (thumbnail, index) {
+            thumbnail.addEventListener('click', function () {
+                currentIndex = index; // 선택된 썸네일 인덱스 업데이트
+                updateTourImage(currentIndex);
+            });
+        });
+        
+    });
         </script>
     
     

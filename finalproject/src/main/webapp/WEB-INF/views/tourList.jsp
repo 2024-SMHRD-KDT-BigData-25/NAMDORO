@@ -218,8 +218,13 @@
     		
 	        <div class="gallary-detail" onclick="location.href='tours/<%=t.getTL_NO() %>'">
 	            <div class="image-box" >
+	            	<% if(t.getTL_IMG() == null || t.getTL_IMG().equals("")) { %>
 	                <img src="<%=imgarray[0] %>" style="width: 100%; object-fit: cover; 
 	                border-top-right-radius:7px; border-top-left-radius:7px;">
+	                <% } else {%>
+	                <img src="touristimg/<%=imgarray[0] %>" style="width: 100%; object-fit: cover; 
+	                border-top-right-radius:7px; border-top-left-radius:7px;">
+	                <% } %>
 	                <span><%=t.getTL_THEME() %></span>
 	            </div>
 	            <div class="detail-box" >
