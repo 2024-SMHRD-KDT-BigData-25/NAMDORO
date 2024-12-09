@@ -71,7 +71,6 @@ public class UserController {
 	//아이디 찾기
 	@PostMapping("/user_id")
 	public String findId(namdoro member, Model model) {
-		System.out.println(member);
 		
 		List<namdoro> res = service.findId(member);
 
@@ -90,7 +89,6 @@ public class UserController {
 	//비밀번호 찾기
 	@PostMapping("/user_pw")
 	public String findpw(namdoro member, Model model) {
-		System.out.println(member);
 		
 		List<namdoro> res = service.findPw(member);
 		
