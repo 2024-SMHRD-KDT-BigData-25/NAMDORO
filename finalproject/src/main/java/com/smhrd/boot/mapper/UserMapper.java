@@ -1,5 +1,7 @@
 package com.smhrd.boot.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -14,5 +16,14 @@ public interface UserMapper {
 	
 	@Select("select * from USER_INFO where USER_ID=#{user_id} and USER_PW=#{user_pw}")
 	public namdoro login(namdoro member);
-
+	
+	//아이디 찾기
+	@Select("select * from USER_INFO where USER_NAME=#{user_name} and USER_PHONE=#{user_phone}")
+	public List<namdoro> findId(namdoro member);
+	
+	//비밀번호 찾기
+	@Select("select * from USER_INFO where USER_ID=#{user_id} and USER_NAME=#{user_name} and USER_PHONE=#{user_phone}")
+	public List<namdoro> findPw(namdoro member);
+	
+	
 }

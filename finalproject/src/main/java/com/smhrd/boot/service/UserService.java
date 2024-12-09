@@ -1,7 +1,9 @@
 package com.smhrd.boot.service;
 
-import org.springframework.stereotype.Service;
+import java.util.List;
 
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.smhrd.boot.mapper.UserMapper;
 import com.smhrd.boot.model.namdoro;
@@ -21,6 +23,18 @@ public class UserService {
 	public namdoro login(namdoro member) {
 		return mapper.login(member);
 	}
+	
+	//아이디 찾기
+	public List<namdoro> findId(namdoro member) {
+		return mapper.findId(member);
+	}
+	
+	//비밀번호 찾기
+	public List<namdoro> findPw(namdoro member) {
+		return mapper.findPw(member);
+	
+	}
+
 
 	
 }
