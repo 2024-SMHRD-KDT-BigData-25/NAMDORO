@@ -8,7 +8,7 @@
     <title>전라남도 지도</title>
     <style>
 
-@font-face {
+		@font-face {
             font-family: 'Gmarket Sans';
             src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
             font-style: normal;
