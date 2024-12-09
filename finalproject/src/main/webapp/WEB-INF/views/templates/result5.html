@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      @font-face {
+        font-family: "Gmarket Sans";
+        src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff")
+          format("woff");
+        font-style: normal;
+        font-weight: 400;
+      }
+
+      @font-face {
+        font-family: "Gmarket Sans";
+        src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff")
+          format("woff");
+        font-style: normal;
+        font-weight: 500;
+      }
+
+      @font-face {
+        font-family: "Gmarket Sans";
+        src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff")
+          format("woff");
+        font-style: normal;
+        font-weight: 700;
+      }
+
+      .all {
+        display: flex;
+      }
+
+      .calBar {
+        width: 300px;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 100px;
+        padding-top: 3%;
+        background-color: #f3f3f3;
+        top: 102px;
+      }
+
+      .dayBox {
+        width: 250px;
+        height: 400px;
+        top: 10%;
+        left: 7%;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      .dayText {
+        position: relative;
+        top: -10%;
+        left: 5%;
+
+        font-family: "Gmarket Sans", sans-serif;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 0px;
+        text-align: left;
+
+        color: #311d05;
+      }
+
+      .imageBox {
+        position: relative;
+        width: 215px;
+        height: 170px;
+        top: 5%;
+        left: 7%;
+
+        border: 1px solid black;
+        border-radius: 10px;
+        background-color: #f8f8f8;
+      }
+
+      .image {
+        position: relative;
+        width: 190px;
+        height: 110px;
+        top: 5%;
+        left: 6%;
+        border-radius: 10px;
+      }
+
+      .title {
+        position: relative;
+        font-family: "Gmarket Sans", sans-serif;
+        font-weight: 700;
+        font-size: 10px;
+        line-height: 15px;
+        text-align: left;
+        padding-top: 5%;
+        padding-left: 10%;
+        color: #000000;
+      }
+
+      .genre {
+        position: relative;
+        font-family: "Gmarket Sans", sans-serif;
+        font-weight: 500;
+        font-size: 10px;
+        line-height: 15px;
+        text-align: left;
+        padding-left: 10%;
+
+        color: #000000;
+      }
+
+      .address {
+        position: relative;
+        font-family: "Gmarket Sans", sans-serif;
+        font-weight: 500;
+        font-size: 10px;
+        line-height: 15px;
+        text-align: center;
+
+        color: #6c6c6c;
+      }
+
+      .nick {
+        font-family: "Gmarket Sans", sans-serif;
+        font-weight: 500;
+        font-size: 10px;
+        line-height: 15px;
+        text-align: center;
+
+        color: #000000;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header"></div>
+    <div class="all">
+      <div class="calBar">
+        <div class="dayBox">
+          <div class="imageBox">
+            <div class="dayText">1일차</div>
+            <div
+              class="image"
+              style="
+                background: url(images/스카이큐브_2_공공3유형.JPG) no-repeat
+                  center/cover;
+              "
+            ></div>
+            <div class="title">순천 스카이큐브</div>
+            <div class="genre">테마파크</div>
+            <div class="address">전라남도 순천시 강변로 435(오천동)</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div id="map" style="width: 500px; height: 400px"></div>
+      </div>
+    </div>
+
+    <script src="js/header.js"></script>
+
+    <script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1b191295b63ba214e903ff029903f9c5"
+    ></script>
+    <!-- <script>
+      var mapContainer = document.getElementById("map"), // 지도를 표시할 div
+        mapOption = {
+          center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+          level: 3, // 지도의 확대 레벨
+        };
+
+      // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
+      var map = new kakao.maps.Map(mapContainer, mapOption);
+    </script> -->
+
+    <script type="text/javascript">
+      // <맵 생성>
+      var container = document.getElementById("map");
+      var options = {
+        center: new kakao.maps.LatLng(37.402707, 126.922044),
+        level: 4,
+      };
+
+      var map = new kakao.maps.Map(container, options);
+      // </맵 생성>
+
+      var positions = [
+        {
+          title: "안양역",
+          latlng: new kakao.maps.LatLng(37.402707, 126.922044),
+        },
+        {
+          title: "안양역 주위 1",
+          latlng: new kakao.maps.LatLng(37.400707, 126.920044),
+        },
+        {
+          title: "안양역 주위 2",
+          latlng: new kakao.maps.LatLng(37.403007, 126.925044),
+        },
+        {
+          title: "안양역 주위 3",
+          latlng: new kakao.maps.LatLng(37.405707, 126.925044),
+        },
+      ];
+
+      for (var i = 0; i < positions.length; i++) {
+        var marker = new kakao.maps.Marker({
+          // 마커 생성
+          map: map, // 마커를 표시할 지도
+          position: positions[i].latlng, // 마커를 표시할 위치
+          title: positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시 됨
+        });
+      }
+    </script>
+  </body>
+</html>
