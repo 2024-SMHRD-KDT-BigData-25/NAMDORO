@@ -189,9 +189,24 @@
             border-radius: 20px;
             padding-top: 50px;
             padding-left: 50px;
+            padding-bottom: 40px;
+		    overflow-y: auto;
+		    box-sizing: border-box; /* 패딩 포함하여 크기 계산 */
         }
-
- 
+        
+        /* 스크롤바 스타일 (선택사항) */
+		.square3::-webkit-scrollbar {
+		    width: 8px; /* 스크롤바 너비 */
+		}
+		
+		.square3::-webkit-scrollbar-thumb {
+		    background-color: #c4c4c4; /* 스크롤바 색상 */
+		    border-radius: 4px; /* 스크롤바 둥근 모서리 */
+		}
+		
+		.square3::-webkit-scrollbar-track {
+		    background-color: #f4f4f4; /* 스크롤바 배경색 */
+		}
 
         .title {
             font-family: 'Gmarket Sans', sans-serif;
