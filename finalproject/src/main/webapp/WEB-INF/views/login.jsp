@@ -123,40 +123,41 @@ html, body {
 
 .joinBtn {
 	position: absolute;
-	padding-right: 10px;
-	padding-top: 5px;
+	padding: 0px;
+	top: 51.3%;
+	left: 70%;
 	right: 20%;
 	border: none;
 	background-color: transparent;
 	cursor: pointer;
 	font-family: 'Gmarket Sans', sans-serif;
 	font-weight: 700;
-	font-size: 12px;
-	line-height: 30px;
+	font-size: 11px;
+	line-height: 13px;
 	text-align: right;
 	color: #000000;
 }
 
 .findBtn1 {
 	position: absolute;
-	padding-top: 6px;
-	padding-left: 10px;
-	left: 42%;
+	padding: 0px;
+	left: 49%;
+	top: 51.5%;
 	border: none;
 	background-color: transparent;
 	font-family: 'Gmarket Sans', sans-serif;
 	font-weight: 500;
 	font-size: 10px;
-	line-height: 30px;
+	line-height: 11.5px;
 	text-align: left;
 	color: #000000;
 }
 
 .p{
 	position: absolute;
-	padding-top: 6px;
-	padding-left: 10px;
-	left: 48.5%;
+	padding: 0px;
+	left: 55.5%;
+	top: 49.3%;
 	border: none;
 	background-color: transparent;
 	font-family: 'Gmarket Sans', sans-serif;
@@ -170,15 +171,15 @@ html, body {
 
 .findBtn2 {
 	position: absolute;
-	padding-top: 6px;
-	padding-left: 10px;
-	left: 50%;
+	padding: 0px;
+	left: 57%;
+	top: 51.5%;
 	border: none;
 	background-color: transparent;
 	font-family: 'Gmarket Sans', sans-serif;
 	font-weight: 500;
 	font-size: 10px;
-	line-height: 30px;
+	line-height: 11.5px;
 	text-align: left;
 	color: #000000;
 }
@@ -268,9 +269,9 @@ html, body {
 				</div>
 			</div>
 			<div display="inline-block">
-			<a class="findBtn1" onClick="location.href='findId'">아이디<a>
+			<a class="findBtn1" style="cursor:pointer;" onClick="location.href='findId'">아이디<a>
 			<p class="p">/</p>
-			<a class="findBtn2" onClick="location.href='findPw'">비밀번호찾기<a>
+			<a class="findBtn2" style="cursor:pointer;" onClick="location.href='findPw'">비밀번호찾기<a>
 			<button class="joinBtn" type="button" onClick="location.href='join'">회원가입</button>
 			</div>
 			<button class="button" type="submit">로그인</button>
