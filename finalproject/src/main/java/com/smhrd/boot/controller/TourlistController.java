@@ -18,7 +18,7 @@ public class TourlistController {
 	
 	private final TourlistService service;
 
-	@GetMapping("/tours/list")
+	@GetMapping("/tours")
 	public String GetTourlist(Model model) {
 		List<Tour> tourlist = service.GetTourlist();
 		

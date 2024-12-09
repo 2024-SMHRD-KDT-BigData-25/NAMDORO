@@ -2,6 +2,7 @@ package com.smhrd.boot.service;
 
 import org.springframework.stereotype.Service;
 
+
 import com.smhrd.boot.mapper.UserMapper;
 import com.smhrd.boot.model.namdoro;
 
@@ -15,6 +16,10 @@ public class UserService {
 	
 	public int signup(namdoro user) {
 		return mapper.signup(user);
+	}
+	
+	public namdoro login(namdoro member) {
+		return mapper.login(member);
 	}
 
 	
