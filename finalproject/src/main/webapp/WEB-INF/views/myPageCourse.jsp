@@ -8,6 +8,28 @@
     <title>나의 여행지 추천 상세 페이지</title>
 
     <style>
+    
+    	@font-face {
+            font-family: 'Gmarket Sans';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+            font-style: normal;
+            font-weight: 400;
+        }
+
+        @font-face {
+            font-family: 'Gmarket Sans';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+            font-style: normal;
+            font-weight: 500;
+        }
+
+        @font-face {
+            font-family: 'Gmarket Sans';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+            font-style: normal;
+            font-weight: 700;
+        }
+    
       body {
         font-family: 'Arial', sans-serif;
         margin: 0;
