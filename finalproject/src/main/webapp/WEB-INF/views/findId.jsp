@@ -189,7 +189,7 @@ html, body {
 	<div class="square1"></div>
 	
 	
-	<form action="user_id" method="post">
+	<form action="user_id" method="post" onsubmit="return validateForm()">
 		<div class="square2">
 			<div class="findIdTitle">아이디 찾기</div>
 			<div class="information">
@@ -201,6 +201,33 @@ html, body {
 				</div>
 				<button class="button" type="submit">확인</button>
 			</div>
+			
+			
+			
+			
+			
+			<script>
+   
+   	function validateForm(){
+   		// 현재 작성된 값 가져오기
+   		const user_name = document.getElementById('user_name').value.trim()
+   		const user_phone = document.getElementById('user_phone').value.trim()
+   		
+   		
+   		if(user_name === "") {
+   			alert("이름을 입력해주세요")
+   			return false;
+   		}
+   		
+   		if(user_phone==="") {
+   			alert("연락처를 입력해주세요")
+   			return false;
+   		}
+   		
+   		return true;
+   	}
+   
+   </script>
 	
 	
 </body>
