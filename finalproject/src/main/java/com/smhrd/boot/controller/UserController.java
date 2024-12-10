@@ -6,18 +6,21 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.smhrd.boot.mapper.UserMapper;
 import com.smhrd.boot.model.namdoro;
 import com.smhrd.boot.service.UserService;
 
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RequestParam;
-
-
 
 @RequiredArgsConstructor
 @Controller
@@ -84,7 +87,6 @@ public class UserController {
 	        model.addAttribute("res_id", "사용자를 찾을 수 없습니다.");
 	        return "findId";
 	    }
-//	    return "findinfo";
 		
 	}
 	
@@ -128,6 +130,24 @@ public class UserController {
 			return "redirect:/mypage";
 		}
 	
+	// {} : 경로변수
+		@GetMapping("users/{user_id}/edit")
+		public String updateForm() {
+			return "update";
+			
+		}
+
+		@GetMapping("/users/{id}/delete")
+		public String delete(@PathVariable String id, HttpSession session) {  // PathVariable : 경로변수에 포함된 id값 가져옴
+			
+			System.out.println(id);
+			int res = service.delete(id);
+			
+			if (res > 0) {
+				session.removeAttribute("member");
+			}
+			return "redirect:/";
+		}
 	
 
 }

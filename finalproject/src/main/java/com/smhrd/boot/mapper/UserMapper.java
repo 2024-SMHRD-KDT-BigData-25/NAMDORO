@@ -2,6 +2,7 @@ package com.smhrd.boot.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -28,4 +29,8 @@ public interface UserMapper {
 	
 	@Update("UPDATE USER_INFO SET USER_PW=#{user_pw}, USER_PHONE=#{user_phone} where USER_id=#{user_id}")
 	public int update(namdoro member);
+
+	@Delete("delete from USER_INFO where USER_ID=#{id}")
+	public int delete(String id);
+
 }

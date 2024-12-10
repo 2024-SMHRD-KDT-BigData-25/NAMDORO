@@ -40,8 +40,12 @@ public class UserService {
 		return mapper.update(member);
 	}
 	
+	// 회원탈퇴(삭제)
+	public int delete(String id) {
+		return mapper.delete(id);
+		}
 	
-
-
+	//로그아웃
+	
 	
 }
