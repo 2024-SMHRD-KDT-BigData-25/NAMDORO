@@ -78,13 +78,12 @@ public class UserController {
    public String findId(namdoro member, Model model) {
       
       List<namdoro> res = service.findId(member);
-
+      System.out.println(res);
        // 결과 처리
        if (res != null) {
            model.addAttribute("res_id", res);
-           return "findinfo";
+    	   return "findinfo";
        } else {
-           model.addAttribute("res_id", "사용자를 찾을 수 없습니다.");
            return "findId";
        }
       
@@ -96,8 +95,7 @@ public class UserController {
       
       List<namdoro> res = service.findPw(member);
       
-      if (res != null) {
-           model.addAttribute("res_pw", res);
+      if (res != res) {
            return "findinfoPw";
        } else {
            model.addAttribute("res_pw", "사용자를 찾을 수 없습니다.");

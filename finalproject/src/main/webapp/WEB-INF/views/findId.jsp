@@ -219,7 +219,7 @@ html, body {
    			return false;
    		}
    		
-   		if(user_phone==="") {
+   		if(user_phone === "") {
    			alert("연락처를 입력해주세요")
    			return false;
    		}
