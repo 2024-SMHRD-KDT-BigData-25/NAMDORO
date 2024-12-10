@@ -1,5 +1,4 @@
 <%@page import="com.smhrd.boot.model.namdoro"%>
-<<<<<<< HEAD
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -209,28 +208,25 @@
   
   </head>
   <body>
-<<<<<<< HEAD
+
   	
   	  
-=======
-  
+
   <%namdoro member = (namdoro)session.getAttribute("member"); %>
-  
->>>>>>> branch 'master' of https://github.com/2024-SMHRD-KDT-BigData-25/NAMDORO.git
+
     <div class="mypage">
       <div class="nick">
-<<<<<<< HEAD
+
         <h2>닉네임</h2>
              <div class="profile-actions">
           <a href="myPageInfo" >프로필 수정</a>
           <a href="logout">로그아웃</a>
-=======
+
         <h2 class = "nickname"><%=member.getUser_nickname() %>님</h2>
         <div class="profile-actions">
           <a class="button1" href="#">회원정보 수정</a>
           <a class="button1" href="logout">로그아웃</a>
           <a class="button2" onclick="deleteMember('<%=member.getUser_id()%>')">회원탈퇴</a>
->>>>>>> branch 'master' of https://github.com/2024-SMHRD-KDT-BigData-25/NAMDORO.git
         </div>
       </div>
       
