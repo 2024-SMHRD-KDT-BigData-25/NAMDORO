@@ -1,41 +1,20 @@
 <%@page import="com.smhrd.boot.model.namdoro"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+
     <style>
-      @font-face {
-        font-family: 'Gmarket Sans';
-        src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
-        font-style: normal;
-        font-weight: 400;
-      }
-
-      @font-face {
-        font-family: 'Gmarket Sans';
-        src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
-        font-style: normal;
-        font-weight: 500;
-      }
-
-      @font-face {
-        font-family: 'Gmarket Sans';
-        src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
-        font-style: normal;
-        font-weight: 700;
-      }
-
       body {
         display: flex;
         justify-content: center;
-        min-height: 130vh;
+        min-height: 140vh;
         margin: 0;
       }
 
@@ -53,10 +32,10 @@
         padding-top: 100px;
         padding-bottom: 10px;
       }
-      
+
       .nickname {
-      	font-size: 30px;
-      }
+	font-size: 30px;
+}
 
       .plan {
         width: 550px;
@@ -90,7 +69,6 @@
         display: flex;
         flex-direction: column;
         text-align: right;
-        justify-content: flex-end
       }
 
       .profile-actions a:hover {
@@ -103,7 +81,7 @@
         background-color: #fafafa;
         margin-top: 16px;
         border: 1px solid #ddd;
-        min-height: 130px;
+        min-height: 130px; /* 컨텐츠가 적어도 일정한 크기 유지 */
       }
 
       .active {
@@ -180,56 +158,33 @@
         font-weight: bold;
       }
 
-      /* 숨기기 */
-      .pagination.hidden {
-        display: none;
-      }
-      
       .button1 {
-		text-decoration: none;
-		color: #3498db; /* 기본 색상 */    
-		font-weight: 600; /* 글자 두께 */
-    	transition: color 0.3s, transform 0.3s;  
-      }
-      
-      .button2{
-      	border: none;
-      	background-color: transparent;
-      	cursor: pointer;
-      	font-size: 12px;
-      	color: gray; /* 글자 색 */
-      }
+	text-decoration: none;
+	color: #3498db; /* 기본 색상 */
+	font-weight: 600; /* 글자 두께 */
+	transition: color 0.3s, transform 0.3s;
+}
 
-
->>>>>>> branch 'master' of https://github.com/2024-SMHRD-KDT-BigData-25/NAMDORO.git
+.button2 {
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+	font-size: 12px;
+	color: gray; /* 글자 색 */
+}
     </style>
-    
-    
-  
   </head>
   <body>
-
-  	
-  	  
-
-  <%namdoro member = (namdoro)session.getAttribute("member"); %>
-
+    <%namdoro member = (namdoro)session.getAttribute("member"); %>
     <div class="mypage">
       <div class="nick">
-
-        <h2>닉네임</h2>
-             <div class="profile-actions">
-          <a href="myPageInfo" >프로필 수정</a>
-          <a href="logout">로그아웃</a>
-
-        <h2 class = "nickname"><%=member.getUser_nickname() %>님</h2>
+        <h2 class="nickname"><%=member.getUser_nickname() %>님</h2>
         <div class="profile-actions">
-          <a class="button1" href="#">회원정보 수정</a>
-          <a class="button1" href="logout">로그아웃</a>
-          <a class="button2" onclick="deleteMember('<%=member.getUser_id()%>')">회원탈퇴</a>
+          <a class="button1" href="#">회원정보 수정</a> <a class="button1"
+            href="logout">로그아웃</a> <a class="button2"
+            onclick="deleteMember('<%=member.getUser_id()%>')">회원탈퇴</a>
         </div>
       </div>
-      
 
       <div class="plan">
         <div class="a">
@@ -243,7 +198,6 @@
         </div>
 
         <div id="all-banner" class="banner active">
-          <!-- 배너들 -->
           <div class="banner-content" data-index="0">
             <div class="banner-image" style="background-image: url('https://via.placeholder.com/200');"></div>
             <div class="banner-details">
@@ -298,14 +252,13 @@
           </div>
         </div>
 
-        <div class="pagination hidden">
+        <div class="pagination">
           <button id="prevPage" onclick="changePage('prev')">이전</button>
           <button id="nextPage" onclick="changePage('next')">다음</button>
         </div>
       </div>
     </div>
-
-    <script>
+	<script>
       let currentPage = 0;
       const bannersPerPage = 3;
 
@@ -376,5 +329,5 @@
 			}
 		}
     </script>
-  </body>
+</body>
 </html>
