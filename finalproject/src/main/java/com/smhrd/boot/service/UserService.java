@@ -13,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @Service
 public class UserService {
+
 	
 	private final UserMapper mapper;
 	
@@ -44,6 +45,4 @@ public class UserService {
 	public int delete(String id) {
 		return mapper.delete(id);
 		}
-	
-	
 }
