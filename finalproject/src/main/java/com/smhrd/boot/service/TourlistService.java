@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.smhrd.boot.mapper.TourlistMapper;
 import com.smhrd.boot.model.Tour;
+import com.smhrd.boot.model.TourlistReview;
 
 import lombok.RequiredArgsConstructor;
 
@@ -21,6 +22,14 @@ public class TourlistService {
 	
 	public Tour getTourDetail(int TL_NO) {
 		return mapper.getTourDetail(TL_NO);
+	}
+	
+	public int submitReview(TourlistReview review) {
+		return mapper.submitReview(review);
+	}
+	
+	public List<TourlistReview> tourReviewList(int TL_NO) {
+		return mapper.tourReviewList(TL_NO);
 	}
 
 }
