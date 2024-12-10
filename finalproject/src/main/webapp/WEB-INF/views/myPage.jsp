@@ -1,35 +1,32 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-
     <style>
-    
-    	@font-face {
-            font-family: 'Gmarket Sans';
-            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
-            font-style: normal;
-            font-weight: 400;
-        }
+      @font-face {
+        font-family: 'Gmarket Sans';
+        src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+        font-style: normal;
+        font-weight: 400;
+      }
 
-        @font-face {
-            font-family: 'Gmarket Sans';
-            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
-            font-style: normal;
-            font-weight: 500;
-        }
+      @font-face {
+        font-family: 'Gmarket Sans';
+        src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+        font-style: normal;
+        font-weight: 500;
+      }
 
-        @font-face {
-            font-family: 'Gmarket Sans';
-            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
-            font-style: normal;
-            font-weight: 700;
-        }
-    
+      @font-face {
+        font-family: 'Gmarket Sans';
+        src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+        font-style: normal;
+        font-weight: 700;
+      }
+
       body {
         display: flex;
         justify-content: center;
@@ -96,7 +93,7 @@
         background-color: #fafafa;
         margin-top: 16px;
         border: 1px solid #ddd;
-        min-height: 130px; /* 컨텐츠가 적어도 일정한 크기 유지 */
+        min-height: 130px;
       }
 
       .active {
@@ -172,6 +169,11 @@
         background-color: rgb(210, 233, 255);
         font-weight: bold;
       }
+
+      /* 숨기기 */
+      .pagination.hidden {
+        display: none;
+      }
     </style>
   </head>
   <body>
@@ -196,6 +198,7 @@
         </div>
 
         <div id="all-banner" class="banner active">
+          <!-- 배너들 -->
           <div class="banner-content" data-index="0">
             <div class="banner-image" style="background-image: url('https://via.placeholder.com/200');"></div>
             <div class="banner-details">
@@ -250,7 +253,7 @@
           </div>
         </div>
 
-        <div class="pagination">
+        <div class="pagination hidden">
           <button id="prevPage" onclick="changePage('prev')">이전</button>
           <button id="nextPage" onclick="changePage('next')">다음</button>
         </div>
@@ -258,66 +261,67 @@
     </div>
 
     <script>
-        let currentPage = 0;
-        const bannersPerPage = 3;
-      
-        function showBanner(type) {
-          // 모든 배너를 숨긴다
-          document.getElementById('all-banner').classList.remove('active');
-          document.getElementById('shared-banner').classList.remove('active');
-      
-          // 선택된 배너만 표시
-          if (type === 'all') {
-            document.getElementById('all-banner').classList.add('active');
-            document.getElementById('allButton').classList.add('active');
-            document.getElementById('sharedButton').classList.remove('active');
-            currentPage = 0; // 초기 페이지로 리셋
-            paginateBanners('all');
-          } else if (type === 'shared') {
-            document.getElementById('shared-banner').classList.add('active');
-            document.getElementById('sharedButton').classList.add('active');
-            document.getElementById('allButton').classList.remove('active');
-            currentPage = 0; // 초기 페이지로 리셋
-            paginateBanners('shared');
-          }
+      let currentPage = 0;
+      const bannersPerPage = 3;
+
+      function showBanner(type) {
+        // 모든 배너를 숨긴다
+        document.getElementById('all-banner').classList.remove('active');
+        document.getElementById('shared-banner').classList.remove('active');
+
+        // 선택된 배너만 표시
+        if (type === 'all') {
+          document.getElementById('all-banner').classList.add('active');
+          document.getElementById('allButton').classList.add('active');
+          document.getElementById('sharedButton').classList.remove('active');
+          currentPage = 0; // 초기 페이지로 리셋
+          paginateBanners('all');
+        } else if (type === 'shared') {
+          document.getElementById('shared-banner').classList.add('active');
+          document.getElementById('sharedButton').classList.add('active');
+          document.getElementById('allButton').classList.remove('active');
+          currentPage = 0; // 초기 페이지로 리셋
+          paginateBanners('shared');
         }
-      
-        function paginateBanners(type) {
-          const banners = document.querySelectorAll(`#${type}-banner .banner-content`);
-          const totalPages = Math.ceil(banners.length / bannersPerPage);
-          
-          // 배너가 3개 이하일 경우 페이지네이션 숨김
-          if (banners.length <= bannersPerPage) {
-            document.querySelector('.pagination').style.display = 'none';
-          } else {
-            document.querySelector('.pagination').style.display = 'flex';
-          }
-      
-          // 숨기고 페이지에 맞게 표시
-          banners.forEach((banner, index) => {
-            banner.style.display = (index >= currentPage * bannersPerPage && index < (currentPage + 1) * bannersPerPage) ? 'flex' : 'none';
-          });
-      
-          // 페이지네이션 버튼 활성화/비활성화
-          document.getElementById('prevPage').disabled = currentPage === 0;
-          document.getElementById('nextPage').disabled = currentPage === totalPages - 1;
+      }
+
+      function paginateBanners(type) {
+        const banners = document.querySelectorAll("#"+type+"-banner .banner-content");
+        console.log("배너의 개수: " + banners.length); // 배너 개수 확인용 로그
+
+        const totalPages = Math.ceil(banners.length / bannersPerPage);
+
+        // 배너가 3개 이하일 경우 페이지네이션 숨기기
+        if (banners.length <= bannersPerPage) {
+          document.querySelector('.pagination').classList.add('hidden');
+        } else {
+          document.querySelector('.pagination').classList.remove('hidden');
         }
-      
-        function changePage(direction) {
-          const activeBannerId = document.querySelector('.banner.active').id; // 현재 활성화된 배너 ID를 가져오기
-          if (direction === 'next') {
-            currentPage++;
-          } else if (direction === 'prev') {
-            currentPage--;
-          }
-          paginateBanners(activeBannerId.split('-')[0]); // 'all' 또는 'shared'에 해당하는 배너 목록을 갱신
+
+        // 배너 숨기기 및 현재 페이지에 맞는 배너만 표시
+        banners.forEach((banner, index) => {
+          banner.style.display = (index >= currentPage * bannersPerPage && index < (currentPage + 1) * bannersPerPage) ? 'flex' : 'none';
+        });
+
+        // 페이지네이션 버튼 활성화/비활성화
+        document.getElementById('prevPage').disabled = currentPage === 0;
+        document.getElementById('nextPage').disabled = currentPage === totalPages - 1;
+      }
+
+      function changePage(direction) {
+        const activeBannerId = document.querySelector('.banner.active').id; // 현재 활성화된 배너 ID를 가져오기
+        if (direction === 'next') {
+          currentPage++;
+        } else if (direction === 'prev') {
+          currentPage--;
         }
-      
-        // 페이지가 로드될 때 '전체 일정' 배너를 기본적으로 표시
-        window.onload = function() {
-          showBanner('all');
-        };
-      </script>
-      
+        paginateBanners(activeBannerId.split('-')[0]); // 'all' 또는 'shared'에 해당하는 배너 목록을 갱신
+      }
+
+      // 페이지가 로드될 때 '전체 일정' 배너를 기본적으로 표시
+      window.onload = function() {
+        showBanner('all');
+      };
+    </script>
   </body>
 </html>
