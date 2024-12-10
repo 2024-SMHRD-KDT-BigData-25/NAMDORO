@@ -45,7 +45,5 @@ public class UserService {
 		return mapper.delete(id);
 		}
 	
-	//로그아웃
-	
 	
 }
