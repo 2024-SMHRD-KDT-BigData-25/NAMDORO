@@ -181,13 +181,21 @@ html, body {
 
 </style>
 
+	<script>
+        // Spring MVC에서 전달된 플래시 속성을 확인하고, 있으면 alert로 표시
+        <% if (request.getAttribute("findIdFailMessage") != null) { %>
+            alert('<%= request.getAttribute("findIdFailMessage") %>');
+        <% } %>
+    </script>
+	
+
+
 </head>
 
 
 <body>
 	
 	<div class="square1"></div>
-	
 	
 	<form action="user_id" method="post" onsubmit="return validateForm()">
 		<div class="square2">
@@ -201,7 +209,8 @@ html, body {
 				</div>
 				<button class="button" type="submit">확인</button>
 			</div>
-	</form>	
+	</form>
+			
 			
 			
 			
@@ -220,9 +229,10 @@ html, body {
    		}
    		
    		if(user_phone === "") {
-   			alert("연락처를 입력해주세요")
+   			alert("핸드폰를 입력해주세요")
    			return false;
    		}
+   		
    		
    		return true;
    	}
