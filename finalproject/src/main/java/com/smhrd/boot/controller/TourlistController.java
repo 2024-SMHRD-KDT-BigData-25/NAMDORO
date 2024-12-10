@@ -37,6 +37,10 @@ public class TourlistController {
 		
 		return "tourInfo";
 	}
-
+	
+	@GetMapping("/genderSelect")
+	public String genderSelect() {
+		return "genderSelect";
+	}
 	
 }

@@ -109,14 +109,14 @@ ul li a {
 			<%
 			if (member == null) {
 			%>
-			<li><a href="#">여행코스 생성</a></li>
+			<li><a href="genderSelect">여행코스 생성</a></li>
 			<li><a href="tours">관광지</a></li>
 			<li><a href="#">게시판</a></li>
 			<li><a href="login">로그인</a></li>
 			<%
 			} else {
 			%>
-			<li><a href="#">여행코스 생성</a></li>
+			<li><a href="genderSelect">여행코스 생성</a></li>
 			<li><a href="tours">관광지</a></li>
 			<li><a href="#">게시판</a></li>
 			<li><a href="logout">로그아웃</a></li>

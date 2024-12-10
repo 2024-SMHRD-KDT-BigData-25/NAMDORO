@@ -229,8 +229,8 @@
          <div class="square2">
 
             <div class="nebe">
-               <button class="before" onClick="location.href='themeSelect.html'"></button>
-               <button class="next" onClick="location.href='ageSelect.html'"></button>
+               <button class="before" onClick="location.href='themeSelect.jsp'">before</button>
+               <button class="next" onClick="location.href='ageSelect.jsp'">next</button>
             </div>
       
             <div class="bottomStep">
