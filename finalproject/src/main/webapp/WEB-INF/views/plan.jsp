@@ -423,17 +423,26 @@ pageEncoding="UTF-8"%>
 
       /* 글자 스타일 */
       .text-style {
+        height: 60px;
+        width: 150px;
         padding: 10px 20px;
-        border: 2px solid #ccc;
-        border-radius: 4px;
-        background-color: #f9f9f9;
+        border: 2px solid #9eb4f9;
+        border-radius: 10px;
+        background-color: #ffffff;
         transition: all 0.3s ease;
+        
+        font-family: 'Gmarket Sans', sans-serif;
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 30px;
+		text-align: center;
+		color: #000000;
       }
 
       input[type="radio"]:checked + .text-style {
-        background-color: teal;
+        background-color: #7a9bf1;
         color: white;
-        border-color: teal;
+        border-color: #7a9bf1;
       }
 
       /* 사진 스타일 */
@@ -446,7 +455,7 @@ pageEncoding="UTF-8"%>
       }
 
       input[type="radio"]:checked + .photo-style img {
-        border-color: teal;
+        border-color: #7a9bf1;
       }
     </style>
   </head>
@@ -460,7 +469,6 @@ pageEncoding="UTF-8"%>
 
         <div class="square1">
           <div class="button-container">
-           
             <input
               type="radio"
               name="age"
