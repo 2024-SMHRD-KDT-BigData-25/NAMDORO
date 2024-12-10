@@ -2,9 +2,11 @@ package com.smhrd.boot.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import com.smhrd.boot.model.namdoro;
 
@@ -25,5 +27,6 @@ public interface UserMapper {
 	@Select("select * from USER_INFO where USER_ID=#{user_id} and USER_NAME=#{user_name} and USER_PHONE=#{user_phone}")
 	public List<namdoro> findPw(namdoro member);
 	
-	
+	@Delete("delete from USER_INFO where USER_ID=#{id}")
+	public int delete(String id);
 }

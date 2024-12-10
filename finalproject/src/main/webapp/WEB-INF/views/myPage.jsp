@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.boot.model.namdoro"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -177,12 +178,16 @@
     </style>
   </head>
   <body>
+  
+  <%namdoro member = (namdoro)session.getAttribute("member"); %>
+  
     <div class="mypage">
       <div class="nick">
-        <h2>닉네임</h2>
+        <h2><%=member.getUser_nickname() %></h2>
         <div class="profile-actions">
-          <a href="#">프로필 수정</a>
+          <a href="#">회원정보 수정</a>
           <a href="logout">로그아웃</a>
+          <button onclick="deleteMember('<%=member.getUser_id()%>')">회원탈퇴</button>
         </div>
       </div>
 
@@ -322,6 +327,14 @@
       window.onload = function() {
         showBanner('all');
       };
+      
+		function deleteMember(id){
+			let choice = confirm("정말 탈퇴하시겠습니까?"); // 예(true) , 아니오(false) 선택하게끔 
+			// 예 : 접근하여 삭제할 수 있게
+			if (choice){
+				location.href="/boot/users/"+id+"/delete";
+			}
+		}
     </script>
   </body>
 </html>
