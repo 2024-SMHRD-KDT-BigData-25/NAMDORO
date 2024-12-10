@@ -49,6 +49,10 @@
         padding-top: 100px;
         padding-bottom: 10px;
       }
+      
+      .nickname {
+      	font-size: 30px;
+      }
 
       .plan {
         width: 550px;
@@ -82,6 +86,7 @@
         display: flex;
         flex-direction: column;
         text-align: right;
+        justify-content: flex-end
       }
 
       .profile-actions a:hover {
@@ -175,6 +180,23 @@
       .pagination.hidden {
         display: none;
       }
+      
+      .button1 {
+		text-decoration: none;
+		color: #3498db; /* 기본 색상 */    
+		font-weight: 600; /* 글자 두께 */
+    	transition: color 0.3s, transform 0.3s;  
+      }
+      
+      .button2{
+      	border: none;
+      	background-color: transparent;
+      	cursor: pointer;
+      	font-size: 12px;
+      	color: gray; /* 글자 색 */
+      }
+
+
     </style>
   </head>
   <body>
@@ -183,11 +205,11 @@
   
     <div class="mypage">
       <div class="nick">
-        <h2><%=member.getUser_nickname() %></h2>
+        <h2 class = "nickname"><%=member.getUser_nickname() %>님</h2>
         <div class="profile-actions">
-          <a href="#">회원정보 수정</a>
-          <a href="logout">로그아웃</a>
-          <button onclick="deleteMember('<%=member.getUser_id()%>')">회원탈퇴</button>
+          <a class="button1" href="#">회원정보 수정</a>
+          <a class="button1" href="logout">로그아웃</a>
+          <a class="button2" onclick="deleteMember('<%=member.getUser_id()%>')">회원탈퇴</a>
         </div>
       </div>
 
