@@ -13,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @Service
 public class UserService {
+
 	
 	private final UserMapper mapper;
 	
@@ -34,7 +35,14 @@ public class UserService {
 		return mapper.findPw(member);
 	
 	}
-
-
 	
+	//수정하기(업데이트)
+	public int myPageInfo(namdoro member) {
+		return mapper.update(member);
+	}
+	
+	// 회원탈퇴(삭제)
+	public int delete(String id) {
+		return mapper.delete(id);
+		}
 }

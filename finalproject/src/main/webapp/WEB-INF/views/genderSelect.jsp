@@ -58,7 +58,7 @@
 
 			font-family: 'Gmarket Sans', sans-serif;
 			font-weight: 500;
-			font-size: 32px;
+			font-size: 38px;
 			line-height: 30px;
 			text-align: center;
 		
@@ -111,18 +111,32 @@
 			position: absolute;
     		width: 500px;
     		height: 10px;
-    		background: url(images/bottomStep.png) no-repeat center / cover;
+            background-color: #C2C2C2;
     		display: flex;
     		align-items: center;
     		justify-content: space-evenly;
+            border-radius: 20px;
 		}
 
 		.stepCir {
 			position: relative;
             width: 35px;
             height: 35px;
-            background: url('images/stepCir.png') no-repeat center/cover;
+            border-radius: 50%;
+            background-color: #C2C2C2;
 		}
+
+        .smallCir {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-color: #ffffff; /* 원의 색상 */
+            border-radius: 50%; /* 원 모양으로 만들기 */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 5;
+        }
 
 		.stepText {
 			position: relative;
@@ -144,12 +158,21 @@
 
       .male {
          cursor: pointer;
+         transition: transform 0.2s ease; /* 부드러운 전환 효과 추가 */
+      }
+      
+      .male:hover {
+      	transform: scale(1.1); /*마우스 올리면 20%확대*/
       }
 
       .female {
          cursor: pointer;
+         transition: transform 0.2s ease; /* 부드러운 전환 효과 추가 */
       }
-
+      
+      .female:hover {
+      	transform: scale(1.1); /*마우스 올리면 20%확대*/
+      }
 
       .margin {
          margin-bottom: 195px;
@@ -163,6 +186,13 @@
          transform: translate(-50%, -50%);
          gap: 120px;
          z-index: 1;
+         font-weight: 700;
+         text-align: center;
+      	 font-size: 20px; /* 텍스트 크기 조정 */
+      }
+      
+      .gender-text {
+      	margin-top: 15px; /* 이미지와 텍스트 사이 간격 조정 */
       }
 
       .square1 {
@@ -207,20 +237,19 @@
 
 </head>
 <body>
-
-<jsp:include page="header.jsp"></jsp:include>
+      <jsp:include page="header.jsp"></jsp:include>
 
         <div class="bg"></div>
 
         <div class="square1">
             <div class="gender">              
                <div class="female">
-                <img src="/images/male.png" alt="남자" style="width: 180px; height: 180px;" onClick="">
+                <img src="${pageContext.request.contextPath}/images/man.png" alt="남자" style="width: 95px; height: 160px;" onClick="">
                 <div class="gender-text">남자</div>
                </div>
 
                <div class="male">
-                <img src="/images/female.png" alt="여자" style="width: 180px; height: 180px;" onClick="">
+                <img src="${pageContext.request.contextPath}/images/woman.png" alt="여자" style="width: 90px; height: 155px;" onClick="">
                 <div class="gender-text">여자</div>
                </div>
             </div>
@@ -229,29 +258,38 @@
          <div class="square2">
 
             <div class="nebe">
-               <button class="before" onClick="location.href='themeSelect.html'"></button>
-               <button class="next" onClick="location.href='ageSelect.html'"></button>
+               <button class="before" onClick="location.href='themeSelect.jsp'">before</button>
+               <button class="next" onClick="location.href='ageSelect.jsp'">next</button>
             </div>
       
             <div class="bottomStep">
                <div class="stepCir">
-                  <div class="stepText">STEP1</div>
+                   <div class="smallCir"></div>
+                   <div class="stepText">STEP1</div>
                </div>
                <div class="stepCir">
-                  <div class="stepText">STEP2</div>
+                   <div class="smallCir"></div>
+                   <div class="stepText">STEP2</div>
                </div>
                <div class="stepCir">
-                  <div class="stepText">STEP3</div>
+                   <div class="smallCir"></div>
+                   <div class="stepText">STEP3</div>
                </div>
                <div class="stepCir">
-                  <div class="stepText">STEP4</div>
+                   <div class="smallCir"></div>
+                   <div class="stepText">STEP4</div>
                </div>
-            </div>	
-         </div>
+               <div class="stepCir">
+                   <div class="smallCir"></div>
+                   <div class="stepText">STEP5</div>
+               </div>
+           </div>	
+        </div>	
+      </div>
 
 
 
-         <div class="themaMain">여행 테마 선택</div>
+         <div class="themaMain">성별 선택</div>
          <div class="themaSub">남도로 떠나는 첫 걸음, 당신만의 여행 스타일을 선택해 보세요</div>
 
          
@@ -264,6 +302,7 @@
       
             
 
+      <script src="js/header.js"></script>
    
 
     </body>

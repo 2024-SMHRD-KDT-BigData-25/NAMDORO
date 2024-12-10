@@ -1,5 +1,8 @@
+<%@page import="com.smhrd.boot.model.namdoro"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,32 +11,10 @@
     <title>Document</title>
 
     <style>
-    
-    	@font-face {
-            font-family: 'Gmarket Sans';
-            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
-            font-style: normal;
-            font-weight: 400;
-        }
-
-        @font-face {
-            font-family: 'Gmarket Sans';
-            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
-            font-style: normal;
-            font-weight: 500;
-        }
-
-        @font-face {
-            font-family: 'Gmarket Sans';
-            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
-            font-style: normal;
-            font-weight: 700;
-        }
-    
       body {
         display: flex;
         justify-content: center;
-        min-height: 130vh;
+        min-height: 140vh;
         margin: 0;
       }
 
@@ -51,6 +32,10 @@
         padding-top: 100px;
         padding-bottom: 10px;
       }
+
+      .nickname {
+	font-size: 30px;
+}
 
       .plan {
         width: 550px;
@@ -172,15 +157,32 @@
         background-color: rgb(210, 233, 255);
         font-weight: bold;
       }
+
+      .button1 {
+	text-decoration: none;
+	color: #3498db; /* 기본 색상 */
+	font-weight: 600; /* 글자 두께 */
+	transition: color 0.3s, transform 0.3s;
+}
+
+.button2 {
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+	font-size: 12px;
+	color: gray; /* 글자 색 */
+}
     </style>
   </head>
   <body>
+    <%namdoro member = (namdoro)session.getAttribute("member"); %>
     <div class="mypage">
       <div class="nick">
-        <h2>닉네임</h2>
+        <h2 class="nickname"><%=member.getUser_nickname() %>님</h2>
         <div class="profile-actions">
-          <a href="#">프로필 수정</a>
-          <a href="logout">로그아웃</a>
+          <a class="button1" href="myPageInfo">회원정보 수정</a> <a class="button1"
+            href="logout">로그아웃</a> <a class="button2"
+            onclick="deleteMember('<%=member.getUser_id()%>')">회원탈퇴</a>
         </div>
       </div>
 
@@ -256,68 +258,76 @@
         </div>
       </div>
     </div>
+	<script>
+      let currentPage = 0;
+      const bannersPerPage = 3;
 
-    <script>
-        let currentPage = 0;
-        const bannersPerPage = 3;
-      
-        function showBanner(type) {
-          // 모든 배너를 숨긴다
-          document.getElementById('all-banner').classList.remove('active');
-          document.getElementById('shared-banner').classList.remove('active');
-      
-          // 선택된 배너만 표시
-          if (type === 'all') {
-            document.getElementById('all-banner').classList.add('active');
-            document.getElementById('allButton').classList.add('active');
-            document.getElementById('sharedButton').classList.remove('active');
-            currentPage = 0; // 초기 페이지로 리셋
-            paginateBanners('all');
-          } else if (type === 'shared') {
-            document.getElementById('shared-banner').classList.add('active');
-            document.getElementById('sharedButton').classList.add('active');
-            document.getElementById('allButton').classList.remove('active');
-            currentPage = 0; // 초기 페이지로 리셋
-            paginateBanners('shared');
-          }
+      function showBanner(type) {
+        // 모든 배너를 숨긴다
+        document.getElementById('all-banner').classList.remove('active');
+        document.getElementById('shared-banner').classList.remove('active');
+
+        // 선택된 배너만 표시
+        if (type === 'all') {
+          document.getElementById('all-banner').classList.add('active');
+          document.getElementById('allButton').classList.add('active');
+          document.getElementById('sharedButton').classList.remove('active');
+          currentPage = 0; // 초기 페이지로 리셋
+          paginateBanners('all');
+        } else if (type === 'shared') {
+          document.getElementById('shared-banner').classList.add('active');
+          document.getElementById('sharedButton').classList.add('active');
+          document.getElementById('allButton').classList.remove('active');
+          currentPage = 0; // 초기 페이지로 리셋
+          paginateBanners('shared');
         }
-      
-        function paginateBanners(type) {
-          const banners = document.querySelectorAll(`#${type}-banner .banner-content`);
-          const totalPages = Math.ceil(banners.length / bannersPerPage);
-          
-          // 배너가 3개 이하일 경우 페이지네이션 숨김
-          if (banners.length <= bannersPerPage) {
-            document.querySelector('.pagination').style.display = 'none';
-          } else {
-            document.querySelector('.pagination').style.display = 'flex';
-          }
-      
-          // 숨기고 페이지에 맞게 표시
-          banners.forEach((banner, index) => {
-            banner.style.display = (index >= currentPage * bannersPerPage && index < (currentPage + 1) * bannersPerPage) ? 'flex' : 'none';
-          });
-      
-          // 페이지네이션 버튼 활성화/비활성화
-          document.getElementById('prevPage').disabled = currentPage === 0;
-          document.getElementById('nextPage').disabled = currentPage === totalPages - 1;
+      }
+
+      function paginateBanners(type) {
+        const banners = document.querySelectorAll("#"+type+"-banner .banner-content");
+        console.log("배너의 개수: " + banners.length); // 배너 개수 확인용 로그
+
+        const totalPages = Math.ceil(banners.length / bannersPerPage);
+
+        // 배너가 3개 이하일 경우 페이지네이션 숨기기
+        if (banners.length <= bannersPerPage) {
+          document.querySelector('.pagination').classList.add('hidden');
+        } else {
+          document.querySelector('.pagination').classList.remove('hidden');
         }
-      
-        function changePage(direction) {
-          const activeBannerId = document.querySelector('.banner.active').id; // 현재 활성화된 배너 ID를 가져오기
-          if (direction === 'next') {
-            currentPage++;
-          } else if (direction === 'prev') {
-            currentPage--;
-          }
-          paginateBanners(activeBannerId.split('-')[0]); // 'all' 또는 'shared'에 해당하는 배너 목록을 갱신
+
+        // 배너 숨기기 및 현재 페이지에 맞는 배너만 표시
+        banners.forEach((banner, index) => {
+          banner.style.display = (index >= currentPage * bannersPerPage && index < (currentPage + 1) * bannersPerPage) ? 'flex' : 'none';
+        });
+
+        // 페이지네이션 버튼 활성화/비활성화
+        document.getElementById('prevPage').disabled = currentPage === 0;
+        document.getElementById('nextPage').disabled = currentPage === totalPages - 1;
+      }
+
+      function changePage(direction) {
+        const activeBannerId = document.querySelector('.banner.active').id; // 현재 활성화된 배너 ID를 가져오기
+        if (direction === 'next') {
+          currentPage++;
+        } else if (direction === 'prev') {
+          currentPage--;
         }
+        paginateBanners(activeBannerId.split('-')[0]); // 'all' 또는 'shared'에 해당하는 배너 목록을 갱신
+      }
+
+      // 페이지가 로드될 때 '전체 일정' 배너를 기본적으로 표시
+      window.onload = function() {
+        showBanner('all');
+      };
       
-        // 페이지가 로드될 때 '전체 일정' 배너를 기본적으로 표시
-        window.onload = function() {
-          showBanner('all');
-        };
-      </script>
-      
-  </body>
+		function deleteMember(id){
+			let choice = confirm("정말 탈퇴하시겠습니까?"); // 예(true) , 아니오(false) 선택하게끔 
+			// 예 : 접근하여 삭제할 수 있게
+			if (choice){
+				location.href="/boot/users/"+id+"/delete";
+			}
+		}
+    </script>
+</body>
 </html>
