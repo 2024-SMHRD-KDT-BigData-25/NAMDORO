@@ -43,5 +43,10 @@ public class IndexController {
 		return "myPage";
 	}
 	
+	@GetMapping("/plan")
+	public String plan() {
+		return "plan";
+	}
+	
 
 }
