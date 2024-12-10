@@ -2,6 +2,7 @@ package com.smhrd.boot.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -35,13 +36,10 @@ public class UserService {
 	
 	}
 	
-
 	// 회원탈퇴(삭제)
 	public int delete(String id) {
 		return mapper.delete(id);
 		}
 	
-	//로그아웃
-	
-	
+
 }

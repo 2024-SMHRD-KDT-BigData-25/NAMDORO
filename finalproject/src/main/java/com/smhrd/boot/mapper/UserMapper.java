@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.smhrd.boot.model.namdoro;
 
@@ -29,4 +30,5 @@ public interface UserMapper {
 	
 	@Delete("delete from USER_INFO where USER_ID=#{id}")
 	public int delete(String id);
+	
 }
