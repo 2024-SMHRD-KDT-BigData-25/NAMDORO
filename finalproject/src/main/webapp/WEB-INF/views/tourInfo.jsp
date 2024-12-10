@@ -293,29 +293,121 @@
 
         
         .reviewWrite {
-            position: absolute;
-            width: 900px;
-            height: 100px;
-            left: 50%;
-            transform: translate(-50%);
-            background-color: rgb(255, 255, 255);
-            top: 220%;
-            border-radius: 20px;
-            padding-top: 50px;
-            padding-left: 50px;
+            position: relative;
+            width: 800px;
+            height: 90px;
+            left: 6%;
+            background-color: rgb(229 229 229);
+            border-radius: 10px;
+            z-index: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 6%;
         }
         
         .reviewBox {
             position: absolute;
             width: 900px;
-            height: 600px;
+            height: auto;
             left: 50%;
             transform: translate(-50%);
             background-color: rgb(255, 255, 255);
-            top: 245%;
+            top: 1550px;
             border-radius: 20px;
             padding-top: 50px;
-            padding-left: 50px;
+        }
+
+        .reviewTextBox {
+            position: relative;
+            padding-top: 5%;
+            padding-bottom: 8%;
+            border-bottom: 1px solid black;
+            border-top: 1px solid #4d4d4d;
+           
+        }
+
+        .reviewText {
+            position: relative;
+            word-wrap: break-word;
+            word-break: break-all;
+            max-width: 65%;
+
+            font-family: 'Gmarket Sans', sans-serif;
+			font-weight: medium;
+			font-size: 16px;
+			line-height: 30px;
+			text-align: left;
+            padding-left: 90px;
+		
+			color: #000000;
+        }
+
+        .nick {
+            position: relative;
+
+            font-family: 'Gmarket Sans', sans-serif;
+			font-weight: 700;
+			font-size: 16px;
+			line-height: 50px;
+			text-align: left;
+            padding-left: 75px;
+		
+			color: #000000;
+        }
+
+        .writeDt {
+            position: relative;
+            font-family: 'Gmarket Sans', sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 30px;
+            text-align: left;
+            
+            color: #000000;
+            margin-right: 90px;
+        }
+
+        
+
+        .nick, .writeDt {
+            display: inline-block;
+
+        }
+
+        .reviewText, .like {
+            display: inline-block;
+        }
+
+        .niDt {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .teLi {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center; /* 세로 정렬 중앙 정렬 */
+            gap: 10px; /* 아이템 간격 */
+        }
+
+        .like {
+            position: relative;
+            background: url(images/like.png) no-repeat center / cover;
+            width: 18px;
+            height: 16px;
+        }
+
+        .count {
+            font-family: 'Gmarket Sans', sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 30px;
+            text-align: left;
+            margin-left: 5px; /* like와의 간격 조정 */
+            color: #000000;
         }
         
         
@@ -375,9 +467,38 @@
         </div>
     </div>
 
-    <div class="reviewWrite"></div>
+    <div class="reviewBox">
+        <h2 style="position: relative; left: 65px;">리뷰작성</h2>
+        <div class="reviewWrite">
+            <input type="text" placeholder="후기를 입력해주세요" name="review" id="review" 
+            style="width: 600px;
+            height: 40px;
+            right: 2%;
+            position: relative;
+            border-radius: 5px;
+            padding-left: 15px;">
+            <button onclick="submitReview()">작성</button>
+        </div>
 
-    <div class="reviewBox"></div>
+        <div id="reviewContainer"></div>
+
+
+        <!-- 예시 리뷰 -->
+        <div class="reviewTextBox">
+            <div class="niDt">
+                <div class="nick">코치코치</div>
+                <div class="writeDt">작성날짜</div>
+            </div>
+            <div class="teLi">
+                <div class="reviewText">분수가 너무 예쁘고 멋있었어요</div>
+                <div style="position: relative;display: flex;align-items: center;gap: 5px;right: 100px;">
+                    <div class="like"></div>
+                    <div class="count">10</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
 
 
 
@@ -444,6 +565,56 @@
         
     });
         </script>
+        
+        <!-- 리뷰관련 스크립트 -->
+        <script>
+
+            // 엔터 키를 눌렀을 때 리뷰 작성
+            document.getElementById("review").addEventListener("keydown", function(event) {
+                if (event.key === "Enter") {
+                    submitReview();  // Enter를 누르면 submitReview() 함수 호출
+                }
+            });
+
+            function submitReview() {
+                // 입력된 리뷰 텍스트를 가져옵니다.
+                const reviewText = document.getElementById("review").value;
+                if (reviewText.trim() === "") {
+                    alert("리뷰 내용을 입력해주세요.");
+                    return;
+                }
+
+                // 현재 날짜를 구합니다.
+                const today = new Date();
+                const date = today.getFullYear() + '.' + (today.getMonth() + 1) + '.' + today.getDate();
+
+                // 새로운 리뷰 HTML을 생성합니다.
+                const reviewBox = document.createElement("div");
+                reviewBox.classList.add("reviewTextBox");
+
+                reviewBox.innerHTML = `
+                    <div class="niDt">
+                        <div class="nick">코치코치</div>
+                        <div class="writeDt">${date}</div>
+                    </div>
+                    <div class="teLi">
+                        <div class="reviewText">${reviewText}</div>
+                        <div style="position: relative; display: flex; align-items: center; gap: 5px; right: 100px;">
+                            <div class="like"></div>
+                            <div class="count">10</div>
+                        </div>
+                    </div>
+                `;
+
+                // 리뷰를 출력할 컨테이너에 가장 위에 새로운 리뷰를 추가합니다.
+                const reviewContainer = document.getElementById("reviewContainer");
+                reviewContainer.insertBefore(reviewBox, reviewContainer.firstChild);
+
+                // 리뷰 작성 후 입력창을 비웁니다.
+                document.getElementById("review").value = "";
+            }
+        </script>
+        
     
     
 </body>

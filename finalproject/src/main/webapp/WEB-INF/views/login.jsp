@@ -123,40 +123,41 @@ html, body {
 
 .joinBtn {
 	position: absolute;
-	padding-right: 10px;
-	padding-top: 5px;
+	padding: 0px;
+	top: 51.3%;
+	left: 70%;
 	right: 20%;
 	border: none;
 	background-color: transparent;
 	cursor: pointer;
 	font-family: 'Gmarket Sans', sans-serif;
 	font-weight: 700;
-	font-size: 12px;
-	line-height: 30px;
+	font-size: 11px;
+	line-height: 13px;
 	text-align: right;
 	color: #000000;
 }
 
 .findBtn1 {
 	position: absolute;
-	padding-top: 6px;
-	padding-left: 10px;
-	left: 42%;
+	padding: 0px;
+	left: 49%;
+	top: 51.5%;
 	border: none;
 	background-color: transparent;
 	font-family: 'Gmarket Sans', sans-serif;
 	font-weight: 500;
 	font-size: 10px;
-	line-height: 30px;
+	line-height: 11.5px;
 	text-align: left;
 	color: #000000;
 }
 
 .p{
 	position: absolute;
-	padding-top: 6px;
-	padding-left: 10px;
-	left: 48.5%;
+	padding: 0px;
+	left: 55.5%;
+	top: 49.3%;
 	border: none;
 	background-color: transparent;
 	font-family: 'Gmarket Sans', sans-serif;
@@ -170,15 +171,15 @@ html, body {
 
 .findBtn2 {
 	position: absolute;
-	padding-top: 6px;
-	padding-left: 10px;
-	left: 50%;
+	padding: 0px;
+	left: 57%;
+	top: 51.5%;
 	border: none;
 	background-color: transparent;
 	font-family: 'Gmarket Sans', sans-serif;
 	font-weight: 500;
 	font-size: 10px;
-	line-height: 30px;
+	line-height: 11.5px;
 	text-align: left;
 	color: #000000;
 }
@@ -256,27 +257,50 @@ html, body {
 
 	<div class="logo">남도로</div>
 	<div class="subTitle">남도로와 함께 당신만의 여행 이야기를 만들어보세요!</div>
-	<form action="login" method="post">
+	<form action="login" method="post" onsubmit="return validateForm()">
 		<div class="square2">
 			<div class="joinTitle">로그인</div>
 			<div class="information">
 				<div>
-					<input type="email" class="id" name='user_id' placeholder="이메일형식으로 입력">
+					<input type="email" class="id"  id='user_id' name='user_id' placeholder="이메일형식으로 입력">
 				</div>
 				<div>
-					<input type="password" class="pw" name='user_pw' placeholder="비밀번호 입력">
+					<input type="password" class="pw" id='user_pw' name='user_pw' placeholder="비밀번호 입력">
 				</div>
 			</div>
 			<div display="inline-block">
-			<a class="findBtn1" onClick="location.href='findId'">아이디<a>
+			<a class="findBtn1" style="cursor:pointer;" onClick="location.href='findId'">아이디<a>
 			<p class="p">/</p>
-			<a class="findBtn2" onClick="location.href='findPw'">비밀번호찾기<a>
+			<a class="findBtn2" style="cursor:pointer;" onClick="location.href='findPw'">비밀번호찾기<a>
 			<button class="joinBtn" type="button" onClick="location.href='join'">회원가입</button>
 			</div>
 			<button class="button" type="submit">로그인</button>
 			<button class="kakao" type='button'></button>
 		</div>
 	</form>
+	
+	
+	<script>
+   
+   	function validateForm(){
+   		// 현재 작성된 값 가져오기
+   		const user_id = document.getElementById('user_id').value.trim()
+   		const user_pw = document.getElementById('user_pw').value.trim()
+   		
+   		if(user_id === "") {
+   			alert("ID를 입력해주세요");
+   			return false;
+   		}
+   		if(user_pw === "") {
+   			alert("비밀번호를 입력해주세요")
+   			return false;
+   		}
+   		
+   		return true;
+   	}
+   
+   </script>
+	
 
 
 
