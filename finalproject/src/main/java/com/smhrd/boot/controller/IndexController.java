@@ -43,11 +43,5 @@ public class IndexController {
 		return "myPage";
 	}
 	
-	// 회원정보수정
-//	@GetMapping("/myPageInfo")
-//	public String myPageInfo() {
-//		return "myPageInfo";
-//	}
-	
 
 }
