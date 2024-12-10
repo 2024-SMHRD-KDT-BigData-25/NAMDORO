@@ -34,6 +34,13 @@ public class UserService {
 		return mapper.findPw(member);
 	
 	}
+	
+	//수정하기(업데이트)
+	public int myPageInfo(namdoro member) {
+		return mapper.update(member);
+	}
+	
+	
 
 
 	

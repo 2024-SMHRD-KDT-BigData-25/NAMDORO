@@ -1,10 +1,12 @@
 package com.smhrd.boot.controller;
 
+import java.lang.ProcessHandle.Info;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -102,7 +104,30 @@ public class UserController {
 		
 	}
 	
-
+	//유저회원정보가져오기 
+	@GetMapping("/myPageInfo")
+	public String myPageInfo(HttpSession session){// 값 넘어오는지 확인 ->void 임시로 하기
+		
+		namdoro so = (namdoro)session.getAttribute("member");
+		
+		System.out.println(so);
+		
+		return "myPageInfo";
+		
+	}
+	
+	@GetMapping("/myPageInfo/update")
+	public String myPageInfo2(namdoro member, HttpSession session){
+		
+		int result = service.myPageInfo(member);
+		
+		if(result == 0) {
+			return "redirect:/myPageInfo";
+		}else
+			session.setAttribute("member", member);
+			return "redirect:/mypage";
+		}
+	
 	
 
 }

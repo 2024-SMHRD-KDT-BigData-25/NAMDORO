@@ -1,3 +1,5 @@
+<%@page import="com.smhrd.boot.model.namdoro"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -172,17 +174,25 @@
         background-color: rgb(210, 233, 255);
         font-weight: bold;
       }
+  
+  
     </style>
+    
+    
+  
   </head>
   <body>
+  	
+  	  
     <div class="mypage">
       <div class="nick">
         <h2>닉네임</h2>
-        <div class="profile-actions">
-          <a href="#">프로필 수정</a>
+             <div class="profile-actions">
+          <a href="myPageInfo" >프로필 수정</a>
           <a href="logout">로그아웃</a>
         </div>
       </div>
+      
 
       <div class="plan">
         <div class="a">
