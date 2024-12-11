@@ -27,20 +27,10 @@ public interface UserMapper {
    @Select("select * from USER_INFO where USER_ID=#{user_id} and USER_NAME=#{user_name} and USER_PHONE=#{user_phone}")
    public List<namdoro> findPw(namdoro member);
    
-   //회원정보수정
    @Update("UPDATE USER_INFO SET USER_PW=#{user_pw}, USER_PHONE=#{user_phone} where USER_id=#{user_id}")
    public int update(namdoro member);
-   
-   //회원 탈퇴
+
    @Delete("delete from USER_INFO where USER_ID=#{id}")
    public int delete(String id);
-   
-   //이메일 중복 체크
-   @Select("SELECT COUNT(*) FROM USER_INFO WHERE USER_ID = #{user_id}")
-   public int checkEmailDuplication(String user_id);
-
-   //닉네임 중복 체크
-   @Select("SELECT COUNT(*) FROM USER_INFO WHERE USER_NICKNAME = #{user_nickname}")
-   public int checkNicknameDuplication(String user_nickname);
 
 }

@@ -91,7 +91,7 @@ public class UserController {
        // 결과 처리
        if (res != null && !res.isEmpty()) {
            model.addAttribute("res_id", res);
-    	   return "findinfo";
+          return "findinfo";
        } else {
            redirectAttributes.addFlashAttribute("findIdFailMessage", "아이디와 핸드폰번호가 맞지 않습니다.");
            return "redirect:/findId";
@@ -106,11 +106,11 @@ public class UserController {
       List<namdoro> res = service.findPw(member);
       
       if (res != null && !res.isEmpty()) {
-    	  model.addAttribute("res_pw", res);
+         model.addAttribute("res_pw", res);
            return "findinfoPw";
        } else {
-    	   redirectAttributes.addFlashAttribute("findPwFailMessage", "아이디와 이름 핸드폰번호가 맞지 않습니다.");
-    	   return "redirect:/findPw";
+          redirectAttributes.addFlashAttribute("findPwFailMessage", "아이디와 이름 핸드폰번호가 맞지 않습니다.");
+          return "redirect:/findPw";
        }
       
    }
@@ -158,61 +158,44 @@ public class UserController {
          return "redirect:/";
       }
       
-  	@PostMapping("/plan/call_python_api")
-  	public String sendToFlask(@RequestParam String gender,HttpSession session, @RequestParam String age, @RequestParam String day, @RequestParam String theme, @RequestParam String region) {
-  	    String flaskUrl = "http://127.0.0.1:4000/home";  // Flask 서버의 URL
+     @PostMapping("/plan/call_python_api")
+     public String sendToFlask(@RequestParam String gender,HttpSession session, @RequestParam String age, @RequestParam String day, @RequestParam String theme, @RequestParam String region) {
+         String flaskUrl = "http://127.0.0.1:4000/home";  // Flask 서버의 URL
 
-  		System.out.println("gender: " + gender);
-  		System.out.println("age: " + age);
-  		System.out.println("day: " + day);
-  		System.out.println("theme: " + theme);
-  		System.out.println("region: " + region);
-  	    // UriComponentsBuilder를 사용하여 파라미터를 안전하게 쿼리 스트링으로 추가
-  	    String urlWithParams = UriComponentsBuilder.fromHttpUrl(flaskUrl)
-  	        .queryParam("gender", gender)
-  	        .queryParam("age", age)
-  		    .queryParam("day", day)
-  	        .queryParam("theme", theme)
-  	        .queryParam("region", region)
-  	        .toUriString();
+        System.out.println("gender: " + gender);
+        System.out.println("age: " + age);
+        System.out.println("day: " + day);
+        System.out.println("theme: " + theme);
+        System.out.println("region: " + region);
+         // UriComponentsBuilder를 사용하여 파라미터를 안전하게 쿼리 스트링으로 추가
+         String urlWithParams = UriComponentsBuilder.fromHttpUrl(flaskUrl)
+             .queryParam("gender", gender)
+             .queryParam("age", age)
+            .queryParam("day", day)
+             .queryParam("theme", theme)
+             .queryParam("region", region)
+             .toUriString();
 
-//  	    // RestTemplate 객체 생성
-  	    RestTemplate restTemplate = new RestTemplate();
+//         // RestTemplate 객체 생성
+         RestTemplate restTemplate = new RestTemplate();
   //
-//  	    // Flask 서버에 GET 요청을 보내고, 응답을 String으로 받음
-  	    ResponseEntity<String> response = restTemplate.getForEntity(urlWithParams, String.class);
+//         // Flask 서버에 GET 요청을 보내고, 응답을 String으로 받음
+         ResponseEntity<String> response = restTemplate.getForEntity(urlWithParams, String.class);
           //System.out.println(response.getBody());
           
-  	    // Json 문자열        
-  	    String jsonStr = response.getBody();
-  	    // Gson 객체 생성       
-  	    Gson gson = new Gson();
-  	    // Json 문자열 -> Map 
-  	    Map<String, Object> map = gson.fromJson(jsonStr, Map.class);
-  	  //  System.out.println(map);
-  	    session.setAttribute("mapData", map);
-  	    // 응답 내용 반환
-  	   // return response.getBody();
-  	    return "result";
-//  		return "redirect:/";
-  	}
-  	
-  	@PostMapping("/users")
-    public String signup(namdoro user, Model model) {
-       int res = service.signup(user);
-       
-       if (res == -1) {
-          model.addAttribute("emailDuplicationMessage", "이미 사용 중인 이메일입니다.");
-          return "signup"; // 이메일 중복 시 다시 회원가입 페이지로
-       } else if (res == -2) {
-          model.addAttribute("nicknameDuplicationMessage", "이미 사용 중인 닉네임입니다.");
-          return "signup"; // 닉네임 중복 시 다시 회원가입 페이지로
-       } else if (res == 0) {
-          return "redirect:/users/signup"; // 회원가입 실패 시
-       } else {
-          return "redirect:/"; // 회원가입 성공 시
-       }
-    }
+         // Json 문자열        
+         String jsonStr = response.getBody();
+         // Gson 객체 생성       
+         Gson gson = new Gson();
+         // Json 문자열 -> Map 
+         Map<String, Object> map = gson.fromJson(jsonStr, Map.class);
+       //  System.out.println(map);
+         session.setAttribute("mapData", map);
+         // 응답 내용 반환
+        // return response.getBody();
+         return "result";
+//        return "redirect:/";
+     }
    
 
 }
