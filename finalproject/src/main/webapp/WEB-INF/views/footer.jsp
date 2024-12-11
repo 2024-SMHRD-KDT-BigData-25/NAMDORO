@@ -25,6 +25,7 @@
             padding: 10px;
             transition: bottom 0.3s ease-in-out; /* 부드러운 애니메이션 추가 */
             z-index: 999;
+            bottom: -64px;
         }
 
         .footer a {
