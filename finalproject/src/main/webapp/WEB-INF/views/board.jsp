@@ -172,8 +172,9 @@
       <div class="board-header">게시판</div>
       <div id="boardItems">
         <!-- 게시글 항목은 HTML에서 직접 작성 -->
+                <% for (board b : boardList) {%>
         <div class="board-item">
-        <% for (board b : boardList) {%>
+
     
           <a href="#" style="text-decoration: none; color: inherit">
             <div><%=b.getTB_TITLE() %></div>
