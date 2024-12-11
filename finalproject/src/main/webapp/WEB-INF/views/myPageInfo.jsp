@@ -202,6 +202,13 @@ html, body {
 
 	
 </style>
+	
+	<script>
+        // Spring MVC에서 전달된 플래시 속성을 확인하고, 있으면 alert로 표시
+        <% if (request.getAttribute("nicknameMessage") != null) { %>
+            alert('<%= request.getAttribute("nicknameMessage") %>');
+        <% } %>
+    </script>
 
 
 </head>
@@ -213,6 +220,7 @@ html, body {
 				
 			
 		<%  namdoro member = (namdoro)session.getAttribute("member"); %>
+	
 		
 	<div class="information">
 				<span class="mypage">회원수정</span>
