@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.tomcat.util.json.JSONParser;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -121,8 +122,6 @@ public class UserController {
       
       namdoro so = (namdoro)session.getAttribute("member");
       
-      System.out.println(so);
-      
       return "myPageInfo";
       
    }
@@ -130,19 +129,27 @@ public class UserController {
    //회원정보 수정
    @GetMapping("/myPageInfo/update")
    public String myPageInfo2(namdoro member, HttpSession session, RedirectAttributes redirectAttributes){
-      
-      int result = service.myPageInfo(member);
-      namdoro result2 = service.nickname_no(member);
-      
-      if(result == 0 && ((CharSequence) result2).isEmpty()) {
-    	 redirectAttributes.addFlashAttribute("nicknameMessage", "닉네임이 중복됩니다");
-         return "redirect:/myPageInfo";
-      }else
-         session.setAttribute("member", member);
-         return "redirect:/mypage";
+         
+      try {//회원수정 업데이트 시도
+          int result = service.myPageInfo(member);
+          session.setAttribute("member", member);
+          return "redirect:/mypage";
+          
+      	} catch (DuplicateKeyException e) {//닉네임 중복값있을시
+      		namdoro un = (namdoro)session.getAttribute("member");
+            namdoro n = service.nickname_no(member);
+            
+            session.setAttribute("member", member);
+            redirectAttributes.addFlashAttribute("nicknameMessage", e.getMessage());
+            return "redirect:/myPageInfo";
+            
+      	} catch (Exception e) { // 기타 오류가 발생한 경우 
+      		redirectAttributes.addFlashAttribute("nicknameMessage", "회원정보 수정에 실패했습니다.");
+      		return "redirect:/myPageInfo";
       }
-   
-   // {} : 경로변수
+    }
+
+	// {} : 경로변수
       @GetMapping("users/{user_id}/edit")
       public String updateForm() {
          return "update";

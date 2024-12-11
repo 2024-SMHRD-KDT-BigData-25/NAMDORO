@@ -183,9 +183,10 @@ html, body {
 
 	<script>
         // Spring MVC에서 전달된 플래시 속성을 확인하고, 있으면 alert로 표시
-        <% if (request.getAttribute("findIdFailMessage") != null) { %>
-            alert('<%= request.getAttribute("findIdFailMessage") %>');
-        <% } %>
+        // 닉네임 중복 경고창 및 기타 수정 오류 메세지 출력
+        <% if (request.getAttribute("nicknameMessage") != null) { %>
+            alert('<%= request.getAttribute("nicknameMessage") %>
+        <%}%>
     </script>
 	
 
