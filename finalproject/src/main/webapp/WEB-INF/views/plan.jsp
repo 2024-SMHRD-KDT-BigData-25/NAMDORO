@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.boot.model.namdoro"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
 
@@ -506,6 +507,10 @@ pageEncoding="UTF-8"%>
     </style>
   </head>
   <body>
+  	<%
+	namdoro member = (namdoro) session.getAttribute("member");
+	%>
+  
     <jsp:include page="header.jsp"></jsp:include>
 
     <form action="plan/call_python_api" method="post">
@@ -603,7 +608,7 @@ pageEncoding="UTF-8"%>
             type="radio" 
             name="day" 
             id="2days" 
-            value="2"/>
+            value="6"/>
             <label for="2days" class="date-label">1박 2일</label>
 
      
@@ -1025,6 +1030,7 @@ pageEncoding="UTF-8"%>
 
         <div class="square2">
           <div class="nebe">
+          <input type="hidden" name="user_id" value="<%=member.getUser_id()%>">
             <button type="button" class="before"></button>
             <button type="submit" class="next2"></button>
           </div>

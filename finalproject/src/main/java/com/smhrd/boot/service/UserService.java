@@ -6,7 +6,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.smhrd.boot.mapper.UserMapper;
+import com.smhrd.boot.model.Tour;
 import com.smhrd.boot.model.namdoro;
+import com.smhrd.boot.model.plan;
 
 import lombok.RequiredArgsConstructor;
 
@@ -45,4 +47,18 @@ public class UserService {
 	public int delete(String id) {
 		return mapper.delete(id);
 		}
+	
+	public List<plan> getPlan(){
+		return mapper.getPlan();
+	}
+
+	public List<Tour> getTourist() {
+		return mapper.getTourist();
+		
+	}
+
+	public plan getPlanDetail(int CP_NO) {
+		return mapper.getPlanDetail(CP_NO);
+		
+	}
 }

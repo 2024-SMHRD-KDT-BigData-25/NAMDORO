@@ -159,7 +159,7 @@ public class UserController {
       }
       
      @PostMapping("/plan/call_python_api")
-     public String sendToFlask(@RequestParam String gender,HttpSession session, @RequestParam String age, @RequestParam String day, @RequestParam String theme, @RequestParam String region) {
+     public String sendToFlask(@RequestParam String gender, @RequestParam String user_id, HttpSession session, @RequestParam String age, @RequestParam String day, @RequestParam String theme, @RequestParam String region) {
          String flaskUrl = "http://127.0.0.1:4000/home";  // Flask 서버의 URL
 
         System.out.println("gender: " + gender);
@@ -167,6 +167,7 @@ public class UserController {
         System.out.println("day: " + day);
         System.out.println("theme: " + theme);
         System.out.println("region: " + region);
+        System.out.println("user_id: " + user_id);
          // UriComponentsBuilder를 사용하여 파라미터를 안전하게 쿼리 스트링으로 추가
          String urlWithParams = UriComponentsBuilder.fromHttpUrl(flaskUrl)
              .queryParam("gender", gender)
@@ -174,6 +175,7 @@ public class UserController {
             .queryParam("day", day)
              .queryParam("theme", theme)
              .queryParam("region", region)
+             .queryParam("user_id", user_id)
              .toUriString();
 
 //         // RestTemplate 객체 생성

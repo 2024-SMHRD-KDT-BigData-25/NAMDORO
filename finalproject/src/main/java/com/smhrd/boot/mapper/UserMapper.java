@@ -8,7 +8,9 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import com.smhrd.boot.model.Tour;
 import com.smhrd.boot.model.namdoro;
+import com.smhrd.boot.model.plan;
 
 @Mapper
 public interface UserMapper {
@@ -32,5 +34,15 @@ public interface UserMapper {
 
    @Delete("delete from USER_INFO where USER_ID=#{id}")
    public int delete(String id);
+   
+   @Select("select * from CREATE_PLAN")
+   public List<plan> getPlan();
+
+   @Select("select * from TOURIST_INFO")
+   public List<Tour> getTourist();
+
+   @Select("select * from CREATE_PLAN where CP_NO = #{CP_NO}")
+   public plan getPlanDetail(int CP_NO);
+
 
 }

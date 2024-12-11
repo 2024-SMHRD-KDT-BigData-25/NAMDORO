@@ -1,10 +1,26 @@
 package com.smhrd.boot.controller;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
+import java.io.IOException;
+import java.util.List;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import com.smhrd.boot.service.UserService;
+import com.smhrd.boot.model.Tour;
+import com.smhrd.boot.model.plan;
+
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 @Controller
 public class IndexController {
+	
+	private final UserService service;
+	
+	
 	
 	@GetMapping("/")
 	public String indexPage() {
@@ -35,7 +51,11 @@ public class IndexController {
 	}
 	
 	@GetMapping("/mypage")
-	public String myPage() {
+	public String myPage(Model model) {
+		List<plan> list = service.getPlan();
+		model.addAttribute("list", list);
+		List<Tour> tourlist = service.getTourist();
+		model.addAttribute("tourlist", tourlist);
 		return "myPage";
 	}
 	
@@ -47,6 +67,17 @@ public class IndexController {
 	@GetMapping("/board")
 	public String board() {
 		return "board";
+	}
+	
+	@GetMapping("/mypage/{CP_NO}")
+	public String detailForm(@PathVariable int CP_NO, Model model) {
+		
+		plan res = service.getPlanDetail(CP_NO);
+		// Board res = service.getBoardDetail(id);
+		 model.addAttribute("res", res);
+		 List<Tour> tourlist = service.getTourist();
+		model.addAttribute("tourlist", tourlist);
+		return "myPageCourse";
 	}
 	
 }

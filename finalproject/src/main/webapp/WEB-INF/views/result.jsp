@@ -63,7 +63,7 @@ html, body {
 
 .calBar {
 	width: 350px;
-	height: 100%;
+	height: 600px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -234,7 +234,7 @@ html, body {
 	position: absolute;
 	right: 0;
 	width: calc(100% - 350px);
-	height: 650px;
+	height: 600px;
 	transition: all 0.3s ease;
 }
 
@@ -245,6 +245,9 @@ html, body {
 </style>
 </head>
 <body>
+
+<jsp:include page="header.jsp"></jsp:include>
+<jsp:include page="footer.jsp"></jsp:include>
 
 	<%
       Map<String, Object> mapData = (Map<String, Object>)session.getAttribute("mapData");
@@ -270,10 +273,10 @@ html, body {
 
 
 	<div class="all">
-		<div>
-			<h2>지역</h2>
-		</div>
 		<div class="calBar" id="calBar">
+				<div>
+			<h2 style="text-align: left">지역: <%=region %></h2>
+		</div>
 			<button class="toggleCalBar" onclick="toggleCalBar()">◀</button>
 			<div class="dayBox">
 

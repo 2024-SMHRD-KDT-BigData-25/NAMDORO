@@ -36,6 +36,7 @@ def home():
     theme = request.args.get('theme')  # theme 파라미터
     region = request.args.get('region')  # region 파라미터
     day = request.args.get('day')  # region 파라미터
+    user_id = request.args.get('user_id')  # user_id 파라미터
 
     # URL 인코딩된 값들을 디코딩
     gender = urllib.parse.unquote(gender)
@@ -43,12 +44,14 @@ def home():
     theme = urllib.parse.unquote(theme)
     region = urllib.parse.unquote(region)
     day = int(urllib.parse.unquote(day))  # day를 바로 int로 변환
+    user_id = urllib.parse.unquote(user_id)
 
     print("gender:", gender)
     print("age:", age)
     print("theme:", theme)
     print("region:", region)
     print("day:", day)
+    print("user_id:", user_id)
 
     # 모델 불러오기
     model = joblib.load("model/namdoro.pkl")
@@ -70,8 +73,7 @@ def home():
 
     # 쿼리 결과를 pandas DataFrame으로 변환
     result_df = pd.DataFrame(result, columns=['TL_NO', 'TL_THEME', 'CITY_NAME', 'TL_NAME', 'TL_IMG', 'TL_ADD', 'TL_LATITUDE', 'TL_LONGITUDE'])
-    db.commit()
-    db.close()
+    
 
     print('result_df:', result_df)
 
@@ -96,7 +98,7 @@ def home():
     print('res (전체): ', res)
 
     # res에서 상위 6개만 선택 (SCORE가 높은 상위 6개)
-    res = res.head(6)
+    res = res.head(day)
 
     print('res (상위 6개): ', res)
 
@@ -174,7 +176,16 @@ def home():
 
     # 'Distance' 컬럼 반올림 (소수점 두 번째 자리까지)
     route_df['Distance'] = route_df['Distance'].round(2)
+    
 
+    if day == 3:
+        sql = f"INSERT INTO CREATE_PLAN(USER_ID, CP_REGION, CP_THEME, CP_DATE, CP_GENDER, CP_AGE, CP_SPOT1, CP_SPOT2, CP_SPOT3) VALUES ('{user_id}', '{region}', '{theme}', '{day}', '{gender}', '{age}', '{selected_res['TL_NAME'].iloc[0]}', '{selected_res['TL_NAME'].iloc[1]}', '{selected_res['TL_NAME'].iloc[2]}')"
+    else:
+        sql = f"INSERT INTO CREATE_PLAN(USER_ID, CP_REGION, CP_THEME, CP_DATE, CP_GENDER, CP_AGE, CP_SPOT1, CP_SPOT2, CP_SPOT3, CP_SPOT4, CP_SPOT5, CP_SPOT6) VALUES ('{user_id}', '{region}', '{theme}', '{day}', '{gender}', '{age}', '{selected_res['TL_NAME'].iloc[0]}', '{selected_res['TL_NAME'].iloc[1]}', '{selected_res['TL_NAME'].iloc[2]}', '{selected_res['TL_NAME'].iloc[3]}', '{selected_res['TL_NAME'].iloc[4]}', '{selected_res['TL_NAME'].iloc[5]}')"
+	
+    cursor.execute(sql)
+    db.commit()
+    db.close()
     print("여기까지 완료")
 
 

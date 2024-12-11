@@ -1,3 +1,7 @@
+<%@page import="com.smhrd.boot.model.Tour"%>
+<%@page import="java.util.List"%>
+<%@page import="com.smhrd.boot.model.namdoro"%>
+<%@page import="com.smhrd.boot.model.plan"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -46,6 +50,8 @@
         background-color: #fff;
         padding: 30px;
         border-radius: 10px;
+        margin-top: 100px;
+        margin-bottom: 100px;
       }
 
       .header {
@@ -187,12 +193,106 @@
     </style>
   </head>
   <body>
+  
+  <jsp:include page="header.jsp"></jsp:include>
+<jsp:include page="footer.jsp"></jsp:include>
+  
+  <%
+  plan res =  (plan)request.getAttribute("res");
+  namdoro member = (namdoro)session.getAttribute("member"); 
+  
+  List<Tour> tourlist = (List<Tour>)request.getAttribute("tourlist");
+  
+  String spot1 = "https://placehold.co/195x250/EFEFEF/6D6D6D?text=No+Image";
+  String spot2 = "https://placehold.co/195x250/EFEFEF/6D6D6D?text=No+Image";
+  String spot3 = "https://placehold.co/195x250/EFEFEF/6D6D6D?text=No+Image";
+  String spot4 = "https://placehold.co/195x250/EFEFEF/6D6D6D?text=No+Image";
+  String spot5 = "https://placehold.co/195x250/EFEFEF/6D6D6D?text=No+Image";
+  String spot6 = "https://placehold.co/195x250/EFEFEF/6D6D6D?text=No+Image";
+  
+  
+  for (int i = 0; i < tourlist.size(); i++) {
+	    if (res.getCP_SPOT1().equals(tourlist.get(i).getTL_NAME())) {
+	        String[] imgArray = tourlist.get(i).getTL_IMG().split(",");
+	        if (imgArray.length > 0 && imgArray[0] != null && !imgArray[0].isEmpty()) {
+	            spot1 = "../touristimg/" + imgArray[0];
+	        }
+	        break;
+	    }
+	}
+  
+  for (int i = 0; i < tourlist.size(); i++) {
+	    if (res.getCP_SPOT2().equals(tourlist.get(i).getTL_NAME())) {
+	        String[] imgArray = tourlist.get(i).getTL_IMG().split(",");
+	        if (imgArray.length > 0 && imgArray[0] != null && !imgArray[0].isEmpty()) {
+	            spot2 = "../touristimg/" + imgArray[0];
+	        }
+	        break;
+	    }
+	}
+  
+  for (int i = 0; i < tourlist.size(); i++) {
+	    if (res.getCP_SPOT3().equals(tourlist.get(i).getTL_NAME())) {
+	        String[] imgArray = tourlist.get(i).getTL_IMG().split(",");
+	        if (imgArray.length > 0 && imgArray[0] != null && !imgArray[0].isEmpty()) {
+	            spot3 = "../touristimg/" + imgArray[0];
+	        }
+	        break;
+	    }
+	}
+  
+  if (res.getCP_SPOT4() != null) {
+
+	    for (int i = 0; i < tourlist.size(); i++) {
+	        if (res.getCP_SPOT4().equals(tourlist.get(i).getTL_NAME())) {
+	            String[] imgArray = tourlist.get(i).getTL_IMG().split(",");
+	            if (imgArray.length > 0 && imgArray[0] != null && !imgArray[0].isEmpty()) {
+	                spot4 = "../touristimg/" + imgArray[0];
+	            }
+	            break;
+	        }
+	    }
+	}
+  
+  
+  if (res.getCP_SPOT5() != null) {
+
+	    for (int i = 0; i < tourlist.size(); i++) {
+	        if (res.getCP_SPOT5().equals(tourlist.get(i).getTL_NAME())) {
+	            String[] imgArray = tourlist.get(i).getTL_IMG().split(",");
+	            if (imgArray.length > 0 && imgArray[0] != null && !imgArray[0].isEmpty()) {
+	                spot5 = "../touristimg/" + imgArray[0];
+	            }
+	            break;
+	        }
+	    }
+	}
+  
+  if (res.getCP_SPOT6() != null) {
+
+	    for (int i = 0; i < tourlist.size(); i++) {
+	        if (res.getCP_SPOT6().equals(tourlist.get(i).getTL_NAME())) {
+	            String[] imgArray = tourlist.get(i).getTL_IMG().split(",");
+	            if (imgArray.length > 0 && imgArray[0] != null && !imgArray[0].isEmpty()) {
+	                spot6 = "../touristimg/" + imgArray[0];
+	            }
+	            break;
+	        }
+	    }
+	}
+  System.out.println(spot1);
+  System.out.println(spot2);
+  System.out.println(spot3);
+  System.out.println(spot4);
+  System.out.println(spot5);
+  System.out.println(spot6);
+  %>
     <div class="content">
       <!-- Header with nickname and travel details -->
       <div class="header">
         <h2>나의 여행지 상세 페이지</h2>
         <div class="user-info">
-          <p><strong>닉네임:</strong> 사용자이름</p>
+          <p><strong>닉네임:</strong> <%= member.getUser_nickname()%></p>
         </div>
       </div>
 
@@ -201,10 +301,14 @@
         <h3>여행지 정보</h3>
         <div class="details">
           <div>
-            <p><strong>지역 : </strong> 순천</p>
+            <p><strong>지역 : </strong> <%=res.getCP_REGION() %></p>
+            <%if(res.getCP_DATE()==3){ %>
+            <p><strong>여행 기간 : </strong>당일 여행</p>
+            <%}else{ %>
             <p><strong>여행 기간 : </strong>1박 2일</p>
-            <p><strong>여행 스타일 : </strong> 가족 여행</p>
-            <p><strong>추천 활동 : </strong> 관광, 음식 체험</p>
+            <%} %>
+            <p><strong>여행 테마 : </strong><%=res.getCP_THEME() %></p>
+            <!-- <p><strong>추천 활동 : </strong> 관광, 음식 체험</p> -->
           </div>
         </div>
       </div>
@@ -212,18 +316,22 @@
       <!-- Itinerary -->
       <div class="itinerary">
         <h3>여행 일정</h3>
+        <%if(res.getCP_SPOT1() != null){ %>
         <div class="day" id="day1">
           <h4>1일차</h4>
-          <p>순천만 국가정원 탐방</p>
-          <p>순천만 습지 탐방</p>
-          <p>순천 시내 맛집 탐방</p>
+          <p><%= res.getCP_SPOT1()%></p>
+          <p><%= res.getCP_SPOT2()%></p>
+          <p><%= res.getCP_SPOT3()%></p>
         </div>
+        <%} %>
+        <%if(res.getCP_SPOT4() != null) {%>
         <div class="day" id="day2">
           <h4>2일차</h4>
-          <p>여수 해상케이블카 탑승</p>
-          <p>여수 바다낚시 체험</p>
-          <p>여수 돌산 갓김치 먹기</p>
+          <p><%= res.getCP_SPOT4()%></p>
+          <p><%= res.getCP_SPOT5()%></p>
+          <p><%= res.getCP_SPOT6()%></p>
         </div>
+        <%} %>
       </div>
 
       <!-- Image Gallery -->
@@ -235,22 +343,36 @@
 
       <!-- Footer with 'Go Back' button -->
       <div class="footer">
-        <button class="button">돌아가기</button>
+        <button class="button" onclick="history.back()">돌아가기</button>
       </div>
     </div>
 
     <script>
+    
+    let spot1 = "<%=spot1%>"
+    let spot2 = "<%=spot2%>"
+    let spot3 = "<%=spot3%>"
+    let spot4 = "<%=spot4%>"
+    let spot5 = "<%=spot5%>"
+    let spot6 = "<%=spot6%>"
+    
+    console.log(spot1)
+    console.log(spot2)
+    console.log(spot3)
+    console.log(spot4)
+    console.log(spot5)
+    console.log(spot6)
       // 이미지들을 저장한 배열
       const images = {
         day1: [
-          "https://via.placeholder.com/600x400?text=순천만+국가정원",
-          "https://via.placeholder.com/600x400?text=순천만+습지",
-          "https://via.placeholder.com/600x400?text=순천+시내+맛집"
+          spot1,
+          spot2,
+          spot3
         ],
         day2: [
-          "https://via.placeholder.com/600x400?text=여수+해상케이블카",
-          "https://via.placeholder.com/600x400?text=여수+바다낚시",
-          "https://via.placeholder.com/600x400?text=여수+돌산+갓김치"
+          spot4,
+          spot5,
+          spot6
         ]
       };
 
