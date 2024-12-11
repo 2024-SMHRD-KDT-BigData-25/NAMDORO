@@ -40,6 +40,10 @@ public class UserService {
 	public int myPageInfo(namdoro member) {
 		return mapper.update(member);
 	}
+	//닉네임 중복 값 찾기
+	public namdoro nickname_no(namdoro member) {
+		return mapper.nickname_no(member);
+	}
 	
 	// 회원탈퇴(삭제)
 	public int delete(String id) {

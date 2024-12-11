@@ -127,12 +127,15 @@ public class UserController {
       
    }
    
+   //회원정보 수정
    @GetMapping("/myPageInfo/update")
-   public String myPageInfo2(namdoro member, HttpSession session){
+   public String myPageInfo2(namdoro member, HttpSession session, RedirectAttributes redirectAttributes){
       
       int result = service.myPageInfo(member);
+      namdoro result2 = service.nickname_no(member);
       
-      if(result == 0) {
+      if(result == 0 && ((CharSequence) result2).isEmpty()) {
+    	 redirectAttributes.addFlashAttribute("nicknameMessage", "닉네임이 중복됩니다");
          return "redirect:/myPageInfo";
       }else
          session.setAttribute("member", member);
