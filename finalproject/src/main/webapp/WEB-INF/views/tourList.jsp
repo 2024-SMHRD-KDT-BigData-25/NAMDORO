@@ -91,7 +91,7 @@
             font-family: 'Gmarket Sans', sans-serif;
 			font-weight: 500;
 			font-size: 15px;
-			line-height: 10px;
+			line-height: 20px;
 		
 			color: #121212; 
 
@@ -125,7 +125,7 @@
             border-top-right-radius: 7px;
             border-top-left-radius: 7px;
             word-wrap: break-word;
-            height:260px;
+            height:280px;
 
         }
 
