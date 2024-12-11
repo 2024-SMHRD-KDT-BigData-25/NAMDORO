@@ -39,7 +39,7 @@
 
       .namdoro {
         position: relative;
-        top: 80px;
+        top: 180px;
         text-align: center;
         font-size: 32px;
         font-weight: 500;
@@ -48,7 +48,7 @@
 
       #searchBar {
         position: relative;
-        top: 150px;
+        top: 250px;
         display: flex;
         justify-content: center;
         margin-bottom: 20px;
@@ -85,7 +85,7 @@
         padding: 20px;
         border: 1px solid #ddd;
         border-radius: 5px;
-        margin-top: 200px;
+        margin-top: 300px;
       }
 
       .board-header {
