@@ -81,9 +81,9 @@ pageEncoding="UTF-8"%>
       .square1 {
         position: absolute;
 	    border-radius: 20px;
-	    width: 1200px;
-	    height: 800px;
-	    top: 620px;
+	    width: 1000px;
+	    height: 600px;
+	    top: 500px;
 	    left: 50%;
 	    transform: translate(-50%, -50%);
 	    background: url("images/bg.png") no-repeat center / cover;
@@ -94,7 +94,7 @@ pageEncoding="UTF-8"%>
 	    flex-wrap: wrap;
 	    align-content: center;
 	    z-index: -1;
-	    padding: 0 15%;
+	    padding: 0 8%;
 	    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
       }
 
@@ -103,7 +103,7 @@ pageEncoding="UTF-8"%>
         border-radius: 20px;
         width: 900px;
         height: 150px;
-        top: 900px;
+        top: 850px;
         left: 50%;
         transform: translate(-50%, -50%);
         display: flex;
@@ -202,7 +202,7 @@ pageEncoding="UTF-8"%>
       .nebe {
         position: absolute;
         display: flex;
-        gap: 1140px;
+        gap: 950px;
         top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
@@ -441,8 +441,8 @@ pageEncoding="UTF-8"%>
 
       /* 글자 스타일 */
       .text-style {
-        height: 120px;
-	    width: 200px;
+        height: 80px;
+	    width: 150px;
 	    padding: 10px 20px;
 	    border: 2px solid #9eb4f9;
 	    border-radius: 10px;
@@ -451,10 +451,9 @@ pageEncoding="UTF-8"%>
 	    display: flex;
 	    justify-content: center;
 	    align-items: center;
-	    
 	    font-family: 'Gmarket Sans', sans-serif;
 	    font-weight: 500;
-	    font-size: 20px;
+	    font-size: 14px;
 	    line-height: 30px;
 	    text-align: center;
 	    color: #000000;
@@ -470,6 +469,12 @@ pageEncoding="UTF-8"%>
         color: white;
         border-color: #7a9bf1;
       }
+
+	  .photo-style {
+	  	position:relative;
+	  	top: 50px;
+	  }
+
 
       /* 사진 스타일 */
       .photo-style img {
@@ -511,8 +516,8 @@ pageEncoding="UTF-8"%>
             cursor: pointer;
             transition: all 0.3s ease-in-out;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: 180px;
-            height: 180px;
+            width: 150px;
+            height: 150px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -532,12 +537,15 @@ pageEncoding="UTF-8"%>
       
       /*나이선택 컨테이너*/
       .age-container {
-		 display: flex;
+      	position:relative;
+		display: flex;
 	    flex-wrap: wrap;
 	    justify-content: center;
 	    max-width: 600px;
 	    column-gap: 80px;
 	    row-gap: 60px;
+	    top: 30px;
+	    
 		}
       
       /*타이틀 박스 */
@@ -545,7 +553,7 @@ pageEncoding="UTF-8"%>
       	position:absolute;
       	width:800px;
       	height:200px;
-      	top: 300px;
+      	top: 280px;
 	    left: 50%;
 	    transform: translate(-50%, -50%);
 	    display: flex;
