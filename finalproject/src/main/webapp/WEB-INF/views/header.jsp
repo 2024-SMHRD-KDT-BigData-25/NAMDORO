@@ -111,14 +111,14 @@ ul li a {
 			%>
 			<li><a href="/boot/plan">여행코스 생성</a></li>
 			<li><a href="/boot/tours">관광지</a></li>
-			<li><a href="#">게시판</a></li>
+			<li><a href="/boot/board">게시판</a></li>
 			<li><a href="/boot/login">로그인</a></li>
 			<%
 			} else {
 			%>
 			<li><a href="#">여행코스 생성</a></li>
 			<li><a href="/boot/tours">관광지</a></li>
-			<li><a href="#">게시판</a></li>
+			<li><a href="/boot/board">게시판</a></li>
 			<li><a href="/boot/mypage">마이페이지</a></li>
 			<%
 			}
