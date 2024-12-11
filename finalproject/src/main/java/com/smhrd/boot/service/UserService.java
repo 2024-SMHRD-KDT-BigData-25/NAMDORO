@@ -2,6 +2,7 @@ package com.smhrd.boot.service;
 
 import java.util.List;
 
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -17,8 +18,12 @@ public class UserService {
 	
 	private final UserMapper mapper;
 	
-	public int signup(namdoro user) {
+	public int signup(namdoro user) throws DuplicateKeyException {
+		try {
 		return mapper.signup(user);
+	}catch (DuplicateKeyException e) {// DB에 id랑 닉네임중복 오류시 예외 처리
+		throw new DuplicateKeyException("아이디 또는 닉네임이 중복됩니다 다시 작성하세요");
+		}
 	}
 	
 	public namdoro login(namdoro member) {
@@ -37,12 +42,12 @@ public class UserService {
 	}
 	
 	//수정하기(업데이트)
-	public int myPageInfo(namdoro member) {
+	public int myPageInfo(namdoro member) throws DuplicateKeyException {
+		try {
 		return mapper.update(member);
-	}
-	//닉네임 중복 값 찾기
-	public namdoro nickname_no(namdoro member) {
-		return mapper.nickname_no(member);
+	} catch (DuplicateKeyException e) { 
+		throw new DuplicateKeyException("닉네임이 중복됩니다. 기존 닉네임으로 복원됩니다.");
+		}
 	}
 	
 	// 회원탈퇴(삭제)
