@@ -141,18 +141,32 @@ pageEncoding="UTF-8"%>
         position: absolute;
         width: 500px;
         height: 10px;
-        background: url(images/bottomStep.png) no-repeat center / cover;
+        background-color: #C2C2C2;
         display: flex;
         align-items: center;
         justify-content: space-evenly;
+        border-radius: 20px;
       }
 
       .stepCir {
         position: relative;
         width: 35px;
         height: 35px;
-        background: url("images/stepCir.png") no-repeat center/cover;
+        border-radius: 50%;
+        background-color: #C2C2C2;
       }
+      
+      .smallCir {
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        background-color: #ffffff; /* 원의 색상 */
+        border-radius: 50%; /* 원 모양으로 만들기 */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 5;
+       }
 
       .stepText {
         position: relative;
@@ -409,17 +423,26 @@ pageEncoding="UTF-8"%>
 
       /* 글자 스타일 */
       .text-style {
+        height: 60px;
+        width: 150px;
         padding: 10px 20px;
-        border: 2px solid #ccc;
-        border-radius: 4px;
-        background-color: #f9f9f9;
+        border: 2px solid #9eb4f9;
+        border-radius: 10px;
+        background-color: #ffffff;
         transition: all 0.3s ease;
+        
+        font-family: 'Gmarket Sans', sans-serif;
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 30px;
+		text-align: center;
+		color: #000000;
       }
 
       input[type="radio"]:checked + .text-style {
-        background-color: teal;
+        background-color: #7a9bf1;
         color: white;
-        border-color: teal;
+        border-color: #7a9bf1;
       }
 
       /* 사진 스타일 */
@@ -432,7 +455,7 @@ pageEncoding="UTF-8"%>
       }
 
       input[type="radio"]:checked + .photo-style img {
-        border-color: teal;
+        border-color: #7a9bf1;
       }
     </style>
   </head>
@@ -446,7 +469,6 @@ pageEncoding="UTF-8"%>
 
         <div class="square1">
           <div class="button-container">
-           
             <input
               type="radio"
               name="age"
@@ -490,18 +512,26 @@ pageEncoding="UTF-8"%>
 
           <div class="bottomStep">
             <div class="stepCir">
-              <div class="stepText">STEP1</div>
+                <div class="smallCir"></div>
+                <div class="stepText">STEP1</div>
             </div>
             <div class="stepCir">
-              <div class="stepText">STEP2</div>
+                <div class="smallCir"></div>
+                <div class="stepText">STEP2</div>
             </div>
             <div class="stepCir">
-              <div class="stepText">STEP3</div>
+                <div class="smallCir"></div>
+                <div class="stepText">STEP3</div>
             </div>
             <div class="stepCir">
-              <div class="stepText">STEP4</div>
+                <div class="smallCir"></div>
+                <div class="stepText">STEP4</div>
             </div>
-          </div>
+            <div class="stepCir">
+                <div class="smallCir"></div>
+                <div class="stepText">STEP5</div>
+            </div>
+        </div>
         </div>
 
         <div class="themaMain">연령대 선택</div>
@@ -546,18 +576,26 @@ pageEncoding="UTF-8"%>
 
           <div class="bottomStep">
             <div class="stepCir">
-              <div class="stepText">STEP1</div>
+                <div class="smallCir"></div>
+                <div class="stepText">STEP1</div>
             </div>
             <div class="stepCir">
-              <div class="stepText">STEP2</div>
+                <div class="smallCir"></div>
+                <div class="stepText">STEP2</div>
             </div>
             <div class="stepCir">
-              <div class="stepText">STEP3</div>
+                <div class="smallCir"></div>
+                <div class="stepText">STEP3</div>
             </div>
             <div class="stepCir">
-              <div class="stepText">STEP4</div>
+                <div class="smallCir"></div>
+                <div class="stepText">STEP4</div>
             </div>
-          </div>
+            <div class="stepCir">
+                <div class="smallCir"></div>
+                <div class="stepText">STEP5</div>
+            </div>
+        </div>
         </div>
 
         <div class="themaMain">여행 일정 선택</div>
@@ -598,18 +636,26 @@ pageEncoding="UTF-8"%>
 
           <div class="bottomStep">
             <div class="stepCir">
-              <div class="stepText">STEP1</div>
+                <div class="smallCir"></div>
+                <div class="stepText">STEP1</div>
             </div>
             <div class="stepCir">
-              <div class="stepText">STEP2</div>
+                <div class="smallCir"></div>
+                <div class="stepText">STEP2</div>
             </div>
             <div class="stepCir">
-              <div class="stepText">STEP3</div>
+                <div class="smallCir"></div>
+                <div class="stepText">STEP3</div>
             </div>
             <div class="stepCir">
-              <div class="stepText">STEP4</div>
+                <div class="smallCir"></div>
+                <div class="stepText">STEP4</div>
             </div>
-          </div>
+            <div class="stepCir">
+                <div class="smallCir"></div>
+                <div class="stepText">STEP5</div>
+            </div>
+        </div>
         </div>
 
         <div class="themaMain">성별 선택</div>
@@ -629,18 +675,26 @@ pageEncoding="UTF-8"%>
 
           <div class="bottomStep">
             <div class="stepCir">
-              <div class="stepText">STEP1</div>
+                <div class="smallCir"></div>
+                <div class="stepText">STEP1</div>
             </div>
             <div class="stepCir">
-              <div class="stepText">STEP2</div>
+                <div class="smallCir"></div>
+                <div class="stepText">STEP2</div>
             </div>
             <div class="stepCir">
-              <div class="stepText">STEP3</div>
+                <div class="smallCir"></div>
+                <div class="stepText">STEP3</div>
             </div>
             <div class="stepCir">
-              <div class="stepText">STEP4</div>
+                <div class="smallCir"></div>
+                <div class="stepText">STEP4</div>
             </div>
-          </div>
+            <div class="stepCir">
+                <div class="smallCir"></div>
+                <div class="stepText">STEP5</div>
+            </div>
+        </div>
         </div>
 
         <div class="themaMain">여행지 선택</div>
@@ -930,18 +984,26 @@ pageEncoding="UTF-8"%>
           </div>
           <div class="bottomStep">
             <div class="stepCir">
-              <div class="stepText">STEP1</div>
+                <div class="smallCir"></div>
+                <div class="stepText">STEP1</div>
             </div>
             <div class="stepCir">
-              <div class="stepText">STEP2</div>
+                <div class="smallCir"></div>
+                <div class="stepText">STEP2</div>
             </div>
             <div class="stepCir">
-              <div class="stepText">STEP3</div>
+                <div class="smallCir"></div>
+                <div class="stepText">STEP3</div>
             </div>
             <div class="stepCir">
-              <div class="stepText">STEP4</div>
+                <div class="smallCir"></div>
+                <div class="stepText">STEP4</div>
             </div>
-          </div>
+            <div class="stepCir">
+                <div class="smallCir"></div>
+                <div class="stepText">STEP5</div>
+            </div>
+        </div>
         </div>
 
         <div class="themaMain">여행 테마 선택</div>

@@ -180,6 +180,15 @@ html, body {
 
 
 </style>
+	
+	<script>
+        // Spring MVC에서 전달된 플래시 속성을 확인하고, 있으면 alert로 표시
+        <% if (request.getAttribute("findPwFailMessage") != null) { %>
+            alert('<%= request.getAttribute("findPwFailMessage") %>');
+        <% } %>
+    </script>
+	
+
 
 </head>
 
@@ -227,7 +236,7 @@ html, body {
    		}
    		
    		if(user_phone==="") {
-   			alert("연락처를 입력해주세요")
+   			alert("핸드폰를 입력해주세요")
    			return false;
    		}
    		
