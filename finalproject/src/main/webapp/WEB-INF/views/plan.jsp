@@ -58,34 +58,25 @@ pageEncoding="UTF-8"%>
 
       /* 여행테마선택 문구 공통 스타일 */
       .themaMain {
-        position: absolute;
-        width: 350px;
-        height: 35px;
-        top: 220px;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-family: "Gmarket Sans", sans-serif;
-        font-weight: 500;
-        font-size: 32px;
-        line-height: 30px;
-        text-align: center;
-        color: #000000;
+            position: relative;
+		    font-family: "Gmarket Sans", sans-serif;
+		    font-weight: 500;
+		    font-size: 32px;
+		    line-height: 30px;
+		    text-align: center;
+		    color: #000000;
       }
 
       /* 여행테마선택 서브문구 공통 스타일 */
       .themaSub {
-        position: absolute;
-        width: 700px;
-        height: 35px;
-        top: 270px;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-family: "Gmarket Sans", sans-serif;
-        font-weight: light;
-        font-size: 16px;
-        line-height: 30px;
-        text-align: center;
-        color: #000000;
+        position: relative;
+    	top: 25px;
+	    font-family: "Gmarket Sans", sans-serif;
+	    font-weight: light;
+	    font-size: 16px;
+	    line-height: 30px;
+	    text-align: center;
+	    color: #000000;
       }
 
       .square1 {
@@ -109,7 +100,7 @@ pageEncoding="UTF-8"%>
         border-radius: 20px;
         width: 900px;
         height: 150px;
-        top: 950px;
+        top: 900px;
         left: 50%;
         transform: translate(-50%, -50%);
         display: flex;
@@ -417,26 +408,30 @@ pageEncoding="UTF-8"%>
         margin: 5px;
       }
 
+
       /* 글자 스타일 */
       .text-style {
-        height: 60px;
-        width: 150px;
-        padding: 10px 20px;
-        border: 2px solid #9eb4f9;
-        border-radius: 10px;
-        background-color: #ffffff;
-        transition: all 0.3s ease;
-        
-        display: flex;
-    justify-content: center;
-    align-items: center;
-        
-        font-family: 'Gmarket Sans', sans-serif;
-		font-weight: 500;
-		font-size: 16px;
-		line-height: 30px;
-		text-align: center;
-		color: #000000;
+        height: 80px;
+	    width: 150px;
+	    padding: 10px 20px;
+	    border: 2px solid #9eb4f9;
+	    border-radius: 10px;
+	    background-color: #ffffff;
+	    transition: all 0.3s ease;
+	    display: flex;
+	    justify-content: center;
+	    align-items: center;
+	    font-family: 'Gmarket Sans', sans-serif;
+	    font-weight: 500;
+	    font-size: 16px;
+	    line-height: 30px;
+	    text-align: center;
+	    color: #000000;
+      }
+      
+      .text-style:hover {
+        background-color: rgb(200, 221, 245);
+        transform: scale(1.1);
       }
 
       input[type="radio"]:checked + .text-style {
@@ -503,10 +498,31 @@ pageEncoding="UTF-8"%>
             transform: scale(1.05);
             }
       
+      /*나이선택 컨테이너*/
+      .age-container {
+		 display: flex;
+	    flex-wrap: wrap;
+	    justify-content: center;
+	    max-width: 600px;
+	    column-gap: 61px;
+	    row-gap: 30px;
+		}
+      
+      /*타이틀 박스 */
+      .titleBox {
+      	position:absolute;
+      	width:800px;
+      	height:200px;
+      	top: 300px;
+	    left: 50%;
+	    transform: translate(-50%, -50%);
+      }
+      
     </style>
   </head>
   <body>
     <jsp:include page="header.jsp"></jsp:include>
+    <jsp:include page="footer.jsp"></jsp:include>
 
     <form action="plan/call_python_api" method="post">
     <div class="div-container">
@@ -514,7 +530,7 @@ pageEncoding="UTF-8"%>
         <div class="bg1"></div>
 
         <div class="square1">
-          <div class="button-container">
+          <div class="age-container">
             <input
               type="radio"
               name="age"
@@ -579,10 +595,11 @@ pageEncoding="UTF-8"%>
             </div>
         </div>
         </div>
-
-        <div class="themaMain">연령대 선택</div>
-        <div class="themaSub">
-          남도로 떠나는 첫 걸음, 당신만의 여행 스타일을 선택해 보세요
+		<div class="titleBox">
+        	<div class="themaMain">연령대 선택</div>
+        	<div class="themaSub">
+          	남도로 떠나는 첫 걸음, 당신만의 여행 스타일을 선택해 보세요
+        	</div>
         </div>
       </div>
 
@@ -640,9 +657,11 @@ pageEncoding="UTF-8"%>
         </div>
         </div>
 
-        <div class="themaMain">여행 일정 선택</div>
-        <div class="themaSub">
-          남도로 떠나는 첫 걸음, 당신만의 여행 스타일을 선택해 보세요
+        <div class="titleBox">
+        	<div class="themaMain">여행일정 선택</div>
+        	<div class="themaSub">
+          	남도로 떠나는 첫 걸음, 당신만의 여행 스타일을 선택해 보세요
+        	</div>
         </div>
       </div>
 
@@ -704,9 +723,11 @@ pageEncoding="UTF-8"%>
         </div>
         </div>
 
-        <div class="themaMain">성별 선택</div>
-        <div class="themaSub">
-          남도로 떠나는 첫 걸음, 당신만의 여행 스타일을 선택해 보세요
+        <div class="titleBox">
+        	<div class="themaMain">성별 선택</div>
+        	<div class="themaSub">
+          	남도로 떠나는 첫 걸음, 당신만의 여행 스타일을 선택해 보세요
+        	</div>
         </div>
       </div>
 
@@ -743,9 +764,11 @@ pageEncoding="UTF-8"%>
         </div>
         </div>
 
-        <div class="themaMain">여행지 선택</div>
-        <div class="themaSub">
-          남도로 떠나는 첫 걸음, 당신만의 여행 스타일을 선택해 보세요
+        <div class="titleBox">
+        	<div class="themaMain">여행지 선택</div>
+        	<div class="themaSub">
+          	남도로 떠나는 첫 걸음, 당신만의 여행 스타일을 선택해 보세요
+        	</div>
         </div>
 
         <div class="square1">
@@ -1052,9 +1075,11 @@ pageEncoding="UTF-8"%>
         </div>
         </div>
 
-        <div class="themaMain">여행 테마 선택</div>
-        <div class="themaSub">
-          남도로 떠나는 첫 걸음, 당신만의 여행 스타일을 선택해 보세요
+        <div class="titleBox">
+        	<div class="themaMain">여행테마 선택</div>
+        	<div class="themaSub">
+          	남도로 떠나는 첫 걸음, 당신만의 여행 스타일을 선택해 보세요
+        	</div>
         </div>
       </div>
     </div>

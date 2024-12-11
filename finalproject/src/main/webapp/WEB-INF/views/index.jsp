@@ -150,19 +150,17 @@
 
         .subTitle {
             position: absolute;
-			width: 400px;
-			height: 35px;
-			top: 360px;
-			left : 300px;
-			transform: translate(-50%, -50%);
-
-			font-family: 'Gmarket Sans', sans-serif;
-			font-weight: medium;
-			font-size: 16px;
-			line-height: 35px;
-			text-align: left;
-		
-			color: #000000;
+		    width: 400px;
+		    height: 35px;
+		    top: 360px;
+		    left: 300px;
+		    transform: translate(-50%, -50%);
+		    font-family: 'Gmarket Sans', sans-serif;
+		    font-weight: 400;
+		    font-size: 15px;
+		    line-height: 35px;
+		    text-align: left;
+		    color: #000000;
         }
 
 

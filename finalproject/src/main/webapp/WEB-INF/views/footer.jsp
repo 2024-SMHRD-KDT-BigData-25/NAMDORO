@@ -20,7 +20,7 @@
             bottom: -60px; /* 처음에는 화면 밖으로 숨깁니다. */
             left: 0;
             right: 0;
-            background-color: #f1f1f1;
+            background-color: #ceddffcc;
             text-align: center;
             padding: 10px;
             transition: bottom 0.3s ease-in-out; /* 부드러운 애니메이션 추가 */
