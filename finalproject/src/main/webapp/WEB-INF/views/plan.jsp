@@ -335,10 +335,6 @@ pageEncoding="UTF-8"%>
         z-index: 1;
       }
 
-      .male,
-      .female {
-        cursor: pointer;
-      }
 
       .margin {
         margin-bottom: 195px;
@@ -431,6 +427,10 @@ pageEncoding="UTF-8"%>
         background-color: #ffffff;
         transition: all 0.3s ease;
         
+        display: flex;
+    justify-content: center;
+    align-items: center;
+        
         font-family: 'Gmarket Sans', sans-serif;
 		font-weight: 500;
 		font-size: 16px;
@@ -449,14 +449,60 @@ pageEncoding="UTF-8"%>
       .photo-style img {
         width: 150px;
         height: 150px;
-        border: 2px solid transparent;
-        border-radius: 8px;
+        border: 4px solid transparent;
+        border-radius: 50%;
         transition: border-color 0.3s ease;
       }
 
       input[type="radio"]:checked + .photo-style img {
-        border-color: #7a9bf1;
+      	background-color: #3745f9;
       }
+      
+      /* 성별선택 관련 css */
+      .img-gender img{
+      	width: 200px;
+	    height: 220px;
+	    border: 2px solid transparent;
+	    border-radius: 20px;
+	    transition: border-color 0.3s ease;
+	    padding: 15px;
+      }
+      
+      input[type="radio"]:checked + .img-gender img {
+        background: linear-gradient(to right, #09d2e757, #c899f28c);
+      }
+      
+      /* 기간선택 관련 css */
+      
+      /* 라벨 스타일 */
+        .date-label {
+            padding: 12px 20px;
+            border-radius: 50%;
+            background: linear-gradient(to right, #16c7fa, #b697f0);
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 150px;
+            height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            }
+
+        .date-label:hover {
+            background: linear-gradient(to right, #e5ea58, #f8788b);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        input[type="radio"]:checked + .date-label {
+            background: linear-gradient(to right, #e5ea58, #f8788b);
+            box-shadow: 0 8px 10px rgba(0, 0, 0, 0.3);
+            transform: scale(1.05);
+            }
+      
     </style>
   </head>
   <body>
@@ -476,7 +522,7 @@ pageEncoding="UTF-8"%>
               value="20"
               class="text-style"
             />
-            <label for="20대" class="text-style">20</label>
+            <label for="20대" class="text-style">20대</label>
             <input
               type="radio"
               name="age"
@@ -484,7 +530,7 @@ pageEncoding="UTF-8"%>
               value="30"
               class="text-style"
             />
-            <label for="30대" class="text-style">30</label>
+            <label for="30대" class="text-style">30대</label>
             <input
               type="radio"
               name="age"
@@ -492,7 +538,7 @@ pageEncoding="UTF-8"%>
               value="40"
               class="text-style"
             />
-            <label for="40대" class="text-style">40</label>
+            <label for="40대" class="text-style">40대</label>
             <input
               type="radio"
               name="age"
@@ -500,7 +546,7 @@ pageEncoding="UTF-8"%>
               value="50"
               class="text-style"
             />
-            <label for="50대" class="text-style">50</label>
+            <label for="50대" class="text-style">50대</label>
           </div>
         </div>
 
@@ -546,23 +592,19 @@ pageEncoding="UTF-8"%>
         <div class="square1">
           <div class="button-container">
            
-            <input
-              type="radio"
-              name="day"
-              id="1day"
-              value="3"
-              class="text-style"
-            />
-            <label for="1day" class="text-style">당일치기</label>
-            
-            <input
-              type="radio"
-              name="day"
-              id="2day"
-              value="6"
-              class="text-style"
-            />
-            <label for="2day" class="text-style">1박2일</label>
+            <input 
+            type="radio" 
+            name="day" 
+            id="1day" 
+            value="3"/>
+            <label for="1day" class="date-label">당일치기</label>
+
+            <input 
+            type="radio" 
+            name="day" 
+            id="2days" 
+            value="2"/>
+            <label for="2days" class="date-label">1박 2일</label>
 
      
           </div>
@@ -614,17 +656,21 @@ pageEncoding="UTF-8"%>
               name="gender"
               id="남자"
               value="남"
-              class="text-style"
+              class="img-gender"
             />
-            <label for="남자" class="text-style">남자</label>
+            <label for="남자" class="img-gender">
+            	<img alt="남자" src="images/male.png">
+            </label>
             <input
               type="radio"
               name="gender"
               id="여자"
               value="여"
-              class="text-style"
+              class="img-gender"
             />
-            <label for="여자" class="text-style">여자</label>
+            <label for="여자" class="img-gender">
+            	<img alt="여자" src="images/female.png">
+            </label>
           </div>
         </div>
 
