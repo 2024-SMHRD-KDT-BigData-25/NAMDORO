@@ -57,13 +57,10 @@
 /* 로고 */
 #headerLogo {
 	position: absolute;
-	width: 100px;
-	height: 35px;
-	top: 35px;
-	left: 60px;
-	color: black;
-	border: none;
-	text-decoration-line: none;
+    width: 130px;
+    height: 130px;
+    left: 35px;
+    background: url(images/logo.png) no-repeat center / cover
 }
 
 #search {
@@ -96,7 +93,7 @@ ul li a {
 		style="display: flex; align-items: center; justify-content: center; gap: 10%;">
 		<div class="logo-area"
 			style="display: flex; align-items: center; justify-content: center; gap: 10px;">
-			<a id="headerLogo" href="/boot">남도로</a>
+			<a id="headerLogo" href="/boot"></a>
 			<div id="search">
 				<input type="text"
 					style="width: 400px; height: 40px; padding: 0 10%; background: url('images/search.png') no-repeat calc(100% - 10px) center; background-size: 20px 20px; background-color: white;"

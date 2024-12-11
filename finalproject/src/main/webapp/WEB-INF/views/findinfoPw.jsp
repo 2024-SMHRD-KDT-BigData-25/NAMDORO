@@ -188,7 +188,7 @@ html, body {
 	<div class="square1"></div>
    	 <form action="login">
 		<div class="square2">
-			<div class="findinfoTitle">패스워드</div>
+			<div class="findinfoTitle">찾은 패스워드</div>
 			<div class="information">
 					<%for(namdoro p: pw){ %>
 				<div>

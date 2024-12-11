@@ -29,7 +29,8 @@ public interface UserMapper {
    @Select("select * from USER_INFO where USER_ID=#{user_id} and USER_NAME=#{user_name} and USER_PHONE=#{user_phone}")
    public List<namdoro> findPw(namdoro member);
    
-   @Update("UPDATE USER_INFO SET USER_PW=#{user_pw}, USER_PHONE=#{user_phone} where USER_id=#{user_id}")
+   //회원정보수정
+   @Update("UPDATE USER_INFO SET USER_PW=#{user_pw}, USER_NICKNAME=#{user_nickname}, USER_PHONE=#{user_phone} where USER_id=#{user_id}")
    public int update(namdoro member);
 
    @Delete("delete from USER_INFO where USER_ID=#{id}")

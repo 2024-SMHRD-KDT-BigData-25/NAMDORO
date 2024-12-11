@@ -454,20 +454,22 @@ html, body {
             console.error(`No positions found for day ${day}`);
             return;
           }
+          
+          console.log(positionsForDay);
 
           // LatLngBounds 객체를 생성합니다.
           const bounds = new kakao.maps.LatLngBounds();
 
           // 해당 날짜의 위치를 bounds에 추가합니다.
           positionsForDay.forEach(position => {
+        	  console.log(position);
             bounds.extend(position.latlng);
           });
 
           // 지도의 범위를 해당 날짜의 위치로 설정합니다.
           map.setBounds(bounds);
 
-          // 지도를 적절히 확대 (필요하면 level 값 조정)
-          map.setLevel(5, { animate: true });
+          
         }
         
       </script>

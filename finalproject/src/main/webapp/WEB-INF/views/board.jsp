@@ -1,3 +1,5 @@
+<%@page import="com.smhrd.boot.model.board"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -39,7 +41,7 @@
 
       .namdoro {
         position: relative;
-        top: 80px;
+        top: 180px;
         text-align: center;
         font-size: 32px;
         font-weight: 500;
@@ -48,7 +50,7 @@
 
       #searchBar {
         position: relative;
-        top: 150px;
+        top: 250px;
         display: flex;
         justify-content: center;
         margin-bottom: 20px;
@@ -85,7 +87,7 @@
         padding: 20px;
         border: 1px solid #ddd;
         border-radius: 5px;
-        margin-top: 200px;
+        margin-top: 300px;
       }
 
       .board-header {
@@ -134,12 +136,31 @@
       .margin {
         margin-bottom: 100%;
       }
+
+      /* 글 작성 버튼 스타일 */
+      #writeButton {
+        height: 40px;
+        padding: 0 15px;
+        background-color: #000;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 20px;
+        display: block;
+        width: 100%;
+        text-align: center;
+      }
+
+      #writeButton:hover {
+        background-color: #333;
+      }
     </style>
   </head>
   <body>
-  
+  <% List<board> boardList = (List<board>)request.getAttribute("boardList"); %>
   <jsp:include page="header.jsp"></jsp:include>
-<jsp:include page="footer.jsp"></jsp:include>
+  <jsp:include page="footer.jsp"></jsp:include>
     <div class="namdoro">남도로 (게시판)</div>
 
     <div id="searchBar">
@@ -151,13 +172,20 @@
       <div class="board-header">게시판</div>
       <div id="boardItems">
         <!-- 게시글 항목은 HTML에서 직접 작성 -->
+                <% for (board b : boardList) {%>
         <div class="board-item">
+
+    
           <a href="#" style="text-decoration: none; color: inherit">
-            <div>게시글 1</div>
+            <div><%=b.getTB_TITLE() %></div>
           </a>
-          <div class="meta">작성자: 작성자 1 | 작성일: 2024-12-01</div>
+          <div class="meta">작성자: <%=b.getUSER_NICKNAME() %> | 작성일: <%=b.getCREATED_AT() %></div>
         </div>
+         <%} %>
       </div>
+
+      <!-- 글 작성 버튼 추가 -->
+      <button id="writeButton" onclick="location.href='/boot/board/boardwrite'">글 작성</button>
     </div>
 
     <div class="pagination">

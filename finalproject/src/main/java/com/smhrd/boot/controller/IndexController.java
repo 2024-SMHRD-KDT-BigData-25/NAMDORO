@@ -64,10 +64,6 @@ public class IndexController {
 		return "plan";
 	}
 	
-	@GetMapping("/board")
-	public String board() {
-		return "board";
-	}
 	
 	@GetMapping("/mypage/{CP_NO}")
 	public String detailForm(@PathVariable int CP_NO, Model model) {

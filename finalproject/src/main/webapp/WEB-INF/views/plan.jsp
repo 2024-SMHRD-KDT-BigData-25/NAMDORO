@@ -51,58 +51,52 @@ pageEncoding="UTF-8"%>
       .bg5 {
         position: absolute;
         width: 100%;
-        height: 1000px;
+        height: 1100px;
         top: 100px;
         background: url("images/bg.png") no-repeat center/cover;
         z-index: -1;
+        filter: blur(8px); /* 이미지 흐림 효과 */
       }
 
       /* 여행테마선택 문구 공통 스타일 */
       .themaMain {
-        position: absolute;
-        width: 350px;
-        height: 35px;
-        top: 220px;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-family: "Gmarket Sans", sans-serif;
-        font-weight: 500;
-        font-size: 32px;
-        line-height: 30px;
-        text-align: center;
-        color: #000000;
+            position: relative;
+		    font-family: "Gmarket Sans", sans-serif;
+		    font-weight: 500;
+		    font-size: 32px;
+		    text-align: center;
+		    color: #000000;
       }
 
       /* 여행테마선택 서브문구 공통 스타일 */
       .themaSub {
-        position: absolute;
-        width: 700px;
-        height: 35px;
-        top: 270px;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-family: "Gmarket Sans", sans-serif;
-        font-weight: light;
-        font-size: 16px;
-        line-height: 30px;
-        text-align: center;
-        color: #000000;
+        position: relative;
+    	top: 25px;
+	    font-family: "Gmarket Sans", sans-serif;
+	    font-weight: 400;
+	    font-size: 16px;
+	    text-align: center;
+	    color: #000000;
       }
 
       .square1 {
         position: absolute;
-        border-radius: 20px;
-        width: 750px;
-        height: 450px;
-        top: 570px;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: rgb(239, 252, 255, 0.5);
-        display: flex;
-        flex-wrap: wrap;
-        column-gap: 70px;
-        justify-content: center;
-        align-items: center;
+	    border-radius: 20px;
+	    width: 1000px;
+	    height: 600px;
+	    top: 500px;
+	    left: 50%;
+	    transform: translate(-50%, -50%);
+	    background: url("images/bg.png") no-repeat center / cover;
+	    display: flex;
+	    column-gap: 60px;
+	    row-gap: 60px;
+	    justify-content: center;
+	    flex-wrap: wrap;
+	    align-content: center;
+	    z-index: -1;
+	    padding: 0 8%;
+	    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
       }
 
       .square2 {
@@ -110,7 +104,7 @@ pageEncoding="UTF-8"%>
         border-radius: 20px;
         width: 900px;
         height: 150px;
-        top: 950px;
+        top: 850px;
         left: 50%;
         transform: translate(-50%, -50%);
         display: flex;
@@ -119,24 +113,43 @@ pageEncoding="UTF-8"%>
       }
 
       .before {
-        position: relative;
-        width: 110px;
-        height: 50px;
-        background: url("images/before.png") no-repeat center/cover;
-        border: none;
-        background-color: transparent;
-        cursor: pointer;
-      }
+            position: relative;
+		    width: 40px;
+		    height: 70px;
+		    border: none;
+		    background: #f5f5f5 url(images/before.png) no-repeat center / cover;
+		    background-size: 50%;
+		    border-radius: 20%;
+		    cursor: pointer;
+		    transition: all 0.3s ease;
+		    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
 
-      .next, .next2 {
-        position: relative;
-        width: 110px;
-        height: 50px;
-        background: url("images/next.png") no-repeat center/cover;
-        border: none;
-        background-color: transparent;
-        cursor: pointer;
-      }
+        .before:hover {
+            background-color: #a9f3fd;
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Next 버튼 스타일 */
+        .next, .next2 {
+            position: relative;
+		    width: 40px;
+		    height: 70px;
+		    border: none;
+		    background: #f5f5f5 url(images/next.png) no-repeat center / cover;
+		    background-size: 50%;
+		    border-radius: 20%;
+		    cursor: pointer;
+		    transition: all 0.3s ease;
+		    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .next:hover, .next2:hover {
+            background-color: #a9f3fd;
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
 
       .bottomStep {
         position: absolute;
@@ -155,6 +168,10 @@ pageEncoding="UTF-8"%>
         height: 35px;
         border-radius: 50%;
         background-color: #C2C2C2;
+      }
+      
+      .stepCir.active {
+            background-color: red; /* 활성화된 상태의 색상 */
       }
       
       .smallCir {
@@ -184,9 +201,13 @@ pageEncoding="UTF-8"%>
       }
 
       .nebe {
-        position: relative;
+        position: absolute;
         display: flex;
-        gap: 570px;
+        gap: 950px;
+        top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+      	z-index: -1;
       }
 
       .age {
@@ -418,26 +439,30 @@ pageEncoding="UTF-8"%>
         margin: 5px;
       }
 
+
       /* 글자 스타일 */
       .text-style {
-        height: 60px;
-        width: 150px;
-        padding: 10px 20px;
-        border: 2px solid #9eb4f9;
-        border-radius: 10px;
-        background-color: #ffffff;
-        transition: all 0.3s ease;
-        
-        display: flex;
-    justify-content: center;
-    align-items: center;
-        
-        font-family: 'Gmarket Sans', sans-serif;
-		font-weight: 500;
-		font-size: 16px;
-		line-height: 30px;
-		text-align: center;
-		color: #000000;
+        height: 80px;
+	    width: 150px;
+	    padding: 10px 20px;
+	    border: 2px solid #9eb4f9;
+	    border-radius: 10px;
+	    background-color: #ffffff;
+	    transition: all 0.3s ease;
+	    display: flex;
+	    justify-content: center;
+	    align-items: center;
+	    font-family: 'Gmarket Sans', sans-serif;
+	    font-weight: 500;
+	    font-size: 14px;
+	    line-height: 30px;
+	    text-align: center;
+	    color: #000000;
+      }
+      
+      .text-style:hover {
+        background-color: rgb(200, 221, 245);
+        transform: scale(1.1);
       }
 
       input[type="radio"]:checked + .text-style {
@@ -445,6 +470,12 @@ pageEncoding="UTF-8"%>
         color: white;
         border-color: #7a9bf1;
       }
+
+	  .photo-style {
+	  	position:relative;
+	  	top: 50px;
+	  }
+
 
       /* 사진 스타일 */
       .photo-style img {
@@ -478,7 +509,7 @@ pageEncoding="UTF-8"%>
       /* 라벨 스타일 */
         .date-label {
             padding: 12px 20px;
-            border-radius: 50%;
+            border-radius: 30%;
             background: linear-gradient(to right, #16c7fa, #b697f0);
             color: white;
             font-size: 20px;
@@ -496,6 +527,7 @@ pageEncoding="UTF-8"%>
         .date-label:hover {
             background: linear-gradient(to right, #e5ea58, #f8788b);
             box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+            transform: scale(1.1);
         }
 
         input[type="radio"]:checked + .date-label {
@@ -503,6 +535,32 @@ pageEncoding="UTF-8"%>
             box-shadow: 0 8px 10px rgba(0, 0, 0, 0.3);
             transform: scale(1.05);
             }
+      
+      /*나이선택 컨테이너*/
+      .age-container {
+      	position:relative;
+		display: flex;
+	    flex-wrap: wrap;
+	    justify-content: center;
+	    max-width: 600px;
+	    column-gap: 80px;
+	    row-gap: 60px;
+	    top: 30px;
+	    
+		}
+      
+      /*타이틀 박스 */
+      .titleBox {
+      	position:absolute;
+      	width:800px;
+      	height:200px;
+      	top: 280px;
+	    left: 50%;
+	    transform: translate(-50%, -50%);
+	    display: flex;
+	    flex-direction: column;
+	    justify-content: center;
+      }
       
     </style>
   </head>
@@ -512,6 +570,7 @@ pageEncoding="UTF-8"%>
 	%>
   
     <jsp:include page="header.jsp"></jsp:include>
+    <jsp:include page="footer.jsp"></jsp:include>
 
     <form action="plan/call_python_api" method="post">
     <div class="div-container">
@@ -519,7 +578,13 @@ pageEncoding="UTF-8"%>
         <div class="bg1"></div>
 
         <div class="square1">
-          <div class="button-container">
+        
+        <div class="nebe">
+            <button class="before"></button>
+            <button type="button" class="next"></button>
+          </div>
+          
+          <div class="age-container">
             <input
               type="radio"
               name="age"
@@ -556,13 +621,9 @@ pageEncoding="UTF-8"%>
         </div>
 
         <div class="square2">
-          <div class="nebe">
-            <button class="before"></button>
-            <button type="button" class="next"></button>
-          </div>
 
           <div class="bottomStep">
-            <div class="stepCir">
+            <div class="stepCir" style="background-color: red;">
                 <div class="smallCir"></div>
                 <div class="stepText">STEP1</div>
             </div>
@@ -584,10 +645,11 @@ pageEncoding="UTF-8"%>
             </div>
         </div>
         </div>
-
-        <div class="themaMain">연령대 선택</div>
-        <div class="themaSub">
-          남도로 떠나는 첫 걸음, 당신만의 여행 스타일을 선택해 보세요
+		<div class="titleBox">
+        	<div class="themaMain">연령대 선택</div>
+        	<div class="themaSub">
+          	남도로 떠나는 첫 걸음, 당신만의 여행 스타일을 선택해 보세요
+        	</div>
         </div>
       </div>
 
@@ -595,6 +657,12 @@ pageEncoding="UTF-8"%>
         <div class="bg2"></div>
 
         <div class="square1">
+        
+        <div class="nebe">
+            <button type="button" class="before"></button>
+            <button type="button" class="next"></button>
+          </div>
+        
           <div class="button-container">
            
             <input 
@@ -616,17 +684,14 @@ pageEncoding="UTF-8"%>
         </div>
 
         <div class="square2">
-          <div class="nebe">
-            <button type="button" class="before"></button>
-            <button type="button" class="next"></button>
-          </div>
+          
 
           <div class="bottomStep">
             <div class="stepCir">
                 <div class="smallCir"></div>
                 <div class="stepText">STEP1</div>
             </div>
-            <div class="stepCir">
+            <div class="stepCir" style="background-color: red;">
                 <div class="smallCir"></div>
                 <div class="stepText">STEP2</div>
             </div>
@@ -645,9 +710,11 @@ pageEncoding="UTF-8"%>
         </div>
         </div>
 
-        <div class="themaMain">여행 일정 선택</div>
-        <div class="themaSub">
-          남도로 떠나는 첫 걸음, 당신만의 여행 스타일을 선택해 보세요
+        <div class="titleBox">
+        	<div class="themaMain">여행일정 선택</div>
+        	<div class="themaSub">
+          	남도로 떠나는 첫 걸음, 당신만의 여행 스타일을 선택해 보세요
+        	</div>
         </div>
       </div>
 
@@ -655,6 +722,12 @@ pageEncoding="UTF-8"%>
         <div class="bg3"></div>
 
         <div class="square1">
+        
+          <div class="nebe">
+            <button type="button" class="before"></button>
+            <button type="button" class="next"></button>
+          </div>
+        
           <div class="gender">
           <input
               type="radio"
@@ -680,10 +753,7 @@ pageEncoding="UTF-8"%>
         </div>
 
         <div class="square2">
-          <div class="nebe">
-            <button type="button" class="before"></button>
-            <button type="button" class="next"></button>
-          </div>
+          
 
           <div class="bottomStep">
             <div class="stepCir">
@@ -694,7 +764,7 @@ pageEncoding="UTF-8"%>
                 <div class="smallCir"></div>
                 <div class="stepText">STEP2</div>
             </div>
-            <div class="stepCir">
+            <div class="stepCir" style="background-color: red;">
                 <div class="smallCir"></div>
                 <div class="stepText">STEP3</div>
             </div>
@@ -709,9 +779,11 @@ pageEncoding="UTF-8"%>
         </div>
         </div>
 
-        <div class="themaMain">성별 선택</div>
-        <div class="themaSub">
-          남도로 떠나는 첫 걸음, 당신만의 여행 스타일을 선택해 보세요
+        <div class="titleBox">
+        	<div class="themaMain">성별 선택</div>
+        	<div class="themaSub">
+          	남도로 떠나는 첫 걸음, 당신만의 여행 스타일을 선택해 보세요
+        	</div>
         </div>
       </div>
 
@@ -719,10 +791,7 @@ pageEncoding="UTF-8"%>
         <div class="bg4"></div>
 
         <div class="square2">
-          <div class="nebe">
-            <button type="button" class="before"></button>
-            <button type="button" class="next"></button>
-          </div>
+          
 
           <div class="bottomStep">
             <div class="stepCir">
@@ -737,7 +806,7 @@ pageEncoding="UTF-8"%>
                 <div class="smallCir"></div>
                 <div class="stepText">STEP3</div>
             </div>
-            <div class="stepCir">
+            <div class="stepCir" style="background-color: red;">
                 <div class="smallCir"></div>
                 <div class="stepText">STEP4</div>
             </div>
@@ -748,12 +817,19 @@ pageEncoding="UTF-8"%>
         </div>
         </div>
 
-        <div class="themaMain">여행지 선택</div>
-        <div class="themaSub">
-          남도로 떠나는 첫 걸음, 당신만의 여행 스타일을 선택해 보세요
+        <div class="titleBox">
+        	<div class="themaMain">여행지 선택</div>
+        	<div class="themaSub">
+          	남도로 떠나는 첫 걸음, 당신만의 여행 스타일을 선택해 보세요
+        	</div>
         </div>
 
         <div class="square1">
+
+	      <div class="nebe">
+            <button type="button" class="before"></button>
+            <button type="button" class="next"></button>
+          </div>
 
             <input
               type="radio"
@@ -961,6 +1037,12 @@ pageEncoding="UTF-8"%>
         <div class="bg5"></div>
 
         <div class="square1">
+        
+          <div class="nebe">
+            <button type="button" class="before"></button>
+            <button type="submit" class="next2"></button>
+          </div>
+        
           <input
             type="radio"
             id="photo1"
@@ -1034,6 +1116,7 @@ pageEncoding="UTF-8"%>
             <button type="button" class="before"></button>
             <button type="submit" class="next2"></button>
           </div>
+
           <div class="bottomStep">
             <div class="stepCir">
                 <div class="smallCir"></div>
@@ -1051,16 +1134,18 @@ pageEncoding="UTF-8"%>
                 <div class="smallCir"></div>
                 <div class="stepText">STEP4</div>
             </div>
-            <div class="stepCir">
+            <div class="stepCir" style="background-color: red;">
                 <div class="smallCir"></div>
                 <div class="stepText">STEP5</div>
             </div>
         </div>
         </div>
 
-        <div class="themaMain">여행 테마 선택</div>
-        <div class="themaSub">
-          남도로 떠나는 첫 걸음, 당신만의 여행 스타일을 선택해 보세요
+        <div class="titleBox">
+        	<div class="themaMain">여행테마 선택</div>
+        	<div class="themaSub">
+          	남도로 떠나는 첫 걸음, 당신만의 여행 스타일을 선택해 보세요
+        	</div>
         </div>
       </div>
     </div>
