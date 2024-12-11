@@ -359,8 +359,8 @@ html, body {
         }
 
         function toggleDay(day) {
-          const dayContent = document.getElementById(`day${day}`);
-          const toggleText = document.getElementById(`toggleText${day}`);
+          const dayContent = document.getElementById('day'+day);
+          const toggleText = document.getElementById('toggleText'+day);
 
           if (dayContent.style.display === 'none') {
             dayContent.style.display = 'block';
