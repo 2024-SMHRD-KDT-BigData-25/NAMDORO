@@ -5,6 +5,7 @@ import pymysql
 import pandas as pd
 import itertools
 import math
+import json
 
 # Flask 앱 초기화
 app = Flask(__name__)
@@ -34,17 +35,20 @@ def home():
     age = request.args.get('age')  # age 파라미터
     theme = request.args.get('theme')  # theme 파라미터
     region = request.args.get('region')  # region 파라미터
+    day = request.args.get('day')  # region 파라미터
 
     # URL 인코딩된 값들을 디코딩
     gender = urllib.parse.unquote(gender)
     age = urllib.parse.unquote(age)
     theme = urllib.parse.unquote(theme)
     region = urllib.parse.unquote(region)
+    day = int(urllib.parse.unquote(day))  # day를 바로 int로 변환
 
     print("gender:", gender)
     print("age:", age)
     print("theme:", theme)
     print("region:", region)
+    print("day:", day)
 
     # 모델 불러오기
     model = joblib.load("model/namdoro.pkl")
@@ -159,14 +163,29 @@ def home():
     # ordered_res에서 필요한 컬럼만 선택하여 새로운 DataFrame 생성
     selected_res = ordered_res[['TL_IMG', 'TL_NAME', 'TL_THEME', 'TL_ADD']]
     
+    # TL_IMG 컬럼의 값을 쉼표로 분리하여 첫 번째 값만 선택
+    selected_res['TL_IMG'] = selected_res['TL_IMG'].str.split(',').str[0]
+            
+    print(type(selected_res))
+    print(selected_res["TL_IMG"])
+    
     # ordered_res에서 TL_NAME, TL_LATITUDE, TL_LONGITUDE만 선택하여 새로운 DataFrame 생성
     location_res = ordered_res[['TL_NAME', 'TL_LATITUDE', 'TL_LONGITUDE']]
 
     # 'Distance' 컬럼 반올림 (소수점 두 번째 자리까지)
     route_df['Distance'] = route_df['Distance'].round(2)
 
+    print("여기까지 완료")
+
+
     # 처리 후 결과 반환
-    return render_template('result6.html', selected_res=selected_res, location_res=location_res)
+    # render_template('result6.html', selected_res=selected_res, location_res=location_res, region=region)
+    response = {"selected_res":str(selected_res.to_dict(orient='dict')), "location_res":str(location_res.to_dict(orient='dict')) , "region":region }
+    # response = {"selected_res":"111"}
+    print(type(response))
+    return str(response)
+    #return response.json()
+    #return json.dumps(response, default=json_default)
 
 # Flask 서버 실행
 if __name__ == '__main__':

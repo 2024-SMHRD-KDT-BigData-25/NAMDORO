@@ -11,10 +11,6 @@ public class IndexController {
 		return "index";
 	}
 	
-	@GetMapping("/select")
-	public String loginPage() {
-		return "regionSelect";
-	}
 	
 	@GetMapping("/join")
 	public String joinPage() {

@@ -193,7 +193,7 @@ public class UserController {
   	    session.setAttribute("mapData", map);
   	    // 응답 내용 반환
   	   // return response.getBody();
-  	    return "result6";
+  	    return "result";
 //  		return "redirect:/";
   	}
    
