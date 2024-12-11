@@ -46,16 +46,23 @@ public class UserController {
    
    
    @PostMapping("/users")
-   public String signup(namdoro user) {
-      int res = service.signup(user);
-      
+   public String signup(namdoro user, HttpSession session, RedirectAttributes redirectAttributes) {
+	   
+    try{
+    	int res = service.signup(user);
+    	
       if(res==0) {
          return "redirect:/users/signup";
       }else {
          return "redirect:/";
-      }
-      
+      }   
+    } catch (DuplicateKeyException e) {
+    	redirectAttributes.addFlashAttribute("userMessage", e.getMessage());
+    	session.setAttribute("user", user);
+        return "redirect:/join";  
+    	}
    }
+   
    
    @GetMapping("/login")
    public String login() {
@@ -135,10 +142,7 @@ public class UserController {
           session.setAttribute("member", member);
           return "redirect:/mypage";
           
-      	} catch (DuplicateKeyException e) {//닉네임 중복값있을시
-      		namdoro un = (namdoro)session.getAttribute("member");
-            namdoro n = service.nickname_no(member);
-            
+      	} catch (DuplicateKeyException e) {//중복값있을시   
             session.setAttribute("member", member);
             redirectAttributes.addFlashAttribute("nicknameMessage", e.getMessage());
             return "redirect:/myPageInfo";
