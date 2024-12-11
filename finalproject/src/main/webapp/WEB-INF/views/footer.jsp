@@ -17,7 +17,7 @@
 
         footer {
             position: fixed;
-            bottom: -60px; /* 처음에는 화면 밖으로 숨깁니다. */
+            
             left: 0;
             right: 0;
             background-color: #ceddffcc;
@@ -25,6 +25,7 @@
             padding: 10px;
             transition: bottom 0.3s ease-in-out; /* 부드러운 애니메이션 추가 */
             z-index: 999;
+            bottom: -64px;
         }
 
         .footer a {
@@ -46,8 +47,8 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
-            <p>© 2024 남도로 | All rights reserved.</p>
-            <p><a href="/about.html">About Us</a> | <a href="/contact.html">Contact</a></p>
+            <h4>© 2024 남도로 | All rights reserved.</h4>
+            <h4><a href="/about.html">About Us</a> | <a href="/contact.html">Contact</a></h4>
         </div>
     </footer>
 
@@ -67,7 +68,7 @@
         if (scrollPosition >= documentHeight) {
             footer.style.bottom = '0';
         } else {
-            footer.style.bottom = '-60px';
+            footer.style.bottom = '-64px';
         }
     });
 
