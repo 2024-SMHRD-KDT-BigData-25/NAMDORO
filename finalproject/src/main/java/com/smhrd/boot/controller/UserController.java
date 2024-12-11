@@ -196,6 +196,23 @@ public class UserController {
   	    return "result6";
 //  		return "redirect:/";
   	}
+  	
+  	@PostMapping("/users")
+    public String signup(namdoro user, Model model) {
+       int res = service.signup(user);
+       
+       if (res == -1) {
+          model.addAttribute("emailDuplicationMessage", "이미 사용 중인 이메일입니다.");
+          return "signup"; // 이메일 중복 시 다시 회원가입 페이지로
+       } else if (res == -2) {
+          model.addAttribute("nicknameDuplicationMessage", "이미 사용 중인 닉네임입니다.");
+          return "signup"; // 닉네임 중복 시 다시 회원가입 페이지로
+       } else if (res == 0) {
+          return "redirect:/users/signup"; // 회원가입 실패 시
+       } else {
+          return "redirect:/"; // 회원가입 성공 시
+       }
+    }
    
 
 }
