@@ -507,6 +507,7 @@ pageEncoding="UTF-8"%>
   </head>
   <body>
     <jsp:include page="header.jsp"></jsp:include>
+    <jsp:include page="footer.jsp"></jsp:include>
 
     <form action="plan/call_python_api" method="post">
     <div class="div-container">
