@@ -5,11 +5,9 @@
 <%@page import="com.google.gson.Gson"%>
 <%@page import="java.util.Map"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<div class="all">
-   <!DOCTYPE html>
-   <html lang="en">
+<html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,48 +15,48 @@
 
 <style>
 @font-face {
-   font-family: "Gmarket Sans";
-   src:
-      url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff")
-      format("woff");
-   font-style: normal;
-   font-weight: 400;
+	font-family: "Gmarket Sans";
+	src:
+		url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff")
+		format("woff");
+	font-style: normal;
+	font-weight: 400;
 }
 
 @font-face {
-   font-family: "Gmarket Sans";
-   src:
-      url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff")
-      format("woff");
-   font-style: normal;
-   font-weight: 500;
+	font-family: "Gmarket Sans";
+	src:
+		url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff")
+		format("woff");
+	font-style: normal;
+	font-weight: 500;
 }
 
 @font-face {
-   font-family: "Gmarket Sans";
-   src:
-      url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff")
-      format("woff");
-   font-style: normal;
-   font-weight: 700;
+	font-family: "Gmarket Sans";
+	src:
+		url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff")
+		format("woff");
+	font-style: normal;
+	font-weight: 700;
 }
 
 html, body {
-   margin: 0;
-   padding: 0;
-   width: 100%;
-   overflow-x: hidden;
-   position: relative;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	overflow-x: hidden;
+	position: relative;
 }
 
 .all {
-   display: flex;
-   height: 700px;
-   width: 100%;
-   margin: 0 auto;
-   position: relative;
-   max-width: 100vw;
-   box-sizing: border-box;
+	display: flex;
+	height: 700px;
+	width: 100%;
+	margin: 0 auto;
+	position: relative;
+	max-width: 100vw;
+	box-sizing: border-box;
 }
 
 .calBar {
@@ -73,160 +71,163 @@ html, body {
 	position: absolute;
 	left: 0;
 	z-index: 100;
-
-.calBar.collapsed {
-   transform: translateX(-350px);
 }
 
+.calBar.collapsed {
+	transform: translateX(-350px);
+}
+.all{
+margin-top: 100px;}
+
 .toggleCalBar {
-   position: absolute;
-   right: -20px;
-   top: 10px;
-   width: 20px;
-   height: 40px;
-   background: #f0f0f0;
-   border: 1px solid #ddd;
-   border-left: none;
-   border-radius: 0 5px 5px 0;
-   cursor: pointer;
-   z-index: 1000;
+	position: absolute;
+	right: -20px;
+	top: 10px;
+	width: 20px;
+	height: 40px;
+	background: #f0f0f0;
+	border: 1px solid #ddd;
+	border-left: none;
+	border-radius: 0 5px 5px 0;
+	cursor: pointer;
+	z-index: 1000;
 }
 
 .dayBox {
-   width: 300px;
-   height: 100%;
-   display: flex;
-   flex-direction: column;
-   gap: 30px;
-   overflow-y: auto;
-   overflow-x: hidden;
+	width: 300px;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+	overflow-y: auto;
+	overflow-x: hidden;
 }
 
 .dayBox::-webkit-scrollbar {
-   width: 8px;
+	width: 8px;
 }
 
 .dayBox::-webkit-scrollbar-track {
-   background: #f1f1f1;
-   border-radius: 4px;
+	background: #f1f1f1;
+	border-radius: 4px;
 }
 
 .dayBox::-webkit-scrollbar-thumb {
-   background: #888;
-   border-radius: 4px;
+	background: #888;
+	border-radius: 4px;
 }
 
 .dayBox::-webkit-scrollbar-thumb:hover {
-   background: #555;
+	background: #555;
 }
 
 .dayText {
-   position: relative;
-   left: 5%;
-   font-family: "Gmarket Sans", sans-serif;
-   font-weight: 700;
-   font-size: 12px;
-   line-height: 12px;
-   text-align: left;
-   color: #311d05;
-   margin-top: 10px;
-   display: flex;
-   align-items: center;
-   justify-content: space-between;
-   width: 90%;
+	position: relative;
+	left: 5%;
+	font-family: "Gmarket Sans", sans-serif;
+	font-weight: 700;
+	font-size: 12px;
+	line-height: 12px;
+	text-align: left;
+	color: #311d05;
+	margin-top: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 90%;
 }
 
 .dayText span {
-   display: flex;
-   align-items: center;
-   gap: 8px;
-   cursor: pointer;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	cursor: pointer;
 }
 
 .dayColorBar {
-   display: inline-block;
-   width: 20px;
-   height: 4px;
-   border-radius: 2px;
+	display: inline-block;
+	width: 20px;
+	height: 4px;
+	border-radius: 2px;
 }
 
 .toggleBtn {
-   background: #f0f0f0;
-   border: none;
-   border-radius: 4px;
-   padding: 4px 8px;
-   cursor: pointer;
-   font-size: 10px;
+	background: #f0f0f0;
+	border: none;
+	border-radius: 4px;
+	padding: 4px 8px;
+	cursor: pointer;
+	font-size: 10px;
 }
 
 .dayContent {
-   display: block;
-   transition: all 0.3s ease;
+	display: block;
+	transition: all 0.3s ease;
 }
 
 .dayContent.hidden {
-   display: none;
+	display: none;
 }
 
 .imageBox {
-   position: relative;
-   width: 215px;
-   height: 170px;
-   left: 7%;
-   border: 1px solid black;
-   border-radius: 10px;
-   background-color: #f8f8f8;
+	position: relative;
+	width: 215px;
+	height: 170px;
+	left: 7%;
+	border: 1px solid black;
+	border-radius: 10px;
+	background-color: #f8f8f8;
 }
 
 .image {
-   position: relative;
-   width: 190px;
-   height: 110px;
-   top: 5%;
-   left: 6%;
-   border-radius: 10px;
+	position: relative;
+	width: 190px;
+	height: 110px;
+	top: 5%;
+	left: 6%;
+	border-radius: 10px;
 }
 
 .title {
-   position: relative;
-   font-family: "Gmarket Sans", sans-serif;
-   font-weight: 700;
-   font-size: 10px;
-   line-height: 15px;
-   text-align: left;
-   padding-top: 5%;
-   padding-left: 10%;
-   color: #000000;
+	position: relative;
+	font-family: "Gmarket Sans", sans-serif;
+	font-weight: 700;
+	font-size: 10px;
+	line-height: 15px;
+	text-align: left;
+	padding-top: 5%;
+	padding-left: 10%;
+	color: #000000;
 }
 
 .genre {
-   position: relative;
-   font-family: "Gmarket Sans", sans-serif;
-   font-weight: 500;
-   font-size: 10px;
-   line-height: 15px;
-   text-align: left;
-   padding-left: 10%;
-   color: #000000;
+	position: relative;
+	font-family: "Gmarket Sans", sans-serif;
+	font-weight: 500;
+	font-size: 10px;
+	line-height: 15px;
+	text-align: left;
+	padding-left: 10%;
+	color: #000000;
 }
 
 .address {
-   position: relative;
-   font-family: "Gmarket Sans", sans-serif;
-   font-weight: 500;
-   font-size: 10px;
-   line-height: 15px;
-   text-align: center;
-   color: #6c6c6c;
+	position: relative;
+	font-family: "Gmarket Sans", sans-serif;
+	font-weight: 500;
+	font-size: 10px;
+	line-height: 15px;
+	text-align: center;
+	color: #6c6c6c;
 }
 
 .nick {
-   font-family: "Gmarket Sans", sans-serif;
-   font-weight: 500;
-   font-size: 10px;
-   line-height: 15px;
-   text-align: center;
-   color: #000000;
+	font-family: "Gmarket Sans", sans-serif;
+	font-weight: 500;
+	font-size: 10px;
+	line-height: 15px;
+	text-align: center;
+	color: #000000;
 }
 
 #map {
@@ -235,16 +236,15 @@ html, body {
 	width: calc(100% - 350px);
 	height: 600px;
 	transition: all 0.3s ease;
-
+}
 
 .map-expanded {
-   width: 100% !important;
-   left: 0 !important;
+	width: 100% !important;
+	left: 0 !important;
 }
 </style>
 </head>
 <body>
-
 
 <jsp:include page="header.jsp"></jsp:include>
 <jsp:include page="footer.jsp"></jsp:include>
@@ -272,36 +272,35 @@ html, body {
    %>
 
 
-	<div class="all">
+	<div class="all" >
 		<div class="calBar" id="calBar">
 				<div>
-			<h2>지역: <%=region %></h2>
+			<h2 style="text-align: left">지역: <%=region %></h2>
 		</div>
 			<button class="toggleCalBar" onclick="toggleCalBar()">◀</button>
 			<div class="dayBox">
 
-
-            <% 
+				<% 
     for (int i = 0; i < 10; i++) {
         if (tl_name.get("" + i) != null) { 
             if (i % 3 == 0) { 
 %>
 
-            <div class="dayText">
-               <span onclick="moveToDay(<%=(i / 3 + 1)%>)"> <%= (i / 3 + 1) + "일차" %>
-                  <% if((i/3+1)==1){%>
-                  <div class="dayColorBar" style="background-color: #FF6B6B"></div>
-                  <%} else if((i/3+1)==2){%>
-                  <div class="dayColorBar" style="background-color: #4ECDC4"></div>
-                  <%}else{%>
-                  <div class="dayColorBar" style="background-color: #45B7D1"></div>
-                  <%}%>
-               </span>
-               <button class="toggleBtn" onclick="toggleDay(<%=(i / 3 + 1)%>)">
-                  <span id="toggleText<%=(i / 3 + 1)%>">접기</span>
-               </button>
-            </div>
-            <%  } %>
+				<div class="dayText">
+					<span onclick="moveToDay(<%=(i / 3 + 1)%>)"> <%= (i / 3 + 1) + "일차" %>
+						<% if((i/3+1)==1){%>
+						<div class="dayColorBar" style="background-color: #FF6B6B"></div>
+						<%} else if((i/3+1)==2){%>
+						<div class="dayColorBar" style="background-color: #4ECDC4"></div>
+						<%}else{%>
+						<div class="dayColorBar" style="background-color: #45B7D1"></div>
+						<%}%>
+					</span>
+					<button class="toggleBtn" onclick="toggleDay(<%=(i / 3 + 1)%>)">
+						<span id="toggleText<%=(i / 3 + 1)%>">접기</span>
+					</button>
+				</div>
+				<%  } %>
 
 
 				<div class="dayContent day<%=(i / 3 + 1)%>">
@@ -315,38 +314,38 @@ html, body {
 						<% } %>
 
 
-                  <div class="title"><%= tl_name.get("" + i).getAsString() %></div>
-                  <div class="genre"><%= tl_theme.get("" + i).getAsString() %></div>
-                  <div class="address"><%= tl_add.get("" + i).getAsString() %></div>
-               </div>
-            </div>
-            <% 
+						<div class="title"><%= tl_name.get("" + i).getAsString() %></div>
+						<div class="genre"><%= tl_theme.get("" + i).getAsString() %></div>
+						<div class="address"><%= tl_add.get("" + i).getAsString() %></div>
+					</div>
+				</div>
+				<% 
           }
       } 
   %>
 
 
 
-         </div>
-      </div>
-      <div id="map"></div>
-   </div>
+			</div>
+		</div>
+		<div id="map"></div>
+	</div>
 
-   <script src="js/header.js"></script>
+	<script src="js/header.js"></script>
 
-   <script type="text/javascript"
-      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1b191295b63ba214e903ff029903f9c5"></script>
+	<script type="text/javascript"
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1b191295b63ba214e903ff029903f9c5"></script>
 
-   <script type="text/javascript">
+	<script type="text/javascript">
 
-      let myData = <%=jsonString%>
-      console.log(myData.TL_IMG[0])
-      let locationData = <%=location_res%>
-      console.log(locationData.TL_NAME[0])
-      console.log(locationData.TL_LATITUDE[0])
-      console.log(locationData.TL_LONGITUDE[0])
+		let myData = <%=jsonString%>
+		console.log(myData.TL_IMG[0])
+		let locationData = <%=location_res%>
+		console.log(locationData.TL_NAME[0])
+		console.log(locationData.TL_LATITUDE[0])
+		console.log(locationData.TL_LONGITUDE[0])
 
-   
+	
         function toggleCalBar() {
           const calBar = document.getElementById('calBar');
           const toggleBtn = calBar.querySelector('.toggleCalBar');
@@ -387,16 +386,16 @@ html, body {
         var map = new kakao.maps.Map(container, options);
 
         var positions = [
-             <%for(int i = 0; i<10; i++) {
-                if (tl_name.get("" + i) != null) {%>
-                {
-                   title: locationData.TL_NAME[<%=i%>],
-                   latlng: new kakao.maps.LatLng(locationData.TL_LATITUDE[<%=i%>], locationData.TL_LONGITUDE[<%=i%>]),
-                   day: Math.floor(<%=(i / 3 + 1)%>),
-                   number: <%=(i % 3 + 1)%>
-                },
-             <%}
-             }%>
+        	  <%for(int i = 0; i<10; i++) {
+        	  	if (tl_name.get("" + i) != null) {%>
+        	  	{
+        	  		title: locationData.TL_NAME[<%=i%>],
+        	  		latlng: new kakao.maps.LatLng(locationData.TL_LATITUDE[<%=i%>], locationData.TL_LONGITUDE[<%=i%>]),
+        	  		day: Math.floor(<%=(i / 3 + 1)%>),
+        	  		number: <%=(i % 3 + 1)%>
+        	  	},
+        	  <%}
+        	  }%>
         ];
 
         // 일차별로 마커와 선을 그리기 위해 positions를 일차별로 분류
@@ -472,45 +471,11 @@ html, body {
 
           // 지도의 범위를 해당 날짜의 위치로 설정합니다.
           map.setBounds(bounds);
-          
-          // 마커들 간의 최대 거리를 계산합니다
-          let maxDistance = 0;
-          for(let i = 0; i < positionsForDay.length; i++) {
-            for(let j = i + 1; j < positionsForDay.length; j++) {
-              const pos1 = positionsForDay[i].latlng;
-              const pos2 = positionsForDay[j].latlng;
-              const distance = Math.sqrt(
-                Math.pow(pos1.getLat() - pos2.getLat(), 2) + 
-                Math.pow(pos1.getLng() - pos2.getLng(), 2)
-              );
-              maxDistance = Math.max(maxDistance, distance);
-            }
-          }
-          
-          console.log("maxDistance:"+maxDistance);
-          
-          let zoomLevel;
-          if(maxDistance > 0.2) { // 거리가 매우 큰 경우
-            zoomLevel = 9;
-          } else if(maxDistance > 0.1) { // 거리가 중간인 경우
-            zoomLevel = 8;
-          } else if(maxDistance > 0.075) { // 거리가 중간인 경우
-            zoomLevel = 7;
-          } else if(maxDistance > 0.05) { // 거리가 중간인 경우
-            zoomLevel = 6;
-          } else if(maxDistance > 0.025) { // 거리가 중간인 경우
-            zoomLevel = 5;
-          } else { // 거리가 가까운 경우
-            zoomLevel = 4;
-          }
-          
-          console.log(zoomLevel);
 
           // 지도를 적절히 확대 (필요하면 level 값 조정)
-          map.setLevel(zoomLevel, { animate: true });
+          map.setLevel(5, { animate: true });
         }
         
       </script>
 </body>
-   </html>
-</div>
+	</html>

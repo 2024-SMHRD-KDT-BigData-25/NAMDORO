@@ -60,7 +60,7 @@
     width: 130px;
     height: 130px;
     left: 35px;
-    background: url(images/logo.png) no-repeat center / cover
+    background: url(/boot/images/logo.png) no-repeat center / cover
 }
 
 #search {
