@@ -33,8 +33,6 @@
             font-weight: 700;
         }
 
-    	
-
         .gallary-list {
             display: flex;
             flex-wrap: wrap;
@@ -130,7 +128,7 @@
         }
 
         .margin {
-            margin-bottom: 100%;
+            margin-bottom: 10%;
         }
 
         .gallary-detail img {
@@ -267,10 +265,8 @@
     </div>
 
     <div class="margin"></div>
-    <div id="header"></div>
-    <div id="footer"></div>
 
-    <script src="js/footer.js"></script>
+
     
     <script>
     // 페이지네이션 관련 변수
