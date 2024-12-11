@@ -50,10 +50,11 @@ pageEncoding="UTF-8"%>
       .bg5 {
         position: absolute;
         width: 100%;
-        height: 1000px;
+        height: 1100px;
         top: 100px;
         background: url("images/bg.png") no-repeat center/cover;
         z-index: -1;
+        filter: blur(8px); /* 이미지 흐림 효과 */
       }
 
       /* 여행테마선택 문구 공통 스타일 */
@@ -62,7 +63,6 @@ pageEncoding="UTF-8"%>
 		    font-family: "Gmarket Sans", sans-serif;
 		    font-weight: 500;
 		    font-size: 32px;
-		    line-height: 30px;
 		    text-align: center;
 		    color: #000000;
       }
@@ -72,27 +72,29 @@ pageEncoding="UTF-8"%>
         position: relative;
     	top: 25px;
 	    font-family: "Gmarket Sans", sans-serif;
-	    font-weight: light;
+	    font-weight: 400;
 	    font-size: 16px;
-	    line-height: 30px;
 	    text-align: center;
 	    color: #000000;
       }
 
       .square1 {
         position: absolute;
-        border-radius: 20px;
-        width: 750px;
-        height: 450px;
-        top: 570px;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: rgb(239, 252, 255, 0.5);
-        display: flex;
-        flex-wrap: wrap;
-        column-gap: 70px;
-        justify-content: center;
-        align-items: center;
+	    border-radius: 20px;
+	    width: 950px;
+	    height: 850px;
+	    top: 620px;
+	    left: 50%;
+	    transform: translate(-50%, -50%);
+	    background: url(images/bg.png) no-repeat center / cover;
+	    display: flex;
+	    column-gap: 60px;
+	    row-gap: 60px;
+	    justify-content: center;
+	    flex-wrap: wrap;
+	    align-content: center;
+	    z-index: -1;
+	    padding: 0 6%;
       }
 
       .square2 {
@@ -516,6 +518,9 @@ pageEncoding="UTF-8"%>
       	top: 300px;
 	    left: 50%;
 	    transform: translate(-50%, -50%);
+	    display: flex;
+	    flex-direction: column;
+	    justify-content: center;
       }
       
     </style>
