@@ -76,14 +76,14 @@ html, body {
 	border-radius: 10px;
 	position: absolute;
 	width: 390px;
-	height: 350px;
+	height: 440px;
 	left: 50%;
-	top: 180px;
+	top: 80px;
 	transform: translate(-50%);
 	background: rgb(255, 255, 255);
 	z-index: 2;
-	padding-top: 90px;
-	padding-right: 90px;
+	padding-top: 0px;
+	padding-right: 0px;
 }
 
 .findIdTitle {
@@ -100,6 +100,8 @@ html, body {
 }
 
 .information {
+	position: relative;
+	top: 100px;
 	font-family: 'Gmarket Sans', sans-serif;
 	font-weight: 700;
 	font-size: 12px;
@@ -108,8 +110,8 @@ html, body {
 	color: #000000;
 	display: flex;
 	flex-direction: column;
-	gap: 30px;
-	align-items: flex-end;
+	gap: 20px;
+	align-items: center;
 }
 
 .joinBtn {
@@ -154,14 +156,13 @@ html, body {
 }
 
 .button {
-	position: absolute;
+	position: relative;
 	background-color: rgb(210, 233, 255);
-	color: #000000;
 	width: 290px;
 	height: 50px;
-	bottom: 130px;
-	left: 51%;
-	transform: translate(-50%);
+	left: 54.8px;
+	top: 135px;
+	transform: translate(0%);
 	border-radius: 5px;
 	cursor: pointer;
 	font-family: 'Gmarket Sans', sans-serif;
@@ -169,7 +170,7 @@ html, body {
 	font-size: 15px;
 	line-height: 30px;
 	text-align: center;
-	color: #000000;
+	
 }
 
 .id {
@@ -208,8 +209,9 @@ html, body {
 				<div>
 					<input type="text" id="user_phone" name="user_phone" placeholder="핸드폰을 입력하세요">
 				</div>
+				</div>
 				<button class="button" type="submit">확인</button>
-			</div>
+			
 	</form>
 			
 			
