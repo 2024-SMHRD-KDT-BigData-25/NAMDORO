@@ -60,7 +60,7 @@
     width: 130px;
     height: 130px;
     left: 35px;
-    background: url(images/logo.png) no-repeat center / cover
+    background: url(/boot/images/logo.png) no-repeat center / cover
 }
 
 #search {
@@ -106,14 +106,14 @@ ul li a {
 			<%
 			if (member == null) {
 			%>
-			<li><a href="/boot/plan">여행코스 생성</a></li>
+			<li><a href="/boot/login">여행코스 생성</a></li>
 			<li><a href="/boot/tours">관광지</a></li>
 			<li><a href="/boot/board">게시판</a></li>
 			<li><a href="/boot/login">로그인</a></li>
 			<%
 			} else {
 			%>
-			<li><a href="#">여행코스 생성</a></li>
+			<li><a href="/boot/plan">여행코스 생성</a></li>
 			<li><a href="/boot/tours">관광지</a></li>
 			<li><a href="/boot/board">게시판</a></li>
 			<li><a href="/boot/mypage">마이페이지</a></li>

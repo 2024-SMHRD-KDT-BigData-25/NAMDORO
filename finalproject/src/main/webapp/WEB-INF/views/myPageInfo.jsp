@@ -90,9 +90,9 @@ html, body {
 }
 
 .mypage{
-	left: 100px;
-
-
+	position: relative;
+	left: 30px;
+	height: 45px;
 
 	}
 
@@ -100,7 +100,7 @@ html, body {
 .findinfoTitle {
 	position: absolute;
 	top: 30px;
-	left: 50%;
+	left: 49%%;
 	transform: translate(-50%);
 	font-family: 'Gmarket Sans', sans-serif;
 	font-weight: 500;
@@ -111,11 +111,13 @@ html, body {
 }
 
 .information {
+    position: relative;
+    top: 70px;
 	font-family: 'Gmarket Sans', sans-serif;
 	font-weight: 700;
 	font-size: 30px;
-	padding-top: 80px;
-	padding-right: 56px;
+	padding-top: 0px;
+	padding-right: 0px;
 	text-align: -webkit-center;
 	color: #000000;
 	display: flex;
@@ -166,14 +168,13 @@ html, body {
 }
 
 .button {
-	position: absolute;
+	position: relative;
 	background-color: rgb(210, 233, 255);
-	color: #000000;
 	width: 290px;
 	height: 50px;
-	bottom: 17%;
-	left: 50.8%;
-	transform: translate(-50%);
+	left: 40px;
+	top: 20px;
+	transform: translate(0%);
 	border-radius: 5px;
 	cursor: pointer;
 	font-family: 'Gmarket Sans', sans-serif;
@@ -202,22 +203,29 @@ html, body {
 
 	
 </style>
+	
+	<script>
+        // Spring MVC에서 전달된 플래시 속성을 확인하고, 있으면 alert로 표시
+        <% if (request.getAttribute("nicknameMessage") != null) { %>
+            alert('<%= request.getAttribute("nicknameMessage") %>');
+        <% } %>
+    </script>
 
 
 </head>
 <body>
 		
-	<form action="myPageInfo/update">
+	
 		<div class="square1"></div>
-		<div class="login-box">
 				
 			
 		<%  namdoro member = (namdoro)session.getAttribute("member"); %>
-		
-	<div class="information">
+	
+		<form action="myPageInfo/update">	
+		<div class="information">
 				<span class="mypage">회원수정</span>
 				
-				<div class="input-feild">
+				<div>
 				<label class="label" for="title">이메일 :</label>
 				<input type="email" value="${member.user_id }" class="id" id="user_id" name="user_id" readonly>
 				</div>
@@ -244,12 +252,10 @@ html, body {
 						placeholder="전화번호 입력" >
 				</div>
 				
-				<div class="input-feild">
-					<button class="button" type="submit">수정완료</button>
-				<div class="input-feild">
-			</div>
-	</form>
-	</div>
+				<button class="button" type="submit">수정완료</button>
+			 
+			</div>   
+		 </form>
 	
 		
 	

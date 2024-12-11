@@ -209,6 +209,7 @@
 <% List<Tour> tourlist = (List<Tour>)request.getAttribute("tourlist"); %>
 
 <jsp:include page="header.jsp"></jsp:include>
+<jsp:include page="footer.jsp"></jsp:include>
     <div class="namdoro">남도로 (로고자리)</div>    
 
     <div id="searchBar">

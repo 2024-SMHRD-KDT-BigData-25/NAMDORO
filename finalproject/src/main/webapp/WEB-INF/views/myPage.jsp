@@ -1,3 +1,6 @@
+<%@page import="ch.qos.logback.core.recovery.ResilientSyslogOutputStream"%>
+<%@page import="com.smhrd.boot.model.Tour"%>
+<%@page import="com.smhrd.boot.model.plan"%>
 <%@page import="com.smhrd.boot.model.namdoro"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -31,6 +34,7 @@
         border-bottom: 2px solid #ddd;
         padding-top: 100px;
         padding-bottom: 10px;
+        margin-top: 100px;
       }
 
       .nickname {
@@ -110,10 +114,11 @@
         align-items: center;
         border-bottom: groove;
         padding: inherit;
+        height:120px;
       }
 
       .banner-image {
-        width: 100px;
+        width: 150px;
         height: 100px;
         background-size: cover;
         background-position: center;
@@ -175,7 +180,23 @@
     </style>
   </head>
   <body>
-    <%namdoro member = (namdoro)session.getAttribute("member"); %>
+  
+  <jsp:include page="header.jsp"></jsp:include>
+<jsp:include page="footer.jsp"></jsp:include>
+    <%namdoro member = (namdoro)session.getAttribute("member"); 
+    
+    List<plan> list =  (List<plan>)request.getAttribute("list");
+    
+    List<Tour> tourlist = (List<Tour>)request.getAttribute("tourlist");
+    System.out.println(list.get(1).getUSER_ID());
+    System.out.println(member.getUser_id());
+    
+    System.out.println(tourlist.get(0).getTL_IMG().split(",")[0]);
+    System.out.println(tourlist.get(1).getTL_NAME());
+    System.out.println(tourlist.size());
+    
+    System.out.println(list.get(0).getCP_SPOT1());
+    %>
     <div class="mypage">
       <div class="nick">
         <h2 class="nickname"><%=member.getUser_nickname() %>님</h2>
@@ -198,58 +219,37 @@
         </div>
 
         <div id="all-banner" class="banner active">
-          <div class="banner-content" data-index="0">
-            <div class="banner-image" style="background-image: url('https://via.placeholder.com/200');"></div>
-            <div class="banner-details">
-              <h3>여행 지역 : 순천</h3>
-              <p>여행 기간: 2024년 12월 1일 ~ 2024년 12월 7일</p>
-            </div>
-          </div>
-          <div class="banner-content" data-index="1">
-            <div class="banner-image" style="background-image: url('https://via.placeholder.com/200');"></div>
-            <div class="banner-details">
-              <h3>여행 지역 : 여수</h3>
-              <p>여행 기간: 2024년 12월 1일 ~ 2024년 12월 7일</p>
-            </div>
-          </div>
-          <div class="banner-content" data-index="2">
-            <div class="banner-image" style="background-image: url('https://via.placeholder.com/200');"></div>
-            <div class="banner-details">
-              <h3>여행 지역 : 고흥</h3>
-              <p>여행 기간: 2024년 12월 1일 ~ 2024년 12월 7일</p>
-            </div>
-          </div>
-          <div class="banner-content" data-index="3">
-            <div class="banner-image" style="background-image: url('https://via.placeholder.com/200');"></div>
-            <div class="banner-details">
-              <h3>여행 지역 : 나주</h3>
-              <p>여행 기간: 2024년 12월 1일 ~ 2024년 12월 7일</p>
-            </div>
-          </div>
-          <div class="banner-content" data-index="4">
-            <div class="banner-image" style="background-image: url('https://via.placeholder.com/200');"></div>
-            <div class="banner-details">
-              <h3>여행 지역 : 진도</h3>
-              <p>여행 기간: 2024년 12월 1일 ~ 2024년 12월 7일</p>
-            </div>
-          </div>
+        
+<% for (int i = 0; i < list.size(); i++) { 
+    if (list.get(i).getUSER_ID().equals(member.getUser_id())) { %>
+      <a onclick="location.href='mypage/<%=list.get(i).getCP_NO()%>'">
+      <div class="banner-content" data-index="<%=i%>">
+        <% 
+        String imageSrc = "touristimg/noimage.jpg"; // 기본 noimage 경로 설정
+        for (int j = 0; j < tourlist.size(); j++) { 
+            if (tourlist.get(j).getTL_NAME().equals(list.get(i).getCP_SPOT1())) { 
+                String[] imgArray = tourlist.get(j).getTL_IMG().split(",");
+                imageSrc = (imgArray.length > 0 && imgArray[0] != null && !imgArray[0].isEmpty()) 
+                    ? "touristimg/" + imgArray[0] 
+                    : "https://placehold.co/150x100/EFEFEF/6D6D6D?text=No+Image"; // 이미지가 없으면 noimage 사용
+                break; 
+            }
+        } 
+        %>
+        <div class="banner-image" style="background-image: url('<%=imageSrc%>'); width: 150px; height: 100px;"></div>
+        <div class="banner-details">
+          <h3>여행 지역 : <%=list.get(i).getCP_REGION() %></h3>
+          <% if (list.get(i).getCP_DATE() == 3) { %>
+            <p>당일여행</p>
+          <% } else { %>
+            <p>1박2일</p>
+          <% } %>
         </div>
+      </div>
+      </a>
+    <% }
+  } %>
 
-        <div id="shared-banner" class="banner">
-          <div class="banner-content" data-index="0">
-            <div class="banner-image" style="background-image: url('https://via.placeholder.com/200');"></div>
-            <div class="banner-details">
-              <h3>여행 지역 : 여수</h3>
-              <p>여행 기간: 2024년 12월 1일 ~ 2024년 12월 7일</p>
-            </div>
-          </div>
-          <div class="banner-content" data-index="1">
-            <div class="banner-image" style="background-image: url('https://via.placeholder.com/200');"></div>
-            <div class="banner-details">
-              <h3>여행 지역 : 고흥</h3>
-              <p>여행 기간: 2024년 12월 1일 ~ 2024년 12월 7일</p>
-            </div>
-          </div>
         </div>
 
         <div class="pagination">
@@ -265,7 +265,7 @@
       function showBanner(type) {
         // 모든 배너를 숨긴다
         document.getElementById('all-banner').classList.remove('active');
-        document.getElementById('shared-banner').classList.remove('active');
+        // document.getElementById('shared-banner').classList.remove('active');
 
         // 선택된 배너만 표시
         if (type === 'all') {

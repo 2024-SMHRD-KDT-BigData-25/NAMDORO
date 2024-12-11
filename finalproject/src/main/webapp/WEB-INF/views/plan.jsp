@@ -61,42 +61,42 @@ pageEncoding="UTF-8"%>
       /* 여행테마선택 문구 공통 스타일 */
       .themaMain {
             position: relative;
-          font-family: "Gmarket Sans", sans-serif;
-          font-weight: 500;
-          font-size: 32px;
-          text-align: center;
-          color: #000000;
+		    font-family: "Gmarket Sans", sans-serif;
+		    font-weight: 500;
+		    font-size: 32px;
+		    text-align: center;
+		    color: #000000;
       }
 
       /* 여행테마선택 서브문구 공통 스타일 */
       .themaSub {
         position: relative;
-       top: 25px;
-       font-family: "Gmarket Sans", sans-serif;
-       font-weight: 400;
-       font-size: 16px;
-       text-align: center;
-       color: #000000;
+    	top: 25px;
+	    font-family: "Gmarket Sans", sans-serif;
+	    font-weight: 400;
+	    font-size: 16px;
+	    text-align: center;
+	    color: #000000;
       }
 
       .square1 {
         position: absolute;
-       border-radius: 20px;
-       width: 1000px;
-       height: 600px;
-       top: 500px;
-       left: 50%;
-       transform: translate(-50%, -50%);
-       background: url("images/bg.png") no-repeat center / cover;
-       display: flex;
-       column-gap: 60px;
-       row-gap: 60px;
-       justify-content: center;
-       flex-wrap: wrap;
-       align-content: center;
-       z-index: -1;
-       padding: 0 8%;
-       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+	    border-radius: 20px;
+	    width: 1000px;
+	    height: 600px;
+	    top: 500px;
+	    left: 50%;
+	    transform: translate(-50%, -50%);
+	    background: url("images/bg.png") no-repeat center / cover;
+	    display: flex;
+	    column-gap: 60px;
+	    row-gap: 60px;
+	    justify-content: center;
+	    flex-wrap: wrap;
+	    align-content: center;
+	    z-index: -1;
+	    padding: 0 8%;
+	    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
       }
 
       .square2 {
@@ -114,15 +114,15 @@ pageEncoding="UTF-8"%>
 
       .before {
             position: relative;
-          width: 40px;
-          height: 70px;
-          border: none;
-          background: #f5f5f5 url(images/before.png) no-repeat center / cover;
-          background-size: 50%;
-          border-radius: 20%;
-          cursor: pointer;
-          transition: all 0.3s ease;
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+		    width: 40px;
+		    height: 70px;
+		    border: none;
+		    background: #f5f5f5 url(images/before.png) no-repeat center / cover;
+		    background-size: 50%;
+		    border-radius: 20%;
+		    cursor: pointer;
+		    transition: all 0.3s ease;
+		    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         .before:hover {
@@ -134,15 +134,15 @@ pageEncoding="UTF-8"%>
         /* Next 버튼 스타일 */
         .next, .next2 {
             position: relative;
-          width: 40px;
-          height: 70px;
-          border: none;
-          background: #f5f5f5 url(images/next.png) no-repeat center / cover;
-          background-size: 50%;
-          border-radius: 20%;
-          cursor: pointer;
-          transition: all 0.3s ease;
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+		    width: 40px;
+		    height: 70px;
+		    border: none;
+		    background: #f5f5f5 url(images/next.png) no-repeat center / cover;
+		    background-size: 50%;
+		    border-radius: 20%;
+		    cursor: pointer;
+		    transition: all 0.3s ease;
+		    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         .next:hover, .next2:hover {
@@ -205,9 +205,9 @@ pageEncoding="UTF-8"%>
         display: flex;
         gap: 950px;
         top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-         z-index: -1;
+		left: 50%;
+		transform: translate(-50%, -50%);
+      	z-index: -1;
       }
 
       .age {
@@ -443,21 +443,21 @@ pageEncoding="UTF-8"%>
       /* 글자 스타일 */
       .text-style {
         height: 80px;
-       width: 150px;
-       padding: 10px 20px;
-       border: 2px solid #9eb4f9;
-       border-radius: 10px;
-       background-color: #ffffff;
-       transition: all 0.3s ease;
-       display: flex;
-       justify-content: center;
-       align-items: center;
-       font-family: 'Gmarket Sans', sans-serif;
-       font-weight: 500;
-       font-size: 14px;
-       line-height: 30px;
-       text-align: center;
-       color: #000000;
+	    width: 150px;
+	    padding: 10px 20px;
+	    border: 2px solid #9eb4f9;
+	    border-radius: 10px;
+	    background-color: #ffffff;
+	    transition: all 0.3s ease;
+	    display: flex;
+	    justify-content: center;
+	    align-items: center;
+	    font-family: 'Gmarket Sans', sans-serif;
+	    font-weight: 500;
+	    font-size: 14px;
+	    line-height: 30px;
+	    text-align: center;
+	    color: #000000;
       }
       
       .text-style:hover {
@@ -471,10 +471,10 @@ pageEncoding="UTF-8"%>
         border-color: #7a9bf1;
       }
 
-     .photo-style {
-        position:relative;
-        top: 50px;
-     }
+	  .photo-style {
+	  	position:relative;
+	  	top: 50px;
+	  }
 
 
       /* 사진 스타일 */
@@ -538,36 +538,36 @@ pageEncoding="UTF-8"%>
       
       /*나이선택 컨테이너*/
       .age-container {
-         position:relative;
-      display: flex;
-       flex-wrap: wrap;
-       justify-content: center;
-       max-width: 600px;
-       column-gap: 80px;
-       row-gap: 60px;
-       top: 30px;
-       
-      }
+      	position:relative;
+		display: flex;
+	    flex-wrap: wrap;
+	    justify-content: center;
+	    max-width: 600px;
+	    column-gap: 80px;
+	    row-gap: 60px;
+	    top: 30px;
+	    
+		}
       
       /*타이틀 박스 */
       .titleBox {
-         position:absolute;
-         width:800px;
-         height:200px;
-         top: 280px;
-       left: 50%;
-       transform: translate(-50%, -50%);
-       display: flex;
-       flex-direction: column;
-       justify-content: center;
+      	position:absolute;
+      	width:800px;
+      	height:200px;
+      	top: 280px;
+	    left: 50%;
+	    transform: translate(-50%, -50%);
+	    display: flex;
+	    flex-direction: column;
+	    justify-content: center;
       }
       
     </style>
   </head>
   <body>
-     <%
-   //namdoro member = (namdoro) session.getAttribute("member");
-   %>
+  	<%
+	namdoro member = (namdoro) session.getAttribute("member");
+	%>
   
     <jsp:include page="header.jsp"></jsp:include>
     <jsp:include page="footer.jsp"></jsp:include>
@@ -645,11 +645,11 @@ pageEncoding="UTF-8"%>
             </div>
         </div>
         </div>
-      <div class="titleBox">
-           <div class="themaMain">연령대 선택</div>
-           <div class="themaSub">
-             남도로 떠나는 첫 걸음, 당신만의 여행 스타일을 선택해 보세요
-           </div>
+		<div class="titleBox">
+        	<div class="themaMain">연령대 선택</div>
+        	<div class="themaSub">
+          	남도로 떠나는 첫 걸음, 당신만의 여행 스타일을 선택해 보세요
+        	</div>
         </div>
       </div>
 
@@ -711,10 +711,10 @@ pageEncoding="UTF-8"%>
         </div>
 
         <div class="titleBox">
-           <div class="themaMain">여행일정 선택</div>
-           <div class="themaSub">
-             남도로 떠나는 첫 걸음, 당신만의 여행 스타일을 선택해 보세요
-           </div>
+        	<div class="themaMain">여행일정 선택</div>
+        	<div class="themaSub">
+          	남도로 떠나는 첫 걸음, 당신만의 여행 스타일을 선택해 보세요
+        	</div>
         </div>
       </div>
 
@@ -780,10 +780,10 @@ pageEncoding="UTF-8"%>
         </div>
 
         <div class="titleBox">
-           <div class="themaMain">성별 선택</div>
-           <div class="themaSub">
-             남도로 떠나는 첫 걸음, 당신만의 여행 스타일을 선택해 보세요
-           </div>
+        	<div class="themaMain">성별 선택</div>
+        	<div class="themaSub">
+          	남도로 떠나는 첫 걸음, 당신만의 여행 스타일을 선택해 보세요
+        	</div>
         </div>
       </div>
 
@@ -818,15 +818,15 @@ pageEncoding="UTF-8"%>
         </div>
 
         <div class="titleBox">
-           <div class="themaMain">여행지 선택</div>
-           <div class="themaSub">
-             남도로 떠나는 첫 걸음, 당신만의 여행 스타일을 선택해 보세요
-           </div>
+        	<div class="themaMain">여행지 선택</div>
+        	<div class="themaSub">
+          	남도로 떠나는 첫 걸음, 당신만의 여행 스타일을 선택해 보세요
+        	</div>
         </div>
 
         <div class="square1">
 
-         <div class="nebe">
+	      <div class="nebe">
             <button type="button" class="before"></button>
             <button type="button" class="next"></button>
           </div>
@@ -1142,10 +1142,10 @@ pageEncoding="UTF-8"%>
         </div>
 
         <div class="titleBox">
-           <div class="themaMain">여행테마 선택</div>
-           <div class="themaSub">
-             남도로 떠나는 첫 걸음, 당신만의 여행 스타일을 선택해 보세요
-           </div>
+        	<div class="themaMain">여행테마 선택</div>
+        	<div class="themaSub">
+          	남도로 떠나는 첫 걸음, 당신만의 여행 스타일을 선택해 보세요
+        	</div>
         </div>
       </div>
     </div>

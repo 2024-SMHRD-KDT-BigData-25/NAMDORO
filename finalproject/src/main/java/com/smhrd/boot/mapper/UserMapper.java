@@ -8,7 +8,9 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import com.smhrd.boot.model.Tour;
 import com.smhrd.boot.model.namdoro;
+import com.smhrd.boot.model.plan;
 
 @Mapper
 public interface UserMapper {
@@ -26,14 +28,22 @@ public interface UserMapper {
    //비밀번호 찾기
    @Select("select * from USER_INFO where USER_ID=#{user_id} and USER_NAME=#{user_name} and USER_PHONE=#{user_phone}")
    public List<namdoro> findPw(namdoro member);
-   //닉네임 중복값 찾기
-   @Select("select * from USER_INFO where USER_NICKNAME=#{user_nickname}")
-   public namdoro nickname_no(namdoro member);
+   
    //회원정보수정
    @Update("UPDATE USER_INFO SET USER_PW=#{user_pw}, USER_NICKNAME=#{user_nickname}, USER_PHONE=#{user_phone} where USER_id=#{user_id}")
    public int update(namdoro member);
 
    @Delete("delete from USER_INFO where USER_ID=#{id}")
    public int delete(String id);
+   
+   @Select("select * from CREATE_PLAN")
+   public List<plan> getPlan();
+
+   @Select("select * from TOURIST_INFO")
+   public List<Tour> getTourist();
+
+   @Select("select * from CREATE_PLAN where CP_NO = #{CP_NO}")
+   public plan getPlanDetail(int CP_NO);
+
 
 }
