@@ -84,35 +84,33 @@ public class UserController {
    
    //아이디 찾기
    @PostMapping("/user_id")
-   public String findId(namdoro member, Model model) {
+   public String findId(namdoro member, Model model, RedirectAttributes redirectAttributes) {
       
       List<namdoro> res = service.findId(member);
-
-
-	
+      System.out.println(res);
        // 결과 처리
-       if (res != null) {
+       if (res != null && !res.isEmpty()) {
            model.addAttribute("res_id", res);
-           return "findinfo";
+    	   return "findinfo";
        } else {
-           model.addAttribute("res_id", "사용자를 찾을 수 없습니다.");
-           return "findId";
+           redirectAttributes.addFlashAttribute("findIdFailMessage", "아이디와 핸드폰번호가 맞지 않습니다.");
+           return "redirect:/findId";
        }
       
    }
    
    //비밀번호 찾기
    @PostMapping("/user_pw")
-   public String findpw(namdoro member, Model model) {
+   public String findpw(namdoro member, Model model, RedirectAttributes redirectAttributes) {
       
       List<namdoro> res = service.findPw(member);
       
-      if (res != null) {
-           model.addAttribute("res_pw", res);
+      if (res != null && !res.isEmpty()) {
+    	  model.addAttribute("res_pw", res);
            return "findinfoPw";
        } else {
-           model.addAttribute("res_pw", "사용자를 찾을 수 없습니다.");
-           return "froinPw";
+    	   redirectAttributes.addFlashAttribute("findPwFailMessage", "아이디와 이름 핸드폰번호가 맞지 않습니다.");
+    	   return "redirect:/findPw";
        }
       
    }
