@@ -33,6 +33,12 @@
             font-style: normal;
             font-weight: 700;
         }
+        
+        * {
+	        margin: 0;
+	        padding: 0;
+	        box-sizing: border-box;
+      	}
 
         body,html {
             background-color: #F4F8FE;

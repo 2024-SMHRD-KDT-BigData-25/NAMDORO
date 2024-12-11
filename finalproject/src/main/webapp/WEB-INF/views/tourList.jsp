@@ -33,7 +33,7 @@
             font-weight: 700;
         }
 
-    
+    	
 
         .gallary-list {
             display: flex;
