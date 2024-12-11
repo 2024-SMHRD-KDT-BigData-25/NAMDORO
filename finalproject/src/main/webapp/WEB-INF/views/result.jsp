@@ -300,7 +300,7 @@ html, body {
 				<%  } %>
 
 
-				<div class="dayContent" id="day<%=(i / 3 + 1)%>">
+				<div class="dayContent day<%=(i / 3 + 1)%>">
 					<div class="imageBox">
 						<% if (tl_img.get("" + i).getAsString().equals("")) { %>
 						<div class="image"
@@ -359,16 +359,19 @@ html, body {
         }
 
         function toggleDay(day) {
-          const dayContent = document.getElementById('day'+day);
+          const dayContent = document.getElementsByClassName('day'+day);
           const toggleText = document.getElementById('toggleText'+day);
-
-          if (dayContent.style.display === 'none') {
-            dayContent.style.display = 'block';
+          
+          console.log(dayContent)
+		<% for(int i = 0; i < 3; i++){%>
+          if (dayContent[<%=i%>].style.display === 'none') {
+            dayContent[<%=i%>].style.display = 'block';
             toggleText.textContent = '접기';
           } else {
-            dayContent.style.display = 'none';
+            dayContent[<%=i%>].style.display = 'none';
             toggleText.textContent = '펼치기';
           }
+   <%}%>
         }
 
         var container = document.getElementById("map");
