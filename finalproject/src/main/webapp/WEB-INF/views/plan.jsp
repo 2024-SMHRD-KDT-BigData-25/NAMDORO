@@ -81,12 +81,12 @@ pageEncoding="UTF-8"%>
       .square1 {
         position: absolute;
 	    border-radius: 20px;
-	    width: 950px;
-	    height: 850px;
+	    width: 1200px;
+	    height: 800px;
 	    top: 620px;
 	    left: 50%;
 	    transform: translate(-50%, -50%);
-	    background: url(images/bg.png) no-repeat center / cover;
+	    background: url("images/bg.png") no-repeat center / cover;
 	    display: flex;
 	    column-gap: 60px;
 	    row-gap: 60px;
@@ -94,7 +94,8 @@ pageEncoding="UTF-8"%>
 	    flex-wrap: wrap;
 	    align-content: center;
 	    z-index: -1;
-	    padding: 0 6%;
+	    padding: 0 15%;
+	    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
       }
 
       .square2 {
@@ -111,24 +112,43 @@ pageEncoding="UTF-8"%>
       }
 
       .before {
-        position: relative;
-        width: 110px;
-        height: 50px;
-        background: url("images/before.png") no-repeat center/cover;
-        border: none;
-        background-color: transparent;
-        cursor: pointer;
-      }
+            position: relative;
+		    width: 40px;
+		    height: 70px;
+		    border: none;
+		    background: #f5f5f5 url(images/before.png) no-repeat center / cover;
+		    background-size: 50%;
+		    border-radius: 20%;
+		    cursor: pointer;
+		    transition: all 0.3s ease;
+		    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
 
-      .next, .next2 {
-        position: relative;
-        width: 110px;
-        height: 50px;
-        background: url("images/next.png") no-repeat center/cover;
-        border: none;
-        background-color: transparent;
-        cursor: pointer;
-      }
+        .before:hover {
+            background-color: #a9f3fd;
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Next 버튼 스타일 */
+        .next, .next2 {
+            position: relative;
+		    width: 40px;
+		    height: 70px;
+		    border: none;
+		    background: #f5f5f5 url(images/next.png) no-repeat center / cover;
+		    background-size: 50%;
+		    border-radius: 20%;
+		    cursor: pointer;
+		    transition: all 0.3s ease;
+		    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .next:hover, .next2:hover {
+            background-color: #a9f3fd;
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
 
       .bottomStep {
         position: absolute;
@@ -147,6 +167,10 @@ pageEncoding="UTF-8"%>
         height: 35px;
         border-radius: 50%;
         background-color: #C2C2C2;
+      }
+      
+      .stepCir.active {
+            background-color: red; /* 활성화된 상태의 색상 */
       }
       
       .smallCir {
@@ -176,9 +200,13 @@ pageEncoding="UTF-8"%>
       }
 
       .nebe {
-        position: relative;
+        position: absolute;
         display: flex;
-        gap: 570px;
+        gap: 1140px;
+        top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+      	z-index: -1;
       }
 
       .age {
@@ -413,8 +441,8 @@ pageEncoding="UTF-8"%>
 
       /* 글자 스타일 */
       .text-style {
-        height: 80px;
-	    width: 150px;
+        height: 120px;
+	    width: 200px;
 	    padding: 10px 20px;
 	    border: 2px solid #9eb4f9;
 	    border-radius: 10px;
@@ -423,9 +451,10 @@ pageEncoding="UTF-8"%>
 	    display: flex;
 	    justify-content: center;
 	    align-items: center;
+	    
 	    font-family: 'Gmarket Sans', sans-serif;
 	    font-weight: 500;
-	    font-size: 16px;
+	    font-size: 20px;
 	    line-height: 30px;
 	    text-align: center;
 	    color: #000000;
@@ -474,7 +503,7 @@ pageEncoding="UTF-8"%>
       /* 라벨 스타일 */
         .date-label {
             padding: 12px 20px;
-            border-radius: 50%;
+            border-radius: 30%;
             background: linear-gradient(to right, #16c7fa, #b697f0);
             color: white;
             font-size: 20px;
@@ -482,8 +511,8 @@ pageEncoding="UTF-8"%>
             cursor: pointer;
             transition: all 0.3s ease-in-out;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: 150px;
-            height: 150px;
+            width: 180px;
+            height: 180px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -492,6 +521,7 @@ pageEncoding="UTF-8"%>
         .date-label:hover {
             background: linear-gradient(to right, #e5ea58, #f8788b);
             box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+            transform: scale(1.1);
         }
 
         input[type="radio"]:checked + .date-label {
@@ -506,8 +536,8 @@ pageEncoding="UTF-8"%>
 	    flex-wrap: wrap;
 	    justify-content: center;
 	    max-width: 600px;
-	    column-gap: 61px;
-	    row-gap: 30px;
+	    column-gap: 80px;
+	    row-gap: 60px;
 		}
       
       /*타이틀 박스 */
@@ -535,6 +565,12 @@ pageEncoding="UTF-8"%>
         <div class="bg1"></div>
 
         <div class="square1">
+        
+        <div class="nebe">
+            <button class="before"></button>
+            <button type="button" class="next"></button>
+          </div>
+          
           <div class="age-container">
             <input
               type="radio"
@@ -572,13 +608,9 @@ pageEncoding="UTF-8"%>
         </div>
 
         <div class="square2">
-          <div class="nebe">
-            <button class="before"></button>
-            <button type="button" class="next"></button>
-          </div>
 
           <div class="bottomStep">
-            <div class="stepCir">
+            <div class="stepCir" style="background-color: red;">
                 <div class="smallCir"></div>
                 <div class="stepText">STEP1</div>
             </div>
@@ -612,6 +644,12 @@ pageEncoding="UTF-8"%>
         <div class="bg2"></div>
 
         <div class="square1">
+        
+        <div class="nebe">
+            <button type="button" class="before"></button>
+            <button type="button" class="next"></button>
+          </div>
+        
           <div class="button-container">
            
             <input 
@@ -633,17 +671,14 @@ pageEncoding="UTF-8"%>
         </div>
 
         <div class="square2">
-          <div class="nebe">
-            <button type="button" class="before"></button>
-            <button type="button" class="next"></button>
-          </div>
+          
 
           <div class="bottomStep">
             <div class="stepCir">
                 <div class="smallCir"></div>
                 <div class="stepText">STEP1</div>
             </div>
-            <div class="stepCir">
+            <div class="stepCir" style="background-color: red;">
                 <div class="smallCir"></div>
                 <div class="stepText">STEP2</div>
             </div>
@@ -674,6 +709,12 @@ pageEncoding="UTF-8"%>
         <div class="bg3"></div>
 
         <div class="square1">
+        
+          <div class="nebe">
+            <button type="button" class="before"></button>
+            <button type="button" class="next"></button>
+          </div>
+        
           <div class="gender">
           <input
               type="radio"
@@ -699,10 +740,7 @@ pageEncoding="UTF-8"%>
         </div>
 
         <div class="square2">
-          <div class="nebe">
-            <button type="button" class="before"></button>
-            <button type="button" class="next"></button>
-          </div>
+          
 
           <div class="bottomStep">
             <div class="stepCir">
@@ -713,7 +751,7 @@ pageEncoding="UTF-8"%>
                 <div class="smallCir"></div>
                 <div class="stepText">STEP2</div>
             </div>
-            <div class="stepCir">
+            <div class="stepCir" style="background-color: red;">
                 <div class="smallCir"></div>
                 <div class="stepText">STEP3</div>
             </div>
@@ -740,10 +778,7 @@ pageEncoding="UTF-8"%>
         <div class="bg4"></div>
 
         <div class="square2">
-          <div class="nebe">
-            <button type="button" class="before"></button>
-            <button type="button" class="next"></button>
-          </div>
+          
 
           <div class="bottomStep">
             <div class="stepCir">
@@ -758,7 +793,7 @@ pageEncoding="UTF-8"%>
                 <div class="smallCir"></div>
                 <div class="stepText">STEP3</div>
             </div>
-            <div class="stepCir">
+            <div class="stepCir" style="background-color: red;">
                 <div class="smallCir"></div>
                 <div class="stepText">STEP4</div>
             </div>
@@ -777,6 +812,11 @@ pageEncoding="UTF-8"%>
         </div>
 
         <div class="square1">
+
+	      <div class="nebe">
+            <button type="button" class="before"></button>
+            <button type="button" class="next"></button>
+          </div>
 
             <input
               type="radio"
@@ -984,6 +1024,12 @@ pageEncoding="UTF-8"%>
         <div class="bg5"></div>
 
         <div class="square1">
+        
+          <div class="nebe">
+            <button type="button" class="before"></button>
+            <button type="submit" class="next2"></button>
+          </div>
+        
           <input
             type="radio"
             id="photo1"
@@ -1052,10 +1098,7 @@ pageEncoding="UTF-8"%>
         </div>
 
         <div class="square2">
-          <div class="nebe">
-            <button type="button" class="before"></button>
-            <button type="submit" class="next2"></button>
-          </div>
+          
           <div class="bottomStep">
             <div class="stepCir">
                 <div class="smallCir"></div>
@@ -1073,7 +1116,7 @@ pageEncoding="UTF-8"%>
                 <div class="smallCir"></div>
                 <div class="stepText">STEP4</div>
             </div>
-            <div class="stepCir">
+            <div class="stepCir" style="background-color: red;">
                 <div class="smallCir"></div>
                 <div class="stepText">STEP5</div>
             </div>
