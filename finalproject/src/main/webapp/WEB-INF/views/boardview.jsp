@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.boot.model.namdoro"%>
 <%@page import="com.smhrd.boot.model.board"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -185,9 +186,27 @@
             background-color: #e9e9e9;
         }
     </style>
+    <script type="text/javascript">
+        // 삭제 확인 팝업
+        function confirmDelete(url) {
+            var result = confirm("정말로 삭제하시겠습니까?");
+            if (result) {
+                window.location.href = url; // 삭제 진행
+            } else {
+                return false; // 삭제 취소
+            }
+        }
+    </script>
 </head>
 <body>
-	<% board result = (board)request.getAttribute("board"); %>
+	<% 
+        // 게시글 정보 가져오기
+        board result = (board)request.getAttribute("board");
+        // 로그인한 사용자 정보 가져오기
+        namdoro member = (namdoro)session.getAttribute("member"); 
+        String loggedInUser = member != null ? member.getUser_nickname() : null; // 로그인한 사용자의 닉네임
+        String postAuthor = result.getUSER_NICKNAME(); // 게시글 작성자의 닉네임
+    %>
     <div class="namdoro">남도로 (게시판 상세보기)</div>
 
     <div class="board-container">
@@ -206,6 +225,13 @@
         <div class="post-content">
             <%= result.getTB_CONTENT() %>
         </div>
+         <!-- 수정 및 삭제 버튼 (자신의 게시글일 경우) -->
+        <% if (loggedInUser != null && loggedInUser.equals(postAuthor)) { %>
+            <!-- 수정 버튼 -->
+            <a href="editBoard.jsp?boardId=<%= result.getUSER_ID() %>" class="back-button" style="background-color: #28a745;">수정</a>
+            <!-- 삭제 버튼 -->
+            <a href="javascript:confirmDelete('delete?TB_NO=<%= result.getTB_NO() %>')" class="back-button" style="background-color: #dc3545;">삭제</a>
+        <% } %>
     </div>  
 
     <!-- 댓글 섹션 -->

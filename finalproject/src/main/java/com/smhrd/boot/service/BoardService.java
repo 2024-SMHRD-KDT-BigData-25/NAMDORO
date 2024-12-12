@@ -67,8 +67,23 @@ public class BoardService {
 		b.setTB_IMG(base64Str);
 
 		return b;
-
 	}
-	
+
+	public int delete(int TB_NO) {
+		// 게시글 정보 가져오기
+		board post = boardMapper.view(TB_NO);
+
+		// 이미지 파일 경로
+		String filePath = "C://upload/" + post.getTB_IMG();
+
+		// 이미지 파일 삭제
+		File file = new File(filePath);
+		if (file.exists()) {
+			file.delete();
+		}
+
+		// 게시글 삭제
+		return boardMapper.delete(TB_NO);
+	}
 
 }

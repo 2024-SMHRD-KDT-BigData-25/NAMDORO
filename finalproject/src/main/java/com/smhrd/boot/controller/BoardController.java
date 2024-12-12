@@ -13,9 +13,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.smhrd.boot.mapper.BoardMapper;
 import com.smhrd.boot.model.board;
 import com.smhrd.boot.service.BoardService;
 
+import jakarta.servlet.http.HttpSession;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
@@ -62,6 +64,24 @@ public class BoardController {
 
 		return "boardview";
 	}
+    
+ // 게시판 삭제 처리
+    @GetMapping("/board/delete")
+    public String delete(@RequestParam int TB_NO, Model model) throws IOException {
+        System.out.println("게시글 삭제: " + TB_NO);
+
+        // 게시글 삭제 서비스 호출
+        int res = boardService.delete(TB_NO);
+
+        // 삭제 결과 확인 후 리디렉션
+        if (res > 0) {
+            // 삭제 성공 시 게시판 목록 페이지로 리다이렉트
+            return "redirect:/board";  // 목록 페이지로 리다이렉트
+        } else {
+            // 실패 시 메시지 표시 (예: 실패 메시지 화면으로)
+            return "redirect:/board";  // 실패 시 게시판 목록 페이지로 리다이렉트
+        }
+    }
     
 
 
