@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.smhrd.boot.model.Tour;
 import com.smhrd.boot.service.TourlistService;
@@ -37,5 +38,26 @@ public class TourlistController {
 		return "tourInfo";
 	}
 	
+	//검색하기
+	@GetMapping("/TL_search")
+	public String search(Model model){
+		List<Tour> tourlist = service.GetTourlist();
+		model.addAttribute("tourlist", tourlist);
+		
+		return "tourList";
+	}
 	
+	@GetMapping("/TL_search") 
+	public String GetTourlist(@RequestParam(required = false) String TL_NAME, Model model){ 
+		
+		List<Tour> tourlist;
+
+	if (TL_NAME != null && !TL_NAME.isEmpty()) {
+		tourlist = service.searchTours(); // 검색된 결과 리스트 가져오기 
+		
+		} else { tourlist = service.GetTourlist(); // 전체 리스트 가져오기 } 
+			model.addAttribute("tourlist", tourlist);
+		}
+		return "tourList";
+	}
 }

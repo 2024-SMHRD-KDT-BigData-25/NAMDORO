@@ -2,12 +2,13 @@ package com.smhrd.boot.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import com.smhrd.boot.mapper.TourlistMapper;
 import com.smhrd.boot.model.Tour;
 import com.smhrd.boot.model.TourlistReview;
-
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
@@ -30,6 +31,11 @@ public class TourlistService {
 	
 	public List<TourlistReview> tourReviewList(int TL_NO) {
 		return mapper.tourReviewList(TL_NO);
+	}
+	
+	//검색하기
+	public List<Tour> searchTours() {
+		return mapper.findByTL();
 	}
 
 }

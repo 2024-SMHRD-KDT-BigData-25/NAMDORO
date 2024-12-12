@@ -23,5 +23,7 @@ public interface TourlistMapper {
 	
 	@Select("SELECT TR.*, UI.USER_NICKNAME FROM TOURIST_REVIEWS TR JOIN USER_INFO UI ON TR.USER_ID = UI.USER_ID WHERE  TR.TL_NO = #{TL_NO};")
 	public List<TourlistReview> tourReviewList(int TL_NO);
-
+	
+	@Select("select * from TOURIST_INFO")
+	public List<Tour> findByTL();
 }

@@ -81,6 +81,31 @@ ul li a {
 	line-height: 30px;
 	text-align: center;
 }
+
+#search button { 
+	width: 20px; 
+	height: 20px; 
+	background: url('images/search.png') no-repeat center center; 
+	background-size: 20px 20px; 
+	background-color: transparent;
+	margin-left: 0px;
+	position: absolute;
+	transform: translate(-200%,50%);
+	} 
+
+#search a { 
+	height: 40px; 
+	display: flex; 
+	align-items: center; 
+	justify-content: center; 
+	background-color: #007bff; 
+	color: white; 
+	padding: 0 20px; 
+	margin-left: 10px; 
+	text-decoration: none; 
+	cursor: pointer;
+	}
+
 </style>
 
 </head>
@@ -94,11 +119,14 @@ ul li a {
 		<div class="logo-area"
 			style="display: flex; align-items: center; justify-content: center; gap: 10px;">
 			<a id="headerLogo" href="/boot"></a>
+			<form action="/boot/tours" onsubmit="search(event)">
 			<div id="search">
 				<input type="text"
-					style="width: 400px; height: 40px; padding: 0 10%; background: url('images/search.png') no-repeat calc(100% - 10px) center; background-size: 20px 20px; background-color: white;"
-					placeholder="떠나고 싶은 여행지가 있으신가요?">
+					style="width: 400px; height: 40px; padding: 0 10%; background-size: 20px 20px; background-color: white;"
+					placeholder="떠나고 싶은 여행지가 있으신가요?" id="searchInput">
+					<button type="submit"></button>	
 			</div>
+			</form>
 		</div>
 
 		<ul
@@ -123,5 +151,34 @@ ul li a {
 
 		</ul>
 	</div>
+	
+	
+	<script>
+	//검색하기
+    function search(event) {
+        event.preventDefault();
+        const query = document.getElementById("searchInput").value.trim().toLowerCase();
+        const galleryItems = document.querySelectorAll(".gallary-detail");
+        
+        // 검색 결과를 필터링하여 filteredItems 배열에 저장
+        filteredItems = Array.from(galleryItems).filter(item => {
+            const title = item.querySelector(".title").textContent.toLowerCase();
+            return title.includes(query);
+        });
+        
+        // 검색 결과에 따라 항목 표시/숨김 처리
+        galleryItems.forEach(item => {
+            item.style.display = "none"; // 모든 항목 숨김
+        });
+        
+        // 현재 페이지를 1로 리셋
+        currentPage = 1;
+        
+        // 페이지네이션 업데이트
+        updatePagination();
+    }
+	</script>
+	
+	
 </body>
 </html>
