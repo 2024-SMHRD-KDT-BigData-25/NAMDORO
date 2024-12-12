@@ -199,11 +199,11 @@
     %>
     <div class="mypage">
       <div class="nick">
-        <h2 class="nickname"><%=member.getUser_nickname() %>님</h2>
+        <h2 class="nickname"><%=member.getUser_nickname() %> 님</h2>
         <div class="profile-actions">
-          <a class="button1" href="myPageInfo">회원정보 수정</a> <a class="button1"
-            href="logout">로그아웃</a> <a class="button2"
-            onclick="deleteMember('<%=member.getUser_id()%>')">회원탈퇴</a>
+          <a class="button1" href="myPageInfo">회원정보 수정</a>
+          <a class="button1" href="logout">로그아웃</a>
+          <a class="button1" onclick="deleteMember('<%=member.getUser_id()%>')">회원탈퇴</a>
         </div>
       </div>
 

@@ -268,7 +268,6 @@ margin-top: 100px;}
       JsonObject tl_theme = json.get("TL_THEME").getAsJsonObject();
       JsonObject tl_add = json.get("TL_ADD").getAsJsonObject();
       JsonObject tl_no = json.get("TL_NO").getAsJsonObject();
-      
       System.out.println(tl_name.get("10"));
    %>
 
@@ -454,7 +453,6 @@ margin-top: 100px;}
         });
 
         function moveToDay(day) {
-          // 해당 날짜의 위치 데이터를 가져옵니다.
           const positionsForDay = dayPositions[day];
 
           if (!positionsForDay || positionsForDay.length === 0) {
@@ -470,11 +468,61 @@ margin-top: 100px;}
             bounds.extend(position.latlng);
           });
 
-          // 지도의 범위를 해당 날짜의 위치로 설정합니다.
-          map.setBounds(bounds);
+          // 가장 먼 두 지점 간의 거리를 계산합니다.
+          let maxDistance = 0;
+          for(let i = 0; i < positionsForDay.length; i++) {
+            for(let j = i + 1; j < positionsForDay.length; j++) {
+              const distance = getDistance(
+                positionsForDay[i].latlng.getLat(), 
+                positionsForDay[i].latlng.getLng(),
+                positionsForDay[j].latlng.getLat(), 
+                positionsForDay[j].latlng.getLng()
+              );
+              maxDistance = Math.max(maxDistance, distance);
+            }
+          }
+          
+          console.log(maxDistance);
 
-          // 지도를 적절히 확대 (필요하면 level 값 조정)
-          map.setLevel(5, { animate: true });
+          // 거리에 따라 적절한 줌 레벨을 설정합니다.
+          let zoomLevel;
+          if (maxDistance < 1) { // 1km 이내
+            zoomLevel = 5;
+          } else if (maxDistance < 3) { // 3km 이내
+            zoomLevel = 6;
+          } else if (maxDistance < 7) { // 7km 이내
+            zoomLevel = 7;
+          } else if (maxDistance < 15) { // 15km 이내
+            zoomLevel = 8;
+          } else if (maxDistance < 26) { // 26km 이내
+            zoomLevel = 9;
+          } else if (maxDistance < 50) { // 50km 이내
+            zoomLevel = 10;
+          } else { // 15km 초과
+            zoomLevel = 11;
+          }
+          
+          console.log(zoomLevel);
+
+          map.setBounds(bounds);
+          map.setLevel(zoomLevel, {animate: true});
+        }
+
+        // 두 지점 간의 거리를 계산하는 함수 (km 단위)
+        function getDistance(lat1, lon1, lat2, lon2) {
+          const R = 6371; // 지구의 반경 (km)
+          const dLat = deg2rad(lat2 - lat1);
+          const dLon = deg2rad(lon2 - lon1);
+          const a = 
+            Math.sin(dLat/2) * Math.sin(dLat/2) +
+            Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * 
+            Math.sin(dLon/2) * Math.sin(dLon/2); 
+          const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+          return R * c;
+        }
+
+        function deg2rad(deg) {
+          return deg * (Math.PI/180);
         }
         
       </script>
@@ -484,6 +532,7 @@ margin-top: 100px;}
 		    window.open('popup/'+no, 'PopupWindow', 'width=1000,height=600,location=no,toolbar=no,menubar=no'); // 팝업 파일 경로와 옵션 설정
 		}
 	  </script>
-      
+	  
 </body>
 	</html>
+>>>>>>> branch 'master' of https://github.com/2024-SMHRD-KDT-BigData-25/NAMDORO
