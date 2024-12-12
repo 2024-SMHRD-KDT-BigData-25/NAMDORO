@@ -114,12 +114,12 @@
       .square2 {
           position: absolute;
           width: 70%; /* 부모 컨테이너의 80% 너비 */
-          height: 130px; /* 썸네일 높이 */
+          height: 135px; /* 썸네일 높이 */
           top: 90%; /* 부모 컨테이너 기준으로 세로 중앙 정렬 */
           left: 15%; /* 부모 컨테이너 기준으로 가로 중앙 정렬 */
           margin: 20px auto; /* 위아래 간격 추가 및 중앙 정렬 */
           display: flex;
-          justify-content: flex-start;
+          justify-content: center;
           align-items: center;
           gap: 15px; /* 썸네일 간격 */
           overflow-x: auto; /* 가로 스크롤 활성화 */
