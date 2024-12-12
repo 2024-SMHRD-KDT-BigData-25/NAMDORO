@@ -120,8 +120,7 @@ ul li a {
 		<div class="logo-area"
 			style="display: flex; align-items: center; justify-content: center; gap: 10px;">
 			<a id="headerLogo" href="/boot"></a>
-			<form id="frm" action="/boot/TL_search">
-
+			<form id="frm" action="/boot/TL_search" method="post">
 			<div id="search">
 				<input type="text"
 					style="width: 400px; height: 40px; padding: 0 10%; background-size: 20px 20px; background-color: white;"
