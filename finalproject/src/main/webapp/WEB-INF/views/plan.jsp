@@ -337,6 +337,8 @@ pageEncoding="UTF-8"%>
           outline: 8px solid #4a90e2 !important;
           outline-offset: 2px;
           transition: outline 0.2s ease-in-out;
+          color : #2C3E50;
+          transform: scale(1.5); /* 요소를 1.5배 확대 */
       }
 
       /* 추가된 스타일 */
