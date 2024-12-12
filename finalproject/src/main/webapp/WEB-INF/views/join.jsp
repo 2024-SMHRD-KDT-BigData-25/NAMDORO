@@ -51,10 +51,9 @@ h1, p {
 	user-select: none; 
 	display: inline-block; 
 	position: absolute; 
-	right: 350px; 
-	top: 49.5%; 
-	transform: translateY(-55%); 
-	width: 25px; 
+	top: 50%; 
+	transform: translate(500%, -75%); 
+	width: 28px; 
 	height: 20px;
 } 
 
