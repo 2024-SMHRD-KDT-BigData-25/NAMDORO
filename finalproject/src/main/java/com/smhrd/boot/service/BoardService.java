@@ -33,7 +33,9 @@ public class BoardService {
 		String fileName = lastPart + file.getOriginalFilename();
 
 		// 파일 저장 => 경로 지정
-		String filePath = "C://upload/" + fileName;
+//		String filePath = "C://upload/" + fileName;
+		String filePath = "C://Users/smhrd/git/NAMDORO/finalproject/src/main/webapp/upload/" + fileName;
+//		String filePath = "upload/" + fileName;
 		file.transferTo(new File(filePath));
 
 		b.setTB_IMG(fileName);
@@ -59,7 +61,7 @@ public class BoardService {
 		String content = b.getTB_CONTENT();
 		b.setTB_CONTENT(content.replace("\n", "<br>"));
 
-		byte[] imgBytes = Files.readAllBytes(Paths.get("C://upload/" + b.getTB_IMG()));
+		byte[] imgBytes = Files.readAllBytes(Paths.get("C://Users/smhrd/git/NAMDORO/finalproject/src/main/webapp/upload/" + b.getTB_IMG()));
 
 		// byte[] => Base64(인코더) =>String
 		String base64Str = Base64.getEncoder().encodeToString(imgBytes);

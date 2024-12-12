@@ -1,10 +1,11 @@
+# 기타 무시 설정
 HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-### STS ###
+# STS 설정
 .apt_generated
 .classpath
 .factorypath
@@ -13,13 +14,13 @@ target/
 .springBeans
 .sts4-cache
 
-### IntelliJ IDEA ###
+# IntelliJ IDEA 설정
 .idea
 *.iws
 *.iml
 *.ipr
 
-### NetBeans ###
+# NetBeans 설정
 /nbproject/private/
 /nbbuild/
 /dist/
@@ -29,5 +30,9 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
-### VS Code ###
+# VS Code 설정
 .vscode/
+
+# upload 폴더 포함 설정
+!/src/main/webapp/upload/
+!/src/main/webapp/upload/**
