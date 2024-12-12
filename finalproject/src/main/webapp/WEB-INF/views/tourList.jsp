@@ -33,8 +33,6 @@
             font-weight: 700;
         }
 
-    
-
         .gallary-list {
             display: flex;
             flex-wrap: wrap;
@@ -91,7 +89,7 @@
             font-family: 'Gmarket Sans', sans-serif;
 			font-weight: 500;
 			font-size: 15px;
-			line-height: 10px;
+			line-height: 20px;
 		
 			color: #121212; 
 
@@ -125,12 +123,12 @@
             border-top-right-radius: 7px;
             border-top-left-radius: 7px;
             word-wrap: break-word;
-            height:260px;
+            height:280px;
 
         }
 
         .margin {
-            margin-bottom: 100%;
+            margin-bottom: 10%;
         }
 
         .gallary-detail img {
@@ -267,10 +265,8 @@
     </div>
 
     <div class="margin"></div>
-    <div id="header"></div>
-    <div id="footer"></div>
 
-    <script src="js/footer.js"></script>
+
     
     <script>
     // 페이지네이션 관련 변수

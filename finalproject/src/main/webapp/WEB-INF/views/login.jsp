@@ -224,7 +224,30 @@ html, body {
 	background-repeat: no-repeat;
 	background-position: 8px center; /* 가로로 5px 이동 */
 	background-image:
-		url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M144 144l0 48 160 0 0-48c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192l0-48C80 64.5 144.5 0 224 0s144 64.5 144 144l0 48 16 0c35.3 0 64 28.7 64 64l0 192c0 35.3-28.7 64-64 64L64 512c-35.3 0-64-28.7-64-64L0 256c0-35.3 28.7-64 64-64l16 0z"/></svg>')
+		url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M144 144l0 48 160 0 0-48c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192l0-48C80 64.5 144.5 0 224 0s144 64.5 144 144l0 48 16 0c35.3 0 64 28.7 64 64l0 192c0 35.3-28.7 64-64 64L64 512c-35.3 0-64-28.7-64-64L0 256c0-35.3 28.7-64 64-64l16 0z"/></svg>');	
+}
+
+
+.toggle-password { 
+	cursor: pointer; 
+	user-select: none; 
+	display: inline-block; 
+	position: absolute; 
+	right: 100px; 
+	top: 50%; 
+	transform: translateY(-225%); 
+	width: 30px; 
+	height: 18px;
+} 
+
+.pw-container { 
+	position: relative; 
+	display: inline-block; 
+}
+
+.toggle-password img {
+	width: 80%; 
+	height:	
 }
 
 .kakao {
@@ -266,6 +289,7 @@ html, body {
 				</div>
 				<div>
 					<input type="password" class="pw" id='user_pw' name='user_pw' placeholder="비밀번호 입력">
+					<span id="toggle-password" class="toggle-password"><img src="./images/i_on.png"></span><br><br>
 				</div>
 			</div>
 			<div display="inline-block">
@@ -297,11 +321,33 @@ html, body {
    		}
    		
    		return true;
+   		
    	}
-   
+   	
+    
+   	
    </script>
-	
+   
+   
+   <script>
+   	
+		    // JavaScript 코드: 비밀번호 표시/숨기기 기능
+		    document.addEventListener('DOMContentLoaded', function() {
+		        document.getElementById('toggle-password').addEventListener('click', function() {
+		            const passwordField = document.getElementById('user_pw');
+		            const togglePasswordImg = document.getElementById('toggle-password').querySelector('img');
+		            
+		            if (passwordField.type === 'password') {
+		                passwordField.type = 'text';
+		                togglePasswordImg.src = './images/i_off.png';  // 아이콘 변경 (비밀번호 숨기기)
+		            } else {
+		                passwordField.type = 'password';
+		                togglePasswordImg.src = './images/i_on.png';  // 아이콘 변경 (비밀번호 보기)
+		            }
+		        });
+		    });
 
+   </script>
 
 
 </body>
