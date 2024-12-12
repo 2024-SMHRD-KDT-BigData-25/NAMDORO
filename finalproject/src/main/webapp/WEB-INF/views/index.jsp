@@ -134,7 +134,6 @@
         max-width: 1380px;
         height: 250px;
         margin: 400px auto 0;
-        padding: 0 20px;
         overflow: hidden;
       }
 

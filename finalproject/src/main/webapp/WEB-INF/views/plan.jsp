@@ -423,7 +423,7 @@ pageEncoding="UTF-8"%>
       }
       
       input[type="radio"]:checked + .img-gender img {
-        background: linear-gradient(to right, #09d2e757, #c899f28c);
+            background-color: #edffff;
       }
       
       /* 기간선택 관련 css */
@@ -1074,8 +1074,7 @@ pageEncoding="UTF-8"%>
         <div class="square2">
           <div class="nebe">
           <input type="hidden" name="user_id" value="<%=member.getUser_id()%>">
-            <button type="button" class="before"></button>
-            <button type="submit" class="next2"></button>
+       
           </div>
 
           <div class="bottomStep">
