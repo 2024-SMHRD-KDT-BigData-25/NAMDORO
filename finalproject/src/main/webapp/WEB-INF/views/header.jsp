@@ -111,7 +111,7 @@ ul li a {
 
 </head>
 <body>
-	
+
 	<%
 	namdoro member = (namdoro) session.getAttribute("member");
 	%>
@@ -121,6 +121,7 @@ ul li a {
 			style="display: flex; align-items: center; justify-content: center; gap: 10px;">
 			<a id="headerLogo" href="/boot"></a>
 			<form id="frm" action="/boot/TL_search">
+
 			<div id="search">
 				<input type="text"
 					style="width: 400px; height: 40px; padding: 0 10%; background-size: 20px 20px; background-color: white;"
@@ -128,7 +129,6 @@ ul li a {
 					<button type="submit"></button>
 
 			</div>
-			</form>
 		</div>
 
 		<ul
@@ -153,7 +153,5 @@ ul li a {
 
 		</ul>
 	</div>
-	
-	
 </body>
 </html>
