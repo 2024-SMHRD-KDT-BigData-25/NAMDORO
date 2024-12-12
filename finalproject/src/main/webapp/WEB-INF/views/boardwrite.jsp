@@ -121,7 +121,7 @@
     </div>
 
     <script>
-    /*
+    
         // 이미지 미리보기 기능
         function previewImage(event) {
             const file = event.target.files[0];
@@ -139,7 +139,7 @@
             }
         }
 
-        // 폼 제출
+      /*  // 폼 제출
         document.getElementById('postForm').onsubmit = function(event) {
             event.preventDefault();
 
