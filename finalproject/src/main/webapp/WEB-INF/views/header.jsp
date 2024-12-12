@@ -85,12 +85,13 @@ ul li a {
 #search button { 
 	width: 20px; 
 	height: 20px; 
-	background: url('images/search.png') no-repeat center center; 
+	background: url('/boot/images/search.png') no-repeat center center; 
 	background-size: 20px 20px; 
 	background-color: transparent;
 	margin-left: 0px;
 	position: absolute;
 	transform: translate(-200%,50%);
+	border:none;
 	} 
 
 #search a { 
@@ -119,12 +120,12 @@ ul li a {
 		<div class="logo-area"
 			style="display: flex; align-items: center; justify-content: center; gap: 10px;">
 			<a id="headerLogo" href="/boot"></a>
-			<form id="frm" action="/boot/TL_search" onsubmit="search()">
+			<form id="frm" action="/boot/TL_search">
 			<div id="search">
 				<input type="text"
 					style="width: 400px; height: 40px; padding: 0 10%; background-size: 20px 20px; background-color: white;"
 					placeholder="떠나고 싶은 여행지가 있으신가요?" id="searchmain" name="query">
-					<button type="button" onclick="search()"></button>
+					<button type="submit"></button>
 
 			</div>
 			</form>
