@@ -8,7 +8,7 @@
     <title>전라남도 지도</title>
     <style>
 
-        @font-face {
+@font-face {
             font-family: 'Gmarket Sans';
             src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
             font-style: normal;
@@ -105,32 +105,18 @@
 			position: absolute;
     		width: 500px;
     		height: 10px;
-            background-color: #C2C2C2;
+    		background: url(images/bottomStep.png) no-repeat center / cover;
     		display: flex;
     		align-items: center;
     		justify-content: space-evenly;
-            border-radius: 20px;
 		}
 
 		.stepCir {
 			position: relative;
             width: 35px;
             height: 35px;
-            border-radius: 50%;
-            background-color: #C2C2C2;
+            background: url('images/stepCir.png') no-repeat center/cover;
 		}
-
-        .smallCir {
-            position: absolute;
-            width: 15px;
-            height: 15px;
-            background-color: #ffffff; /* 원의 색상 */
-            border-radius: 50%; /* 원 모양으로 만들기 */
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 5;
-        }
 
 		.stepText {
 			position: relative;
@@ -218,38 +204,32 @@
 </head>
 <body>
 
-    <jsp:include page="header.jsp"></jsp:include>
+<jsp:include page="header.jsp"></jsp:include>
+
+
 
         <div class="bg"></div>
 
         <div class="square2">
 
             <div class="nebe">
-               <button class="before" onClick="location.href='main.html'"></button>
-               <button class="next" onClick="location.href='dateSelect.html'"></button>
+               <button class="before" onClick="location.href='/boot'">메인으로</button>
+               <button class="next" onClick="location.href='dateSelect.html'">다음으로</button>
             </div>
       
             <div class="bottomStep">
-                <div class="stepCir">
-                    <div class="smallCir"></div>
-                    <div class="stepText">STEP1</div>
-                </div>
-                <div class="stepCir">
-                    <div class="smallCir"></div>
-                    <div class="stepText">STEP2</div>
-                </div>
-                <div class="stepCir">
-                    <div class="smallCir"></div>
-                    <div class="stepText">STEP3</div>
-                </div>
-                <div class="stepCir">
-                    <div class="smallCir"></div>
-                    <div class="stepText">STEP4</div>
-                </div>
-                <div class="stepCir">
-                    <div class="smallCir"></div>
-                    <div class="stepText">STEP5</div>
-                </div>
+               <div class="stepCir">
+                  <div class="stepText">STEP1</div>
+               </div>
+               <div class="stepCir">
+                  <div class="stepText">STEP2</div>
+               </div>
+               <div class="stepCir">
+                  <div class="stepText">STEP3</div>
+               </div>
+               <div class="stepCir">
+                  <div class="stepText">STEP4</div>
+               </div>
             </div>	
          </div>
 
@@ -326,7 +306,5 @@
         });
     </script>
 
-    
-    <script src="js/footer.js"></script>
 </body>
 </html>
