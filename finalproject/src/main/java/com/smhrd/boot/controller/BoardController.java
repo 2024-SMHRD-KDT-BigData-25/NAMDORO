@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -50,6 +51,18 @@ public class BoardController {
     	model.addAttribute("boardList", boardList);
     	
     	return "board";
+    	
     }
+    
+    @GetMapping("board/{TB_NO}")
+	public String detailForm(@PathVariable int TB_NO, Model model) throws IOException {
+
+		board result = boardService.view(TB_NO);		
+		model.addAttribute("board", result);
+
+		return "boardview";
+	}
+    
+
 
 }
