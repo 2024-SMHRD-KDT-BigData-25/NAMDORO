@@ -96,7 +96,7 @@ ul li a {
 			<a id="headerLogo" href="/boot"></a>
 			<div id="search">
 				<input type="text"
-					style="width: 400px; height: 40px; padding: 0 10%; background: url('images/search.png') no-repeat calc(100% - 10px) center; background-size: 20px 20px; background-color: white;"
+					style="width: 400px; height: 40px; padding: 0 10%; background: url('boot/images/search.png') no-repeat calc(100% - 10px) center; background-size: 20px 20px; background-color: white;"
 					placeholder="떠나고 싶은 여행지가 있으신가요?">
 			</div>
 		</div>
