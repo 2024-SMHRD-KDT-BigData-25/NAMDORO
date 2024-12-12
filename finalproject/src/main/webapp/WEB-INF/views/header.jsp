@@ -81,11 +81,36 @@ ul li a {
 	line-height: 30px;
 	text-align: center;
 }
+
+#search button { 
+	width: 20px; 
+	height: 20px; 
+	background: url('images/search.png') no-repeat center center; 
+	background-size: 20px 20px; 
+	background-color: transparent;
+	margin-left: 0px;
+	position: absolute;
+	transform: translate(-200%,50%);
+	} 
+
+#search a { 
+	height: 40px; 
+	display: flex; 
+	align-items: center; 
+	justify-content: center; 
+	background-color: #007bff; 
+	color: white; 
+	padding: 0 20px; 
+	margin-left: 10px; 
+	text-decoration: none; 
+	cursor: pointer;
+	}
+
 </style>
 
 </head>
 <body>
-
+	
 	<%
 	namdoro member = (namdoro) session.getAttribute("member");
 	%>
@@ -94,11 +119,15 @@ ul li a {
 		<div class="logo-area"
 			style="display: flex; align-items: center; justify-content: center; gap: 10px;">
 			<a id="headerLogo" href="/boot"></a>
+			<form id="frm" action="/boot/TL_search" onsubmit="search()">
 			<div id="search">
 				<input type="text"
-					style="width: 400px; height: 40px; padding: 0 10%; background: url('images/search.png') no-repeat calc(100% - 10px) center; background-size: 20px 20px; background-color: white;"
-					placeholder="떠나고 싶은 여행지가 있으신가요?">
+					style="width: 400px; height: 40px; padding: 0 10%; background-size: 20px 20px; background-color: white;"
+					placeholder="떠나고 싶은 여행지가 있으신가요?" id="searchmain" name="query">
+					<button type="button" onclick="search()"></button>
+
 			</div>
+			</form>
 		</div>
 
 		<ul
@@ -123,5 +152,7 @@ ul li a {
 
 		</ul>
 	</div>
+	
+	
 </body>
 </html>
