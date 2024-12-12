@@ -1,6 +1,7 @@
-<%@page import="com.smhrd.boot.model.namdoro"%>
+<%@page import="com.smhrd.boot.model.board"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@page import="com.smhrd.boot.model.namdoro"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -95,29 +96,40 @@
 </head>
 <body>
  <%namdoro member = (namdoro)session.getAttribute("member"); 
- 	System.out.println("Test : "  + member);
- 	System.out.println("Test ID : "+member.getUser_id());
+//게시글 정보 가져오기
+ board result = (board)request.getAttribute("board");
+ 	//System.out.println("Test : "  + member);
+ 	//System.out.println("Test ID : "+member.getUser_id());
  %>
     <div class="namdoro">남도로 (게시판 글 작성)</div>
 
     <div class="form-container">
-        <div class="form-header">게시글 작성</div>
+        <div class="form-header">게시글 수정</div>
 
-        <form id="postForm" enctype="multipart/form-data" action="/boot/board/write" method="post">
-            <!-- 제목 입력 -->
-            <input type="text" id="postTitle" name="TB_TITLE" class="input-field" placeholder="제목을 입력하세요" required />
+        <form id="postForm" enctype="multipart/form-data" action="/boot/board/edit" method="post">
+    <!-- 제목 입력 -->
+    <input type="text" id="postTitle" name="TB_TITLE" class="input-field" value="<%= result.getTB_TITLE() %>" required />
 
-            <!-- 사진 첨부 -->
-            
-			<input type="file" id="TB_IMG" name="photo" class="input-field" accept="image/*" onchange="previewImage(event)" />
-            <img id="imagePreview" class="image-preview" style="display: none;" />
-			 
-            <!-- 내용 입력 -->
-            <textarea id="postContent" name="TB_CONTENT" class="input-field" rows="10" placeholder="내용을 입력하세요" required></textarea>
-			<input type="hidden" name="USER_ID" value="<%=member.getUser_id()%>"></input>
-            <!-- 제출 버튼 -->
-            <button type="submit" class="submit-button">작성 완료</button>
-        </form>
+    <!-- 내용 입력 -->
+    <textarea id="postContent" name="TB_CONTENT" class="input-field" rows="10" placeholder="내용을 입력하세요" required><%= result.getTB_CONTENT() %></textarea>
+
+    <!-- 현재 이미지 미리보기 -->
+
+    <!-- 이미지 파일 선택 필드 삭제 또는 비활성화 -->
+    <!-- <input type="file" name="photo" id="postImage" class="input-field" onchange="previewImage(event)" disabled /> -->
+
+    <!-- 기존 이미지 삭제 방지 -->
+    <input type="hidden" name="TB_IMG" value="<%= result.getTB_IMG() %>" />
+
+    <input type="hidden" name="USER_ID" value="<%= result.getUSER_ID() %>" />
+    <input type="hidden" name="TB_NO" value="<%= result.getTB_NO() %>" />
+
+    <!-- 제출 버튼 -->
+    <button type="submit" class="submit-button">수정 완료</button>
+</form>
+
+
+
     </div>
 
     <script>
@@ -139,7 +151,7 @@
             }
         }
 
-      /*  // 폼 제출
+        /*    // 폼 제출
         document.getElementById('postForm').onsubmit = function(event) {
             event.preventDefault();
 

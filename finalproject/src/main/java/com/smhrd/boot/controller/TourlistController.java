@@ -41,6 +41,16 @@ public class TourlistController {
 		
 		return "tourInfo";
 	}
+
+	
+	@GetMapping("/plan/popup/{TL_NO}")
+	public String popup(@PathVariable int TL_NO, Model model) {
+		Tour res = service.getTourDetail(TL_NO);
+		
+		model.addAttribute("tourDetail", res);
+		
+		return "popup";
+	}
 	
 	//검색하기
 	@GetMapping("/TL_search")

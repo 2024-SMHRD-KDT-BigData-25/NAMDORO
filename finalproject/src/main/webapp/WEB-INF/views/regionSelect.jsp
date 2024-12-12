@@ -194,7 +194,12 @@
             background-color: rgb(0, 0, 0); /* 배경색 변경 */
             border: 2px solid #000000; /* 강조 효과 */
         }
-        
+        img[usemap] {
+		    max-width: 50%;
+		
+		    width: auto;
+		    height: auto;
+		}
 
     </style>
 
@@ -299,10 +304,10 @@
 
     </script>
 
-
-    <script>
+    
+	<script>
         $(document).ready(function(e) {
-	    $('img[usemap]').rwdImageMaps();
+       $('img[usemap]').rwdImageMaps();
         });
     </script>
 

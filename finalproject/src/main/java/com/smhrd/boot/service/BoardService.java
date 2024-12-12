@@ -87,5 +87,16 @@ public class BoardService {
 		// 게시글 삭제
 		return boardMapper.delete(TB_NO);
 	}
+	
+	public int updateBoard(board post) throws IllegalStateException, IOException {
+	    // 이미지가 수정되지 않으면 기존 이미지를 그대로 사용
+	    if (post.getTB_IMG() == null || post.getTB_IMG().isEmpty()) {
+	        // 파일명이 비어 있으면 기존 이미지를 유지하도록 처리
+	        board existingBoard = boardMapper.view(post.getTB_NO());
+	        post.setTB_IMG(existingBoard.getTB_IMG());  // 기존 이미지 유지
+	    }
+
+	    return boardMapper.updatePost(post);  // 게시글 업데이트
+	}
 
 }

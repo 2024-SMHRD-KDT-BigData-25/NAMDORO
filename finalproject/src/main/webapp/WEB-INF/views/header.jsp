@@ -124,7 +124,8 @@ ul li a {
 				<input type="text"
 					style="width: 400px; height: 40px; padding: 0 10%; background-size: 20px 20px; background-color: white;"
 					placeholder="떠나고 싶은 여행지가 있으신가요?" id="searchmain" name="query">
-					<button type="button" onclick="search()"></button>	
+					<button type="button" onclick="search()"></button>
+
 			</div>
 			</form>
 		</div>
