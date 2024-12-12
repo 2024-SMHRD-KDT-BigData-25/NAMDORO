@@ -110,7 +110,7 @@ ul li a {
 
 </head>
 <body>
-
+	
 	<%
 	namdoro member = (namdoro) session.getAttribute("member");
 	%>
@@ -119,12 +119,12 @@ ul li a {
 		<div class="logo-area"
 			style="display: flex; align-items: center; justify-content: center; gap: 10px;">
 			<a id="headerLogo" href="/boot"></a>
-			<form action="/boot/tours" onsubmit="search(event)">
+			<form id="frm" action="/boot/TL_search" onsubmit="search()">
 			<div id="search">
 				<input type="text"
 					style="width: 400px; height: 40px; padding: 0 10%; background-size: 20px 20px; background-color: white;"
-					placeholder="떠나고 싶은 여행지가 있으신가요?" id="searchInput">
-					<button type="submit"></button>	
+					placeholder="떠나고 싶은 여행지가 있으신가요?" id="searchmain" name="query">
+					<button type="button" onclick="search()"></button>	
 			</div>
 			</form>
 		</div>
@@ -151,33 +151,6 @@ ul li a {
 
 		</ul>
 	</div>
-	
-	
-	<script>
-	//검색하기
-    function search(event) {
-        event.preventDefault();
-        const query = document.getElementById("searchInput").value.trim().toLowerCase();
-        const galleryItems = document.querySelectorAll(".gallary-detail");
-        
-        // 검색 결과를 필터링하여 filteredItems 배열에 저장
-        filteredItems = Array.from(galleryItems).filter(item => {
-            const title = item.querySelector(".title").textContent.toLowerCase();
-            return title.includes(query);
-        });
-        
-        // 검색 결과에 따라 항목 표시/숨김 처리
-        galleryItems.forEach(item => {
-            item.style.display = "none"; // 모든 항목 숨김
-        });
-        
-        // 현재 페이지를 1로 리셋
-        currentPage = 1;
-        
-        // 페이지네이션 업데이트
-        updatePagination();
-    }
-	</script>
 	
 	
 </body>

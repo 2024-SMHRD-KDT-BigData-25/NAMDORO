@@ -1,6 +1,9 @@
 package com.smhrd.boot.controller;
 
 import java.util.List;
+import java.util.stream.Collectors;
+
+import javax.swing.text.html.HTML;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.smhrd.boot.model.Tour;
 import com.smhrd.boot.service.TourlistService;
 
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
@@ -40,24 +44,21 @@ public class TourlistController {
 	
 	//검색하기
 	@GetMapping("/TL_search")
-	public String search(Model model){
-		List<Tour> tourlist = service.GetTourlist();
-		model.addAttribute("tourlist", tourlist);
-		
-		return "tourList";
-	}
-	
-	@GetMapping("/TL_search") 
-	public String GetTourlist(@RequestParam(required = false) String TL_NAME, Model model){ 
-		
-		List<Tour> tourlist;
+    public String search(Model model, @RequestParam(value = "query", required = false) String query, HttpSession session) {
+        List<Tour> tourlist = service.getTourList(query); // 검색어를 넘겨서 투어 목록을 가져옵니다.
+        if (query != null && !query.trim().isEmpty()) {
+            // 검색어가 있을 경우
+            List<Tour> filteredTours = tourlist.stream()
+                .filter(tour -> tour.getTL_NAME().toLowerCase().contains(query.toLowerCase()))
+                .collect(Collectors.toList());
+            model.addAttribute("tourlist", filteredTours); // 필터링된 목록을 전달
+            session.setAttribute("query", query); // 검색어를 세션에 저장
+        } else {
+            // 검색어가 없을 경우 전체 목록을 그대로 전달
+            model.addAttribute("tourlist", tourlist);
+        }
 
-	if (TL_NAME != null && !TL_NAME.isEmpty()) {
-		tourlist = service.searchTours(); // 검색된 결과 리스트 가져오기 
-		
-		} else { tourlist = service.GetTourlist(); // 전체 리스트 가져오기 } 
-			model.addAttribute("tourlist", tourlist);
-		}
-		return "tourList";
-	}
+        return "tourList"; // 결과를 `tourList.jsp`로 전달
+    }
 }
+	
