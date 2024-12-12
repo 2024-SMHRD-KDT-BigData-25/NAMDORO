@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.boot.model.namdoro"%>
 <%@page import="com.smhrd.boot.model.board"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -155,29 +156,45 @@
       #writeButton:hover {
         background-color: #333;
       }
+
+      /* 검색결과가 없을 때 메시지 스타일 */
+      #noResultsMessage {
+        display: none;
+        text-align: center;
+        font-size: 18px;
+        color: #888;
+        margin-top: 20px;
+      }
     </style>
   </head>
   <body>
   <% List<board> boardList = (List<board>)request.getAttribute("boardList"); %>
+  <%
+	namdoro member = (namdoro) session.getAttribute("member");
+	%>
   <jsp:include page="header.jsp"></jsp:include>
   <jsp:include page="footer.jsp"></jsp:include>
     <div class="namdoro">남도로 (게시판)</div>
 
     <div id="searchBar">
-      <input type="text" id="searchInput" placeholder="검색어를 입력하세요!" />
+    <form  id="searchForm" onsubmit="search(event)">
+      <input type="text" id="searchInput" placeholder="검색어를 입력하세요!" id="searchInput" onkeyup="search()"/>
       <button id="searchButton" onclick="search()">검색</button>
+      </form>
     </div>
+
+    
 
     <div class="board-container">
       <div class="board-header">게시판</div>
+      <!-- 검색결과가 없을 때 메시지 -->
+    <div id="noResultsMessage">검색한 결과가 없습니다.</div>
       <div id="boardItems">
         <!-- 게시글 항목은 HTML에서 직접 작성 -->
-                <% for (board b : boardList) {%>
+        <% for (board b : boardList) {%>
         <div class="board-item">
-
-    
-          <a href="#" style="text-decoration: none; color: inherit">
-            <div><%=b.getTB_TITLE() %></div>
+          <a href="board/<%=b.getTB_NO() %>" style="text-decoration: none; color: inherit">
+            <div class="title"><%=b.getTB_TITLE() %></div>
           </a>
           <div class="meta">작성자: <%=b.getUSER_NICKNAME() %> | 작성일: <%=b.getCREATED_AT() %></div>
         </div>
@@ -185,7 +202,12 @@
       </div>
 
       <!-- 글 작성 버튼 추가 -->
+      <%
+      if (member == null) { %>
+      <button id="writeButton" onclick="location.href='/boot/login'">글 작성</button>
+      <% } else  { %> 
       <button id="writeButton" onclick="location.href='/boot/board/boardwrite'">글 작성</button>
+      <% } %>
     </div>
 
     <div class="pagination">
@@ -214,7 +236,7 @@
 
         switch (action) {
           case "first":
-            currentPage = 5;
+            currentPage = 1;
             break;
           case "prev":
             currentPage = Math.max(1, currentPage - 1);
@@ -286,32 +308,42 @@
       }
 
       // 검색 기능
-      function search() {
-        const query = document
-          .getElementById("searchInput")
-          .value.toLowerCase();
-        const boardItems = document.getElementById("boardItems");
-        const items = Array.from(
-          boardItems.getElementsByClassName("board-item")
-        );
-
-        // 검색어가 포함된 게시글만 필터링
-        filteredItems = items.filter((item) =>
-          item.textContent.toLowerCase().includes(query)
-        );
-
-        currentPage = 1; // 검색 후 첫 페이지로 리셋
-        renderBoard(filteredItems, filteredItems.length);
+      function search(event) {
+          event.preventDefault();
+          const query = document.getElementById("searchInput").value.trim().toLowerCase();
+          const galleryItems = document.querySelectorAll(".board-item");
+          
+          // 검색 결과를 필터링하여 filteredItems 배열에 저장
+          filteredItems = Array.from(galleryItems).filter(item => {
+              const title = item.querySelector(".title").textContent.toLowerCase();
+              return title.includes(query);
+          });
+          
+          // 검색 결과에 따라 항목 표시/숨김 처리
+          galleryItems.forEach(item => {
+              item.style.display = "none"; // 모든 항목 숨김
+          });
+          
+          // 검색된 항목만 표시
+          filteredItems.forEach(item => {
+              item.style.display = "flex"; // 필터링된 항목 표시
+          });
+          
+          // 검색된 결과가 없으면 "검색한 결과가 없습니다." 메시지 표시
+          const noResultsMessage = document.getElementById("noResultsMessage");
+          if (filteredItems.length === 0) {
+              noResultsMessage.style.display = "block"; // 메시지 표시
+          } else {
+              noResultsMessage.style.display = "none"; // 메시지 숨기기
+          }
+          
+          // 현재 페이지를 1로 리셋
+          currentPage = 1;
+          
+          // 페이지네이션 업데이트
+          renderBoard(filteredItems, filteredItems.length);
+          renderPagination(filteredItems.length);  // 페이지 번호 갱신
       }
-
-      // 초기화
-      window.onload = () => {
-        const boardItems = document.getElementById("boardItems");
-        const items = Array.from(
-          boardItems.getElementsByClassName("board-item")
-        );
-        renderBoard(items, items.length);
-      };
     </script>
   </body>
 </html>
