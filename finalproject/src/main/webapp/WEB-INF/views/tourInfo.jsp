@@ -47,7 +47,7 @@
 
         .bgImg {
             /* background: url(images/tour.png) no-repeat center / 100% 550px;*/
-            height: 50%;
+            height: 70%;
             width: 100%;
             position: absolute;
             padding-top: 215px;
@@ -69,15 +69,18 @@
         }
         
         .tourImg img {
-          width: 100%; /* 부모 컨테이너 너비에 맞춤 */
-          height: 100%; /* 부모 컨테이너 높이에 맞춤 */
-          object-fit: cover; /* 비율 유지하며 부모 크기 채우기 */
+            width: 95%;
+		    height: 100%;
+		    object-fit: cover;
+		    border-radius: 5px;
+		    border: 2px solid #0f1b2685;
+		    margin-left: 20px;
       }
 
         .square1 {
             position: absolute;
             width: 100%;
-            height: 500px;
+            height: 610px;
             display: flex;
             justify-content: center;
             align-items: center;
