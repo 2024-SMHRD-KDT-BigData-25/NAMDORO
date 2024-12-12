@@ -123,7 +123,7 @@ span {
 }
 
 .margin {
-	margin-bottom: 10%;
+	margin-bottom: 5%;
 }
 
 .gallary-detail img {
@@ -152,10 +152,11 @@ span {
 	align-items: center;
 	justify-content: center;
 	gap: 20px;
-	width: 1155px;
+	width: 100%;
 	height: 36px;
 	line-height: 36px;
 	margin-top: 50px;
+	padding-bottom: 5%;
 }
 
 .buttom-area .page {

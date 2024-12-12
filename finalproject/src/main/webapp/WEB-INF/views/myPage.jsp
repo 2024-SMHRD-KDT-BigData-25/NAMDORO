@@ -115,6 +115,7 @@
         border-bottom: groove;
         padding: inherit;
         height:120px;
+        cursor: pointer;
       }
 
       .banner-image {
