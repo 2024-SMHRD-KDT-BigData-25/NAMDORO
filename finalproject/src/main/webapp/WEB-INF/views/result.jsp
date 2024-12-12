@@ -267,7 +267,7 @@ margin-top: 100px;}
       JsonObject tl_name = json.get("TL_NAME").getAsJsonObject();
       JsonObject tl_theme = json.get("TL_THEME").getAsJsonObject();
       JsonObject tl_add = json.get("TL_ADD").getAsJsonObject();
-      
+      JsonObject tl_no = json.get("TL_NO").getAsJsonObject();
       System.out.println(tl_name.get("10"));
    %>
 
@@ -304,7 +304,7 @@ margin-top: 100px;}
 
 
 				<div class="dayContent day<%=(i / 3 + 1)%>">
-					<div class="imageBox">
+					<div class="imageBox" onclick="popOpen(<%=tl_no.get(""+i)%>);">
 						<% if (tl_img.get("" + i).getAsString().equals("")) { %>
 						<div class="image"
 							style="background: url('https://via.placeholder.com/190x110.png?text=No+Image') no-repeat center/cover;"></div>
@@ -526,5 +526,13 @@ margin-top: 100px;}
         }
         
       </script>
+      
+      <script>
+		function popOpen(no) {
+		    window.open('popup/'+no, 'PopupWindow', 'width=1000,height=600,location=no,toolbar=no,menubar=no'); // 팝업 파일 경로와 옵션 설정
+		}
+	  </script>
+	  
 </body>
 	</html>
+>>>>>>> branch 'master' of https://github.com/2024-SMHRD-KDT-BigData-25/NAMDORO

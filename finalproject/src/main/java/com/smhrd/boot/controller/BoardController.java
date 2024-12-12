@@ -1,7 +1,9 @@
 package com.smhrd.boot.controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -83,6 +85,42 @@ public class BoardController {
         }
     }
     
+    // 게시글 수정 페이지로 이동
+    @GetMapping("/board/edit/{TB_NO}")
+    public String editForm(@PathVariable int TB_NO, Model model) throws IOException {
+        board result = boardService.view(TB_NO);  // 게시글 정보 가져오기
+        model.addAttribute("board", result);  // 게시글 정보 전달
+        return "boardedit";  // 수정 페이지로 이동
+    }
+
+    @PostMapping("/board/edit")
+    public String editPost(board post, @RequestParam(value = "photo", required = false) MultipartFile file) throws IllegalStateException, IOException {
+        // 이미지가 변경되지 않으면 기존 이미지를 그대로 사용하도록 처리
+        if (file != null && !file.isEmpty()) {
+            // 새로운 파일이 있으면 업로드
+            String randomUUID = UUID.randomUUID().toString();
+            int lastIndex = randomUUID.lastIndexOf("-");
+            String lastPart = randomUUID.substring(lastIndex + 1);
+            String fileName = lastPart + file.getOriginalFilename();
+
+            // 이미지 파일을 저장할 경로 지정
+            String filePath = "C://Users/smhrd/git/NAMDORO/finalproject/src/main/webapp/upload/" + fileName;
+            file.transferTo(new File(filePath));
+
+            post.setTB_IMG(fileName); // 새 파일명을 모델에 설정
+        } else {
+            // 파일이 없으면 기존 이미지 사용
+            board existingBoard = boardService.view(post.getTB_NO());
+            post.setTB_IMG(existingBoard.getTB_IMG()); // 기존 이미지 유지
+        }
+
+        // 게시글 수정 서비스 호출
+        boardService.updateBoard(post);
+
+        return "redirect:/board/" + post.getTB_NO();  // 수정 후 게시글 상세 페이지로 리다이렉트
+    }
+
+
 
 
 }

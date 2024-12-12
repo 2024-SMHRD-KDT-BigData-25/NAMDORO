@@ -228,7 +228,7 @@
          <!-- 수정 및 삭제 버튼 (자신의 게시글일 경우) -->
         <% if (loggedInUser != null && loggedInUser.equals(postAuthor)) { %>
             <!-- 수정 버튼 -->
-            <a href="editBoard.jsp?boardId=<%= result.getUSER_ID() %>" class="back-button" style="background-color: #28a745;">수정</a>
+            <a href="edit/<%= result.getTB_NO() %>" class="back-button" style="background-color: #28a745;">수정</a>
             <!-- 삭제 버튼 -->
             <a href="javascript:confirmDelete('delete?TB_NO=<%= result.getTB_NO() %>')" class="back-button" style="background-color: #dc3545;">삭제</a>
         <% } %>

@@ -163,11 +163,12 @@ def home():
     ordered_res = res.set_index('TL_NAME').reindex(best_route).reset_index()
 
     # ordered_res에서 필요한 컬럼만 선택하여 새로운 DataFrame 생성
-    selected_res = ordered_res[['TL_IMG', 'TL_NAME', 'TL_THEME', 'TL_ADD']]
+    selected_res = ordered_res[['TL_IMG', 'TL_NAME', 'TL_THEME', 'TL_ADD', 'TL_NO']]
     
     # TL_IMG 컬럼의 값을 쉼표로 분리하여 첫 번째 값만 선택
     selected_res['TL_IMG'] = selected_res['TL_IMG'].str.split(',').str[0]
-            
+    
+    print("ordered_res", ordered_res)
     print(type(selected_res))
     print(selected_res["TL_IMG"])
     
@@ -182,7 +183,7 @@ def home():
         sql = f"INSERT INTO CREATE_PLAN(USER_ID, CP_REGION, CP_THEME, CP_DATE, CP_GENDER, CP_AGE, CP_SPOT1, CP_SPOT2, CP_SPOT3) VALUES ('{user_id}', '{region}', '{theme}', '{day}', '{gender}', '{age}', '{selected_res['TL_NAME'].iloc[0]}', '{selected_res['TL_NAME'].iloc[1]}', '{selected_res['TL_NAME'].iloc[2]}')"
     else:
         sql = f"INSERT INTO CREATE_PLAN(USER_ID, CP_REGION, CP_THEME, CP_DATE, CP_GENDER, CP_AGE, CP_SPOT1, CP_SPOT2, CP_SPOT3, CP_SPOT4, CP_SPOT5, CP_SPOT6) VALUES ('{user_id}', '{region}', '{theme}', '{day}', '{gender}', '{age}', '{selected_res['TL_NAME'].iloc[0]}', '{selected_res['TL_NAME'].iloc[1]}', '{selected_res['TL_NAME'].iloc[2]}', '{selected_res['TL_NAME'].iloc[3]}', '{selected_res['TL_NAME'].iloc[4]}', '{selected_res['TL_NAME'].iloc[5]}')"
-	
+   
     cursor.execute(sql)
     db.commit()
     db.close()

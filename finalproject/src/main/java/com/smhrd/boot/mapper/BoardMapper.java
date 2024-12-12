@@ -30,5 +30,9 @@ public interface BoardMapper {
 	@Delete("delete from TOUR_BOARD where TB_NO = #{TB_NO}")
 	public int delete(int TB_NO);
 	
+	// 게시글 수정
+	@Update("UPDATE TOUR_BOARD SET TB_TITLE = #{TB_TITLE}, TB_CONTENT = #{TB_CONTENT} WHERE TB_NO = #{TB_NO}")
+	public int updatePost(board post);
+	
 
 }

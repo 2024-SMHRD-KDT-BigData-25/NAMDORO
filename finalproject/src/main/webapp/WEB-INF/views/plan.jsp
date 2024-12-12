@@ -81,22 +81,24 @@ pageEncoding="UTF-8"%>
 
       .square1 {
         position: absolute;
-       border-radius: 20px;
-       width: 1000px;
-       height: 600px;
-       top: 500px;
-       left: 50%;
-       transform: translate(-50%, -50%);
-       background: url("images/bg.png") no-repeat center / cover;
-       display: flex;
-       column-gap: 60px;
-       row-gap: 60px;
-       justify-content: center;
-       flex-wrap: wrap;
-       align-content: center;
-       z-index: -1;
-       padding: 0 8%;
-       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+	    border-radius: 20px;
+	    width: 1000px;
+	    height: 600px;
+	    top: 500px;
+	    left: 50%;
+	    transform: translate(-50%, -50%);
+	    background: url("images/bg.png") no-repeat center / cover;
+	    display: flex;
+	    column-gap: 60px;
+	    row-gap: 60px;
+	    justify-content: center;
+	    flex-wrap: wrap;
+	    align-content: center;
+	    z-index: -1;
+	    padding: 0 8%;
+	    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+	    border: 3px solid #2d3fa254
+       
       }
 
       .square2 {
@@ -126,7 +128,7 @@ pageEncoding="UTF-8"%>
         }
 
         .before:hover {
-            background-color: #a9f3fd;
+            background-color: rgb(200, 221, 245);
             transform: scale(1.1);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
@@ -146,7 +148,7 @@ pageEncoding="UTF-8"%>
         }
 
         .next:hover, .next2:hover {
-            background-color: #a9f3fd;
+            background-color: rgb(200, 221, 245);
             transform: scale(1.1);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
@@ -278,6 +280,11 @@ pageEncoding="UTF-8"%>
         background-size: cover;
         cursor: pointer;
         transition: 0.3s ease-in-out;
+        top: 50px;
+      }
+      
+      .themeImage:hover {
+    	transform: scale(1.1);
       }
 
       .themeImage::after {
@@ -393,23 +400,26 @@ pageEncoding="UTF-8"%>
         border-color: #7a9bf1;
       }
 
-     .photo-style {
-        position:relative;
-        top: 50px;
-     }
+	  .photo-style {
+	  	position:relative;
+	  	top: 50px;
+	  	width: 150px;
+		height: 150px;
+	  }
+
 
 
       /* 사진 스타일 */
       .photo-style img {
         width: 150px;
         height: 150px;
-        border: 4px solid transparent;
+        border: 1px solid transparent;
         border-radius: 50%;
         transition: border-color 0.3s ease;
       }
 
       input[type="radio"]:checked + .photo-style img {
-         background-color: #3745f9;
+         background-color: black;
       }
       
       /* 성별선택 관련 css */
@@ -432,7 +442,7 @@ pageEncoding="UTF-8"%>
         .date-label {
             padding: 12px 20px;
             border-radius: 30%;
-            background: linear-gradient(to right, #16c7fa, #b697f0);
+            background: linear-gradient(to right, #16c7fa, #faf7ff);
             color: white;
             font-size: 20px;
             font-weight: bold;
@@ -447,13 +457,13 @@ pageEncoding="UTF-8"%>
             }
 
         .date-label:hover {
-            background: linear-gradient(to right, #e5ea58, #f8788b);
+            background: linear-gradient(to right, #16c7fa, #faf7ff);
             box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
             transform: scale(1.1);
         }
 
         input[type="radio"]:checked + .date-label {
-            background: linear-gradient(to right, #e5ea58, #f8788b);
+            background: linear-gradient(to right, #516bff, #516bff);
             box-shadow: 0 8px 10px rgba(0, 0, 0, 0.3);
             transform: scale(1.05);
             }
@@ -485,6 +495,15 @@ pageEncoding="UTF-8"%>
       }
       
     </style>
+    
+        <script>
+        // Spring MVC에서 전달된 플래시 속성을 확인하고, 있으면 alert로 표시
+        <% if (request.getAttribute("planFailMessage") != null) { %>
+            alert('<%= request.getAttribute("planFailMessage") %>');
+        <% } %>
+    </script>
+    
+    
     
    <!-- <script defer src="js/jquery-3.3.1.min.js"></script> -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -664,7 +683,7 @@ pageEncoding="UTF-8"%>
               class="img-gender"
             />
             <label for="남자" class="img-gender">
-               <img alt="남자" src="images/male.png">
+               <img alt="남자" src="images/man.png">
             </label>
             <input
               type="radio"
@@ -674,7 +693,7 @@ pageEncoding="UTF-8"%>
               class="img-gender"
             />
             <label for="여자" class="img-gender">
-               <img alt="여자" src="images/female.png">
+               <img alt="여자" src="images/woman.png">
             </label>
           </div>
         </div>
@@ -1002,8 +1021,8 @@ pageEncoding="UTF-8"%>
             value="산"
             class="photo-style"
           />
-          <label for="photo1" class="photo-style">
-            <img src="images/mountain.png" alt="옵션 3" />
+          <label for="photo1" class="themeImage">
+            <img src="images/mountain.png" alt="옵션 3" style="height: 150px;"/>
           </label>
 
           <input
@@ -1013,8 +1032,8 @@ pageEncoding="UTF-8"%>
             value="바다"
             class="photo-style"
           />
-          <label for="photo2" class="photo-style">
-            <img src="images/sea.png" alt="옵션 3" />
+          <label for="photo2" class="themeImage">
+            <img src="images/sea.png" alt="옵션 3" style="height: 150px;" />
           </label>
 
           <input
@@ -1024,8 +1043,8 @@ pageEncoding="UTF-8"%>
             value="실내"
             class="photo-style"
           />
-          <label for="photo3" class="photo-style">
-            <img src="images/indoor.png" alt="옵션 3" />
+          <label for="photo3" class="themeImage">
+            <img src="images/indoor.png" alt="옵션 3" style="height: 150px;" />
           </label>
 
           <input
@@ -1035,8 +1054,8 @@ pageEncoding="UTF-8"%>
             value="액티비티"
             class="photo-style"
           />
-          <label for="photo4" class="photo-style">
-            <img src="images/activity.png" alt="옵션 3" />
+          <label for="photo4" class="themeImage">
+            <img src="images/activity.png" alt="옵션 3" style="height: 150px;" />
           </label>
 
           <input
@@ -1046,8 +1065,8 @@ pageEncoding="UTF-8"%>
             value="테마파크"
             class="photo-style"
           />
-          <label for="photo5" class="photo-style">
-            <img src="images/themapark.png" alt="옵션 3" />
+          <label for="photo5" class="themeImage">
+            <img src="images/themapark.png" alt="옵션 3" style="height: 150px;" />
           </label>
 
           <input
@@ -1057,16 +1076,15 @@ pageEncoding="UTF-8"%>
             value="문화/역사"
             class="photo-style"
           />
-          <label for="photo6" class="photo-style">
-            <img src="images/culture.png" alt="옵션 3" />
+          <label for="photo6" class="themeImage">
+            <img src="images/culture.png" alt="옵션 3" style="height: 150px;" />
           </label>
         </div>
 
         <div class="square2">
           <div class="nebe">
           <input type="hidden" name="user_id" value="<%=member.getUser_id()%>">
-            <button type="button" class="before"></button>
-            <button type="submit" class="next2"></button>
+            
           </div>
 
           <div class="bottomStep">
