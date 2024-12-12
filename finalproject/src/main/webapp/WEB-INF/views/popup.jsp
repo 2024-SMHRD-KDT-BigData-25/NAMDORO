@@ -25,8 +25,8 @@
 
         /* 팝업 틀 */
         .modal-wrap {
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            width: 1000px; height: 600px; background: #fff; z-index: 1000;
+            position: absolute; top: 38%; left: 50%; transform: translate(-50%, -50%);
+            background: #fff; z-index: 1000; padding: 4% 0%;
         }
 
         /* 팝업 임시 버튼 스타일*/
@@ -47,52 +47,60 @@
         }
 
         .modal-close {
-            position: relative;
-            top: 134%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            height: 40px;
-            width: 90px;
-            border: none;
-            background-color: #edfaff;
-            border-radius: 10px;
- 
-            cursor: pointer;
-            font-family: 'Gmarket Sans', sans-serif;
-            font-weight: 700;
-            font-size: 16px;
-            line-height: 15px;
-            text-align: center;
-            color: #000000;
+            position: absolute;
+		    top: 150%;
+		    left: 50%;
+		    transform: translate(-50%, -50%);
+		    height: 40px;
+		    width: 90px;
+		    border: none;
+		    background-color: #edfaff;
+		    border-radius: 10px;
+		    cursor: pointer;
+		    font-family: 'Gmarket Sans', sans-serif;
+		    font-weight: 700;
+		    font-size: 16px;
+		    line-height: 15px;
+		    text-align: center;
+		    color: #000000;
         }
 
         .bgImg {
-            /* background: url(images/tour.png) no-repeat center / 100% 550px;*/
-            height: 585px;
+          
+            height: 100%;
             width: 100%;
-            position: absolute;
-            padding-top: 215px;
+            position: relative;
+            
             opacity: 0.5;
             z-index: -4;
             background-position: center; /* 가운데 정렬 */
-          background-repeat: no-repeat; /* 반복 금지 */
-          background-size: cover; /* 화면에 꽉 차도록 설정 */
+          	background-repeat: no-repeat; /* 반복 금지 */
+          	background-size: cover; /* 화면에 꽉 차도록 설정 */
             transition: background-image 1s ease-in-out; /* 배경 이미지 변경 시 애니메이션 추가 */
         }
+        
+      
 
         .tourImg {
-            /* background: url(images/tour.png) no-repeat center / 100% 450px; */
-            display: flex; /* 부모 요소를 보이도록 설정 */
-            height: 90%;
-            width: 75%;
-            position: absolute;
-          object-fit: cover; /* 비율 유지하며 잘리지 않음 */
+            
+            display: flex;
+		    height: 90%;
+		    width: 75%;
+		    position: absolute;
+		    object-fit: cover;
+		    justify-content: flex-end;
+		    flex-direction: column;
         }
 
         .tourImg img {
-          width: 100%; /* 부모 컨테이너 너비에 맞춤 */
-          height: 100%; /* 부모 컨테이너 높이에 맞춤 */
-          object-fit: cover; /* 비율 유지하며 부모 크기 채우기 */
+          	width: 91%;
+		    height: 89%;
+		    object-fit: cover;
+		    transform: translate(-50%, -50%);
+    		left: 50%;
+		    top: 45%;
+		    position: relative;
+		    border-radius: 10px;
         }     
         
         .tour2 img {
@@ -127,7 +135,7 @@
         }
 
         .square1 {
-            position: absolute;
+            position: relative;
             width: 100%;
             height: 500px;
             display: flex;
@@ -170,7 +178,7 @@
             left: 50%;
             transform: translate(-50%);
             background-color: rgb(242 242 242);
-            top: 78%;
+            top: 88%;
             padding-top: 25px;
             padding-left: 50px;
             padding-bottom: 40px;
@@ -220,6 +228,10 @@
             background-color: #f8f8f8;
         }
         
+        img {
+        	width: 1000px;
+        	height: 900px;
+        }
 
 
     </style>
@@ -265,10 +277,10 @@
     <div class="modal-bg" onClick="popClose();"></div>
     <div class="modal-wrap">
 
-        <div class="bgImg"><img src="<%=img%>"></div>
-        <div class="square1">
         
-            <div class="tourImg"><img src="<%=img%>"></div>
+        <div class="square1">
+        	<div class="bgImg"><img src="<%=img%>"></div>
+            <div class="tourImg"><img src="<%=img%>" ></div>
           
         </div>
 
