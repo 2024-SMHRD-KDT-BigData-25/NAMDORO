@@ -97,6 +97,7 @@ pageEncoding="UTF-8"%>
 	    z-index: -1;
 	    padding: 0 8%;
 	    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+	    border: 3px solid #2d3fa254
       }
 
       .square2 {
@@ -126,7 +127,7 @@ pageEncoding="UTF-8"%>
         }
 
         .before:hover {
-            background-color: #a9f3fd;
+            background-color: rgb(200, 221, 245);
             transform: scale(1.1);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
@@ -146,7 +147,7 @@ pageEncoding="UTF-8"%>
         }
 
         .next:hover, .next2:hover {
-            background-color: #a9f3fd;
+            background-color: rgb(200, 221, 245);
             transform: scale(1.1);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
@@ -370,6 +371,11 @@ pageEncoding="UTF-8"%>
         background-size: cover;
         cursor: pointer;
         transition: 0.3s ease-in-out;
+        top: 50px;
+      }
+      
+      .themeImage:hover {
+    	transform: scale(1.1);
       }
 
       .themeImage::after {
@@ -474,6 +480,8 @@ pageEncoding="UTF-8"%>
 	  .photo-style {
 	  	position:relative;
 	  	top: 50px;
+	  	width: 150px;
+		height: 150px;
 	  }
 
 
@@ -481,13 +489,13 @@ pageEncoding="UTF-8"%>
       .photo-style img {
         width: 150px;
         height: 150px;
-        border: 4px solid transparent;
+        border: 1px solid transparent;
         border-radius: 50%;
         transition: border-color 0.3s ease;
       }
 
       input[type="radio"]:checked + .photo-style img {
-         background-color: #3745f9;
+         background-color: black;
       }
       
       /* 성별선택 관련 css */
@@ -510,7 +518,7 @@ pageEncoding="UTF-8"%>
         .date-label {
             padding: 12px 20px;
             border-radius: 30%;
-            background: linear-gradient(to right, #16c7fa, #b697f0);
+            background: linear-gradient(to right, #16c7fa, #faf7ff);
             color: white;
             font-size: 20px;
             font-weight: bold;
@@ -525,13 +533,13 @@ pageEncoding="UTF-8"%>
             }
 
         .date-label:hover {
-            background: linear-gradient(to right, #e5ea58, #f8788b);
+            background: linear-gradient(to right, #16c7fa, #faf7ff);
             box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
             transform: scale(1.1);
         }
 
         input[type="radio"]:checked + .date-label {
-            background: linear-gradient(to right, #e5ea58, #f8788b);
+            background: linear-gradient(to right, #516bff, #516bff);
             box-shadow: 0 8px 10px rgba(0, 0, 0, 0.3);
             transform: scale(1.05);
             }
@@ -737,7 +745,7 @@ pageEncoding="UTF-8"%>
               class="img-gender"
             />
             <label for="남자" class="img-gender">
-               <img alt="남자" src="images/male.png">
+               <img alt="남자" src="images/man.png">
             </label>
             <input
               type="radio"
@@ -747,7 +755,7 @@ pageEncoding="UTF-8"%>
               class="img-gender"
             />
             <label for="여자" class="img-gender">
-               <img alt="여자" src="images/female.png">
+               <img alt="여자" src="images/woman.png">
             </label>
           </div>
         </div>
@@ -1050,8 +1058,8 @@ pageEncoding="UTF-8"%>
             value="산"
             class="photo-style"
           />
-          <label for="photo1" class="photo-style">
-            <img src="images/mountain.png" alt="옵션 3" />
+          <label for="photo1" class="themeImage">
+            <img src="images/mountain.png" alt="옵션 3" style="height: 150px;"/>
           </label>
 
           <input
@@ -1061,8 +1069,8 @@ pageEncoding="UTF-8"%>
             value="바다"
             class="photo-style"
           />
-          <label for="photo2" class="photo-style">
-            <img src="images/sea.png" alt="옵션 3" />
+          <label for="photo2" class="themeImage">
+            <img src="images/sea.png" alt="옵션 3" style="height: 150px;" />
           </label>
 
           <input
@@ -1072,8 +1080,8 @@ pageEncoding="UTF-8"%>
             value="실내"
             class="photo-style"
           />
-          <label for="photo3" class="photo-style">
-            <img src="images/indoor.png" alt="옵션 3" />
+          <label for="photo3" class="themeImage">
+            <img src="images/indoor.png" alt="옵션 3" style="height: 150px;" />
           </label>
 
           <input
@@ -1083,8 +1091,8 @@ pageEncoding="UTF-8"%>
             value="액티비티"
             class="photo-style"
           />
-          <label for="photo4" class="photo-style">
-            <img src="images/activity.png" alt="옵션 3" />
+          <label for="photo4" class="themeImage">
+            <img src="images/activity.png" alt="옵션 3" style="height: 150px;" />
           </label>
 
           <input
@@ -1094,8 +1102,8 @@ pageEncoding="UTF-8"%>
             value="테마파크"
             class="photo-style"
           />
-          <label for="photo5" class="photo-style">
-            <img src="images/themapark.png" alt="옵션 3" />
+          <label for="photo5" class="themeImage">
+            <img src="images/themapark.png" alt="옵션 3" style="height: 150px;" />
           </label>
 
           <input
@@ -1105,16 +1113,15 @@ pageEncoding="UTF-8"%>
             value="문화/역사"
             class="photo-style"
           />
-          <label for="photo6" class="photo-style">
-            <img src="images/culture.png" alt="옵션 3" />
+          <label for="photo6" class="themeImage">
+            <img src="images/culture.png" alt="옵션 3" style="height: 150px;" />
           </label>
         </div>
 
         <div class="square2">
           <div class="nebe">
           <input type="hidden" name="user_id" value="<%=member.getUser_id()%>">
-            <button type="button" class="before"></button>
-            <button type="submit" class="next2"></button>
+            
           </div>
 
           <div class="bottomStep">
@@ -1167,154 +1174,7 @@ pageEncoding="UTF-8"%>
       }
     </script>
 
-    <script>
-      const months = [
-        "1월",
-        "2월",
-        "3월",
-        "4월",
-        "5월",
-        "6월",
-        "7월",
-        "8월",
-        "9월",
-        "10월",
-        "11월",
-        "12월",
-      ];
-
-      let date = new Date();
-      let currYear = date.getFullYear(),
-        currMonth = date.getMonth();
-
-      const currentDate = document.querySelector(".current-date");
-      currentDate.innerHTML = `${currYear}년&nbsp;&nbsp;&nbsp;;${months[currMonth]}`;
-
-      const daysTag = document.querySelector(".days");
-      const prevNextIcon = document.querySelectorAll(".material-icons");
-
-      let selectedDates = []; // 선택한 날짜를 저장하는 배열
-
-      const renderCalendar = () => {
-        currentDate.innerHTML = `${currYear}년&nbsp;&nbsp;&nbsp;${months[currMonth]}`;
-
-        let lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate();
-        let firstDayofMonth = new Date(currYear, currMonth, 1).getDay();
-        let lastDateofLastMonth = new Date(currYear, currMonth, 0).getDate();
-
-        let liTag = "";
-
-        for (let i = firstDayofMonth; i > 0; i--) {
-          liTag += `<li class="inactive">${lastDateofLastMonth - i + 1}</li>`;
-        }
-
-        for (let i = 1; i <= lastDateofMonth; i++) {
-          let isToday =
-            i === date.getDate() &&
-            currMonth === new Date().getMonth() &&
-            currYear === new Date().getFullYear()
-              ? "active"
-              : "";
-          liTag += `<li class="${isToday}" data-day="${i}">${i}</li>`;
-        }
-
-        let lastDayofMonth = new Date(
-          currYear,
-          currMonth,
-          lastDateofMonth
-        ).getDay();
-
-        for (let i = lastDayofMonth; i < 6; i++) {
-          liTag += `<li class="inactive">${i - lastDayofMonth + 1}</li>`;
-        }
-
-        daysTag.innerHTML = liTag;
-
-        addDateClickEvent(); // 날짜 클릭 이벤트 추가
-      };
-
-      const addDateClickEvent = () => {
-        const days = document.querySelectorAll(".calendar .days li");
-
-        days.forEach((day) => {
-          day.addEventListener("click", () => {
-            if (day.classList.contains("inactive")) return;
-
-            const selectedDay = parseInt(day.dataset.day);
-
-            // 선택 날짜 배열에 추가
-            if (selectedDates.length < 2) {
-              selectedDates.push(selectedDay);
-            } else {
-              // 기존 범위를 초기화하고 새로운 범위 선택
-              selectedDates = [selectedDay];
-              clearSelected();
-            }
-
-            // 두 날짜가 선택되었을 때 범위 채우기
-            if (selectedDates.length === 2) {
-              const [start, end] = selectedDates.sort((a, b) => a - b);
-
-              // 날짜 차이가 3일을 초과하면 선택 취소
-              if (end - start > 2) {
-                clearSelected(); // 선택된 날짜 초기화
-                selectedDates = [selectedDay]; // 새로운 날짜로 초기화
-                day.classList.add("selected");
-                return;
-              }
-
-              for (let i = start; i <= end; i++) {
-                const dayElement = daysTag.querySelector(`li[data-day="${i}"]`);
-
-                // 첫 번째 클릭과 두 번째 클릭 사이의 날짜에 in-between 클래스 추가
-                if (i > start && i < end) {
-                  dayElement.classList.add("in-between");
-                  dayElement.classList.remove("selected"); // 초록색을 사라지게 함
-                } else {
-                  dayElement.classList.add("selected");
-                  dayElement.classList.remove("in-between"); // 초록색을 유지
-                }
-              }
-            } else {
-              // 단일 날짜는 바로 선택
-              day.classList.add("selected");
-              day.classList.remove("in-between");
-            }
-          });
-        });
-      };
-
-      const clearSelected = () => {
-        const days = document.querySelectorAll(".calendar .days li");
-        days.forEach((day) => {
-          day.classList.remove("selected");
-          day.classList.remove("in-between"); // 날짜 범위 초기화 시 in-between 클래스도 제거
-        });
-      };
-
-      prevNextIcon.forEach((icon) => {
-        icon.addEventListener("click", () => {
-          currMonth =
-            icon.textContent.trim() === "chevron_left"
-              ? currMonth - 1
-              : currMonth + 1;
-
-          if (currMonth < 0) {
-            currMonth = 11;
-            currYear -= 1;
-          } else if (currMonth > 11) {
-            currMonth = 0;
-            currYear += 1;
-          }
-
-          selectedDates = []; // 월 변경 시 선택 초기화
-          renderCalendar();
-        });
-      });
-
-      renderCalendar();
-    </script>
-
+   
     <script>
       // 모든 area 태그를 선택
       const areas = document.querySelectorAll("area");
