@@ -129,13 +129,18 @@
 
       /* Swiper 스타일 수정 */
       .swiper-container {
-        position: relative;
+        /* 스위퍼 컨테이너의 위치를 위로 올리려면:
+        1. position을 absolute로 변경
+        2. top 속성으로 원하는 위치 지정 */
+        position: absolute;
+        top: 600px; /* 이 값을 조절하여 위치 변경 */
         width: 100%;
         max-width: 1380px;
         height: 250px;
-        margin: 400px auto 0;
-        padding: 0 20px;
+        margin: 0 auto;
         overflow: hidden;
+        left: 50%;
+        transform: translateX(-50%);
       }
 
       .swiper-slide {

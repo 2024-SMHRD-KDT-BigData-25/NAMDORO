@@ -208,8 +208,8 @@ html, body {
 	font-family: 'Gmarket Sans', sans-serif;
 	font-weight: 500;
 	font-size: 15px;
-	line-height: 30px;
 	text-align: center;
+	line-height: 30px;
 	color: #000000;
 }
 
@@ -258,7 +258,10 @@ html, body {
 	left: 51%;
 	transform: translate(-50%);
 	border-radius: 5px;
-	background-image: url('./images/kakao.png');
+		font-family: 'Gmarket Sans', sans-serif;
+	font-weight: 500;
+	font-size: 15px;
+	text-align: center;
 }
 </style>
 
@@ -299,7 +302,7 @@ html, body {
 			<button class="joinBtn" type="button" onClick="location.href='join'">회원가입</button>
 			</div>
 			<button class="button" type="submit">로그인</button>
-			<button class="kakao" type='button'></button>
+			<button class="kakao" type='button' onclick="history.back()">돌아가기</button>
 		</div>
 	</form>
 	
