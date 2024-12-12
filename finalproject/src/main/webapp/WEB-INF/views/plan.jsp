@@ -683,7 +683,7 @@ pageEncoding="UTF-8"%>
               class="img-gender"
             />
             <label for="남자" class="img-gender">
-               <img alt="남자" src="images/man.png">
+               <img alt="남자" src="images/남자.png">
             </label>
             <input
               type="radio"
@@ -693,7 +693,7 @@ pageEncoding="UTF-8"%>
               class="img-gender"
             />
             <label for="여자" class="img-gender">
-               <img alt="여자" src="images/woman.png">
+               <img alt="여자" src="images/여자.png">
             </label>
           </div>
         </div>
