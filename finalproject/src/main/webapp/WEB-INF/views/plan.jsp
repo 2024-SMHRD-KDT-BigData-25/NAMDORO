@@ -330,6 +330,8 @@ pageEncoding="UTF-8"%>
           outline: 8px solid #4a90e2 !important;
           outline-offset: 2px;
           transition: outline 0.2s ease-in-out;
+          color : #2C3E50;
+          transform: scale(1.5); /* 요소를 1.5배 확대 */
       }
 
       /* 추가된 스타일 */
@@ -423,7 +425,7 @@ pageEncoding="UTF-8"%>
       }
       
       input[type="radio"]:checked + .img-gender img {
-        background: linear-gradient(to right, #09d2e757, #c899f28c);
+            background-color: #edffff;
       }
       
       /* 기간선택 관련 css */
@@ -673,7 +675,7 @@ pageEncoding="UTF-8"%>
               class="img-gender"
             />
             <label for="남자" class="img-gender">
-               <img alt="남자" src="images/male.png">
+               <img alt="남자" src="images/남자.png">
             </label>
             <input
               type="radio"
@@ -683,7 +685,7 @@ pageEncoding="UTF-8"%>
               class="img-gender"
             />
             <label for="여자" class="img-gender">
-               <img alt="여자" src="images/female.png">
+               <img alt="여자" src="images/여자.png">
             </label>
           </div>
         </div>
@@ -1074,8 +1076,7 @@ pageEncoding="UTF-8"%>
         <div class="square2">
           <div class="nebe">
           <input type="hidden" name="user_id" value="<%=member.getUser_id()%>">
-            <button type="button" class="before"></button>
-            <button type="submit" class="next2"></button>
+       
           </div>
 
           <div class="bottomStep">
