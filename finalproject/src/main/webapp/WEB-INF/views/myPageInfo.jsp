@@ -199,7 +199,29 @@ html, body {
 	line-height: 15px;
 	text-align: left;
 	color: #000000;
-	
+}
+
+.toggle-password { 
+	cursor: pointer; 
+	user-select: none; 
+	display: inline-block; 
+	position: absolute; 
+	top: 35%; 
+	transform: translate(-120%, -35%); 
+	width: 28px; 
+	height: 20px;
+} 
+
+.pw-container { 
+	position: relative; 
+	display: inline-block; 
+}
+
+.toggle-password img {
+	width: 80%; 
+	height:;	
+	display: block; /* 이미지가 블록 요소로 설정되어 위치가 일관되도록 합니다.
+}
 
 	
 </style>
@@ -232,8 +254,9 @@ html, body {
 				
 				<div class="input-feild">
 				<label class="label" for="title">비밀번호 :</label>
-				<input type="text" value="${member.user_pw}" class="pw" id="user_pw" name="user_pw"
+				<input type="password" value="${member.user_pw}" class="pw" id="user_pw" name="user_pw"
 						placeholder="비밀번호 입력">
+				<span id="toggle-password" class="toggle-password"><img src="./images/i_on.png"></span>			
 				</div>
 				
 				<div class="input-feild">
@@ -256,6 +279,27 @@ html, body {
 			 
 			</div>   
 		 </form>
+		 
+		 
+		 <script>
+   	
+		    // JavaScript 코드: 비밀번호 표시/숨기기 기능
+		    document.addEventListener('DOMContentLoaded', function() {
+		        document.getElementById('toggle-password').addEventListener('click', function() {
+		            const passwordField = document.getElementById('user_pw');
+		            const togglePasswordImg = document.getElementById('toggle-password').querySelector('img');
+		            
+		            if (passwordField.type === 'password') {
+		                passwordField.type = 'text';
+		                togglePasswordImg.src = './images/i_off.png';  // 아이콘 변경 (비밀번호 숨기기)
+		            } else {
+		                passwordField.type = 'password';
+		                togglePasswordImg.src = './images/i_on.png';  // 아이콘 변경 (비밀번호 보기)
+		            }
+		        });
+		    });
+
+   </script>
 	
 		
 	
