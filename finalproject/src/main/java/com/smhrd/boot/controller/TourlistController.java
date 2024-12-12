@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.smhrd.boot.model.Tour;
@@ -53,7 +54,7 @@ public class TourlistController {
 	}
 	
 	//검색하기
-	@GetMapping("/TL_search")
+	@PostMapping("/TL_search")
     public String search(Model model, @RequestParam(value = "query", required = false) String query, HttpSession session) {
         List<Tour> tourlist = service.getTourList(query); // 검색어를 넘겨서 투어 목록을 가져옵니다.
         if (query != null && !query.trim().isEmpty()) {
