@@ -494,6 +494,15 @@ pageEncoding="UTF-8"%>
       
     </style>
     
+        <script>
+        // Spring MVC에서 전달된 플래시 속성을 확인하고, 있으면 alert로 표시
+        <% if (request.getAttribute("planFailMessage") != null) { %>
+            alert('<%= request.getAttribute("planFailMessage") %>');
+        <% } %>
+    </script>
+    
+    
+    
    <!-- <script defer src="js/jquery-3.3.1.min.js"></script> -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="http://mattstow.com/experiment/responsive-image-maps/jquery.rwdImageMaps.min.js"></script>
