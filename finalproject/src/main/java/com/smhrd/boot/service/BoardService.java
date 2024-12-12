@@ -76,7 +76,7 @@ public class BoardService {
 		board post = boardMapper.view(TB_NO);
 
 		// 이미지 파일 경로
-		String filePath = "C://upload/" + post.getTB_IMG();
+		String filePath = "C://Users/smhrd/git/NAMDORO/finalproject/src/main/webapp/upload/" + post.getTB_IMG();
 
 		// 이미지 파일 삭제
 		File file = new File(filePath);
