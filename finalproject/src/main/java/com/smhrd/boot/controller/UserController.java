@@ -30,6 +30,7 @@ import com.smhrd.boot.service.UserService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.client.HttpServerErrorException;
 import org.springframework.web.client.RestTemplate;
 
 @RequiredArgsConstructor
@@ -172,46 +173,49 @@ public class UserController {
          return "redirect:/";
       }
       
-     @PostMapping("/plan/call_python_api")
-     public String sendToFlask(@RequestParam String gender, @RequestParam String user_id, HttpSession session, @RequestParam String age, @RequestParam String day, @RequestParam String theme, @RequestParam String region) {
-         String flaskUrl = "http://127.0.0.1:4000/home";  // Flask 서버의 URL
+      @PostMapping("/plan/call_python_api")
+      public String sendToFlask(@RequestParam String gender, @RequestParam String user_id, 
+                                HttpSession session, @RequestParam String age, 
+                                @RequestParam String day, @RequestParam String theme, 
+                                @RequestParam String region, Model model, RedirectAttributes redirectAttributes) {
+          String flaskUrl = "http://127.0.0.1:4000/home";  // Flask 서버의 URL
 
-        System.out.println("gender: " + gender);
-        System.out.println("age: " + age);
-        System.out.println("day: " + day);
-        System.out.println("theme: " + theme);
-        System.out.println("region: " + region);
-        System.out.println("user_id: " + user_id);
-         // UriComponentsBuilder를 사용하여 파라미터를 안전하게 쿼리 스트링으로 추가
-         String urlWithParams = UriComponentsBuilder.fromHttpUrl(flaskUrl)
-             .queryParam("gender", gender)
-             .queryParam("age", age)
-            .queryParam("day", day)
-             .queryParam("theme", theme)
-             .queryParam("region", region)
-             .queryParam("user_id", user_id)
-             .toUriString();
+          try {
+              // Flask URL에 파라미터 추가
+              String urlWithParams = UriComponentsBuilder.fromHttpUrl(flaskUrl)
+                      .queryParam("gender", gender)
+                      .queryParam("age", age)
+                      .queryParam("day", day)
+                      .queryParam("theme", theme)
+                      .queryParam("region", region)
+                      .queryParam("user_id", user_id)
+                      .toUriString();
 
-//         // RestTemplate 객체 생성
-         RestTemplate restTemplate = new RestTemplate();
-  //
-//         // Flask 서버에 GET 요청을 보내고, 응답을 String으로 받음
-         ResponseEntity<String> response = restTemplate.getForEntity(urlWithParams, String.class);
-          //System.out.println(response.getBody());
-          
-         // Json 문자열        
-         String jsonStr = response.getBody();
-         // Gson 객체 생성       
-         Gson gson = new Gson();
-         // Json 문자열 -> Map 
-         Map<String, Object> map = gson.fromJson(jsonStr, Map.class);
-       //  System.out.println(map);
-         session.setAttribute("mapData", map);
-         // 응답 내용 반환
-        // return response.getBody();
-         return "result";
-//        return "redirect:/";
-     }
+              RestTemplate restTemplate = new RestTemplate();
+              ResponseEntity<String> response = restTemplate.getForEntity(urlWithParams, String.class);
+
+              // JSON 파싱 (필요 시)
+              String jsonStr = response.getBody();
+              Gson gson = new Gson();
+              Map<String, Object> map = gson.fromJson(jsonStr, Map.class);
+
+              // 성공 데이터 처리
+              session.setAttribute("mapData", map);
+              model.addAttribute("successMessage", "Data fetched successfully!");
+
+              // 성공 시 특정 페이지로 이동
+              return "result";
+          } catch (HttpServerErrorException e) {
+              // 서버 오류 발생
+        	  redirectAttributes.addFlashAttribute("planFailMessage", "해당 테마와 관련된 관광지가 없습니다.");
+              return "redirect:/plan";
+          } catch (Exception e) {
+              // 기타 예외 처리
+        	  redirectAttributes.addFlashAttribute("planFailMessage", "해당 테마와 관련된 관광지가 없습니다.");
+              return "redirect:/plan";
+          }
+      }
+
    
 
 }
