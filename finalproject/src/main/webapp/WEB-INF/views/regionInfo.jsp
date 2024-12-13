@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.boot.model.region"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -191,9 +192,16 @@
     
     </style>
     
+       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    
 </head>
 <body>
 
+	<% region regionList = (region)request.getAttribute("regionDetail"); 
+	String[] cityMainImgArray = regionList.getCITY_MAIN_IMG().split(",");
+	String[] foodImage = regionList.getCITY_FOOD_IMG().split(",");
+	String[] productImage = regionList.getCITY_PRODUCT_IMG().split(",");
+	%>
     <div id="header"></div>
 
     <!-- 지역 상세 페이지 -->
@@ -204,18 +212,15 @@
             <div class="slider-container">
                 <button class="slider-button left" onclick="moveSlide('attractions', -1)">←</button>
                 <div class="attractions-images">
-                    <img src="img/순천__순천만국가정원.jfif" alt="관광지 1" class="attraction-image">
-                    <img src="img/순천_낙안읍성.jfif" alt="관광지 2" class="attraction-image">
-                    <img src="img/순천_드라마세트장.jfif" alt="관광지 3" class="attraction-image">
-                    <img src="img/순천_선암사.jfif" alt="관광지 4" class="attraction-image">
-                    <img src="img/순천_송광사.jfif" alt="관광지 5" class="attraction-image">
-                    <img src="img/순천_순천만습지.jfif" alt="관광지 6" class="attraction-image">
+                <%for(String img : cityMainImgArray) {%>
+                    <img src="/boot/tourists/<%=img%>" class="attraction-image">
+                    <%} %>
                 </div>
                 <button class="slider-button right" onclick="moveSlide('attractions', 1)">→</button>
             </div>
             <div class="region-description-container">
-                <h2>순천</h2>
-                <p>살아숨쉬는 생태 수도 전남 순천시. 매년 깊어지는 가을마다 세계 5대 습지이자 철새들의 도래지인 순천만 습지의 갈대밭은 더욱 몽환적인 모습으로 무장한다. 이를 보호하고자 만든 순천만 국가 정원에서는 다양한 생태 식물들을 관찰할 수 있어 또 다른 자연의 아름다움을 느낄 수 있다. 구불구불한 리아스식 해안선을 따라 드라이브할 수 있는 와온해변은 일몰이 아름답기로 유명하며 이곳의 마을에서는 어촌체험도 가능하다. 추억을 떠올리게 하는 순천 드라마 세트장은 60-80년대의 모습을 완벽히 재현하고 있어 떠오르는 관광 명소다.</p>
+                <h2><%=regionList.getCITY_NAME() %></h2>
+                <p><%=regionList.getCITY_INFO() %></p>
             </div>
         </section>
 
@@ -225,13 +230,9 @@
                 <div class="slider-container1">
                     <button class="slider-button left" onclick="moveSlide('food', -1)">←</button>
                     <div class="food-images">
-                        <img src="img/순천음식_꼬막요리.jpg" alt="대표 음식 1" class="food-image">
-                        <img src="img/순천음식_돼지국밥.jpg" alt="대표 음식 2" class="food-image">
-                        <img src="img/순천음식_떡갈비(염소떡갈비).jpg" alt="대표 음식 3" class="food-image">
-                        <img src="img/순천음식_민물매운탕.jpg" alt="대표 음식 4" class="food-image">
-                        <img src="img/순천음식_오리요리.jpg" alt="대표 음식 5" class="food-image">
-                        <img src="img/순천음식_짱뚱어탕.jpg" alt="대표 음식 6" class="food-image">
-                        <img src="img/순천음식_한정식.jpg" alt="대표 음식 7" class="food-image">
+                    <%for(String food : foodImage){ %>
+                        <img src="/boot/foods/<%=food%>" class="food-image">
+                        <%} %>
                     </div>
                     <button class="slider-button right" onclick="moveSlide('food', 1)">→</button>
                 </div>
@@ -244,17 +245,9 @@
                 <div class="slider-container1">
                     <button class="slider-button left" onclick="moveSlide('product', -1)">←</button>
                     <div class="product-images">
-                        <img src="/img/순천특산물_고들빼기.png" alt="특산물 1" class="product-image">
-                        <img src="/img/순천특산물_단감.jpg" alt="특산물 2" class="product-image">
-                        <img src="/img/순천특산물_딸기묘.png" alt="특산물 3" class="product-image">
-                        <img src="/img/순천특산물_미나리.png" alt="특산물 4" class="product-image">
-                        <img src="/img/순천특산물_배.jpg" alt="특산물 5" class="product-image">
-                        <img src="/img/순천특산물_복숭아.jpg" alt="특산물 6" class="product-image">
-                        <img src="/img/순천특산물_순천매실.jpg" alt="특산물 7" class="product-image">
-                        <img src="/img/순천특산물_순천오이.png" alt="특산물 8" class="product-image">
-                        <img src="/img/순천특산물_조기햅쌀.png" alt="특산물 9" class="product-image">
-                        <img src="/img/순천특산물_참다래.jpg" alt="특산물 10" class="product-image">
-                        <img src="/img/순천특산물_한우.png" alt="특산물 11" class="product-image">
+                    <%for(String product : productImage){ %>
+                        <img src="/boot/products/<%=product%>" class="product-image">
+                        <%} %>
                     </div>
                     <button class="slider-button right" onclick="moveSlide('product', 1)">→</button>
                 </div>
@@ -276,16 +269,18 @@
         };  // 각 섹션별 이미지 인덱스
 
         const attractionImages = [
-            'img/순천__순천만국가정원.jfif',
-            'img/순천_낙안읍성.jfif',
-            'img/순천_드라마세트장.jfif',
-            'img/순천_선암사.jfif',
-            'img/순천_송광사.jfif',
-            'img/순천_순천만습지.jfif'
+            <% 
+            for (int i = 0; i < cityMainImgArray.length; i++) {
+                out.print("'/boot/tourists/" + cityMainImgArray[i] + "'");
+                 if (i < cityMainImgArray.length - 1) {
+                    out.print(","); // 마지막 요소가 아니면 쉼표 추가
+                }
+            } 
+            %>
         ];
 
         function moveSlide(section, direction) {
-    const images = document.querySelectorAll(`.${section}-images img`);
+    const images = document.querySelectorAll('.' + section + '-images img');
     const totalImages = images.length;
 
     currentIndex[section] += direction;
@@ -306,14 +301,17 @@
     if (section === 'attractions') {
         const regionDetailContainer = document.getElementById("region-detail-container");
         const attractionImages = [
-            'img/순천__순천만국가정원.jfif',
-            'img/순천_낙안읍성.jfif',
-            'img/순천_드라마세트장.jfif',
-            'img/순천_선암사.jfif',
-            'img/순천_송광사.jfif',
-            'img/순천_순천만습지.jfif'
+            <% 
+            for (int i = 0; i < cityMainImgArray.length; i++) {
+                out.print("'/boot/tourists/" + cityMainImgArray[i] + "'");
+				 if (i < cityMainImgArray.length - 1) {
+                    out.print(","); // 마지막 요소가 아니면 쉼표 추가
+                }
+            } 
+            %>
         ];
-        regionDetailContainer.style.backgroundImage = `url(${attractionImages[currentIndex[section]]})`;
+        regionDetailContainer.style.backgroundImage = "url(" + attractionImages[currentIndex[section]] + ")";
+
     }
 }
 

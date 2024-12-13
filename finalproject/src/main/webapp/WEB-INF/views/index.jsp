@@ -42,6 +42,7 @@
         left: 790px;
         border-radius: 20px;
         background: url("images/main.png") no-repeat center/cover;
+        outline: outset 5px #d4d4d4
       }
 
       .hover-text {
@@ -138,7 +139,7 @@
         top: 600px; /* 이 값을 조절하여 위치 변경 */
         width: 100%;
         max-width: 1380px;
-        height: 250px;
+        height: 330px;
         margin: 0 auto;
         overflow: hidden;
         left: 50%;
@@ -163,7 +164,7 @@
 
       .swiper-button-next,
       .swiper-button-prev {
-        color: #000;
+        color:black;
       }
 
       .swiper-button-next {
@@ -178,6 +179,7 @@
         position: absolute;
         bottom: 10px;
       }
+      
     </style>
 
     <!-- Swiper CSS -->
@@ -206,7 +208,7 @@
         
         <%for(region r : regionList) {%>
         
-          <div class="swiper-slide">
+          <div class="swiper-slide" onclick="location.href='region/<%=r.getCITY_NAME()%>'">
             <div
               class="main"
               style="background: url('tourists/<%=r.getCITY_MAIN_IMG().split(",")[0] %>') no-repeat center/cover"
@@ -217,11 +219,11 @@
           <%} %>
 
         </div>
-
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-pagination"></div>
+        <div class="swiper-pagination" style="bottom: 25%;"></div>
       </div>
+
+        <div class="swiper-button-next" style="color: black; top: 96%; "></div>
+        <div class="swiper-button-prev" style="color: black; top: 96%; "></div>
 
       <div>
         <div class="mainTitle">
@@ -233,12 +235,10 @@
           순간을 만나보세요.
         </div>
       </div>
-
-      <div class="review1">모래미해변</div>
-      <div class="review2">강덕사</div>
+      
     </div>
 
-    <script src="js/footer.js"></script>
+
 
     <script>
       var swiper = new Swiper(".swiper-container", {
