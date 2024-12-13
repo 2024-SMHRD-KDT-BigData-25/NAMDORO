@@ -43,6 +43,7 @@
 	top: 0px;
 	background-color: rgb(255, 255, 255);
 	border-bottom: groove 3px;
+	
 }
 
 .topbar {
@@ -120,6 +121,7 @@ ul li a {
 		<div class="logo-area"
 			style="display: flex; align-items: center; justify-content: center; gap: 10px;">
 			<a id="headerLogo" href="/boot"></a>
+		</div>
 			<form id="frm" action="/boot/TL_search" method="post">
 			<div id="search">
 				<input type="text"
@@ -129,7 +131,7 @@ ul li a {
 
 			</div>
 			</form>
-		</div>
+		
 
 		<ul
 			style="display: flex; align-items: center; justify-content: center; gap: 100px; list-style-type: none;">
