@@ -98,7 +98,7 @@ pageEncoding="UTF-8"%>
        z-index: -1;
        padding: 0 8%;
        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-       border: 3px solid #2d3fa254
+       border: 4px solid #2d3fa254
       }
 
       .square2 {
@@ -124,7 +124,7 @@ pageEncoding="UTF-8"%>
           border-radius: 20%;
           cursor: pointer;
           transition: all 0.3s ease;
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+          box-shadow: -2px 4px 8px rgba(0, 0, 0, 0.6);
         }
 
         .before:hover {
@@ -144,7 +144,7 @@ pageEncoding="UTF-8"%>
           border-radius: 20%;
           cursor: pointer;
           transition: all 0.3s ease;
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+          box-shadow: -2px 4px 8px rgba(0, 0, 0, 0.6);
         }
 
         .next:hover, .next2:hover {
@@ -157,11 +157,12 @@ pageEncoding="UTF-8"%>
         position: absolute;
         width: 500px;
         height: 10px;
-        background-color: #C2C2C2;
+        background-color: #8bb1f0;
         display: flex;
         align-items: center;
         justify-content: space-evenly;
         border-radius: 20px;
+        outline: inset #8bb1f0;
       }
 
       .stepCir {
@@ -169,7 +170,8 @@ pageEncoding="UTF-8"%>
         width: 35px;
         height: 35px;
         border-radius: 50%;
-        background-color: #C2C2C2;
+        background-color: #8bb1f0;
+        outline: inset #8bb1f0;
       }
       
       .stepCir.active {
