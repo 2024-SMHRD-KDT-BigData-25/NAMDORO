@@ -93,6 +93,7 @@ ul li a {
 	position: absolute;
 	transform: translate(-200%,50%);
 	border:none;
+	cursor: pointer;
 	} 
 
 #search a { 

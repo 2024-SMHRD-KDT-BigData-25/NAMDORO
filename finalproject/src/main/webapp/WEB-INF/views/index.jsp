@@ -160,6 +160,7 @@
         height: 200px;
         border-radius: 20px;
         overflow: hidden;
+        cursor: pointer;
       }
 
       .swiper-button-next,
