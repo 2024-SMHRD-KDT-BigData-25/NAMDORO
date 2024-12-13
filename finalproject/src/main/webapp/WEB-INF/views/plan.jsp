@@ -51,7 +51,7 @@ pageEncoding="UTF-8"%>
       .bg5 {
         position: absolute;
         width: 100%;
-        height: 1100px;
+        height: 900px;
         top: 100px;
         background: url("images/bg.png") no-repeat center/cover;
         z-index: -1;
@@ -105,7 +105,7 @@ pageEncoding="UTF-8"%>
         border-radius: 20px;
         width: 900px;
         height: 150px;
-        top: 850px;
+        top: 798px;
         left: 50%;
         transform: translate(-50%, -50%);
         display: flex;
@@ -1266,7 +1266,7 @@ pageEncoding="UTF-8"%>
             const totalHeight = document.documentElement.scrollHeight; // 페이지 전체 높이
 
             // 중간 위치 계산
-            const middlePosition = (totalHeight - viewportHeight) / 2.6;
+            const middlePosition = (totalHeight - viewportHeight) / 2;
 
             // 스크롤 이동
             window.scrollTo({

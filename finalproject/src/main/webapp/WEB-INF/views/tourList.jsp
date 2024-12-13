@@ -120,6 +120,7 @@ span {
 	border-top-left-radius: 7px;
 	word-wrap: break-word;
 	height: 280px;
+	cursor: pointer;
 }
 
 .margin {
@@ -138,13 +139,18 @@ span {
 
 .namdoro {
 	position: relative;
-	top: 230px;
-	padding-left: 200px;
-	font-family: 'Gmarket Sans', sans-serif;
+    top: 180px;
+    width: 300px;
+    height: 60px;
+    left: 615px;
+    
+    font-family: 'Gmarket Sans', sans-serif;
 	font-weight: 500;
 	font-size: 32px;
 	line-height: 10px;
-	color: #000000;
+	color: black;
+	
+	
 }
 
 .buttom-area {
@@ -209,7 +215,7 @@ p {
 
 	<jsp:include page="header.jsp"></jsp:include>
 	<jsp:include page="footer.jsp"></jsp:include>
-	<div class="namdoro">남도로 (로고자리)</div>
+	<div class="namdoro">전라남도의 관광 명소</div>
 
 	<div id="searchBar">
 		<form id="searchForm" onsubmit="search(event)">
