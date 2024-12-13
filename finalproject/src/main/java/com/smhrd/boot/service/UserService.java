@@ -10,6 +10,7 @@ import com.smhrd.boot.mapper.UserMapper;
 import com.smhrd.boot.model.Tour;
 import com.smhrd.boot.model.namdoro;
 import com.smhrd.boot.model.plan;
+import com.smhrd.boot.model.region;
 
 import lombok.RequiredArgsConstructor;
 
@@ -68,6 +69,11 @@ public class UserService {
 
 	public plan getPlanDetail(int CP_NO) {
 		return mapper.getPlanDetail(CP_NO);
+		
+	}
+
+	public List<region> getRegionList() {
+		return mapper.getRegionList();
 		
 	}
 }

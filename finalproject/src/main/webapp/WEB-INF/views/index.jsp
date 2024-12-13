@@ -1,3 +1,5 @@
+<%@page import="com.smhrd.boot.model.region"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -186,6 +188,10 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   </head>
   <body>
+  
+  <% List<region> regionList = (List<region>)request.getAttribute("region"); %>
+  
+  
     <jsp:include page="header.jsp"></jsp:include>
     <jsp:include page="footer.jsp"></jsp:include>
 
@@ -197,77 +203,19 @@
       <!-- Swiper 컨테이너 -->
       <div class="swiper-container">
         <div class="swiper-wrapper">
+        
+        <%for(region r : regionList) {%>
+        
           <div class="swiper-slide">
             <div
               class="main"
-              style="background: url('images/담양.png') no-repeat center/cover"
+              style="background: url('tourists/<%=r.getCITY_MAIN_IMG().split(",")[0] %>') no-repeat center/cover"
             >
-              <div class="hover-text">담양</div>
+              <div class="hover-text"><%=r.getCITY_NAME() %></div>
             </div>
           </div>
+          <%} %>
 
-          <div class="swiper-slide">
-            <div
-              class="main"
-              style="background: url('images/목포.png') no-repeat center/cover"
-            >
-              <div class="hover-text">목포</div>
-            </div>
-          </div>
-
-          <div class="swiper-slide">
-            <div
-              class="main"
-              style="background: url('images/순천.png') no-repeat center/cover"
-            >
-              <div class="hover-text">순천</div>
-            </div>
-          </div>
-
-          <div class="swiper-slide">
-            <div
-              class="main"
-              style="background: url('images/여수.png') no-repeat center/cover"
-            >
-              <div class="hover-text">여수</div>
-            </div>
-          </div>
-
-          <div class="swiper-slide">
-            <div
-              class="main"
-              style="background: url('images/담양.png') no-repeat center/cover"
-            >
-              <div class="hover-text">담양</div>
-            </div>
-          </div>
-
-          <div class="swiper-slide">
-            <div
-              class="main"
-              style="background: url('images/목포.png') no-repeat center/cover"
-            >
-              <div class="hover-text">목포</div>
-            </div>
-          </div>
-
-          <div class="swiper-slide">
-            <div
-              class="main"
-              style="background: url('images/순천.png') no-repeat center/cover"
-            >
-              <div class="hover-text">순천</div>
-            </div>
-          </div>
-
-          <div class="swiper-slide">
-            <div
-              class="main"
-              style="background: url('images/여수.png') no-repeat center/cover"
-            >
-              <div class="hover-text">여수</div>
-            </div>
-          </div>
         </div>
 
         <div class="swiper-button-next"></div>
@@ -295,7 +243,7 @@
     <script>
       var swiper = new Swiper(".swiper-container", {
         slidesPerView: 4,
-        slidesPerGroup: 4,
+        slidesPerGroup: 1,
         spaceBetween: 60,
         loop: true,
         centeredSlides: false,
