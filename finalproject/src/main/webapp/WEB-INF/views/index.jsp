@@ -180,6 +180,37 @@
         bottom: 10px;
       }
       
+          /* 팝업 스타일 */
+        #popup-container {
+            display: none; /* 초기에는 숨김 */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 1000px;
+            height: 600px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            z-index: 1000;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* 어두운 배경 */
+        #overlay {
+            display: none; /* 초기에는 숨김 */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+      
+      
+      
+      
     </style>
 
     <!-- Swiper CSS -->
@@ -208,7 +239,7 @@
         
         <%for(region r : regionList) {%>
         
-          <div class="swiper-slide" onclick="location.href='region/<%=r.getCITY_NAME()%>'">
+          <div class="swiper-slide" onclick="openPopup('<%=r.getCITY_NAME()%>')">
             <div
               class="main"
               style="background: url('tourists/<%=r.getCITY_MAIN_IMG().split(",")[0] %>') no-repeat center/cover"
@@ -237,7 +268,46 @@
       </div>
       
     </div>
+    
+    	        <!-- 어두운 배경 -->
+    <div id="overlay"></div>
 
+    <!-- 팝업 형태의 iframe -->
+    <div id="popup-container">
+        <button onclick="closePopup()" style="position: absolute; top: 10px; right: 10px; z-index: 10;">닫기</button>
+        <iframe id="popup-iframe" width="100%" height="100%" frameborder="0"></iframe>
+    </div>
+    
+    <script>
+    
+ // 팝업 열기
+    function openPopup(name) {
+        const popupContainer = document.getElementById('popup-container');
+        const overlay = document.getElementById('overlay');
+        const iframe = document.getElementById('popup-iframe');
+
+        // iframe에 URL 설정
+        iframe.src = 'region/' + encodeURIComponent(name); // 안전하게 URL 인코딩
+
+        // 팝업과 배경 표시
+        popupContainer.style.display = 'block';
+        overlay.style.display = 'block';
+    }
+
+    // 팝업 닫기
+    function closePopup() {
+        const popupContainer = document.getElementById('popup-container');
+        const overlay = document.getElementById('overlay');
+        const iframe = document.getElementById('popup-iframe');
+
+        // 팝업과 배경 숨기기
+        popupContainer.style.display = 'none';
+        overlay.style.display = 'none';
+
+        // iframe URL 초기화 (선택)
+        iframe.src = '';
+    }
+</script>
 
 
     <script>

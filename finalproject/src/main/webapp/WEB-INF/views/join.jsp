@@ -205,7 +205,7 @@ h1, p {
                   src='data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M144 144l0 48 160 0 0-48c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192l0-48C80 64.5 144.5 0 224 0s144 64.5 144 144l0 48 16 0c35.3 0 64 28.7 64 64l0 192c0 35.3-28.7 64-64 64L64 512c-35.3 0-64-28.7-64-64L0 256c0-35.3 28.7-64 64-64l16 0z"/></svg>' /></span>
                <input type="password" class="pw" id="user_pw" name="user_pw"
                   placeholder="비밀번호 입력">
-                  <span id="toggle-password" class="toggle-password"><img src="./images/i_on.png"></span>
+                  <span style="display: none;" id="toggle-password" class="toggle-password"><img src="./images/i_off.png"></span>
             </div>
             <div class="input-feild">
                <span><img
@@ -275,7 +275,20 @@ h1, p {
    
    
    <script>
-   	
+   			
+   
+			//input 창에 입력값이 존재할때 버튼 보이게 하기
+			document.getElementById('user_pw').addEventListener('input', function() { 
+					const passwordField = document.getElementById('user_pw');
+					const actionButton = document.getElementById('toggle-password');
+				
+					if (passwordField.value.trim() !== "") { 
+					actionButton.style.display = 'inline-block'; // 버튼 표시 
+			
+					} else { actionButton.style.display = 'none'; // 버튼 숨김
+				  } 
+				}); 
+   
 		    // JavaScript 코드: 비밀번호 표시/숨기기 기능
 		    document.addEventListener('DOMContentLoaded', function() {
 		        document.getElementById('toggle-password').addEventListener('click', function() {
@@ -284,10 +297,10 @@ h1, p {
 		            
 		            if (passwordField.type === 'password') {
 		                passwordField.type = 'text';
-		                togglePasswordImg.src = './images/i_off.png';  // 아이콘 변경 (비밀번호 숨기기)
+		                togglePasswordImg.src = './images/i_on.png';  // 아이콘 변경 (비밀번호 숨기기)
 		            } else {
 		                passwordField.type = 'password';
-		                togglePasswordImg.src = './images/i_on.png';  // 아이콘 변경 (비밀번호 보기)
+		                togglePasswordImg.src = './images/i_off.png';  // 아이콘 변경 (비밀번호 보기)
 		            }
 		        });
 		    });

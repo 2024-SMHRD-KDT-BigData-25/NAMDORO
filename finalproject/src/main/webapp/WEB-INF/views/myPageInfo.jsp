@@ -161,7 +161,7 @@ html, body {
 	text-align: left;
 	width: 250px;
 	height: 40px;
-	padding-left: 40px;
+	padding: 0px 60px 0px 35px;
 	margin-left: 10px;
 	border-radius: 5px;
 	background-size: 20px 20px;
@@ -255,8 +255,8 @@ html, body {
 				<div class="input-feild">
 				<label class="label" for="title">비밀번호 :</label>
 				<input type="password" value="${member.user_pw}" class="pw" id="user_pw" name="user_pw"
-						placeholder="비밀번호 입력">
-				<span id="toggle-password" class="toggle-password"><img src="./images/i_on.png"></span>			
+						placeholder="비밀번호 입력">			
+				<span style="display: inline-block;" id="toggle-password" class="toggle-password" name="i"><img src="./images/i_off.png"></span>			
 				</div>
 				
 				<div class="input-feild">
@@ -282,6 +282,19 @@ html, body {
 		 
 		 
 		 <script>
+		 
+		 		//input 창에 입력값이 존재할때 버튼 보이게 하기
+		 	document.getElementById('user_pw').addEventListener('input', function() { 
+		 			const passwordField = document.getElementById('user_pw');
+		 			const actionButton = document.getElementById('toggle-password');
+		 		
+		 			if (passwordField.value.trim() !== "") { 
+		 			actionButton.style.display = 'inline-block'; // 버튼 표시 
+		 	
+		 			} else { actionButton.style.display = 'none'; // 버튼 숨김
+		 		  } 
+		 		}); 
+		 
    	
 		    // JavaScript 코드: 비밀번호 표시/숨기기 기능
 		    document.addEventListener('DOMContentLoaded', function() {
@@ -291,15 +304,15 @@ html, body {
 		            
 		            if (passwordField.type === 'password') {
 		                passwordField.type = 'text';
-		                togglePasswordImg.src = './images/i_off.png';  // 아이콘 변경 (비밀번호 숨기기)
+		                togglePasswordImg.src = './images/i_on.png';  // 아이콘 변경 (비밀번호 숨기기)
 		            } else {
 		                passwordField.type = 'password';
-		                togglePasswordImg.src = './images/i_on.png';  // 아이콘 변경 (비밀번호 보기)
+		                togglePasswordImg.src = './images/i_off.png';  // 아이콘 변경 (비밀번호 보기)
 		            }
 		        });
 		    });
 
-   </script>
+  	 </script>
 	
 		
 	
