@@ -43,7 +43,10 @@
 	top: 0px;
 	background-color: rgb(255, 255, 255);
 	border-bottom: groove 3px;
-	
+	display: flex; /* Flexbox로 정렬 */
+    align-items: center;
+    justify-content: space-around; /* 요소 간 간격 자동 */
+    flex-wrap: wrap; /* 작은 화면에서 줄바꿈 허용 */
 }
 
 .topbar {
@@ -93,6 +96,7 @@ ul li a {
 	position: absolute;
 	transform: translate(-200%,50%);
 	border:none;
+	cursor: pointer;
 	} 
 
 #search a { 
@@ -106,6 +110,33 @@ ul li a {
 	margin-left: 10px; 
 	text-decoration: none; 
 	cursor: pointer;
+	}
+
+	/* 모바일 화면에 맞춘 스타일 추가 */
+	@media (max-width: 500px) {
+	
+	    .headerColor {
+	        height: auto; /* 높이 자동 조정 */
+	        flex-direction: column; /* 세로 정렬 */
+	    }
+	
+	    ul {
+	        flex-direction: column; /* 리스트를 세로로 배치 */
+	        gap: 20px; /* 간격 조정 */
+	    }
+	
+	    #search {
+	        width: 80%; /* 검색창 너비 축소 */
+	    }
+	
+	    #search input {
+	        width: 100%; /* 화면 너비에 맞게 확장 */
+	        font-size: 14px; /* 텍스트 크기 줄이기 */
+	    }
+	
+	    ul li a {
+	        font-size: 16px; /* 링크 글자 크기 줄이기 */
+	    }
 	}
 
 </style>

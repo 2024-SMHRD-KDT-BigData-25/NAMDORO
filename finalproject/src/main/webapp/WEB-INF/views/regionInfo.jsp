@@ -44,7 +44,7 @@
             position: relative; /* 자식 요소인 ::before를 절대 위치로 배치 */
             z-index: 1; /* 배경과 다른 콘텐츠가 겹치지 않도록 설정 */
             transition: background-image 0.5s ease-in-out;
-            top: 150px;
+            top: 30px;
             
         }
     
@@ -98,6 +98,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* 부드러운 그림자 추가 */
             align-items: center; /* 세로 중앙 정렬 */
             display: flex;
+            border-radius: 10px;
         }
 
         .slider-container1 {
@@ -187,7 +188,15 @@
     
         .food-item h3, .product-item h3 {
             font-size: 1.8em;
-            color: #333;
+		    color: #333;
+		    font-family: "Gmarket Sans", sans-serif;
+		    font-weight: 700;
+		    font-size: 24px;
+		    line-height: 30px;
+		    text-align: center;
+		    color: #000000;
+		    position: relative;
+		    top: 20px;
         }
     
         .food-item p, .product-item p {
@@ -200,6 +209,13 @@
 		    max-width: 600px;
 		    overflow: auto;
 		    height: 300px;
+		    
+		    font-family: "Gmarket Sans", sans-serif;
+	        font-weight: 500;
+	        font-size: 15px;
+	        line-height: 30px;
+	        text-align: left;
+	        color: #000000;
 		}
 
     

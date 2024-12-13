@@ -60,23 +60,24 @@ pageEncoding="UTF-8"%>
 
       /* 여행테마선택 문구 공통 스타일 */
       .themaMain {
-            position: relative;
-          font-family: "Gmarket Sans", sans-serif;
-          font-weight: 500;
-          font-size: 32px;
-          text-align: center;
-          color: #000000;
+          	position: relative;
+		    font-family: "Gmarket Sans", sans-serif;
+		    font-weight: 500;
+		    font-size: 32px;
+		    text-align: center;
+		    color: #0a1e2f;
+		    
       }
 
       /* 여행테마선택 서브문구 공통 스타일 */
       .themaSub {
         position: relative;
-       top: 25px;
-       font-family: "Gmarket Sans", sans-serif;
-       font-weight: 400;
-       font-size: 16px;
-       text-align: center;
-       color: #000000;
+	    top: 15px;
+	    font-family: "Gmarket Sans", sans-serif;
+	    font-weight: 500;
+	    font-size: 16px;
+	    text-align: center;
+	    color: #323276;
       }
 
       .square1 {
@@ -97,7 +98,7 @@ pageEncoding="UTF-8"%>
        z-index: -1;
        padding: 0 8%;
        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-       border: 3px solid #2d3fa254
+       border: 4px solid #2d3fa254
       }
 
       .square2 {
@@ -123,7 +124,7 @@ pageEncoding="UTF-8"%>
           border-radius: 20%;
           cursor: pointer;
           transition: all 0.3s ease;
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+          box-shadow: -2px 4px 8px rgba(0, 0, 0, 0.6);
         }
 
         .before:hover {
@@ -143,7 +144,7 @@ pageEncoding="UTF-8"%>
           border-radius: 20%;
           cursor: pointer;
           transition: all 0.3s ease;
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+          box-shadow: -2px 4px 8px rgba(0, 0, 0, 0.6);
         }
 
         .next:hover, .next2:hover {
@@ -156,11 +157,12 @@ pageEncoding="UTF-8"%>
         position: absolute;
         width: 500px;
         height: 10px;
-        background-color: #C2C2C2;
+        background-color: #8bb1f0;
         display: flex;
         align-items: center;
         justify-content: space-evenly;
         border-radius: 20px;
+        outline: inset #8bb1f0;
       }
 
       .stepCir {
@@ -168,7 +170,8 @@ pageEncoding="UTF-8"%>
         width: 35px;
         height: 35px;
         border-radius: 50%;
-        background-color: #C2C2C2;
+        background-color: #8bb1f0;
+        outline: inset #8bb1f0;
       }
       
       .stepCir.active {
@@ -335,7 +338,7 @@ pageEncoding="UTF-8"%>
       }
 
      .area-selected {
-          outline: 8px solid #4a90e2 !important;
+          outline: 8px solid #2C3E50 !important;
           outline-offset: 2px;
           transition: outline 0.2s ease-in-out;
           color : #2C3E50;
@@ -386,7 +389,7 @@ pageEncoding="UTF-8"%>
        align-items: center;
        font-family: 'Gmarket Sans', sans-serif;
        font-weight: 500;
-       font-size: 14px;
+       font-size: 16px;
        line-height: 30px;
        text-align: center;
        color: #000000;
@@ -433,7 +436,7 @@ pageEncoding="UTF-8"%>
       }
       
       input[type="radio"]:checked + .img-gender img {
-            background-color: #edffff;
+            background-color: #9ed6ff;
       }
       
       /* 기간선택 관련 css */

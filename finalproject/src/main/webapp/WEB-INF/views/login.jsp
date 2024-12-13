@@ -69,7 +69,7 @@ html, body {
 	width: 400px;
 	height: 35px;
 	left: 50%;
-	top: 85px;
+	top: 95px;
 	transform: translate(-50%);
 	font-family: 'Gmarket Sans', sans-serif;
 	font-weight: medium;
@@ -258,11 +258,15 @@ html, body {
 	left: 51%;
 	transform: translate(-50%);
 	border-radius: 5px;
-		font-family: 'Gmarket Sans', sans-serif;
+	font-family: 'Gmarket Sans', sans-serif;
 	font-weight: 500;
 	font-size: 15px;
 	text-align: center;
+	cursor: pointer;
 }
+
+h2 {
+margin: 0px;}
 </style>
 
     <script>
@@ -281,7 +285,7 @@ html, body {
 		<div class="square1"></div>
 	</div>
 
-	<div class="logo">남도로</div>
+	<a href="/boot"><div class="logo"><h2>남도로</h2></div></a>
 	<div class="subTitle">남도로와 함께 당신만의 여행 이야기를 만들어보세요!</div>
 	<form action="login" method="post" onsubmit="return validateForm()">
 		<div class="square2">
