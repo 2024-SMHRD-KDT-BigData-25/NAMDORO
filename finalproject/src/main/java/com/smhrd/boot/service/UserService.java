@@ -49,7 +49,7 @@ public class UserService {
 		try {
 		return mapper.update(member);
 	} catch (DuplicateKeyException e) { 
-		throw new DuplicateKeyException("닉네임이 중복됩니다. 기존 닉네임으로 복원됩니다.");
+		throw new DuplicateKeyException("닉네임이 중복됩니다 다시 수정해주세요.");
 		}
 	}
 	
