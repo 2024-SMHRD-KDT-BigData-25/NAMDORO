@@ -38,7 +38,7 @@
 
         .namdoro {
             position: relative;
-            top: 80px;
+            top: 170px;
             text-align: center;
             font-size: 32px;
             font-weight: 500;
@@ -51,7 +51,7 @@
             padding: 20px;
             border: 1px solid #ddd;
             border-radius: 5px;
-            margin-top: 100px;
+            margin-top: 230px;
         }
 
         .form-header {
@@ -68,6 +68,7 @@
             border: 1px solid #ddd;
             border-radius: 5px;
             font-size: 14px;
+            margin-top: 20px;
         }
 
         .submit-button {
@@ -79,6 +80,10 @@
             border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
+                margin-bottom: 75px;
+            
+            
+            
         }
 
         .submit-button:hover {
@@ -93,7 +98,7 @@
         }
     </style>
 </head>
-<body>
+<body style="height: 1000px;">
 
 	<jsp:include page="header.jsp"></jsp:include>
 	<jsp:include page="footer.jsp"></jsp:include>
@@ -103,7 +108,7 @@
  	System.out.println("Test : "  + member);
  	System.out.println("Test ID : "+member.getUser_id());
  %>
-    <div class="namdoro">남도로 (게시판 글 작성)</div>
+    <div class="namdoro">자유게시판</div>
 
     <div class="form-container">
         <div class="form-header">게시글 작성</div>

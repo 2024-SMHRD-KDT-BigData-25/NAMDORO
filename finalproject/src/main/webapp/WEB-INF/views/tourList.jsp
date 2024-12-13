@@ -197,6 +197,28 @@ span {
 p {
 	margin: 10px 0px;
 }
+.searchInput{
+	position: relative;
+	width: 400px;
+	height: 40px; 
+	padding: 0px 40px 0px 15px;
+	background-color: white;
+	border-radius: 5px;"
+}
+
+.search-icon{
+    transform: translate(-40px, -3px);
+    left: auto;
+    width: 20px;
+    height: 20px;
+    background: url(/boot/images/search.png) no-repeat center;
+    background-size: 20px 20px;
+    padding: 15px 15px;
+    margin: 0px;
+    border: none;
+    cursor: pointer;
+}
+
 </style>
 
 <body>
@@ -219,10 +241,8 @@ p {
 
 	<div id="searchBar">
 		<form id="searchForm" onsubmit="search(event)">
-			<input type="text"
-				style="width: 400px; height: 40px; cursor:pointer; padding: 0 2%; background: url('Test/search.png') no-repeat calc(100% - 10px) center; background-size: 20px 20px; background-color: white; border-radius: 5px;"
-				placeholder="원하는 관광지를 검색하세요!" id="searchInput"
-				value="<%=query != null ? query : ""%>">
+			<input type="text" placeholder="원하는 관광지를 검색하세요!" id="searchInput" class="searchInput" value="<%=query != null ? query : ""%>">
+				<button type=submit class="search-icon" onclick="handleSearchIconClick()"></button>
 		</form>
 	</div>
 	<div class="gallary-list">
