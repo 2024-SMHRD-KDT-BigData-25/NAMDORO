@@ -42,6 +42,7 @@
         left: 790px;
         border-radius: 20px;
         background: url("images/main.png") no-repeat center/cover;
+        outline: outset 5px #d4d4d4
       }
 
       .hover-text {
@@ -163,7 +164,7 @@
 
       .swiper-button-next,
       .swiper-button-prev {
-        color: #000;
+        color:black;
       }
 
       .swiper-button-next {
@@ -217,11 +218,11 @@
           <%} %>
 
         </div>
-
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
         <div class="swiper-pagination"></div>
       </div>
+
+        <div class="swiper-button-next" style="color: black; top: 96%; "></div>
+        <div class="swiper-button-prev" style="color: black; top: 96%; "></div>
 
       <div>
         <div class="mainTitle">
@@ -238,7 +239,7 @@
       <div class="review2">강덕사</div>
     </div>
 
-    <script src="js/footer.js"></script>
+
 
     <script>
       var swiper = new Swiper(".swiper-container", {
