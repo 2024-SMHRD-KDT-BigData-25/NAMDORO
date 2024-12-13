@@ -79,4 +79,12 @@ public class IndexController {
 		return "myPageCourse";
 	}
 	
+	@GetMapping("/region/{name}")
+	public String region(@PathVariable String name, Model model) {
+		region res = service.getRegionDetail(name);
+		model.addAttribute("regionDetail", res);
+		return "regionInfo";
+	}
+	
+	
 }

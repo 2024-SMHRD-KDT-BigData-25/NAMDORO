@@ -76,4 +76,9 @@ public class UserService {
 		return mapper.getRegionList();
 		
 	}
+
+	public region getRegionDetail(String name) {
+		return mapper.getRegionDetail(name);
+		
+	}
 }

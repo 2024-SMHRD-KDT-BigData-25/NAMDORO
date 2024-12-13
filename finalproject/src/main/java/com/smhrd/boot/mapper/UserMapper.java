@@ -49,6 +49,10 @@ public interface UserMapper {
    @Select("select * from CITY")
    public List<region> getRegionList();
 
+   @Select("select * from CITY where CITY_NAME = #{name}")
+   public region getRegionDetail(String name);
+
+
 
 
 }

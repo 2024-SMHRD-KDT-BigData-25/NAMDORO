@@ -207,7 +207,7 @@
         
         <%for(region r : regionList) {%>
         
-          <div class="swiper-slide">
+          <div class="swiper-slide" onclick="location.href='region/<%=r.getCITY_NAME()%>'">
             <div
               class="main"
               style="background: url('tourists/<%=r.getCITY_MAIN_IMG().split(",")[0] %>') no-repeat center/cover"
