@@ -94,6 +94,11 @@
     </style>
 </head>
 <body>
+
+	<jsp:include page="header.jsp"></jsp:include>
+	<jsp:include page="footer.jsp"></jsp:include>
+	
+	
  <%namdoro member = (namdoro)session.getAttribute("member"); 
  	System.out.println("Test : "  + member);
  	System.out.println("Test ID : "+member.getUser_id());
