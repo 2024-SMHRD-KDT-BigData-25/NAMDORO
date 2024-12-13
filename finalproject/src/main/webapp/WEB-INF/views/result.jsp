@@ -177,6 +177,7 @@ margin-top: 100px;}
 	border: 1px solid black;
 	border-radius: 10px;
 	background-color: #f8f8f8;
+	cursor: pointer;
 }
 
 .image {
