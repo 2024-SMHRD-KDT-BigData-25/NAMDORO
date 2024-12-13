@@ -25,6 +25,7 @@ public interface TourlistMapper {
 	@Select("SELECT TR.*, UI.USER_NICKNAME FROM TOURIST_REVIEWS TR JOIN USER_INFO UI ON TR.USER_ID = UI.USER_ID WHERE  TR.TL_NO = #{TL_NO};")
 	public List<TourlistReview> tourReviewList(int TL_NO);
 	
+	//특정단어검색하기
 	@Select("SELECT * FROM TOURIST_INFO WHERE TL_NAME LIKE CONCAT('%', #{query}, '%')")
 	public List<Tour> findToursByQuery(@Param("query") String query);
 }
