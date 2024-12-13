@@ -187,7 +187,15 @@
     
         .food-item h3, .product-item h3 {
             font-size: 1.8em;
-            color: #333;
+		    color: #333;
+		    font-family: "Gmarket Sans", sans-serif;
+		    font-weight: 700;
+		    font-size: 24px;
+		    line-height: 30px;
+		    text-align: center;
+		    color: #000000;
+		    position: relative;
+		    top: 20px;
         }
     
         .food-item p, .product-item p {
@@ -200,6 +208,13 @@
 		    max-width: 600px;
 		    overflow: auto;
 		    height: 300px;
+		    
+		    font-family: "Gmarket Sans", sans-serif;
+	        font-weight: 500;
+	        font-size: 15px;
+	        line-height: 30px;
+	        text-align: left;
+	        color: #000000;
 		}
 
     
