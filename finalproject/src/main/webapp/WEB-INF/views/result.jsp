@@ -177,6 +177,7 @@ margin-top: 100px;}
 	border: 1px solid black;
 	border-radius: 10px;
 	background-color: #f8f8f8;
+	cursor: pointer;
 }
 
 .image {
@@ -242,6 +243,41 @@ margin-top: 100px;}
 	width: 100% !important;
 	left: 0 !important;
 }
+
+
+
+      
+       /* 팝업 스타일 */
+        #popup-container {
+            display: none; /* 초기에는 숨김 */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 1000px;
+            height: 600px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            z-index: 1000;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* 어두운 배경 */
+        #overlay {
+            display: none; /* 초기에는 숨김 */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+
+
+
+
 </style>
 </head>
 <body>
@@ -330,11 +366,63 @@ margin-top: 100px;}
 		</div>
 		<div id="map"></div>
 	</div>
+	
+	
+	        <!-- 어두운 배경 -->
+    <div id="overlay"></div>
+
+    <!-- 팝업 형태의 iframe -->
+    <div id="popup-container">
+        <button onclick="closePopup()" style="position: absolute; top: 10px; right: 10px; z-index: 10;">닫기</button>
+        <iframe id="popup-iframe" width="100%" height="100%" frameborder="0"></iframe>
+    </div>
+    
+    
+    
 
 	<script src="js/header.js"></script>
 
 	<script type="text/javascript"
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1b191295b63ba214e903ff029903f9c5"></script>
+		
+		
+		 <script>
+        // 페이지 로드 시 팝업 자동 열기
+        window.onload = function() {
+            openPopup(); // 페이지 로드 시 openPopup 함수 호출
+        };
+
+        // 팝업 열기
+        function openPopup() {
+            const popupContainer = document.getElementById('popup-container');
+            const overlay = document.getElementById('overlay');
+            const iframe = document.getElementById('popup-iframe');
+
+            // iframe에 URL 설정
+            iframe.src = '/boot/region/<%=region%>'; // 원하는 CP_NO 값을 설정
+
+            // 팝업과 배경 표시
+            popupContainer.style.display = 'block';
+            overlay.style.display = 'block';
+        }
+
+        // 팝업 닫기
+        function closePopup() {
+            const popupContainer = document.getElementById('popup-container');
+            const overlay = document.getElementById('overlay');
+            const iframe = document.getElementById('popup-iframe');
+
+            // 팝업과 배경 숨기기
+            popupContainer.style.display = 'none';
+            overlay.style.display = 'none';
+
+            // iframe URL 초기화 (선택)
+            iframe.src = '';
+        }
+    </script>
+    
+    
+    
 
 	<script type="text/javascript">
 
@@ -496,6 +584,8 @@ margin-top: 100px;}
             zoomLevel = 8;
           } else if (maxDistance < 26) { // 26km 이내
             zoomLevel = 9;
+          } else if (maxDistance < 30) { // 50km 이내
+            zoomLevel = 9;
           } else if (maxDistance < 50) { // 50km 이내
             zoomLevel = 10;
           } else { // 15km 초과
@@ -535,4 +625,3 @@ margin-top: 100px;}
 	  
 </body>
 	</html>
->>>>>>> branch 'master' of https://github.com/2024-SMHRD-KDT-BigData-25/NAMDORO

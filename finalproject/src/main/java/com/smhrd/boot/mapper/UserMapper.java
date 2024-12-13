@@ -11,6 +11,7 @@ import org.apache.ibatis.annotations.Update;
 import com.smhrd.boot.model.Tour;
 import com.smhrd.boot.model.namdoro;
 import com.smhrd.boot.model.plan;
+import com.smhrd.boot.model.region;
 
 @Mapper
 public interface UserMapper {
@@ -44,6 +45,14 @@ public interface UserMapper {
 
    @Select("select * from CREATE_PLAN where CP_NO = #{CP_NO}")
    public plan getPlanDetail(int CP_NO);
+
+   @Select("select * from CITY")
+   public List<region> getRegionList();
+
+   @Select("select * from CITY where CITY_NAME = #{name}")
+   public region getRegionDetail(String name);
+
+
 
 
 }

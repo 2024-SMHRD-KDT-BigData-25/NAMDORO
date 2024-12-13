@@ -1,3 +1,5 @@
+<%@page import="com.smhrd.boot.model.region"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -40,6 +42,7 @@
         left: 790px;
         border-radius: 20px;
         background: url("images/main.png") no-repeat center/cover;
+        outline: outset 5px #d4d4d4
       }
 
       .hover-text {
@@ -136,7 +139,7 @@
         top: 600px; /* 이 값을 조절하여 위치 변경 */
         width: 100%;
         max-width: 1380px;
-        height: 250px;
+        height: 330px;
         margin: 0 auto;
         overflow: hidden;
         left: 50%;
@@ -161,7 +164,7 @@
 
       .swiper-button-next,
       .swiper-button-prev {
-        color: #000;
+        color:black;
       }
 
       .swiper-button-next {
@@ -176,6 +179,7 @@
         position: absolute;
         bottom: 10px;
       }
+      
     </style>
 
     <!-- Swiper CSS -->
@@ -186,6 +190,10 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   </head>
   <body>
+  
+  <% List<region> regionList = (List<region>)request.getAttribute("region"); %>
+  
+  
     <jsp:include page="header.jsp"></jsp:include>
     <jsp:include page="footer.jsp"></jsp:include>
 
@@ -197,83 +205,25 @@
       <!-- Swiper 컨테이너 -->
       <div class="swiper-container">
         <div class="swiper-wrapper">
-          <div class="swiper-slide">
+        
+        <%for(region r : regionList) {%>
+        
+          <div class="swiper-slide" onclick="location.href='region/<%=r.getCITY_NAME()%>'">
             <div
               class="main"
-              style="background: url('images/담양.png') no-repeat center/cover"
+              style="background: url('tourists/<%=r.getCITY_MAIN_IMG().split(",")[0] %>') no-repeat center/cover"
             >
-              <div class="hover-text">담양</div>
+              <div class="hover-text"><%=r.getCITY_NAME() %></div>
             </div>
           </div>
+          <%} %>
 
-          <div class="swiper-slide">
-            <div
-              class="main"
-              style="background: url('images/목포.png') no-repeat center/cover"
-            >
-              <div class="hover-text">목포</div>
-            </div>
-          </div>
-
-          <div class="swiper-slide">
-            <div
-              class="main"
-              style="background: url('images/순천.png') no-repeat center/cover"
-            >
-              <div class="hover-text">순천</div>
-            </div>
-          </div>
-
-          <div class="swiper-slide">
-            <div
-              class="main"
-              style="background: url('images/여수.png') no-repeat center/cover"
-            >
-              <div class="hover-text">여수</div>
-            </div>
-          </div>
-
-          <div class="swiper-slide">
-            <div
-              class="main"
-              style="background: url('images/담양.png') no-repeat center/cover"
-            >
-              <div class="hover-text">담양</div>
-            </div>
-          </div>
-
-          <div class="swiper-slide">
-            <div
-              class="main"
-              style="background: url('images/목포.png') no-repeat center/cover"
-            >
-              <div class="hover-text">목포</div>
-            </div>
-          </div>
-
-          <div class="swiper-slide">
-            <div
-              class="main"
-              style="background: url('images/순천.png') no-repeat center/cover"
-            >
-              <div class="hover-text">순천</div>
-            </div>
-          </div>
-
-          <div class="swiper-slide">
-            <div
-              class="main"
-              style="background: url('images/여수.png') no-repeat center/cover"
-            >
-              <div class="hover-text">여수</div>
-            </div>
-          </div>
         </div>
-
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-pagination"></div>
+        <div class="swiper-pagination" style="bottom: 25%;"></div>
       </div>
+
+        <div class="swiper-button-next" style="color: black; top: 96%; "></div>
+        <div class="swiper-button-prev" style="color: black; top: 96%; "></div>
 
       <div>
         <div class="mainTitle">
@@ -285,17 +235,15 @@
           순간을 만나보세요.
         </div>
       </div>
-
-      <div class="review1">모래미해변</div>
-      <div class="review2">강덕사</div>
+      
     </div>
 
-    <script src="js/footer.js"></script>
+
 
     <script>
       var swiper = new Swiper(".swiper-container", {
         slidesPerView: 4,
-        slidesPerGroup: 4,
+        slidesPerGroup: 1,
         spaceBetween: 60,
         loop: true,
         centeredSlides: false,

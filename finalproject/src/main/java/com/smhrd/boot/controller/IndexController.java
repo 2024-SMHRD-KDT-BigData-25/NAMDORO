@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import com.smhrd.boot.service.UserService;
 import com.smhrd.boot.model.Tour;
 import com.smhrd.boot.model.plan;
+import com.smhrd.boot.model.region;
 
 import lombok.RequiredArgsConstructor;
 
@@ -23,7 +24,9 @@ public class IndexController {
 	
 	
 	@GetMapping("/")
-	public String indexPage() {
+	public String indexPage(Model model) {
+		List<region> regionList = service.getRegionList();
+		model.addAttribute("region", regionList);
 		return "index";
 	}
 	
@@ -75,5 +78,13 @@ public class IndexController {
 		model.addAttribute("tourlist", tourlist);
 		return "myPageCourse";
 	}
+	
+	@GetMapping("/region/{name}")
+	public String region(@PathVariable String name, Model model) {
+		region res = service.getRegionDetail(name);
+		model.addAttribute("regionDetail", res);
+		return "regionInfo";
+	}
+	
 	
 }
