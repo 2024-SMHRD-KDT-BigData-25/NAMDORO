@@ -220,7 +220,7 @@ p {
 	<div id="searchBar">
 		<form id="searchForm" onsubmit="search(event)">
 			<input type="text"
-				style="width: 400px; height: 40px; padding: 0 2%; background: url('Test/search.png') no-repeat calc(100% - 10px) center; background-size: 20px 20px; background-color: white; border-radius: 5px;"
+				style="width: 400px; height: 40px; cursor:pointer; padding: 0 2%; background: url('Test/search.png') no-repeat calc(100% - 10px) center; background-size: 20px 20px; background-color: white; border-radius: 5px;"
 				placeholder="원하는 관광지를 검색하세요!" id="searchInput"
 				value="<%=query != null ? query : ""%>">
 		</form>

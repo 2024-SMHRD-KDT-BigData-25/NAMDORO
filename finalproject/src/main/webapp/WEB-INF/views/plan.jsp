@@ -60,23 +60,24 @@ pageEncoding="UTF-8"%>
 
       /* 여행테마선택 문구 공통 스타일 */
       .themaMain {
-            position: relative;
-          font-family: "Gmarket Sans", sans-serif;
-          font-weight: 500;
-          font-size: 32px;
-          text-align: center;
-          color: #000000;
+          	position: relative;
+		    font-family: "Gmarket Sans", sans-serif;
+		    font-weight: 500;
+		    font-size: 32px;
+		    text-align: center;
+		    color: #0a1e2f;
+		    
       }
 
       /* 여행테마선택 서브문구 공통 스타일 */
       .themaSub {
         position: relative;
-       top: 25px;
-       font-family: "Gmarket Sans", sans-serif;
-       font-weight: 400;
-       font-size: 16px;
-       text-align: center;
-       color: #000000;
+	    top: 15px;
+	    font-family: "Gmarket Sans", sans-serif;
+	    font-weight: 500;
+	    font-size: 16px;
+	    text-align: center;
+	    color: #323276;
       }
 
       .square1 {
@@ -335,7 +336,7 @@ pageEncoding="UTF-8"%>
       }
 
      .area-selected {
-          outline: 8px solid #4a90e2 !important;
+          outline: 8px solid #2C3E50 !important;
           outline-offset: 2px;
           transition: outline 0.2s ease-in-out;
           color : #2C3E50;
@@ -386,7 +387,7 @@ pageEncoding="UTF-8"%>
        align-items: center;
        font-family: 'Gmarket Sans', sans-serif;
        font-weight: 500;
-       font-size: 14px;
+       font-size: 16px;
        line-height: 30px;
        text-align: center;
        color: #000000;
