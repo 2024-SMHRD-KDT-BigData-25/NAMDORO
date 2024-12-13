@@ -139,7 +139,7 @@
         top: 600px; /* 이 값을 조절하여 위치 변경 */
         width: 100%;
         max-width: 1380px;
-        height: 250px;
+        height: 330px;
         margin: 0 auto;
         overflow: hidden;
         left: 50%;
@@ -179,6 +179,7 @@
         position: absolute;
         bottom: 10px;
       }
+      
     </style>
 
     <!-- Swiper CSS -->
@@ -218,7 +219,7 @@
           <%} %>
 
         </div>
-        <div class="swiper-pagination"></div>
+        <div class="swiper-pagination" style="bottom: 25%;"></div>
       </div>
 
         <div class="swiper-button-next" style="color: black; top: 96%; "></div>
@@ -234,9 +235,7 @@
           순간을 만나보세요.
         </div>
       </div>
-
-      <div class="review1">모래미해변</div>
-      <div class="review2">강덕사</div>
+      
     </div>
 
 
