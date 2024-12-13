@@ -436,7 +436,7 @@ pageEncoding="UTF-8"%>
       }
       
       input[type="radio"]:checked + .img-gender img {
-            background-color: #edffff;
+            background-color: #9ed6ff;
       }
       
       /* 기간선택 관련 css */
