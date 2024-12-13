@@ -35,7 +35,7 @@
 
         /* 지역 상세 페이지 전체 컨테이너 */
         .region-detail-container {
-            width: 70%;
+            width: 90%;
             margin: 0 auto;
             padding: 20px;
             font-family: Arial, sans-serif;
@@ -96,6 +96,8 @@
             margin: 0;
             overflow: hidden; /* 한 번에 하나의 이미지만 보이게 */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* 부드러운 그림자 추가 */
+            align-items: center; /* 세로 중앙 정렬 */
+            display: flex;
         }
 
         .slider-container1 {
@@ -141,6 +143,8 @@
         .region-description-container {
             width: 45%;  /* 오른쪽 영역 크기 설정 */
             padding-left: 20px;
+            height: 400px;
+            margin-left: 20px;
            
             background: rgba(255, 255, 255, 0.53);
             border-radius: 8px;  /* 모서리를 둥글게 설정 */
@@ -161,6 +165,13 @@
             align-items: center;
             width: 45%;
             flex-direction: column-reverse;
+            height: 60%
+        }
+        
+        .food-images, .product-images {
+        	max-width: 300px;
+        	max-height: 300px;
+        	height: 300px;
         }
     
         /* 음식 사진 스타일 */
@@ -185,9 +196,11 @@
             max-width: 600px;
         }
         .region-description-container p {
-    font-size: 1.2em;  /* 글씨 크기를 1.2em에서 1.5em으로 변경 */
-    max-width: 600px;
-}
+		    font-size: 1.1em;
+		    max-width: 600px;
+		    overflow: auto;
+		    height: 300px;
+		}
 
     
     </style>
