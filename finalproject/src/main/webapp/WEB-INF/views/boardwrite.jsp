@@ -79,6 +79,7 @@
             border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
+            
         }
 
         .submit-button:hover {
