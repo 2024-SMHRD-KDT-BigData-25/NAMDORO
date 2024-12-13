@@ -179,7 +179,7 @@ body {
 	%>
 	<jsp:include page="header.jsp"></jsp:include>
 	<jsp:include page="footer.jsp"></jsp:include>
-	<div class="namdoro">남도로 (게시판)</div>
+	<div class="namdoro">자유게시판</div>
 
 	<div id="searchBar">
 		<form id="searchForm" onsubmit="search(event)">
@@ -192,7 +192,7 @@ body {
 
 
 	<div class="board-container">
-		<div class="board-header">게시판</div>
+		<!-- <div class="board-header">게시판</div> -->
 		<!-- 검색결과가 없을 때 메시지 -->
 		<div id="noResultsMessage">검색한 결과가 없습니다.</div>
 		<div id="boardItems">
