@@ -68,6 +68,7 @@
             border: 1px solid #ddd;
             border-radius: 5px;
             font-size: 14px;
+            margin-top: 20px;
         }
 
         .submit-button {
@@ -79,6 +80,10 @@
             border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
+                margin-bottom: 75px;
+            
+            
+            
         }
 
         .submit-button:hover {

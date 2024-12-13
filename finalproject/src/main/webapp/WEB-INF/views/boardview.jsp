@@ -1,4 +1,4 @@
-<%@page import="com.smhrd.boot.model.namdoro"%>
+	<%@page import="com.smhrd.boot.model.namdoro"%>
 <%@page import="com.smhrd.boot.model.board"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -89,7 +89,8 @@
             text-decoration: none;
             border-radius: 5px;
             margin-top: 20px;
-            text-align: center;
+            text-align: center;	
+            margin-bottom: 80px;
         }
 
         .back-button:hover {
