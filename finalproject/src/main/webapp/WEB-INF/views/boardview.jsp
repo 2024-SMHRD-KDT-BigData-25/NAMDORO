@@ -40,7 +40,7 @@
 
         .namdoro {
             position: relative;
-            top: 80px;
+            top: 170px;
             text-align: center;
             font-size: 32px;
             font-weight: 500;
@@ -53,7 +53,7 @@
             padding: 20px;
             border: 1px solid #ddd;
             border-radius: 15px;
-            margin-top: 120px;
+            margin-top: 230px;
         }
 
         .post-title {
@@ -199,6 +199,11 @@
     </script>
 </head>
 <body>
+
+	<jsp:include page="header.jsp"></jsp:include>
+	<jsp:include page="footer.jsp"></jsp:include>
+	
+	
 	<% 
         // 게시글 정보 가져오기
         board result = (board)request.getAttribute("board");
@@ -207,7 +212,7 @@
         String loggedInUser = member != null ? member.getUser_nickname() : null; // 로그인한 사용자의 닉네임
         String postAuthor = result.getUSER_NICKNAME(); // 게시글 작성자의 닉네임
     %>
-    <div class="namdoro">남도로 (게시판 상세보기)</div>
+    <div class="namdoro">자유게시판</div>
 
     <div class="board-container">
         <!-- 게시글 제목 -->
