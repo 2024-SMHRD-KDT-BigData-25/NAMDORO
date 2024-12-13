@@ -1257,6 +1257,24 @@ pageEncoding="UTF-8"%>
        });
        
    </script>
+   
+   <script>
+        // 페이지 로드 후 스크롤을 중간으로 이동
+        window.addEventListener("load", function () {
+            // 현재 화면 높이와 페이지 전체 높이 계산
+            const viewportHeight = window.innerHeight; // 화면 높이
+            const totalHeight = document.documentElement.scrollHeight; // 페이지 전체 높이
+
+            // 중간 위치 계산
+            const middlePosition = (totalHeight - viewportHeight) / 2.6;
+
+            // 스크롤 이동
+            window.scrollTo({
+                top: middlePosition,
+                behavior: "smooth" // 부드러운 스크롤 (선택 사항)
+            });
+        });
+    </script>
 
     <script src="js/footer.js"></script>
   </body>
