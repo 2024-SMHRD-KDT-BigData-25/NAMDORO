@@ -584,6 +584,8 @@ margin-top: 100px;}
             zoomLevel = 8;
           } else if (maxDistance < 26) { // 26km 이내
             zoomLevel = 9;
+          } else if (maxDistance < 30) { // 50km 이내
+            zoomLevel = 9;
           } else if (maxDistance < 50) { // 50km 이내
             zoomLevel = 10;
           } else { // 15km 초과
