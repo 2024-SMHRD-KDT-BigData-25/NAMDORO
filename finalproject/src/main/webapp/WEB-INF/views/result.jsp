@@ -373,7 +373,7 @@ margin-top: 100px;}
 
     <!-- 팝업 형태의 iframe -->
     <div id="popup-container">
-        <button onclick="closePopup()" style="position: absolute; top: 10px; right: 10px; z-index: 10;">닫기</button>
+        <button onclick="closePopup()" style="position: absolute; top: 10px; right: 10px; z-index: 10; background: url('/boot/images/닫기.png') no-repeat center/cover; width:30px; height:30px; cursor: pointer;"></button>
         <iframe id="popup-iframe" width="100%" height="100%" frameborder="0"></iframe>
     </div>
     
