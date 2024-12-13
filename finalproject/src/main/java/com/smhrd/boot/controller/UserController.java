@@ -148,7 +148,7 @@ public class UserController {
             redirectAttributes.addFlashAttribute("nicknameMessage", e.getMessage());
             return "redirect:/myPageInfo";
             
-      	} catch (Exception e) { // 기타 오류가 발생한 경우 
+      	} catch (Exception e) { // 기타 오류가 발생한 경우
       		redirectAttributes.addFlashAttribute("nicknameMessage", "회원정보 수정에 실패했습니다.");
       		return "redirect:/myPageInfo";
       }
