@@ -449,7 +449,7 @@
 
 <jsp:include page="header.jsp"></jsp:include>
 
-
+<div class="all">
     <div class="bgImg"></div>
 
     <div class="square1">
@@ -497,6 +497,7 @@
         <div id="reviewContainer"></div>
 
     </div>
+</div>
 
 
 

@@ -72,12 +72,13 @@ pageEncoding="UTF-8"%>
       /* 여행테마선택 서브문구 공통 스타일 */
       .themaSub {
         position: relative;
-	    top: 15px;
+	    top: 10px;
 	    font-family: "Gmarket Sans", sans-serif;
 	    font-weight: 500;
 	    font-size: 16px;
 	    text-align: center;
 	    color: #323276;
+	    padding-bottom: 3%;
       }
 
       .square1 {
@@ -436,7 +437,8 @@ pageEncoding="UTF-8"%>
       }
       
       input[type="radio"]:checked + .img-gender img {
-            background-color: #9ed6ff;
+            background-color: #dcf0ff63;
+    		border: 3px solid #00838399;
       }
       
       /* 기간선택 관련 css */
@@ -486,15 +488,19 @@ pageEncoding="UTF-8"%>
       
       /*타이틀 박스 */
       .titleBox {
-         position:absolute;
-         width:800px;
-         height:200px;
-         top: 280px;
-       left: 50%;
-       transform: translate(-50%, -50%);
-       display: flex;
-       flex-direction: column;
-       justify-content: center;
+        position: absolute;
+	    width: 500px;
+	    height: 115px;
+	    top: 263px;
+	    left: 50%;
+	    transform: translate(-50%, -50%);
+	    display: flex;
+	    flex-direction: column;
+	    justify-content: center;
+	    background-color: #e5fcf5f0;
+	    border-radius: 20px;
+	    outline: inset 5px #8bb1f0;
+	    
       }
       
     </style>
@@ -597,7 +603,7 @@ pageEncoding="UTF-8"%>
       <div class="titleBox">
            <div class="themaMain">연령대 선택</div>
            <div class="themaSub">
-             남도로 떠나는 첫 걸음, 당신만의 여행 스타일을 선택해 보세요
+             연령에 따라 추천되는 특별한 코스를 만나보세요
            </div>
         </div>
       </div>
@@ -662,7 +668,7 @@ pageEncoding="UTF-8"%>
         <div class="titleBox">
            <div class="themaMain">여행일정 선택</div>
            <div class="themaSub">
-             남도로 떠나는 첫 걸음, 당신만의 여행 스타일을 선택해 보세요
+             여행 일정을 설정하고 맞춤 코스를 받아보세요
            </div>
         </div>
       </div>
@@ -731,7 +737,7 @@ pageEncoding="UTF-8"%>
         <div class="titleBox">
            <div class="themaMain">성별 선택</div>
            <div class="themaSub">
-             남도로 떠나는 첫 걸음, 당신만의 여행 스타일을 선택해 보세요
+             더 나은 추천을 위해 성별을 알려주세요
            </div>
         </div>
       </div>
@@ -769,7 +775,7 @@ pageEncoding="UTF-8"%>
         <div class="titleBox">
            <div class="themaMain">여행지 선택</div>
            <div class="themaSub">
-             남도로 떠나는 첫 걸음, 당신만의 여행 스타일을 선택해 보세요
+             어디로 떠나고 싶으신가요?
            </div>
         </div>
 
