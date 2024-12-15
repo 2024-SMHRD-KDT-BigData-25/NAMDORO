@@ -142,8 +142,8 @@ span {
     top: 180px;
     width: 300px;
     height: 60px;
-    left: 615px;
-    
+    left: 50%;
+    transform: translate(-50%);
     font-family: 'Gmarket Sans', sans-serif;
 	font-weight: 500;
 	font-size: 32px;
